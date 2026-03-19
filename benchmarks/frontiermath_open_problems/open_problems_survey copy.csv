@@ -1,0 +1,15 @@
+problem_id,title,field,short_description,attribution,solved
+apery-irrationality,Apéry-style Irrationality Proofs,Number Theory,Adapt Apéry's proof of the irrationality of $\zeta(3)$ to other constants.,,FALSE
+arithmetic-kakeya,The Arithmetic Kakeya Conjecture,Number Theory,Improve best-known upper bounds by constructing specific combinatorial objects.,Thomas Bloom,FALSE
+degree-sensitivity-boolean,Degree vs Sensitivity for Boolean Functions,Combinatorics,Improve the exponent in the upper bound that degree has over sensitivity.,,FALSE
+explicit-deformations,Explicit Deformations of Algebras,Algebraic Geometry,Find explicit deformations from curvilinear algebras to monomial algebras.,Gergely Berczi,FALSE
+inverse-galois,Inverse Galois,Number Theory,Find a polynomial whose Galois group is the Mathieu group $M_{23}$.,Epoch Staff,FALSE
+klt-del-pezzo-surface,Surface with a High Number of Singularities,Algebraic Geometry,Present a KLT del Pezzo surface in characteristic 3 with more than 7 singular points.,Paolo Cascini,FALSE
+large-steiner-systems,Large Steiner Systems,Combinatorics,"Construct an $(n,q,r)$-Steiner system with $n > q > r > 5$, $r < 10$, and $n < 200$.",Kunal Marwaha,FALSE
+prime-factorization,Prime Factorization,Number Theory,Improve the constant factor in the exponent of GNFS.,Epoch Staff,FALSE
+q2-absolute-galois,The $2$-adic Absolute Galois Group,Number Theory,Give a presentation for the absolute Galois group of the field of $2$-adic numbers as a profinite group.,David Roe,FALSE
+ramsey-book-graphs,Ramsey Numbers for Book Graphs,Combinatorics,Prove a tight lower bound on Ramsey numbers for a class of off-diagonal book graphs.,William J. Wesley,FALSE
+ramsey-hypergraphs,A Ramsey-style Problem on Hypergraphs,Combinatorics,"Construct hypergraphs as large as possible that do not have a certain easy-to-check, difficult-to-find property.",Will Brian,FALSE
+stretched-lr-coefficients,Stretched Littlewood-Richardson Coefficients,Combinatorics,"Find partitions whose stretched LR-coefficients, when expressed as a polynomial, have a negative coefficient.",,FALSE
+symplectic-ball-packing,Symplectic Ball Packing,Topology / Geometry,"Find explicit embeddings of symplectic balls into a single target ball, taking up all but $\epsilon$ of the target ball's volume.",Kyler Siegel,FALSE
+unknotting-number,Unknotting Number = 1,Topology / Geometry,Devise an algorithm that decides whether a knot has unknotting number equal to 1.,Joel Hass,FALSE

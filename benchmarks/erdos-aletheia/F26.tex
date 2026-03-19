@@ -1,0 +1,596 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx, url, hyperref, amsmath, amssymb, mathtools, comment, xcolor}
+\usepackage{amsthm}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathscinet} % for \Dbar
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Geometry settings
+\geometry{margin=1.5in}
+
+% --- Theorems and Styles ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{definition}[theorem]{Definition}
+
+% --- Custom Commands ---
+\newcommand{\Aletheia}{\emph{Aletheia}}
+\renewcommand{\comment}[1]{\marginpar{{\tiny{#1}\normalfont\par}}}
+\newcommand{\tony}[1]{{\color{red}Tony: #1}}
+
+% --- Defined Colors ---
+\definecolor{boxblue}{RGB}{0, 0, 150}
+\definecolor{boxback}{RGB}{245, 245, 255}
+
+% --- The Problem Environment ---
+\newtcolorbox{problem}[1]{%
+    colback=boxback,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{solution}[1]{%
+    colback=white,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced jigsaw, % Better frame handling for page breaks than just 'enhanced'
+    breakable,       % <--- Allows the box to split across pages
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+
+
+% Define custom commands for readability\newcommand{\BB}{\mathbb{B}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\aug}{\mathrm{aug}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\frR}{\mathfrak{R}}
+\DeclareMathOperator{\htop}{ht}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\PSp}{\mathrm{PSp}}
+\newcommand{\Pf}{\mathrm{Pf}}
+\DeclareMathOperator{\PSO}{PSO}
+
+\date{}
+
+
+\begin{document}
+\emph{The prompts and responses below have been edited only for
+formatting compatibility.}
+
+\begin{problem}{User Prompt} I have a family of problems attached to a reductive group $G$ along with a choice of minuscule coweight $\mu$. Consider the graded ring $R = H^*(\BB T)$ where $T$ is a maximal torus of $G$. This has an obvious action of the Weyl group $W$, and the invariant ring $R^W$ identifies with $H^*(\BB G)$.
+
+Let $L_\mu \subset P_\mu$ be the Levi and parabolic subgroups of $G$ associated to $\mu$. Let $W_\mu$ be the Weyl group of $L_\mu$. The map $\BB P_\mu \rightarrow \BB G$ is a fiber bundle for $G/P_\mu$, so it induces a pushforward map on cohomology. For $f \in R^{W_\mu} $, denote this pushforward map by
+$$
+\int_{G/P_\mu} f : R^{W_\mu} = H^*(\BB P_\mu) \rightarrow H^*(\BB G) = R^W
+$$
+
+Since the coweight $\mu$ can be viewed in $X_*(T)$ while $R = \mathrm{Sym}_{\Q}(X^*(T))$, the partial derivative $\partial_\mu \colon R^W \rightarrow R^{W_\mu}$ is defined.
+
+Let $\VV = \Gr^1_{\aug}(R^W)/\Gr^2_{\aug}(R^W)$ be the first graded for the augmentation filtration on $R^W$. I will consider an operator $\nabla^\eta$ on $\VV$, of the form
+$$
+\nabla^\eta_\mu(f) = \int \eta \partial_{\mu} f
+$$
+where $\eta = t^{1 + \dim G/P_\mu}$ for some degree $2$ element $t \in R^{W_\mu}$ (the numerology is chosen so that $\nabla^\eta$ preserves degree, since $\partial_\mu$ lowers degree by $2$ and $\int \eta \partial_{\mu}$ lowers degree by $2 \dim G/P_\mu$).
+
+I want to know the eigenvalues of $\nabla^\eta_\mu$ on $\VV$.
+
+Let $G = \GL_n$ and the minuscule coweight $\mu = (1,1,\dots, 1, 0, \dots, 0)$ with $m$ leading $1$’s, and $t = x_1+x_2+ \dots + x_m$. Assume $1 \leq m < n$. Here $R^W = \Q[e_1, e_2, \dots, e_n]$ where $e_i$ is the $i$-th elementary symmetric polynomial in $x_1, \dots, x_n$.
+
+Calculate the action of $\nabla^\eta$ on the basis $e_1, e_2, \dots, e_n$ for $\VV = \Gr^1_{\aug}(R^W)/\Gr^2_{\aug}(R^W)$. In particular, identify the eigenvalues of $\nabla^\eta_\mu$ on $\VV$. Express these eigenvalues in closed form, as uniform in $n$ and $m$ as possible, and simplify your answer as much as possible.
+\end{problem}
+
+\begin{solution}{Model Response (\Aletheia)}
+Let $G = \mathrm{GL}_n$ over $\mathbb{C}$ and let $T$ be its maximal torus. The cohomology ring of the classifying space $BT$ is identified with the polynomial ring $R = \Q[x_1, \dots, x_n]$. The Weyl group $W \cong S_n$ acts on $R$ by permuting the variables. The ring of invariants is $R^W = \Q[p_1, \dots, p_n]$, where $p_k = \sum_{i=1}^n x_i^k$ denotes the $k$-th power sum polynomial. Let $I \subset R^W$ be the augmentation ideal generated by homogeneous invariants of positive degree. The space $\VV = I/I^2$ represents the indecomposable elements of the cohomology ring.
+
+Fix a minuscule coweight $\mu = (1^m, 0^{n-m})$ with $1 \le m < n$. This defines a parabolic subgroup $P_\mu \subset G$. The fiber of the projection $G/P_\mu \to BP_\mu \to BG$ is the Grassmannian $\mathrm{Gr}(m,n)$, having complex dimension $d = m(n-m)$. We study the linear operator $\nabla^\eta_\mu: \VV \to \VV$ defined by
+\[
+\nabla^\eta_\mu(f) = \int_{G/P_\mu} \eta \cdot \partial_\mu f,
+\]
+where $\eta = (x_1 + \dots + x_m)^{d+1}$ and $\partial_\mu = \sum_{i=1}^m \frac{\partial}{\partial x_i}$.
+
+In this paper, we prove that $\nabla^\eta_\mu$ acts diagonally on the graded components of $\VV$ and calculate the eigenvalues explicitly.
+
+\section{Preliminaries}
+
+\subsection{Graded Structure of $\VV$}
+Assign polynomial degrees $\deg(x_i) = 1$. Then $\deg(p_k) = k$. Since $R^W$ is a free polynomial algebra on $\{p_1, \dots, p_n\}$, the graded vector space $\VV = I/I^2$ has basis elements $[p_k]$ for $k=1, \dots, n$.
+Specifically, the subspace $\VV_k$ of degree $k$ is one-dimensional:
+\[
+\VV_k = \mathrm{span}_\Q \{ p_k \pmod{I^2} \}.
+\]
+The elementary symmetric polynomials $e_k$ are related to $p_k$ by Newton's sums. In $\VV$, decomposable products vanish, leading to the relation $e_k \equiv \frac{(-1)^{k-1}}{k} p_k \pmod{I^2}$. Thus, $e_k$ and $p_k$ represent the same eigenline.
+
+\subsection{Degree Preservation}
+We verify the homogeneity of the operator $\nabla^\eta_\mu$.
+\begin{itemize}
+    \item Differentiation $\partial_\mu$ reduces degree by 1.
+    \item Multiplication by $\eta$ increases degree by $d+1$.
+    \item Integration along the fiber $G/P_\mu$ reduces degree by $d$.
+\end{itemize}
+The net shift is $(k-1) + (d+1) - d = k$. Since $\nabla^\eta_\mu$ maps $\VV_k \to \VV_k$ and $\dim(\VV_k) = 1$, there exists a scalar eigenvalue $\lambda_k$ such that
+\[
+\nabla^\eta_\mu(p_k) \equiv \lambda_k p_k \pmod{I^2}.
+\]
+
+\section{Integration and Gysin Pushforward}
+
+The integral is defined by the localization formula:
+\[
+\int_{G/P_\mu} g = \sum_{w \in W/W_\mu} w \left( \frac{g}{\frR_\mu} \right),
+\]
+where $\frR_\mu = \prod_{\langle \alpha, \mu \rangle < 0} \alpha$.
+For $\mu = (1^m, 0^{n-m})$, the negative roots correspond to pairs $(i, j)$ with $i > m$ and $j \le m$:
+\[
+\frR_\mu = \prod_{i=m+1}^n \prod_{j=1}^m (x_i - x_j).
+\]
+Let $\Delta_{rel} = \prod_{j=1}^m \prod_{i=m+1}^n (x_j - x_i)$. Observe that $\frR_\mu = (-1)^{m(n-m)} \Delta_{rel} = (-1)^d \Delta_{rel}$.
+Thus, the integral relates to the standard Gysin pushforward $\pi_*: R^{W_\mu} \to R^W$:
+\[
+\int_{G/P_\mu} g = (-1)^d \sum_{w \in W/W_\mu} w \left( \frac{g}{\Delta_{rel}} \right) = (-1)^d \pi_*(g).
+\]
+
+\begin{lemma}
+Let $\Lambda_m$ be the ring of symmetric functions in $x_1, \dots, x_m$. For a Schur function $s_\lambda \in \Lambda_m$,
+\[
+\pi_*(s_\lambda) = s_{\lambda - R}(x_1, \dots, x_n),
+\]
+where $R = ((n-m)^m)$ is the rectangular partition. If $R \not\subseteq \lambda$, the term vanishes.
+\end{lemma}
+
+\begin{proof}
+Recall the alternant definition of Schur functions. Let $\delta_k = (k-1, \dots, 0)$.
+\[
+s_\lambda(x_1, \dots, x_m) = \frac{\sum_{u \in S_m} \epsilon(u) x^{u(\lambda+\delta_m)}}{\prod_{1 \le j < k \le m} (x_j - x_k)}.
+\]
+Applying $\pi_*$, the numerator becomes $\sum_{w \in S_n} \epsilon(w) x^{w(\kappa)}$, where:
+\[
+\kappa = (\lambda_1+m-1, \dots, \lambda_m, n-m-1, \dots, 0).
+\]
+Solving for $\nu$ in $\nu_i + n - i = \kappa_i$ yields $\nu_i = \lambda_i - (n-m)$ for $i \le m$, thus $\nu = \lambda - R$.
+\end{proof}
+
+\section{Eigenvalue Derivation}
+
+\subsection{Evaluating the Integrand}
+Let $p_k^{(m)} = \sum_{i=1}^m x_i^k$. We calculate $\partial_\mu p_k = k p_{k-1}^{(m)}$.
+The integrand is $g = \eta \cdot \partial_\mu p_k = (p_1^{(m)})^{d+1} \cdot k p_{k-1}^{(m)}$.
+Define $\Phi_k = (p_1^{(m)})^{d+1} p_{k-1}^{(m)}$. Then $\nabla^\eta_\mu(p_k) = (-1)^d k \pi_*(\Phi_k)$.
+
+\subsection{Projection Modulo Decomposables}
+In $\VV_k$, $s_\nu \equiv \frac{\chi^\nu_{(k)}}{k} p_k \pmod{I^2}$.
+By the Murnaghan-Nakayama rule, $\chi^\nu_{(k)}$ is non-zero only if $\nu$ is a hook partition.
+We obtain the scalar eigenvalue:
+\begin{equation} \label{eq:eigenvalue_sum}
+\lambda_k = (-1)^d \sum_{\nu \in \text{Hooks}_k} (-1)^{\htop(\nu)} c_{R+\nu}.
+\end{equation}
+
+\subsection{Proof of Main Theorems}
+In $\Lambda_m$, $s_R \cdot p_k^{(m)} = \sum_{\substack{\nu \in \text{Hooks}_k \\ \ell(R+\nu) \le m}} (-1)^{\htop(\nu)} s_{R+\nu}$.
+Hence $\lambda_k = (-1)^d \langle \Phi_k, s_R p_k^{(m)} \rangle_{\Lambda_m}$.
+
+\begin{theorem}
+The eigenvalues of $\nabla^\eta_\mu$ on $\VV$ are given by:
+\begin{itemize}
+    \item If $k=1$: $\lambda_1 = (-1)^d m f^{R+(1)}$.
+    \item If $k \ge 2$: $\lambda_k = (-1)^d \sum_{h=0}^{\min(k-1, m-1)} (-1)^h \chi^{R+\nu_h}_{\alpha_k}$,
+\end{itemize}
+where $\nu_h = (k-h, 1^h)$ and $\alpha_k$ is the conjugacy class of cycle type $(k-1, 1^{d+1})$.
+\end{theorem}
+
+\section{Example Calculation}
+Let $n=4, m=2 \implies d = 4, R = (2,2)$.
+\begin{itemize}
+    \item \textbf{Degree 1:} $\lambda_1 = 2 f^{(3,2)} = 2(5) = 10$.
+    \item \textbf{Degree 2:} $\lambda_2 = f^{(4,2)} - f^{(3,3)} = 9 - 5 = 4$.
+    \item \textbf{Degree 3:} $\lambda_3 = \chi^{(5,2)}_{(2, 1^4)} - \chi^{(4,3)}_{(2, 1^4)} = 6 - 4 = 2$.
+\end{itemize}
+
+\section{Conclusion}
+The operator $\nabla^\eta_\mu$ acts diagonally on the basis of power sums. The eigenvalues are integers involving characters of the symmetric group associated with extensions of the rectangle partition $R$.
+\end{solution}
+
+\begin{problem}{User Prompt}
+Next let $G = PSp(2n)$ for $n \geq 2$. Let $\mu$ be the minuscule spin coweight $\frac{1}{2}(1, 1, \ldots, 1)$ of $G$ and $t = \frac{1}{2}(x_1+x_2+ … + x_n)$. Here $R^W = [p_1^{(2)}, p_2^{(2)}, \ldots, p_{n}^{(2)}]$ where $p_i^{(2)}$ is the ith power sum in $x_1^2, \ldots, x_n^2$. Calculate the action of $\nabla^\eta$ on the basis $p_1^{(2)}, p_2^{(2)}, \ldots, p_{n}^{(2)},$ for $\VV = \Gr^1_{\aug}(R^W)/\Gr^2_{\aug}(R^W)$. In particular, identify the eigenvalues of $\nabla^\eta_\mu$ on $\VV$. Try to find a closed form expression for the eigenvalues, which is as uniform in $n$ and $k$ as possible.
+\end{problem}
+
+\begin{solution}{Model Response (\Aletheia)}
+
+
+Let $G = \PSp(2n)$ denote the projective symplectic group of rank $n$ over $\mathbb{C}$. Let $T$ be a maximal torus of $G$. The rational cohomology ring of the classifying space $BT$ is isomorphic to the polynomial ring $R = \Q[x_1, \dots, x_n]$, where the variables $x_i$ are assigned cohomological degree 2. The Weyl group $W \cong S_n \ltimes (\mathbb{Z}/2\mathbb{Z})^n$ acts on $R$ via permutations and sign changes of the generators. The invariant ring is $R^W = \Q[x_1^2, \dots, x_n^2]$.
+
+Let $I \subset R^W$ be the augmentation ideal generated by homogeneous invariants of positive degree. The vector space of indecomposables is defined as the quotient $\VV = I/I^2$. As $R^W$ is a free polynomial algebra generated by the power sums of squares, the classes of the polynomials
+\[
+p_k^{(2)} = \sum_{i=1}^n x_i^{2k}, \quad k \in \{1, \dots, n\}
+\]
+form a basis for $\VV$. We adopt the polynomial grading convention $\deg(x_i) = 1$, giving $p_k^{(2)}$ a degree of $2k$.
+
+Fix the minuscule coweight $\mu = \frac{1}{2}(1, 1, \dots, 1)$. This defines a parabolic subgroup $P_\mu \subset G$, such that the generalized flag variety $G/P_\mu$ is the Lagrangian Grassmannian of complex dimension $d = \frac{n(n+1)}{2}$. Let $t = \frac{1}{2}\sum_{i=1}^n x_i$. We define the class $\eta = t^{d+1}$.
+We study the linear operator $\nabla^\eta_\mu: \VV \to \VV$ defined by
+\[
+\nabla^\eta_\mu(f) = \int_{G/P_\mu} \eta \cdot \partial_\mu f,
+\]
+where $\partial_\mu = \frac{1}{2} \sum_{i=1}^n \frac{\partial}{\partial x_i}$ is the derivation associated with $\mu$.
+
+The main contribution of this paper is the proof that $\nabla^\eta_\mu$ acts diagonally on the basis $\{p_k^{(2)}\}$ and the determination of the corresponding eigenvalues using character theory.
+
+\section{Main Result}
+
+\begin{theorem} \label{thm:eigenvalues}
+Let $n \ge 1$ and $1 \le k \le n$. The operator $\nabla^\eta_\mu$ preserves the graded subspaces of $\VV$. Specifically, the basis vector $p_k^{(2)}$ is an eigenvector:
+\[
+\nabla^\eta_\mu(p_k^{(2)}) \equiv \lambda_{n,k} p_k^{(2)} \pmod{I^2}.
+\]
+The eigenvalue $\lambda_{n,k}$ is given by the formula:
+\[
+\lambda_{n,k} = \frac{(-1)^d}{2^{d+1}} \sum_{h=0}^{\min(k-1, n-1)} (-1)^h \chi^{\Lambda_h}_{\rho},
+\]
+where:
+\begin{enumerate}
+    \item $d = \frac{n(n+1)}{2}$.
+    \item $\chi^{\Lambda}_{\rho}$ is the irreducible character of the symmetric group $S_{d+2k}$ corresponding to the partition $\Lambda$, evaluated on the conjugacy class $\rho = (2k-1, 1^{d+1})$.
+    \item The partition $\Lambda_h$ has components defined by:
+    \[
+    (\Lambda_h)_i = \begin{cases}
+    2k - 2h + n & \text{if } i = 1, \\
+    n - i + 3 & \text{if } 2 \le i \le h+1, \\
+    n - i + 1 & \text{if } h+2 \le i \le n.
+    \end{cases}
+    \]
+\end{enumerate}
+\end{theorem}
+
+\section{Proof}
+
+\subsection{Grading and Diagonal Action}
+
+We analyze the degree shift effected by each component of $\nabla^\eta_\mu$:
+\begin{itemize}
+    \item Differentiation $\partial_\mu$: reduces degree by $1$.
+    \item Multiplication by $\eta$: increases degree by $d+1$.
+    \item Fiber integration over $G/P_\mu$: reduces degree by dimension $d$.
+\end{itemize}
+Total shift $= -1 + (d+1) - d = 0$.
+Thus, $\nabla^\eta_\mu$ maps elements of degree $m$ to elements of degree $m$.
+The space $\VV$ decomposes into graded components $\VV_{2k}$ spanned by $p_k^{(2)}$. Since these components are one-dimensional and preserved by the operator, $p_k^{(2)}$ must be an eigenvector.
+
+\subsection{Localization Analysis}
+
+We compute the integral using the Atiyah-Bott localization theorem. The $T$-fixed points on $G/P_\mu$ are indexed by sign vectors $\epsilon \in \{\pm 1\}^n$.
+The weights of the tangent space at a fixed point $\epsilon$ are given by the negative roots relative to $\mu$, evaluated at $\epsilon x$.
+The relevant roots are $\Phi^-_\mu = \{ -2x_i \} \cup \{ -(x_i+x_j) \mid i < j \}$.
+The equivariant Euler class at $\epsilon x$ is:
+\begin{align*}
+\frR_\mu(\epsilon x) &= \prod_{i=1}^n (-2\epsilon_i x_i) \prod_{i < j} -(\epsilon_i x_i + \epsilon_j x_j) \\
+&= (-1)^d 2^n \left(\prod_{i=1}^n \epsilon_i x_i\right) \prod_{i < j} (\epsilon_i x_i + \epsilon_j x_j).
+\end{align*}
+Using the generalized Vandermonde identity $\prod_{i<j}(u_i+u_j) = \Delta(u^2)/\Delta(u)$, we rewrite the denominator:
+\[
+\frR_\mu(\epsilon x) = (-1)^d 2^n (\prod \epsilon x) \frac{\Delta(x^2)}{\Delta(\epsilon x)}.
+\]
+Next, consider the numerator integrand for $f = p_k^{(2)}$.
+Since $\partial_\mu f = k \sum x_i^{2k-1}$ and $\eta = 2^{-(d+1)} (\sum x_i)^{d+1}$, evaluating at $\epsilon x$ yields:
+\[
+(\eta \partial_\mu f)(\epsilon x) = \frac{k}{2^{d+1}} \left(\sum \epsilon x\right)^{d+1} \left(\sum (\epsilon x)^{2k-1}\right).
+\]
+Let $P(u) = (\sum u)^{d+1} (\sum u^{2k-1})$. Substituting into the localization sum:
+\[
+\nabla^\eta_\mu(p_k^{(2)}) = \sum_{\epsilon \in \{\pm 1\}^n} \frac{\frac{k}{2^{d+1}} P(\epsilon x)}{\frR_\mu(\epsilon x)} = \frac{(-1)^d k}{2^{d+n+1} \Delta(x^2)} \sum_{\epsilon} \frac{P(\epsilon x)\Delta(\epsilon x)}{\prod \epsilon x}.
+\]
+
+\subsection{Parity Filtering}
+
+Let $Q(u) = P(u)\Delta(u)$. Writing $Q(u) = \sum_\gamma c_\gamma u^\gamma$, the summation over $\epsilon$ filters out terms where any exponent is even:
+\[
+\sum_{\epsilon} \frac{(\epsilon x)^\gamma}{\prod \epsilon x} = \begin{cases} 2^n x^{\gamma - \mathbf{1}} & \text{if } \gamma_i \text{ is odd } \forall i, \\ 0 & \text{otherwise.} \end{cases}
+\]
+Let $\gamma = 2\beta + \mathbf{1}$. The sum yields $2^n x^{2\beta}$.
+Returning to the integral expression:
+\[
+\nabla^\eta_\mu(p_k^{(2)}) = \frac{(-1)^d k}{2^{d+1} \Delta(x^2)} \sum_{\beta} c_{2\beta+\mathbf{1}} x^{2\beta}.
+\]
+Let $y_i = x_i^2$. Note that $Q(u)$ is an antisymmetric polynomial. Thus the coefficients satisfy $c_{\sigma(\gamma)} = \sgn(\sigma) c_\gamma$. This antisymmetry allows us to collect terms into Schur polynomials. Let $\beta = \nu + \delta$, where $\delta = (n-1, \dots, 0)$. Then:
+\[
+\frac{1}{\Delta(y)} \sum_{\beta} c_{2\beta+\mathbf{1}} y^\beta = \sum_{\nu} c_{2(\nu+\delta)+\mathbf{1}} s_\nu(y).
+\]
+Thus,
+\[
+\nabla^\eta_\mu(p_k^{(2)}) = \frac{(-1)^d k}{2^{d+1}} \sum_{\nu} c_{2(\nu+\delta)+\mathbf{1}} s_\nu(x^2).
+\]
+
+\subsection{Projection onto $\VV$}
+
+We evaluate the Schur functions modulo $I^2$. Using the character map $s_\nu = \sum_\rho z_\rho^{-1} \chi^\nu_\rho p_\rho$, we note that any term with more than one cycle corresponds to a decomposable element (product of invariants) and vanishes in $\VV$. The only surviving term is the single cycle $p_k$.
+\[
+s_\nu \equiv \frac{\chi^\nu_{(k)}}{k} p_k \pmod{I^2}.
+\]
+The Murnaghan-Nakayama rule implies $\chi^\nu_{(k)} \neq 0$ if and only if $\nu$ is a hook partition $\nu_h = (k-h, 1^h)$, yielding value $(-1)^h$.
+Substituting into our expression:
+\[
+\nabla^\eta_\mu(p_k^{(2)}) \equiv \frac{(-1)^d k}{2^{d+1}} \sum_{h=0}^{k-1} c_{2(\nu_h+\delta)+\mathbf{1}} \frac{(-1)^h}{k} p_k^{(2)} \pmod{I^2}.
+\]
+Factors of $k$ cancel. We identify the coefficient $c_\gamma$.
+Recall $c_\gamma$ is the coefficient of $u^\gamma$ in $P(u)\Delta(u)$.
+Let $\Lambda = \gamma - \delta$. Then $c_{\Lambda+\delta}$ is the inner product $\langle P, s_\Lambda \rangle$.
+Here $P = p_1^{d+1} p_{2k-1}$. This corresponds to the power sum function $p_\rho$ for partition $\rho = (2k-1, 1^{d+1})$.
+Using the orthogonality relation $\langle p_\rho, s_\Lambda \rangle = \chi^\Lambda_\rho$, we obtain:
+\[
+c_{2(\nu_h+\delta)+\mathbf{1}} = \chi^{\Lambda_h}_{\rho}.
+\]
+This yields the formula stated in Theorem \ref{thm:eigenvalues}.
+
+\subsection{Construction of $\Lambda_h$}
+We verify the components of $\Lambda_h = 2\nu_h + \delta + \mathbf{1}$:
+For $i=1$:
+$(\Lambda_h)_1 = 2(k-h) + (n-1) + 1 = 2k - 2h + n$.
+For $2 \le i \le h+1$ (where $(\nu_h)_i = 1$):
+$(\Lambda_h)_i = 2(1) + (n-i) + 1 = n - i + 3$.
+For $h+2 \le i \le n$ (where $(\nu_h)_i = 0$):
+$(\Lambda_h)_i = 0 + (n-i) + 1 = n - i + 1$.
+Since $h \le k-1$, the partition parts are strictly decreasing, confirming $\Lambda_h$ is a valid partition.
+
+\section{Calculated Eigenvalues}
+
+Using the derived formula, exact eigenvalues for ranks $n=1$ to $n=6$ are calculated as follows.
+
+\begin{center}
+    \captionof{table}{Eigenvalues $\lambda_{n,k}$ for $1 \le k \le n$}
+    \vspace{0.2cm}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{ccl}
+    \toprule
+    Rank & Dim $d$ & Eigenvalues $(\lambda_{n,1}, \dots, \lambda_{n,n})$ \\
+    \midrule
+    1 & 1 & $-\frac{1}{4}$ \\
+    2 & 3 & $-\frac{1}{4}, \ -\frac{1}{4}$ \\
+    3 & 6 & $\frac{1}{2}, \ \frac{5}{16}, \ \frac{1}{2}$ \\
+    4 & 10 & $\frac{11}{4}, \ \frac{19}{16}, \ \frac{7}{4}, \ \frac{41}{16}$ \\
+    5 & 15 & $-\frac{221}{4}, \ -\frac{71}{4}, \ -\frac{49}{2}, \ -\frac{137}{4}, \ -47$ \\
+    6 & 21 & $-\frac{81719}{16}, \ -1292, \ -\frac{13395}{8}, \ -\frac{36501}{16}, \ -\frac{12045}{4}, \ -\frac{7909}{2}$ \\
+    \bottomrule
+    \end{tabular}
+\end{center}
+
+\section{Conclusion}
+
+We have demonstrated that the operator $\nabla^\eta_\mu$ acts diagonally on the basis of power sum polynomials in $\VV$. The eigenvalues obey a uniform combinatorial formula based on characters of the symmetric group $S_{d+2k}$, linking the geometry of the Lagrangian Grassmannian to symmetric function theory.
+
+\end{solution}
+
+\begin{problem}{User Prompt}
+    Next let $G = \PSO(2n)$ for $n \geq 3$. Let $\mu$ be the minuscule spin coweight $\frac{1}{2}(1, 1, \ldots, 1)$ of $G$ and $t = \frac{1}{2}(x_1+x_2+ … + x_n)$. Here $R^W = [p_1^{(2)}, p_2^{(2)}, \ldots, p_{n-1}^{(2)}, \Pf]$ where $p_i^{(2)}  = \sum_{j=1}^n x_j^{2i}$ is the ith elementary symmetric polynomial in $x_1^2, \ldots, x_n^2$, and $\Pf = x_1 x_2 \cdots x_n$ is the Pfaffian. Calculate the action of $\nabla^\eta_\mu$ on the basis $p_1^{(2)}, p_2^{(2)}, \ldots, p_{n-1}^{(2)}, \Pf$ for $\VV = \Gr^1_{\aug}(R^W)/\Gr^2_{\aug}(R^W)$. Give an answer which is as uniform in $n$ as possible.
+\end{problem}
+
+\begin{solution}{Model Response (\textit{Aletheia})}
+    \section{Introduction}
+
+Let $G = \PSO(2n)$ be the projective special orthogonal group of rank $n \ge 3$ over $\mathbb{C}$. The rational cohomology ring of the classifying space $BG$ is isomorphic to the ring of Weyl group invariants $R^W \subset R = \Q[x_1, \dots, x_n]$, where $W$ is the Weyl group of type $D_n$. We assign the polynomial grading $\deg(x_i) = 1$. The ring $R^W$ is generated by the even power sum polynomials and the Pfaffian:
+\[
+R^W = \Q[p_1^{(2)}, \dots, p_{n-1}^{(2)}, \Pf],
+\]
+where $p_k^{(2)} = \sum_{i=1}^n x_i^{2k}$ (degree $2k$) and $\Pf = \prod_{i=1}^n x_i$ (degree $n$).
+Let $I \subset R^W$ be the augmentation ideal. The space of indecomposables is defined as the quotient vector space $\VV = I/I^2$. The set $\mathcal{B} = \{p_1^{(2)}, \dots, p_{n-1}^{(2)}, \Pf\}$ forms a basis for $\VV$.
+
+Let $\mu = \frac{1}{2}(1, \dots, 1)$ be the specific minuscule coweight. This defines the spinor variety $G/P_\mu$ of dimension $d = n(n-1)/2$. Let $t = \frac{1}{2}\sum_{i=1}^n x_i$. We define the class $\eta = t^{d+1}$ and the operator $\nabla^\eta_\mu: \VV \to \VV$ by:
+\[
+\nabla^\eta_\mu(f) = \int_{G/P_\mu} \eta \cdot \partial_\mu f,
+\]
+where $\partial_\mu = \frac{1}{2}\sum_{i=1}^n \frac{\partial}{\partial x_i}$ is the derivation induced by $\mu$.
+
+\section{Main Theorems}
+
+Let $C_0 = (-1)^d 2^{n-d-2}$. Let $\chi^\lambda_\rho$ denote the character of the symmetric group $S_{|\lambda|}$ evaluated on conjugacy class $\rho$, and $f^\lambda$ be the dimension of the irreducible representation indexed by $\lambda$.
+
+\begin{definition}[Partitions and Classes]
+We define the following combinatorial objects:
+\begin{itemize}
+    \item $\delta = (n-1, n-2, \dots, 0)$.
+    \item $\Delta_n = (n, n-1, \dots, 1)$.
+    \item For $1 \le k \le n-1$ and $0 \le h < k$, $\nu_h(k) = (k-h, 1^h)$ is a hook partition of $k$.
+    \item $\Lambda_h(n,k) = 2\nu_h(k) + \delta$ (component-wise sum). Note that $\Lambda_h$ is a partition of $d+2k$ with length $n-1$.
+    \item $\Xi_h(n,k)$ is the partition obtained by removing the first column of $\Lambda_h(n,k)$. Explicitly, $(\Xi_h)_i = (\Lambda_h)_i - 1$ for $1 \le i \le n-1$.
+    \item $\rho_k$ is the conjugacy class of cycle type $(2k-1, 1^{d+1})$ in $S_{d+2k}$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Eigenvalues for Generic Degrees] \label{thm:generic}
+Suppose $k \in \{1, \dots, n-1\}$ such that $2k \neq n$. Then $p_k^{(2)}$ is an eigenvector of $\nabla^\eta_\mu$. Its eigenvalue is:
+\[
+\lambda_k = C_0 \sum_{h=0}^{k-1} (-1)^h \chi^{\Lambda_h(n,k)}_{\rho_k}.
+\]
+In addition, if $n$ is odd, $\Pf$ is an eigenvector with eigenvalue:
+\[
+\lambda_{\Pf} = \frac{C_0}{2} (d+1) f^{\Delta_{n-1}}.
+\]
+\end{theorem}
+
+\begin{theorem}[Mixed Subspace Action] \label{thm:mixed}
+Suppose $n$ is even. Let $m = n/2$. The elements $p_m^{(2)}$ and $\Pf$ both have degree $n$ and span an invariant subspace $\VV_n \subset \VV$. With respect to the basis $(p_m^{(2)}, \Pf)$, the restriction of $\nabla^\eta_\mu$ is represented by the matrix:
+\[
+M = \begin{pmatrix}
+\lambda_m & A_{m, \Pf} \\
+A_{\Pf, m} & \lambda_{\Pf}
+\end{pmatrix},
+\]
+where $\lambda_m$ and $\lambda_{\Pf}$ follow the formulas in Theorem \ref{thm:generic} (with $k=m$), and the mixing terms are:
+\begin{align*}
+A_{\Pf, m} &= m C_0 \chi^{\Delta_n}_{\rho_m}, \\
+A_{m, \Pf} &= \frac{C_0}{2m} \sum_{h=0}^{m-1} (-1)^h f^{\Xi_h(n,m)}.
+\end{align*}
+Note: $A_{\Pf, m}$ is the coeff. of $\Pf$ in $\nabla^\eta_\mu(p_m^{(2)})$, and $A_{m, \Pf}$ is the coeff. of $p_m^{(2)}$ in $\nabla^\eta_\mu(\Pf)$.
+\end{theorem}
+
+\section{Proof Analysis}
+
+\subsection{Degree Properties}
+First, we verify that $\nabla^\eta_\mu$ maps homogeneous polynomials to homogeneous polynomials of the same degree.
+\begin{itemize}
+    \item Degree of $\eta$: $\deg(t^{d+1}) = d+1$.
+    \item Degree shift of $\partial_\mu$: $-1$.
+    \item Degree shift of integration over $G/P_\mu$: $-d$.
+\end{itemize}
+Net shift: $(d+1) - 1 - d = 0$. Thus, $\VV_\ell \to \VV_\ell$.
+Since basis elements have distinct degrees unless $2k=n$, the operator must act diagonally whenever degrees do not coincide. Coincidence occurs only for even $n$ at degree $n$.
+
+\subsection{Localization}
+The fixed point set $E$ of the maximal torus on $G/P_\mu$ corresponds to the Weyl orbit of $\mu$. For $G=\PSO(2n)$, the weights in the orbit are $\epsilon \in \{\pm 1/2\}^n$ with an even number of minus signs. By rescaling variables $x \mapsto x/2$, we consider $\epsilon \in \{\pm 1\}^n$ such that $\prod \epsilon_i = 1$.
+The product of negative roots evaluated at a fixed point is:
+\[
+\frR_\mu(\epsilon x) = \prod_{i<j} -(\epsilon_i x_i + \epsilon_j x_j) = (-1)^d \prod_{i<j} (\epsilon_i x_i + \epsilon_j x_j).
+\]
+Using the identity $\prod_{i<j}(u_i+u_j) = \Delta(u^2)/\Delta(u)$, we get:
+\[
+\frR_\mu(\epsilon x) = (-1)^d \frac{\Delta(x^2)}{\Delta(\epsilon x)}.
+\]
+Let $F = \eta \partial_\mu f$. By Atiyah-Bott localization:
+\[
+\nabla^\eta_\mu f = \sum_{\epsilon \in E} \frac{F(\epsilon x)}{\frR_\mu(\epsilon x)} = \frac{(-1)^d}{\Delta(x^2)} \sum_{\epsilon \in E} F(\epsilon x) \Delta(\epsilon x).
+\]
+
+\subsection{Projection via Parity}
+Let $Q(x) = F(x)\Delta(x)$. The sum over $E$ extracts specific parity components. Since $\sum_{\epsilon \in E} (\epsilon x)^\gamma$ vanishes unless all exponents $\gamma_i$ have the same parity:
+\[
+\sum_{\epsilon \in E} Q(\epsilon x) = 2^{n-1} \left( [Q(x)]_{\text{even}} + [Q(x)]_{\text{odd}} \right),
+\]
+where subscripts indicate terms with all even or all odd exponents.
+
+\subsubsection{Even Exponents (Power Sum Projection)}
+Terms with all-even exponents correspond to power sums. Let $\gamma = 2(\nu+\delta)$.
+Expanding $F(x) = \sum c_\lambda s_\lambda(x)$, we get $Q(x) = \sum c_\lambda a_{\lambda+\delta}(x)$.
+Matching exponents yields $\lambda = 2\nu + \delta$.
+The contribution is:
+\[
+\frac{(-1)^d 2^{n-1}}{\Delta(x^2)} c_{2\nu+\delta} a_{2\nu+2\delta}(x) = (-1)^d 2^{n-1} c_{2\nu+\delta} s_\nu(x^2).
+\]
+We project $s_\nu(x^2)$ modulo $I^2$. This term survives only if $\nu$ is a hook partition $\nu_h(k) = (k-h, 1^h)$, in which case:
+\[
+s_{\nu_h(k)}(x^2) \equiv \frac{(-1)^h}{k} p_k^{(2)} \pmod{I^2}.
+\]
+Summing over $h$, the coefficient of $p_k^{(2)}$ is:
+\[
+\text{Coeff} = (-1)^d 2^{n-1} \sum_{h=0}^{k-1} \frac{(-1)^h}{k} c_{\Lambda_h(k)}.
+\]
+
+\subsubsection{Odd Exponents (Pfaffian Projection)}
+Odd terms require $\deg(Q) \ge n^2$. Since $\deg(Q) = \deg(f) + n(n-1)$, this implies $\deg(f) \ge n$.
+Thus odd terms only occur for elements of degree $n$.
+The unique minimal odd exponent vector is $\gamma = \Delta_n + \delta$, corresponding to $\lambda = \Delta_n$.
+The term is:
+\[
+\frac{(-1)^d 2^{n-1}}{\Delta(x^2)} c_{\Delta_n} a_{\Delta_n+\delta}(x) = (-1)^d 2^{n-1} c_{\Delta_n} \Pf(x).
+\]
+So the coefficient of $\Pf$ is simply $(-1)^d 2^{n-1} c_{\Delta_n}$.
+
+\subsection{Calculating $c_\lambda$}
+Note $\eta = 2^{-(d+1)} p_1^{d+1}$.
+
+\textbf{Case 1: $f = p_k^{(2)}$.}
+$\partial_\mu p_k^{(2)} = k p_{2k-1}$.
+$F = k 2^{-(d+1)} p_1^{d+1} p_{2k-1}$.
+This is proportional to the power sum $p_{\rho_k}$ where $\rho_k = (2k-1, 1^{d+1})$.
+Thus $c_\lambda = k 2^{-(d+1)} \chi^\lambda_{\rho_k}$.
+Substituting this into the even projection formula yields $\lambda_k$:
+\[
+\lambda_k = (-1)^d 2^{n-1} \sum_h \frac{(-1)^h}{k} k 2^{-(d+1)} \chi^{\Lambda_h}_{\rho_k} = C_0 \sum_h (-1)^h \chi^{\Lambda_h}_{\rho_k}.
+\]
+Substituting into the odd projection formula (when $k=m$) yields $A_{\Pf, m}$:
+\[
+A_{\Pf, m} = (-1)^d 2^{n-1} m 2^{-(d+1)} \chi^{\Delta_n}_{\rho_m} = m C_0 \chi^{\Delta_n}_{\rho_m}.
+\]
+
+\textbf{Case 2: $f = \Pf$.}
+$\partial_\mu \Pf = \frac{1}{2} e_{n-1}$.
+$F = 2^{-(d+2)} p_1^{d+1} e_{n-1}$.
+Using the property $\langle p_1^N e_{n-1}, s_\lambda \rangle = \langle p_1^N, s_\lambda s_{1^{n-1}}^\perp \rangle = f^{\lambda / 1^{n-1}}$, we have $c_\lambda = 2^{-(d+2)} f^{\lambda / 1^{n-1}}$.
+
+\paragraph{Odd Projection (Diagonal $\lambda_{\Pf}$):}
+We need $c_{\Delta_n}$.
+The skew shape $\Delta_n / 1^{n-1}$ is the disconnected diagram $\Delta_{n-1} \sqcup \Box$.
+The number of SYT is $\binom{d+1}{1} f^{\Delta_{n-1}} = (d+1) f^{\Delta_{n-1}}$.
+Thus:
+\[
+\lambda_{\Pf} = (-1)^d 2^{n-1} 2^{-(d+2)} (d+1) f^{\Delta_{n-1}} = \frac{C_0}{2} (d+1) f^{\Delta_{n-1}}.
+\]
+
+\paragraph{Even Projection (Mix term $A_{m, \Pf}$):}
+We need $c_{\Lambda_h}$.
+The skew shape $\Lambda_h / 1^{n-1}$ removes the first column of $\Lambda_h$, yielding $\Xi_h$.
+Thus $c_{\Lambda_h} = 2^{-(d+2)} f^{\Xi_h}$.
+Substituting:
+\[
+A_{m, \Pf} = (-1)^d 2^{n-1} \sum_h \frac{(-1)^h}{m} 2^{-(d+2)} f^{\Xi_h} = \frac{C_0}{2m} \sum_h (-1)^h f^{\Xi_h}.
+\]
+
+\section{Verification: Rank 4}
+Let $n=4$. Then $d=6$. $C_0 = 1/16$.
+We compute the action on the mixed subspace of degree 4 ($m=2$).
+Basis: $v_1 = p_2^{(2)}$, $v_2 = \Pf$.
+
+\begin{enumerate}
+    \item $\lambda_2$:
+    $\Lambda_0(2) = (7,2,1)$. $\chi = 34$.
+    $\Lambda_1(2) = (5,4,1)$. $\chi = -6$.
+    $\lambda_2 = \frac{1}{16}(34 - (-6)) = 2.5$.
+
+    \item $\lambda_{\Pf}$:
+    $\Delta_3 = (3,2,1)$. $f=16$.
+    $\lambda_{\Pf} = \frac{1}{32}(7)(16) = 3.5$.
+
+    \item $A_{\Pf, 2}$:
+    $\Delta_4 = (4,3,2,1)$. $\chi^{\Delta_4}_{\rho_2} = -48$.
+    $A_{\Pf, 2} = 2 \cdot \frac{1}{16} \cdot (-48) = -6$.
+
+    \item $A_{2, \Pf}$:
+    $\Xi_0 = (6,1)$ ($f=6$). $\Xi_1 = (4,3)$ ($f=14$).
+    $A_{2, \Pf} = \frac{1/16}{4} (6 - 14) = -0.125$.
+\end{enumerate}
+
+Matrix:
+\[
+M = \begin{pmatrix} 2.5 & -0.125 \\ -6 & 3.5 \end{pmatrix}.
+\]
+Characteristic equation:
+\[
+x^2 - 6x + (8.75 - 0.75) = x^2 - 6x + 8 = 0.
+\]
+Roots: $x=2$ and $x=4$.
+The eigenvalues are integers, providing strong verification for the correctness of the derived coefficients.
+
+For generic degrees $k=1, 3$, we have $\lambda_1 = \lambda_3 = 4$.
+
+\section{Conclusion}
+The operator acts diagonally on all basis elements of degree $2k \neq n$. For $n$ even, the elements of degree $n$ mix according to the matrix $M$. Explicit, uniform formulas are provided for all entries, allowing calculation for arbitrary $n$.
+\end{solution}
+
+
+\end{document}

@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx, url, hyperref, amsmath, amssymb, mathtools, comment, xcolor}
+\usepackage{amsthm}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathscinet} % for \Dbar
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Geometry settings
+\geometry{margin=1.5in}
+
+% --- Theorems and Styles ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}[section]
+
+% --- Custom Commands ---
+\newcommand{\Aletheia}{\emph{Aletheia}}
+\renewcommand{\comment}[1]{\marginpar{{\tiny{#1}\normalfont\par}}}
+\newcommand{\tony}[1]{{\color{red}Tony: #1}}
+
+% --- Defined Colors ---
+\definecolor{boxblue}{RGB}{0, 0, 150}
+\definecolor{boxback}{RGB}{245, 245, 255}
+
+% --- The Problem Environment ---
+\newtcolorbox{problem}[1]{%
+    colback=boxback,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{solution}[1]{%
+    colback=white,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced jigsaw, % Better frame handling for page breaks than just 'enhanced'
+    breakable,       % <--- Allows the box to split across pages
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+
+
+% Define custom commands for readability
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\frR}{\mathfrak{R}}
+\newcommand{\co}{\colon}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\aug}{aug}
+
+
+
+\date{}
+
+
+\begin{document}
+\emph{The prompts and responses below have been edited only for
+formatting compatibility.}
+
+\begin{problem}{User Prompt}
+    Let $C$ be a positive integer. For $X$ a finite set of real numbers, denote with $A(X,C)$ the set of real numbers obtained by taking integer linear combinations of elements of X, with coefficients bounded by $C$. Find an upper bound, which is polynomial in $|X|$, for the number of intervals of the form $[2^n,2^{n+1})$, with $n$ nonnegative integer, that intersect an element of $A(X,C)$. If possible find an asymptotically sharp upper bound.
+\end{problem}
+
+
+\begin{solution}{Model Response:}
+
+Let $C$ be a positive integer and $X=\{x_1, \dots, x_k\}$ be a finite set of $k \ge 1$ real numbers. The set $A(X,C)$ is defined as
+$$A(X,C) = \left\{ \sum_{i=1}^k a_i x_i : a_i \in \mathbb{Z}, |a_i| \le C \right\}.$$
+We denote by $N(X,C)$ the number of integers $n \ge 0$ such that the dyadic interval $[2^n, 2^{n+1})$ intersects $A(X,C)$. Let $Y = A(X,C) \cap [1, \infty)$. $N(X,C)$ is the number of such intervals intersecting $Y$.
+
+\begin{theorem}\label{thm:main}
+Let $k=|X|$ and $C \ge 1$. The number of dyadic intervals $N(X,C)$ is bounded by
+$$ N(X,C) \le (2k-1) (\lfloor \log_2(2kC+1) \rfloor + 2). $$
+Furthermore, this bound is asymptotically sharp, i.e.,
+$$\sup_{|X|=k} N(X,C) = \Theta(k(\log k + \log C)).$$
+\end{theorem}
+
+We utilize Siegel's Lemma to establish a Gap Principle.
+
+\begin{lemma}[Siegel's Lemma]\label{lem:siegel}
+Let $B$ be an $M \times N$ matrix with integer entries, with $N>M>0$. Let $H \ge 1$ be an upper bound for the absolute values of the entries of $B$. Then there exists a non-zero integer vector $c \in \mathbb{Z}^N \setminus \{0\}$ such that $Bc=0$ and
+$$ \|c\|_\infty \le (N H)^{M/(N-M)}.$$
+\end{lemma}
+\begin{proof}
+See, for example, M. Hindry and J. H. Silverman, Diophantine Geometry: An Introduction, Springer, 2000, Part D, Lemma 4.1.
+\end{proof}
+
+A sequence of positive real numbers $(z_i)$ is called $R$-separated if $z_{i+1}/z_i \ge R$ for all $i$.
+
+\begin{lemma}[Gap Principle]\label{lem:gap}
+Let $k \ge 1, C \ge 1$. Let $R = 2kC+1$. Any $R$-separated sequence of distinct positive elements in $A(X,C)$ has length $m \le 2k-1$.
+\end{lemma}
+\begin{proof}
+Let $C' = 2kC$. Note that $R=C'+1$. Suppose for contradiction that there exists an $R$-separated sequence $0 < z_1 < z_2 < \dots < z_m$ in $A(X,C)$ with $m=2k$.
+
+For each $i=1, \dots, m$, $z_i \in A(X,C)$, so $z_i = \sum_{j=1}^k a_{ij} x_j$ with $a_{ij} \in \mathbb{Z}$ and $|a_{ij}| \le C$. Let $v_i=(a_{i1}, \dots, a_{ik})$.
+
+Let $B$ be the $k \times m$ matrix whose columns are the vectors $v_i$. The entries of $B$ are bounded by $H=C$. We apply Lemma \ref{lem:siegel} with $M=k$ and $N=m=2k$. Since $N>M$, there exists a non-zero integer vector $c=(c_1, \dots, c_m) \in \mathbb{Z}^m$ such that $B c = 0$. The bound on the coefficients is
+$$ \|c\|_\infty \le (N H)^{M/(N-M)} = (2kC)^{k/(2k-k)} = 2kC = C'. $$
+The condition $B c = 0$ implies a linear relation among the elements $z_i$:
+$$ \sum_{i=1}^m c_i z_i = \sum_{i=1}^m c_i \sum_{j=1}^k a_{ij} x_j = \sum_{j=1}^k x_j \left(\sum_{i=1}^m c_i a_{ij}\right) = 0. $$
+
+Let $J$ be the largest index such that $c_J \neq 0$. Then $c_J z_J = - \sum_{i=1}^{J-1} c_i z_i$. Taking absolute values (and noting $z_i>0$):
+$$ |c_J| z_J = \left| \sum_{i=1}^{J-1} c_i z_i \right| \le \sum_{i=1}^{J-1} |c_i| z_i \le C' \sum_{i=1}^{J-1} z_i. $$
+Since the sequence $(z_i)$ is $R$-separated and increasing, $z_i \le R^{-(J-1-i)} z_{J-1}$ for $i \le J-1$.
+$$ \sum_{i=1}^{J-1} z_i \le z_{J-1} \sum_{l=0}^{J-2} R^{-l} < z_{J-1} \sum_{l=0}^{\infty} R^{-l} = z_{J-1} \frac{R}{R-1}. $$
+Also, by the separation property, $z_J \ge R z_{J-1}$. Combining these inequalities:
+$$ |c_J| R z_{J-1} \le |c_J| z_J < C' z_{J-1} \frac{R}{R-1}. $$
+Since $z_{J-1}>0$ and $R>0$, we can divide by $R z_{J-1}$:
+$$ |c_J| < \frac{C'}{R-1}. $$
+We chose $R=C'+1$, so $R-1=C'$.
+$$ |c_J| < \frac{C'}{C'} = 1. $$
+This contradicts the fact that $c_J$ is a non-zero integer. Therefore, the length of the sequence must be $m \le 2k-1$.
+\end{proof}
+
+\begin{lemma}\label{lem:interval_count}
+Let $I=[a, b)$ be an interval with $1 \le a < b$. The number of dyadic intervals $[2^n, 2^{n+1})$ with $n \ge 0$ that intersect $I$, denoted by $D(I)$, is bounded by
+$$D(I) \le \lfloor \log_2(b/a) \rfloor + 2.$$
+\end{lemma}
+\begin{proof}
+Since $a \ge 1$, the exponents $n$ must be non-negative. The smallest exponent $n_{min}$ is $\lfloor \log_2 a \rfloor$. The largest exponent $n_{max}$ must satisfy $2^{n_{max}} < b$, so $n_{max} = \lceil \log_2 b \rceil - 1$.
+The count is $D(I) = n_{max}-n_{min}+1 = \lceil \log_2 b \rceil - \lfloor \log_2 a \rfloor$.
+Let $R=b/a$. Let $r = \log_2 R$ and $x = \log_2 a$. $D(I) = \lceil r+x \rceil - \lfloor x \rfloor$.
+Let $I_r = \lfloor r \rfloor, f_r = \{r\}$, and $I_x = \lfloor x \rfloor, f_x = \{x\}$.
+$D(I) = \lceil I_r+f_r+I_x+f_x \rceil - I_x = I_r + \lceil f_r+f_x \rceil$.
+Since $0 \le f_r, f_x < 1$, we have $0 \le f_r+f_x < 2$. Thus $\lceil f_r+f_x \rceil \in \{0, 1, 2\}$.
+Therefore, $D(I) \le I_r + 2 = \lfloor \log_2 R \rfloor + 2$.
+\end{proof}
+
+We now prove the upper bound in Theorem \ref{thm:main}.
+
+\begin{proof}[Proof of the Upper Bound]
+Let $Y = A(X,C) \cap [1, \infty)$. If $Y$ is empty, $N(X,C)=0$. Assume $Y$ is non-empty. $Y$ is finite.
+Let $R = 2kC+1$. We construct a maximal $R$-separated subsequence of $Y$ greedily.
+Let $s_1 = \min Y$. Since $Y \subset [1, \infty)$, $s_1 \ge 1$.
+For $j \ge 1$, if $s_j$ is defined, let $Y_j = \{y \in Y : y \ge R s_j\}$. If $Y_j$ is non-empty, define $s_{j+1} = \min Y_j$. Otherwise, the sequence terminates.
+Let the sequence be $S = \{s_1, \dots, s_m\}$. By construction, $s_{j+1} \ge R s_j$. By Lemma \ref{lem:gap}, $m \le 2k-1$.
+
+We show that $Y$ is covered by the union of the intervals $J_j = [s_j, R s_j)$ for $j=1, \dots, m$.
+Let $y \in Y$. Since $s_1=\min Y$, $y \ge s_1$. Let $J$ be the largest index such that $s_J \le y$.
+If $J=m$. The sequence terminated because $Y_m$ is empty. Thus, any $y' \in Y$ with $y' \ge s_m$ must satisfy $y' < R s_m$. So $y \in J_m$.
+If $J<m$. Then $s_{J+1}$ exists, and $y < s_{J+1}$ by the maximality of $J$. If we had $y \ge R s_J$, then $y \in Y_J$. By definition, $s_{J+1} = \min Y_J \le y$, a contradiction. Thus $y < R s_J$. So $y \in J_J$.
+Therefore, $Y \subset \bigcup_{j=1}^m J_j$.
+
+The total number of dyadic intervals intersecting $Y$ is bounded by the sum of the counts for each $J_j$. By Lemma \ref{lem:interval_count}, since $s_j \ge 1$ and the ratio for $J_j$ is $R$, the number of dyadic intervals intersecting $J_j$ is at most $\lfloor \log_2 R \rfloor + 2$.
+$$ N(X,C) \le \sum_{j=1}^m D(J_j) \le m (\lfloor \log_2 R \rfloor + 2) \le (2k-1) (\lfloor \log_2(2kC+1) \rfloor + 2). $$
+\end{proof}
+
+This upper bound is $O(k \log(kC)) = O(k(\log k + \log C))$.
+
+\end{solution}
+
+
+
+\end{document}

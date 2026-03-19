@@ -1,0 +1,457 @@
+problem_id,prompt_type,prompt
+arithmetic-kakeya,warmup,"Please solve the problem formulated at the end of this write-up.
+
+\section{Introduction}
+
+A Kakeya set in $\mathbb{R}^d$ is a bounded set which contains a unit line segment in every direction. While such sets can have measure zero, the Kakeya conjecture posits that they always have the maximal possible (Minkowski and Hausdorff) dimension $d$. The arithmetic Kakeya conjecture was implicitly formulated by Katz and Tao, as a statement strong enough to imply (a form of) the Kakeya conjecture, but which can be formulated as a purely additive combinatorics statement.
+
+One way to state the arithmetic Kakeya problem is the following: we say that $\mathrm{AK}(\alpha)$ holds if for any $\epsilon>0$ there exists a finite set $X\subset \mathbb{Z}^2$ such that $r_1+r_2\neq 0$ for all $\mathbf{x}\in X$, and for all finite $G\subset \mathbb{Z}^2$,
+\[\lvert(1,-1)\cdot G\rvert\ll_\epsilon \max_{\mathbf{x}\in X} \lvert\mathbf{x}\cdot G}^{\alpha+\epsilon\rvert,\]
+where we write
+\[\mathbf{x}\cdot G = \{ x_1g_1+x_2g_2 : (g_1,g_2)\in G\}.\]
+Note that we are not interested in the size or nature of $X$ itself -- for the applications to the Kakeya conjecture itself, all that matters is the exponent $\alpha$.
+
+It is trivial that $\mathrm{AK}(2)$ holds (for example by taking $X$ to be any two linearly independent vectors in $\mathbb{Z}^2$, as then $(1,-1)$ can be expressed as a linear combination of these two). The arithmetic Kakeya conjecture itself is the following.
+\begin{conjecture}[Arithmetic Kakeya conjecture]
+$\mathrm{AK}(1)$ holds.
+\end{conjecture}
+
+The relation to the Kakeya problem is the following.
+\begin{theorem}
+If $\mathrm{AK}(\alpha)$ holds then, for all $d\geq 2$, if $E\subseteq \mathbb{R}^d$ is a Kakeya set (a bounded set containing a unit line segment in every direction) then the Hausdorff dimension of $E$ is at least
+\[\alpha^{-1}d+1-\alpha^{-1}.\]
+\end{theorem}
+This was implicitly established by Bourgain using the `method of slices', although Bourgain only established this for the Minkowski dimension. The stronger statement that this same bound holds for the Hausdorff dimension is a consequence of combining Bourgain's argument  with recent progress on Szemer\'{e}di's theorem by Leng, Sah, and Sawhney.
+
+\section{Intuitive Set-up}
+We will first explicitly define the kind of structure that is required, and what the `score' of such a structure (i.e. what value of $\alpha$ a structure would prove $\mathrm{AK}(\alpha)$ for). In this section we have presented things to be intuitive for the reader; an equivalent, but more opaque, version which is more suitable for verification is given in the second problem statement.
+
+We first define a collection of constructible configurations iteratively.
+\begin{definition}
+Let $X\subset \mathbb{Z}^2$. An $X$-constructible graph is a (simple undirected) finite graph, in which each edge is labelled with some $\mathbf{v}\in \mathbb{Z}^2$, defined in the following iterative fashion.
+\begin{enumerate}
+\item A single vertex is constructible.
+\item If $H$ is constructible then, for any integer $k\geq 1$, if $X_1,\ldots,X_k$ are sets of vertices of $H$, then the following graph is constructible: take $k+1$ disjoint copies of $H$ and then, for each $1\leq i\leq k$ and $x\in X_i$, either identify the vertices corresponding to $x$ in both $H_{i-1}$ and $H_i$, or put an edge between them labelled with some $\mathbf{v}\in X$.
+\end{enumerate}
+\end{definition}
+
+We write $\mathbf{x}g$ for the matrix which is zero everywhere except in the column corresponding to $g$, in which it is the column vector $\mathbf{x}\in \mathbb{Z}^2$.
+
+\begin{definition}
+Let $G$ be a finite graph with vertex set $V$, such that each edge is labelled with some $\mathbf{x}\in \mathbb{Z}^2$. An $X$-\emph{forcing pair} for $G$ is a pair of sets $(R,T)$ with $T\subseteq V$ and $R$ a finite collection $2\times \left\lvert V\right\rvert$ integer matrices, with columns indexed by $g\in V$, such that
+\[R\subseteq \{ \mathbf{x}g: \mathbf{x}\in X\textrm{ and }g\in V\}\]
+such that a finite sequence of the following operations on $(R,T)$ eventually produces $T=V$:
+\begin{enumerate}
+\item If $g_1\sim g_2$ is an edge of $G$ labelled $\mathbf{v}$ then add $\mathbf{v}g_1-\mathbf{v}g_2$ to $R$.
+\item If $(1,-1)g\in R$ then add $g$ to $T$.
+\item Any $\mathbb{Z}$-linear combination of matrices in $R$ can be added to $R$.
+\end{enumerate}
+
+\end{definition}
+
+\begin{definition}
+Let $X\subset \mathbb{Z}^2\backslash \langle (1,-1)\rangle$ be a finite set. A constructible proof of
+\[\alpha(X)\leq \frac{m+r}{n-t}\]
+is an $X$-constructible graph $G$ with vertex set $V$, with $n$ vertices and $m$ edges, for which there is a forcing pair $(R,T)$ with $\left\lvert R\right\rvert=r$ and $\left\lvert T\right\rvert=t$, where $T\subseteq V$ and
+\[R\subseteq \{ \mathbf{x}g : \mathbf{x}\in X\textrm{ and }g\in V\}.\]
+\end{definition}
+
+\section{Verifiable Set-up}
+
+In this reformulation we write $d_1\times\cdots \times d_k$ for the set of lists of integers $[e_1,\ldots,e_k]$ such that $1\leq e_i\leq d_i$ for all $1\leq i\leq k$. If $X\subset \mathbb{Z}^2$ is a finite set then an $X$-constructible graph $G$ is a list of non-negative integers $d_1,...,d_k$ together with a list of functions\footnote{The function $f_i$ represents the fact that when constructing the glued graph at stage $i$ we connect the vertices corresponding to $(e_1,\ldots,e_i)$ and $(e_1,\ldots,e_i+1)$ with an edge labelled $f_i(e_1,\ldots,e_i)$.}
+\[f_i: d_1\times \cdots \times d_{i-1}\times (d_i-1)\to X\]
+for $1\leq i\leq k$. Let $n(G)=d_1\cdots d_k$ and
+\[m(G)=\sum_{1\leq i\leq k}\sum_{\mathbf{e}}1_{f_i(\mathbf{e})\neq (0,0)}d_{i+1}\cdots d_k.\]
+An $X$-set for $G$ is a pair $(R,T)$ where $T$ is a (possibly empty) list of vertices $\mathbf{e}\in d_1\times \cdots \times d_k$ and $R$ is a list of functions $d_1\times \cdots\times d_k \to X$ such that
+\[\#\{ \mathbf{e}\in d_1\times \cdots\times d_k : f(\mathbf{e})\neq (0,0)\}=1\]
+for all $f\in R$.
+
+An $X$-set for $G$ is forcing if a finite number of the following operations on $(R,T)$ results in $T=d_1\times \cdots \times d_k$:
+\begin{enumerate}
+\item If $\mathbf{e}_1,\mathbf{e}_2\in d_1\times \cdots \times d_k$ and $f_i(a_1,\ldots,a_{i})=x$ and the first $i$ coordinates of $\mathbf{e}_1$ are $a_1,\ldots,a_i$ and the first $i$ coordinates of $\mathbf{e}_2$ are $a_1,\ldots,a_i+1$ then add the function which takes $\mathbf{e}_1\mapsto x$ and $\mathbf{e}_2\mapsto -x$ and $\mathbf{g}\mapsto (0,0)$ for every $\mathbf{g}\neq \mathbf{e}_1,\mathbf{e}_2$ to $R$.
+\item If there exists $a\neq 0$ and $\mathbf{e}$ such that $f(\mathbf{e})=(a,-a)$ and $f(\mathbf{f})=(0,0)$ for every $\mathbf{f}\not\in T\cup \{\mathbf{e}\}$ then add $\mathbf{e}$ to $T$.
+\item If $f,g\in R$ then $f-g$ can be added to $R$.
+\end{enumerate}
+
+Given an $X$-constructible graph $G$ with a forcing pair $(R,T)$ its score is
+\[S(X,G,R,T)=\frac{m(G)+\left\lvert R\right\rvert}{n(G)-\left\lvert T\right\rvert}.\]
+
+\section{Problem}
+
+Find a finite set $X\subset \mathbb{Z}^2$ such that $(0,0)\in X$ and if $(a,b)\in X\backslash \{(0,0)\}$ then $a+b\neq 0$ and an $X$-constructible graph $G$ with a forcing pair $(R,T)$ with score \leq 1.75.
+
+Return this as a multi-line string. In the first line list the score (as a fraction) together with the parameters $m(G),\left\lvert R\right\rvert,n(G),\left\lvert T\right\rvert$. (This is not used by the verifier code, but is helpful for humans.) In the second line list the elements in $X$ as a list of pairs of integers. In the third line list the integers $d_1,\ldots,d_k$. In the fourth line list the functions $f_1,\ldots,f_k$ that make up $G$, each represented as a dictionary from $d_1\times\cdots \times (d_i-1)\to X$. These can be partial functions: omitted entries are assumed to be assigned $(0,0)$. In the fifth line list the elements of $T$. In the sixth line list the elements of $R$, each of which is a dictionary assigning an element of $X$ to some vertex of $G$."
+arithmetic-kakeya,full_problem,"\section{Introduction}
+
+A Kakeya set in $\mathbb{R}^d$ is a bounded set which contains a unit line segment in every direction. While such sets can have measure zero, the Kakeya conjecture posits that they always have the maximal possible (Minkowski and Hausdorff) dimension $d$. The arithmetic Kakeya conjecture was implicitly formulated by Katz and Tao, as a statement strong enough to imply (a form of) the Kakeya conjecture, but which can be formulated as a purely additive combinatorics statement.
+
+One way to state the arithmetic Kakeya problem is the following: we say that $\mathrm{AK}(\alpha)$ holds if for any $\epsilon>0$ there exists a finite set $X\subset \mathbb{Z}^2$ such that $r_1+r_2\neq 0$ for all $\mathbf{x}\in X$, and for all finite $G\subset \mathbb{Z}^2$,
+\[\lvert(1,-1)\cdot G\rvert\ll_\epsilon \max_{\mathbf{x}\in X} \lvert\mathbf{x}\cdot G\rvert^{\alpha+\epsilon},\]
+where we write
+\[\mathbf{x}\cdot G = \{ x_1g_1+x_2g_2 : (g_1,g_2)\in G\}.\]
+Note that we are not interested in the size or nature of $X$ itself -- for the applications to the Kakeya conjecture itself, all that matters is the exponent $\alpha$.
+
+It is trivial that $\mathrm{AK}(2)$ holds (for example by taking $X$ to be any two linearly independent vectors in $\mathbb{Z}^2$, as then $(1,-1)$ can be expressed as a linear combination of these two). The arithmetic Kakeya conjecture itself is the following.
+\begin{conjecture}[Arithmetic Kakeya conjecture]
+$\mathrm{AK}(1)$ holds.
+\end{conjecture}
+
+The relation to the Kakeya problem is the following.
+\begin{theorem}
+If $\mathrm{AK}(\alpha)$ holds then, for all $d\geq 2$, if $E\subseteq \mathbb{R}^d$ is a Kakeya set (a bounded set containing a unit line segment in every direction) then the Hausdorff dimension of $E$ is at least
+\[\alpha^{-1}d+1-\alpha^{-1}.\]
+\end{theorem}
+This was implicitly established by Bourgain using the `method of slices', although Bourgain only established this for the Minkowski dimension. The stronger statement that this same bound holds for the Hausdorff dimension is a consequence of combining Bourgain's argument  with recent progress on Szemer\'{e}di's theorem by Leng, Sah, and Sawhney.
+
+\section{Intuitive Set-up}
+We will first explicitly define the kind of structure that is required, and what the `score' of such a structure (i.e. what value of $\alpha$ a structure would prove $\mathrm{AK}(\alpha)$ for). In this section we have presented things to be intuitive for the reader; an equivalent, but more opaque, version which is more suitable for verification is given in the second problem statement.
+
+We first define a collection of constructible configurations iteratively.
+\begin{definition}
+Let $X\subset \mathbb{Z}^2$. An $X$-constructible graph is a (simple undirected) finite graph, in which each edge is labelled with some $\mathbf{v}\in \mathbb{Z}^2$, defined in the following iterative fashion.
+\begin{enumerate}
+\item A single vertex is constructible.
+\item If $H$ is constructible then, for any integer $k\geq 1$, if $X_1,\ldots,X_k$ are sets of vertices of $H$, then the following graph is constructible: take $k+1$ disjoint copies of $H$ and then, for each $1\leq i\leq k$ and $x\in X_i$, either identify the vertices corresponding to $x$ in both $H_{i-1}$ and $H_i$, or put an edge between them labelled with some $\mathbf{v}\in X$.
+\end{enumerate}
+\end{definition}
+
+We write $\mathbf{x}g$ for the matrix which is zero everywhere except in the column corresponding to $g$, in which it is the column vector $\mathbf{x}\in \mathbb{Z}^2$.
+
+\begin{definition}
+Let $G$ be a finite graph with vertex set $V$, such that each edge is labelled with some $\mathbf{x}\in \mathbb{Z}^2$. An $X$-\emph{forcing pair} for $G$ is a pair of sets $(R,T)$ with $T\subseteq V$ and $R$ a finite collection $2\times \left\lvert V\right\rvert$ integer matrices, with columns indexed by $g\in V$, such that
+\[R\subseteq \{ \mathbf{x}g: \mathbf{x}\in X\textrm{ and }g\in V\}\]
+such that a finite sequence of the following operations on $(R,T)$ eventually produces $T=V$:
+\begin{enumerate}
+\item If $g_1\sim g_2$ is an edge of $G$ labelled $\mathbf{v}$ then add $\mathbf{v}g_1-\mathbf{v}g_2$ to $R$.
+\item If $(1,-1)g\in R$ then add $g$ to $T$.
+\item Any $\mathbb{Z}$-linear combination of matrices in $R$ can be added to $R$.
+\end{enumerate}
+
+\end{definition}
+
+\begin{definition}
+Let $X\subset \mathbb{Z}^2\backslash \langle (1,-1)\rangle$ be a finite set. A constructible proof of
+\[\alpha(X)\leq \frac{m+r}{n-t}\]
+is an $X$-constructible graph $G$ with vertex set $V$, with $n$ vertices and $m$ edges, for which there is a forcing pair $(R,T)$ with $\left\lvert R\right\rvert=r$ and \left\lvert T\right\rvert=t$, where $T\subseteq V$ and
+\[R\subseteq \{ \mathbf{x}g : \mathbf{x}\in X\textrm{ and }g\in V\}.\]
+\end{definition}
+
+\section{Verifiable Set-up}
+
+In this reformulation we write $d_1\times\cdots \times d_k$ for the set of lists of integers $[e_1,\ldots,e_k]$ such that $1\leq e_i\leq d_i$ for all $1\leq i\leq k$. If $X\subset \mathbb{Z}^2$ is a finite set then an $X$-constructible graph $G$ is a list of non-negative integers $d_1,...,d_k$ together with a list of functions\footnote{The function $f_i$ represents the fact that when constructing the glued graph at stage $i$ we connect the vertices corresponding to $(e_1,\ldots,e_i)$ and $(e_1,\ldots,e_i+1)$ with an edge labelled $f_i(e_1,\ldots,e_i)$.}
+\[f_i: d_1\times \cdots \times d_{i-1}\times (d_i-1)\to X\]
+for $1\leq i\leq k$. Let $n(G)=d_1\cdots d_k$ and
+\[m(G)=\sum_{1\leq i\leq k}\sum_{\mathbf{e}}1_{f_i(\mathbf{e})\neq (0,0)}d_{i+1}\cdots d_k.\]
+An $X$-set for $G$ is a pair $(R,T)$ where $T$ is a (possibly empty) list of vertices $\mathbf{e}\in d_1\times \cdots \times d_k$ and $R$ is a list of functions $d_1\times \cdots\times d_k \to X$ such that
+\[\#\{ \mathbf{e}\in d_1\times \cdots\times d_k : f(\mathbf{e})\neq (0,0)\}=1\]
+for all $f\in R$.
+
+An $X$-set for $G$ is forcing if a finite number of the following operations on $(R,T)$ results in $T=d_1\times \cdots \times d_k$:
+\begin{enumerate}
+\item If $\mathbf{e}_1,\mathbf{e}_2\in d_1\times \cdots \times d_k$ and $f_i(a_1,\ldots,a_{i})=x$ and the first $i$ coordinates of $\mathbf{e}_1$ are $a_1,\ldots,a_i$ and the first $i$ coordinates of $\mathbf{e}_2$ are $a_1,\ldots,a_i+1$ then add the function which takes $\mathbf{e}_1\mapsto x$ and $\mathbf{e}_2\mapsto -x$ and $\mathbf{g}\mapsto (0,0)$ for every $\mathbf{g}\neq \mathbf{e}_1,\mathbf{e}_2$ to $R$.
+\item If there exists $a\neq 0$ and $\mathbf{e}$ such that $f(\mathbf{e})=(a,-a)$ and $f(\mathbf{f})=(0,0)$ for every $\mathbf{f}\not\in T\cup \{\mathbf{e}\}$ then add $\mathbf{e}$ to $T$.
+\item If $f,g\in R$ then $f-g$ can be added to $R$.
+\end{enumerate}
+
+Given an $X$-constructible graph $G$ with a forcing pair $(R,T)$ its score is
+\[S(X,G,R,T)=\frac{m(G)+\left\lvert R\right\rvert}{n(G)-\left\lvert T\right\rvert}.\]
+
+\section{Problem}
+
+Find a finite set $X\subset \mathbb{Z}^2$ such that $(0,0)\in X$ and if $(a,b)\in X\backslash \{(0,0)\}$ then $a+b\neq 0$ and an $X$-constructible graph $G$ with a forcing pair $(R,T)$ with score \leq 1.675.
+
+Return this as a multi-line string. In the first line list the score (as a fraction) together with the parameters $m(G),\left\lvert R\right\rvert,n(G),\left\lvert T\right\rvert$. (This is not used by the verifier code, but is helpful for humans.) In the second line list the elements in $X$ as a list of pairs of integers. In the third line list the integers $d_1,\ldots,d_k$. In the fourth line list the functions $f_1,\ldots,f_k$ that make up $G$, each represented as a dictionary from $d_1\times\cdots \times (d_i-1)\to X$. These can be partial functions: omitted entries are assumed to be assigned $(0,0)$. In the fifth line list the elements of $T$. In the sixth line list the elements of $R$, each of which is a dictionary assigning an element of $X$ to some vertex of $G$."
+degree-sensitivity-boolean,warmup,"Construct a multilinear, integer-coefficient function P, on n variables, with 1 < n ≤ 100, with degree deg(P) > 1, that is Boolean on the cube, i.e., P(x) = 0 or 1 for all x in {0,1 }^n, and that has
+
+|P(0, ..., 0) - P(1, 0, ..., 0)| + |P(0, ..., 0) - P(0, 1, 0, ..., 0)| + ... + |P(0, ..., 0) - P(0, ..., 0, 1)| = deg(P)^a
+
+for some a > 1.63.
+
+Provide your answer as an expression using variables like x1, x2, etc. For operators use +, -, and *. You may also use parentheses. Example: x1 + x2 + x3 - (x1*x2 + x1*x3 + x2*x3) + x1*x2*x3"
+degree-sensitivity-boolean,full_problem,"Construct a multilinear, integer-coefficient function P, on n variables, with 1 < n ≤ 100, with degree deg(P) > 1, that is Boolean on the cube, i.e., P(x) = 0 or 1 for all x in {0,1 }^n, and that has
+
+|P(0, ..., 0) - P(1, 0, ..., 0)| + |P(0, ..., 0) - P(0, 1, 0, ..., 0)| + ... + |P(0, ..., 0) - P(0, ..., 0, 1)| = deg(P)^a
+
+for some a > log(6)/log(3).
+
+Provide your answer as an expression using variables like x1, x2, etc. For operators use +, -, and *. You may also use parentheses. Example: x1 + x2 + x3 - (x1*x2 + x1*x3 + x2*x3) + x1*x2*x3"
+explicit-deformations,warmup,"Work over a field $k$ of characteristic $0$. Construct an explicit flat one-parameter deformation from the algebra $k[t]/(t^3)$ to the algebra
+\[
+A \;=\; k[x,y]/(x,y)^2.
+\]
+Equivalently, you must give an ideal $I \subset k[x_1,\dots,x_s,\epsilon]$ (for some $s\ge 2$) such that the family
+\[
+\mathcal{A} \;=\; k[x_1,\dots,x_s,\epsilon]/I
+\]
+over $k[\epsilon]$ satisfies:
+
+\begin{enumerate}
+\item \textbf{Special fiber:} $\mathcal{A}\big|_{\epsilon=0} \cong A$.
+In particular, the specialization $I|_{\epsilon=0}$ must cut out an algebra isomorphic to
+$k[x,y]/(x,y)^2$ (it is allowed to use more generators $x_1,\dots,x_s$ as long as the fiber is isomorphic to $A$).
+
+\item \textbf{Generic fiber:} for $a \neq 0$, $\mathcal{A}\big|_{\epsilon=a} \cong k[t]/(t^3)$.
+\end{enumerate}
+
+\subsection*{Mandatory output format}
+Submit a Python/SymPy snippet that defines the polynomial ring variables and the ideal generators.
+
+\begin{itemize}
+\item You may choose any $s\ge 2$. Use variables named \texttt{x1},\dots,\texttt{xs} and \texttt{eps}.
+\item Define \texttt{x\_vars} as the tuple $(x_1,\dots,x_s)$ in the same order used in \texttt{I\_gens}.
+\item Provide the ideal generators as a Python list named \texttt{I\_gens} of SymPy expressions in the symbols \texttt{x1},\dots,\texttt{xs},\texttt{eps}.
+\item Coefficients must be integers only (no fractions, no floats, no extra parameters besides \texttt{eps}).
+\item Use only polynomial operations \texttt{+}, \texttt{-}, \texttt{*}, \texttt{**}; do not use division.
+\item Do not include any explanatory text outside the code block.
+\end{itemize}
+
+\subsection*{Exact skeleton you must output (fill in $s$ and \texttt{I\_gens}).}
+\begin{verbatim}
+import sympy as sp
+
+# choose s >= 2
+x1, x2, eps = sp.symbols(""x1 x2 eps"")  # extend as needed: x3, x4, ...
+x_vars = (x1, x2)                         # extend consistently
+
+I_gens = [
+    # polynomial generators in x1,x2,(x3,x4,...),eps with integer coefficients
+]
+\end{verbatim}"
+explicit-deformations,full_problem,"Work over a field $k$ of characteristic $0$. Construct an explicit flat one-parameter deformation from the curvilinear algebra $k[t]/(t^{22})$ to the monomial ""spider"" algebra
+\[
+A \;=\; k[x,y,z]/(x^8,\;y^8,\;z^8,\;xy,\;xz,\;yz).
+\]
+Equivalently, you must give an ideal $I \subset k[x_1,\dots,x_s,\epsilon]$ (for some $s\ge 3$) such that the family
+\[
+\mathcal{A} \;=\; k[x_1,\dots,x_s,\epsilon]/I
+\]
+over $k[\epsilon]$ satisfies:
+
+\begin{enumerate}
+\item \textbf{Special fiber:} $\mathcal{A}\big|_{\epsilon=0} \cong A$.
+In particular, the specialization $I|_{\epsilon=0}$ must cut out an algebra isomorphic to
+$k[x,y,z]/(x^8,y^8,z^8,xy,xz,yz)$ (it is allowed to use more generators $x_1,\dots,x_s$ as long as the fiber is isomorphic to $A$).
+
+\item \textbf{Generic fiber:} for $a \neq 0$, $\mathcal{A}\big|_{\epsilon=a} \cong k[t]/(t^{22})$.
+\end{enumerate}
+
+\subsection*{Mandatory output format}
+Submit a Python/SymPy snippet that defines the polynomial ring variables and the ideal generators.
+
+\begin{itemize}
+\item You may choose any $s\ge 3$. Use variables named \texttt{x1},\dots,\texttt{xs} and \texttt{eps}.
+\item Define \texttt{x\_vars} as the tuple $(x_1,\dots,x_s)$ in the same order used in \texttt{I\_gens}.
+\item Provide the ideal generators as a Python list named \texttt{I\_gens} of SymPy expressions in the symbols \texttt{x1},\dots,\texttt{xs},\texttt{eps}.
+\item Coefficients must be integers only (no fractions, no floats, no extra parameters besides \texttt{eps}).
+\item Use only polynomial operations \texttt{+}, \texttt{-}, \texttt{*}, \texttt{**}; do not use division.
+\item Do not include any explanatory text outside the code block.
+\end{itemize}
+
+\subsection*{Exact skeleton you must output (fill in $s$ and \texttt{I\_gens}).}
+\begin{verbatim}
+import sympy as sp
+
+# choose s >= 3
+x1, x2, x3, eps = sp.symbols(""x1 x2 x3 eps"")  # extend as needed: x4, x5, ...
+x_vars = (x1, x2, x3)                         # extend consistently
+
+I_gens = [
+    # polynomial generators in x1,x2,x3,(x4,...),eps with integer coefficients
+]
+\end{verbatim}"
+inverse-galois,warmup,"Find a degree 22 polynomial in Z[x] whose splitting field over Q has Galois group M_{22}. The coefficients of the polynomial must have fewer than 100 decimal digits.
+
+Provide your solution as a string in Magma syntax, e.g. 3*x^2 - 2*x + 1."
+inverse-galois,full_problem,"Find a degree 23 polynomial in Z[x] whose splitting field over Q has Galois group M_{23}. The coefficients of the polynomial must have fewer than 100 decimal digits.
+
+Provide your solution as a string in Magma syntax, e.g. 3*x^2 - 2*x + 1."
+klt-del-pezzo-surface,warmup,"Working in characteristic 3, produce an example of a klt del Pezzo surface X with Picard number rho(X)=1 and with at least 7 singular points, constructed with one of the methods (A, B, or C) described below. Your output will be verified in Macaulay2.
+
+METHOD A — Global quotients (choose THIS if you start from a smooth CI(2,2) in P^4)
+
+Start with Y = CI(2,2) ⊂ P^4 over ZZ/3 and a tame cyclic action g (order 2) that is free in codimension 1 (so Y cap Fix(g) is 0-dimensional). Then X = Y / <g> is klt del Pezzo; singularities correspond to isolated fixed points on Y.
+
+Give your output as follows.
+- g as a diagonal matrix with entries either -1_S or 1_S, expressed as a list of integers each either -1 or 1
+- Y as two g-invariant quadrics, using the variables x0,x1,x2,x3,x4
+
+METHOD B — Weighted models (choose THIS if you embed X in a weighted P(w))
+
+Realize X as a quasi-smooth weighted hypersurface or complete intersection in P(w) over ZZ/3. Choose weights prime to 3 (tame), pick degrees with positive Fano index sum(weights) - sum(degrees) > 0, and engineer the intersections with ambient singular strata (per-prime) to obtain >= 7 geometric points in total. Quasi-smoothness ensures singularities are isolated tame cyclic points counted by the strata cut.
+
+Give your output as follows.
+- Weights as a list of integers
+- One equation F (hypersurface) OR two equations F1, F2 (CI), using variables x0,x1,... as needed
+
+METHOD C — Scripted blow-ups (choose THIS if you contract HJ chains on P1xP1)
+
+Start from P1xP1 and give a basket of Hirzebruch–Jung chains, each a list of integers >= 2, describing the curves to contract."
+klt-del-pezzo-surface,full_problem,"Working in characteristic 3, produce an example of a klt del Pezzo surface X with Picard number rho(X)=1 and with at least 8 singular points, constructed with one of the methods (A, B, or C) described below. Your output will be verified in Macaulay2.
+
+METHOD A — Global quotients (choose THIS if you start from a smooth CI(2,2) in P^4)
+
+Start with Y = CI(2,2) ⊂ P^4 over ZZ/3 and a tame cyclic action g (order 2) that is free in codimension 1 (so Y cap Fix(g) is 0-dimensional). Then X = Y / <g> is klt del Pezzo; singularities correspond to isolated fixed points on Y.
+
+Give your output as follows.
+- g as a diagonal matrix with entries either -1_S or 1_S, expressed as a list of integers each either -1 or 1
+- Y as two g-invariant quadrics, using the variables x0,x1,x2,x3,x4
+
+METHOD B — Weighted models (choose THIS if you embed X in a weighted P(w))
+
+Realize X as a quasi-smooth weighted hypersurface or complete intersection in P(w) over ZZ/3. Choose weights prime to 3 (tame), pick degrees with positive Fano index sum(weights) - sum(degrees) > 0, and engineer the intersections with ambient singular strata (per-prime) to obtain >= 8 geometric points in total. Quasi-smoothness ensures singularities are isolated tame cyclic points counted by the strata cut.
+
+Give your output as follows.
+- Weights as a list of integers
+- One equation F (hypersurface) OR two equations F1, F2 (CI), using variables x0,x1,... as needed
+
+METHOD C — Scripted blow-ups (choose THIS if you contract HJ chains on P1xP1)
+
+Start from P1xP1 and give a basket of Hirzebruch–Jung chains, each a list of integers >= 2, describing the curves to contract."
+large-steiner-systems,warmup,"Let [n] be the elements {1,...,n}. Call T a q-subset of [n] if T⊆[n] and the size of T is q.
+
+A (n,q,r)-Steiner system S is a set of q-subsets of [n] such that every r-subset of [n] is contained in exactly 1 element of S.
+
+Your task is to find a (n,q,r)-Steiner system for any n > q > r, r = 5, and n < 200.
+
+Return the Steiner system as a multi-line string. In the first line, specify n, q, and r exactly as #n,q,r. Each subsequent line lists the elements of a q-subset in S separated by whitespace. For example, the below is a valid (7,3,2)-Steiner system.
+
+#7,3,2
+1 2 4
+2 3 5
+3 4 6
+4 5 7
+5 6 1
+6 7 2
+1 3 7"
+large-steiner-systems,full_problem,"Let [n] be the elements {1,...,n}. Call T a q-subset of [n] if T⊆[n] and the size of T is q.
+
+A (n,q,r)-Steiner system S is a set of q-subsets of [n] such that every r-subset of [n] is contained in exactly 1 element of S.
+
+Your task is to find a (n,q,r)-Steiner system for any n > q > r > 5, where r < 10 and n < 200.
+
+Return the Steiner system as a multi-line string. In the first line, specify n, q, and r exactly as #n,q,r. Each subsequent line lists the elements of a q-subset in S separated by whitespace. For example, the below is a valid (7,3,2)-Steiner system.
+
+#7,3,2
+1 2 4
+2 3 5
+3 4 6
+4 5 7
+5 6 1
+6 7 2
+1 3 7"
+prime-factorization,warmup,Produce an algorithm that can factor balanced 90-digit semiprimes on a typical modern laptop in under ten minutes.
+prime-factorization,full_problem,Produce an algorithm that can factor balanced 150-digit semiprimes on a typical modern laptop in under ten minutes.
+q2-absolute-galois,warmup,"Find a presentation for the absolute Galois group of the field of 3-adic numbers.  It may be helpful to know that the maximal pro-3 quotient of the absolute Galois group is a free group on 2 generators, and that for every finite tamely ramified extension $K/\mathbb{Q}_3$ the maximal pro-3 quotient of $\Gal(\overline{K}/K)$ is a Demuskin group.
+
+You should give your output as two or three sections, separated by blank lines: variables, definitions (optional) and relations.
+
+The variables section should consist of a comma separated list of variable names on one line corresponding to the generators of the presentation.  The first and second generators (say $\sigma$ and $\tau$ respectively) are distinguished, and must satisfy the implicit relation $\tau^\sigma = \tau^3$ (which should not be included in the \texttt{relations} section).  All later generators should be contained within the $3$-core of the group (the intersection of all $3$-Sylow subgroups).
+
+In the definitions section, you may define additional variables in terms of the generators and variables defined earlier within the definitions section.  Each line should take the form ""var = expr"", where expr is an expression built using group operations.
+
+In the relations section, you should give the relations as expressions in terms of variables defined in the previous two sections.  If there are multiple relations, give one on each line.
+
+Expressions in profinite groups may involve exponents lying in $\hat{\Z}$.  To specify such a constant, you should provide its reduction modulo $5354228880 = 2^4 \cdot 3^2 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17 \cdot 19 \cdot 23$.
+
+Example format for the solution (this is the presentation for the maximal pro-2 quotient of the 2-adic absolute Galois group
+
+z,tau,x,y
+
+x^2*y^3*y^z"
+q2-absolute-galois,full_problem,"Find a presentation for the absolute Galois group of the field of 2-adic numbers.  It may be helpful to know that the maximal pro-2 quotient of the absolute Galois group can be presented with three generators x,y,z and one relation, x^2*y^3*y^z=1.  The theory of Demuskin groups may also be useful.
+
+You should give your output as two or three sections, separated by blank lines: variables, definitions (optional) and relations.
+
+The variables section should consist of a comma separated list of variable names on one line corresponding to the generators of the presentation.  The first and second generators (say $\sigma$ and $\tau$ respectively) are distinguished, and must satisfy the implicit relation $\tau^\sigma = \tau^2$ (which should not be included in the \texttt{relations} section).  All later generators should be contained within the $2$-core of the group (the intersection of all $2$-Sylow subgroups).
+
+In the definitions section, you may define additional variables in terms of the generators and variables defined earlier within the definitions section.  Each line should take the form ""var = expr"", where expr is an expression built using group operations.
+
+In the relations section, you should give the relations as expressions in terms of variables defined in the previous two sections.  If there are multiple relations, give one on each line.
+
+Expressions in profinite groups may involve exponents lying in $\hat{\Z}$.  To specify such a constant, you should provide its reduction modulo $85667662080 = 2^8 \cdot 3^2 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17 \cdot 19 \cdot 23$.
+
+Example format for the solution (this is the presentation for the presentation when p=3)
+
+sigma,tau,x0,x1
+
+projp = 12880
+proj2 = 1701
+x0part = sigma^-1*x0^-1*sigma * (x0*tau*x0^-1*tau)^projp
+sigma2 = sigma^proj2
+tau2 = tau^proj2
+stau2 = sigma2*tau2
+tau4 = tau2^2
+stau4 = sigma2*tau4
+tau8 = tau4^2
+tau16 = tau8^2
+inner = (x1 * tau16)^(2*projp)
+outer = (inner * stau2^2 * inner^-1 * stau2^2)^projp
+y1 = x1^tau8 * inner^stau2 * outer^stau4 * outer^tau4
+x1part = x1^4 * y1 * x1^-1 * y1^-1
+
+x0part * x1part"
+ramsey-book-graphs,warmup,"Let B_n denote the triangular book graph on n+2 vertices, i.e. with n triangular ""pages"".
+
+Construct a graph on 98 vertices that does not contain a copy of B_{24} and whose complement does not contain a copy of B_{25}.
+
+R(B_{n-1}, B_n) > 4n - 2
+
+Output this graph as an adjacency string: a binary string that lists whether an edge is present (1) or absent (0) in column major order, zero-indexed. The order the edges should appear in the string is: {0,1}, {0,2}, {1,2}, {0,3}, {1,3}, {2,3}, {0,4}, {1,4}, {2,4}, {3,4}, ... For example, the string 011010 would represent the 4-vertex graph with edges {0,2}, {1,2}, {1,3}."
+ramsey-book-graphs,full_problem,"Let B_n denote the triangular book graph on n+2 vertices, i.e. with n triangular ""pages"". 
+
+Find an algorithm that takes n as input and produces a graph on 4n - 2 vertices that does not contain a copy of B_{n-1} and whose complement does not contain a copy of B_{n}.
+
+Provide the algorithm as a Python script that takes n as input and outputs the graph as an adjacency string: a binary string that lists whether an edge is present (1) or absent (0) in column major order, zero-indexed. The order the edges should appear in the string is: {0,1}, {0,2}, {1,2}, {0,3}, {1,3}, {2,3}, {0,4}, {1,4}, {2,4}, {3,4}, ... For example, the string 011010 would represent the 4-vertex graph with edges {0,2}, {1,2}, {1,3}.
+
+For n ≤ 100, the algorithm must complete within 10 minutes when run on a typical laptop."
+ramsey-hypergraphs,warmup,"A hypergraph (V, H) is said to contain a partition of size n if there is some D ⊆ V and P ⊆ H such that |D| = n and every member of D is contained in exactly one member of P. Find a hypergraph (V, H) with no isolated vertices such that |V| ≥ 64, and (V, H) contains no partitions of size > 20.
+
+Output the hypergraph as a string where vertices are labeled, 1, ..., |V|, and edges are denoted with curly braces. Example: {1,2,3},{2,4},{3,4,5},{1,5}"
+ramsey-hypergraphs,full_problem,"A hypergraph (V, H) is said to contain a partition of size n if there is some D ⊆ V and P ⊆ H such that |D| = n and every member of D is contained in exactly one member of P. Define H(n) to be the largest integer k such that there is a hypergraph (V, H) with |V| = k having no isolated vertices and containing no partitions of size greater than n.
+
+It is known that H(n) ≥ k_n, where k_n is defined recursively by the formula k_1 = 1 and k_n = ⌊n/2⌋ + k_⌊n/2⌋ + k_⌊(n+1)/2⌋.
+
+Your task is to improve this lower bound by a constant factor, i.e. show that H(n) ≥ c*k_n for some c > 1. It is acceptable if this improvement does not work for small n, but it must already be ""in effect"" for n=16. You must demonstrate this improvement by providing an algorithm that takes n as input and produces a hypergraph witnessing H(n) ≥ c * k_n.
+
+Please provide the algorithm as a Python script that takes n as input and outputs the witness hypergraph as a string where vertices are labeled, 1, ..., |V|, and edges are denoted with curly braces. Example: {1,2,3},{2,4},{3,4,5},{1,5}
+
+For n ≤ 100, the algorithm must complete within 10 minutes when run on a typical laptop."
+stretched-lr-coefficients,full_problem,"Let c^{tλ}_{tμ,tν} denote the stretched Littlewood-Richardson coefficients associated with integer partitions λ, μ, ν, where |λ| = |μ| + |ν|. Find integer partitions λ, μ, ν, such that when c^{tλ}_{tμ,tν} is expressed as a polynomial in t, at least one of the coefficients of this polynomial is negative. Each of the partitions must have length ≤ 20 and largest part ≤ 50.
+
+Produce your partitions as a list of Python lists of ints."
+symplectic-ball-packing,warmup,"Fix $n=2$ and take $\epsilon \in (0,1)$. For $i = 1,\dots,4$, let $B_i \subset \R^{2n}$ denote the closed unit ball centered at $(3i-3,0,\dots,0)$.
+
+Your goal is to find an algorithm that takes $\epislon$ as input and produces as output an explicit smooth Hamiltonian function $H_\epsilon: \R^{2n} \times [0,1] \rightarrow \R$ whose time-$1$ Hamiltonian flow $\phi: \R^{2n} \ra \R^{2n}$ satisfies $\phi(\sqcup_{i=1}^{4}B_i) \subset B^{2n}(R)$, where $B^{2n}(R) \subset \R^{2n}$ is the closed ball centered at the origin of radius $R$,  and where we require the volume ratio of $\bigsqcup\limits_{i=1}^{4} B_i$ to $B^{2n}(R)$ to satisfy $\dfrac{4}{R^{2n}} > 1 - \epsilon$.
+
+Present the algorithm as a Python program that takes $\epislon$ as input. The algorithm's output must itself be a Python program that implements the Hamiltonian for the given $\epislon$. This program should be in a file called Hamiltonian.py which implements a function Hamiltonian(Q, P, t) that has the following properties.
+    - Takes inputs Q (positions), P (momenta), and t (time).
+    - Must be implemented using PyTorch operations to support automatic differentiation.
+    - Inputs Q and P will be `torch.Tensor`s of shape `(N, n)` (where N is the size of a batch size of points sampled from the boundaries of the input balls).
+    - Input t will be a scalar float.
+    - Returns a `torch.Tensor` of shape `(N,)` representing the Hamiltonian value for each point in the batch.
+    - Is smooth, to ensure existence and uniqueness of flow.
+
+A solution to this problem is meant to rest on finding a family of embeddings that has a natural algorithmic dependence on $\epsilon$. As such, the algorithm that produces the Hamiltonians for a given $\epsilon$ must finish running in under an hour on a typical laptop. The Hamiltonian function itself will be called multiple times during solution verification and must return within ten seconds on each call."
+symplectic-ball-packing,full_problem,"Fix $n=2$. Let $k \ge 10$ be an integer and take $\epsilon \in (0,1)$. For $i = 1,\dots,k$, let $B_i \subset \R^{2n}$ denote the closed unit ball centered at $(3i-3,0,\dots,0)$.
+
+Your goal is to find an algorithm that takes $k$ and $\epislon$ as inputs and produces as output an explicit smooth Hamiltonian function $H_\epsilon: \R^{2n} \times [0,1] \rightarrow \R$ whose time-$1$ Hamiltonian flow $\phi: \R^{2n} \ra \R^{2n}$ satisfies $\phi(\sqcup_{i=1}^{k}B_i) \subset B^{2n}(R)$, where $B^{2n}(R) \subset \R^{2n}$ is the closed ball centered at the origin of radius $R$,  and where we require the volume ratio of $\bigsqcup\limits_{i=1}^{k} B_i$ to $B^{2n}(R)$ to satisfy $\dfrac{k}{R^{2n}} > 1 - \epsilon$.
+
+Present the algorithm as a Python program that takes $k$ and $\epislon$ as inputs. The algorithm's output must itself be a Python program that implements the Hamiltonian for the given $k$ and $\epislon$. This program should be in a file called Hamiltonian.py which implements a function Hamiltonian(Q, P, t) that has the following properties.
+    - Takes inputs Q (positions), P (momenta), and t (time).
+    - Must be implemented using PyTorch operations to support automatic differentiation.
+    - Inputs Q and P will be `torch.Tensor`s of shape `(N, n)` (where N is the size of a batch size of points sampled from the boundaries of the input balls).
+    - Input t will be a scalar float.
+    - Returns a `torch.Tensor` of shape `(N,)` representing the Hamiltonian value for each point in the batch.
+    - Is smooth, to ensure existence and uniqueness of flow.
+
+A solution to this problem is meant to rest on finding a family of embeddings that has a natural algorithmic dependence on $\epsilon$. As such, the algorithm that produces the Hamiltonians for a given $\epsilon$ must finish running in under an hour on a typical laptop. The Hamiltonian function itself will be called multiple times during solution verification and must return within ten seconds on each call."
+unknotting-number,warmup,"Produce an algorithm that takes as input a diagram of a knot and returns True if the unknotting number of the knot represented by that diagram is 0 and False otherwise. For a knot with up to 100 crossings, the algorithm must complete in under an hour when run on a typical laptop.
+
+Provide your solution as a self-contained Python script. Accept 1-indexed planar crossing diagrams as the input format.
+
+Example input: [[4,2,5,1],[10,6,11,5],[8,3,9,4],[2,9,3,10],[11,16,12,17],[7,15,8,14],[15,7,16,6],[13,20,14,21],[17,22,18,1],[21,18,22,19],[19,12,20,13]]"
+unknotting-number,full_problem,"Produce an algorithm that takes as input a diagram of a knot and returns True if the unknotting number of the knot represented by that diagram is 1 and False otherwise. For a knot with up to 100 crossings, the algorithm must complete in under an hour when run on a typical laptop.
+
+Provide your solution as a self-contained Python script. Accept 1-indexed planar crossing diagrams as the input format.
+
+Example input: [[4,2,5,1],[10,6,11,5],[8,3,9,4],[2,9,3,10],[11,16,12,17],[7,15,8,14],[15,7,16,6],[13,20,14,21],[17,22,18,1],[21,18,22,19],[19,12,20,13]]"

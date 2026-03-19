@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx, url, hyperref, amsmath, amssymb, mathtools, comment, xcolor}
+\usepackage{amsthm}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathscinet} % for \Dbar
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% Geometry settings
+\geometry{margin=1.5in}
+
+% --- Theorems and Styles ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem{remark}{Remark}[section]
+
+% --- Custom Commands ---
+\newcommand{\Aletheia}{\emph{Aletheia}}
+\renewcommand{\comment}[1]{\marginpar{{\tiny{#1}\normalfont\par}}}
+\newcommand{\tony}[1]{{\color{red}Tony: #1}}
+
+% --- Defined Colors ---
+\definecolor{boxblue}{RGB}{0, 0, 150}
+\definecolor{boxback}{RGB}{245, 245, 255}
+
+% --- The Problem Environment ---
+\newtcolorbox{problem}[1]{%
+    colback=boxback,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{solution}[1]{%
+    colback=white,
+    colframe=boxblue,
+    fonttitle=\bfseries\large,
+    title={#1},
+    sharp corners,
+    enhanced jigsaw, % Better frame handling for page breaks than just 'enhanced'
+    breakable,       % <--- Allows the box to split across pages
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={colframe=boxblue, colback=boxblue},
+    before skip=15pt plus 2pt,
+    after skip=15pt plus 2pt,
+    top=10pt, bottom=10pt, left=10pt, right=10pt
+}
+
+
+
+% Define custom commands for readability
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\frR}{\mathfrak{R}}
+\newcommand{\co}{\colon}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\aug}{aug}
+
+
+
+\date{}
+
+
+\begin{document}
+\emph{The prompts and responses below have been edited only for
+formatting compatibility.}
+
+\begin{problem}{User Prompt}
+    Consider the graded ring $R=\Q[x_{1},\dots, x_{n}]$ where each $x_i$ has degree $2$. This has an obvious action of the symmetric group $W = S_n$, by permutations on the variables, so that
+\[
+R^W = \Q[e_1, \dots, e_n]
+\]
+where the $e_i$ are the elementary symmetric polynomials in the $x_i$. Let
+\[
+\frR_\lambda = \prod_{i=3}^n (x_1-x_i)(x_2-x_i).
+\]
+Let $W_{\lambda} = S_2 \times S_{n-2}$, the subgroup of $W$ permuting $\{x_1, x_2\}$ and $\{x_3, \dots, x_n\}$. For any $f\in R^{W_{\lambda}}$, we define
+\[
+\int f = \sum_{w\in W/W_{\lambda}}w(f/\frR_{\lambda}) \in R^W.
+\]
+Let $N = 2(n-2)$ and $\eta = (x_1+x_2)^{N+1}$. Consider the map $\nabla^{\eta}_\lambda \co R^W \rightarrow R^W$ defined as
+\[
+\nabla^{\eta}_\lambda(f) = \int (\eta \partial_\lambda f)
+\]
+where $\partial_\lambda f = \frac{\partial f}{\partial x_1} + \frac{\partial f}{\partial x_2}$.
+
+Consider $\nabla^\eta_\lambda$ acting on the first augmentation quotient
+\[
+\VV = \Gr^1_{\aug}(R^W)/\Gr^2_{\aug}(R^W)
+\]
+for the augmentation filtration on $R^W$, for which a basis is the elementary symmetric polynomials $e_1, \dots, e_n$. This $\VV$ is graded by degree, and the $e_1, \dots, e_n$ are eigenvectors for the action of $\nabla^\eta_\lambda$ on the associated graded of $\VV$.
+
+Calculate the associated eigenvalues $\epsilon_1, \dots, \epsilon_n$. In other words, it will be the case that
+\[
+\nabla_{\lambda}^{\eta} e_{i}=\epsilon_{i}e_{i}+\text{(polynomial in $e_{1},\dots, e_{i-1}$)}
+\]
+calculate the $\epsilon_i$.
+\end{problem}
+
+
+\begin{solution}{Model Response (\emph{Aletheia})}
+The problem asks for the eigenvalues $\epsilon_i$ of the operator $\nabla^\eta_\lambda$ acting on the first augmentation quotient $\VV = I/I^2$ of the ring of symmetric polynomials $R^W = \Q[e_1, \ldots, e_n]$, where $I=(e_1, \ldots, e_n)$. The space $\VV$ has a basis $\{e_1, \ldots, e_n\} \pmod{I^2}$.
+
+The operator is defined as $\nabla^{\eta}_\lambda(f) = \int (\eta \partial_\lambda f)$. We are given $\deg(x_i)=2$, $N=2n-4$, and $\eta=(x_1+x_2)^{N+1}=(x_1+x_2)^{2n-3}$. Let $M=2n-3$, and $\partial_\lambda = \partial_{x_1}+\partial_{x_2}$. The Gysin map $\int$ is defined using $\frR_\lambda = \prod_{i=3}^n (x_1-x_i)(x_2-x_i)$.
+
+\section{Degree Preservation and Diagonal Action}
+We check the degree preservation of $\nabla^\eta_\lambda$. Given $\deg(\eta)=2M=4n-6$ and $\deg(\frR_\lambda)=4(n-2)=4n-8$, the Gysin map $\int$ lowers the degree by $\deg(\frR_\lambda)$. Since $\partial_\lambda$ lowers the degree by 2:
+\[
+\deg(\nabla^\eta_\lambda(f)) = \deg(f)-2 + \deg(\eta) - \deg(\frR_\lambda) = \deg(f)-2+(4n-6)-(4n-8) = \deg(f).
+\]
+Since $\nabla^\eta_\lambda$ preserves the degree, and the basis elements $e_i$ have distinct degrees $2i$, the action on $\VV$ is diagonal:
+\[
+\nabla^\eta_\lambda(e_i) \equiv \epsilon_i e_i \pmod{I^2}.
+\]
+
+\section{Calculation using Power Sums}
+It is convenient to use the power sum basis $p_i = \sum x_j^i$. Modulo $I^2$, $p_i$ are related to $e_i$ and the complete homogeneous symmetric polynomials $h_i$ by $p_i \equiv i h_i \equiv (-1)^{i-1} i e_i \pmod{I^2}$. The eigenvalues on $p_i$ are the same as on $e_i$.
+\begin{align*}
+    \partial_\lambda p_i &= i(x_1^{i-1}+x_2^{i-1}) \\
+    \nabla^\eta_\lambda(p_i) &= i \int (x_1+x_2)^M (x_1^{i-1}+x_2^{i-1})
+\end{align*}
+
+\section{Localization Formula and Divided Differences}
+We use the localization formula for the Gysin map $\int$. Let $A(z) = \prod_{k=1}^n (z-x_k)$.
+\[
+\int f = -\sum_{a<b} w_{\{a,b\}}(f) \frac{(x_a-x_b)^2}{A'(x_a)A'(x_b)}.
+\]
+Let $Q(u, v) = (u+v)^M (u-v)^2$. $Q(u, v)$ is symmetric.
+\[
+\nabla^\eta_\lambda(p_i) = -i \sum_{a<b} \frac{(x_a^{i-1}+x_b^{i-1}) Q(x_a, x_b)}{A'(x_a)A'(x_b)}.
+\]
+Rewriting as a sum over ordered pairs $a\ne b$:
+\[
+\nabla^\eta_\lambda(p_i) = -i \sum_{a\ne b} \frac{x_a^{i-1} Q(x_a, x_b)}{A'(x_a)A'(x_b)} = -i T.
+\]
+Expressing $T$ using divided differences:
+\[
+T = \sum_a \frac{x_a^{i-1}}{A'(x_a)} \sum_{b\ne a} \frac{Q(x_a, x_b)}{A'(x_b)}.
+\]
+Let $P_a(z) = Q(x_a, z) = (x_a+z)^M (x_a-z)^2$. Since $M=2n-3 \ge 1$ (for $n\ge 2$), $P_a(x_a)=0$. The inner sum $I_a$ is the divided difference $[x_1, \ldots, x_n] P_a(z)$.
+
+Expanding $P_a(z)$, let $P(t) = (1+t)^M (1-t)^2 = \sum_{k=0}^{2n-1} K_k t^k$. The degree is $D=2n-1$.
+Using the homogenization $P_a(z) = z^D P(x_a/z) = \sum_k K_k x_a^k z^{2n-1-k}$ and the property $[x_1, \ldots, x_n] z^j = h_{j-n+1}$:
+\[
+I_a = \sum_k K_k x_a^k [x_1, \ldots, x_n] z^{2n-1-k} = \sum_k K_k x_a^k h_{n-k}.
+\]
+Substituting back into $T$:
+\[
+T = \sum_k K_k h_{n-k} \sum_a \frac{x_a^{k+i-1}}{A'(x_a)} = \sum_k K_k h_{n-k} h_{k+i-n}.
+\]
+
+\section{Reduction modulo $I^2$}
+Analyzing $T$ modulo $I^2$, the product $h_{n-k} h_{k+i-n} \in I^2$ unless $k=n$ or $k=n-i$.
+\[
+T \equiv K_n h_0 h_i + K_{n-i} h_i h_0 = (K_n + K_{n-i}) h_i \pmod{I^2}.
+\]
+Using $\nabla^\eta_\lambda(p_i) = -i T$ and $p_i \equiv i h_i \pmod{I^2}$:
+\[
+\nabla^\eta_\lambda(p_i) \equiv -i (K_n + K_{n-i}) h_i = -(K_n + K_{n-i}) p_i \pmod{I^2}.
+\]
+The eigenvalues are $\epsilon_i = -(K_n + K_{n-i})$.
+
+\section{Calculation of the Coefficients $K_k$}
+$K_k$ is the coefficient of $t^k$ in $P(t) = (1+t)^M (1-2t+t^2)$ where $M=2n-3$.
+\[
+K_k = \binom{M}{k} - 2\binom{M}{k-1} + \binom{M}{k-2}.
+\]
+For $K_n$:
+\[
+K_n = \binom{M}{n} - 2\binom{M}{n-1} + \binom{M}{n-2}.
+\]
+Using symmetry $\binom{M}{n} = \binom{M}{n-3}$ and $\binom{M}{n-1} = \binom{M}{n-2}$:
+\[
+K_n = \binom{M}{n-3} - \binom{M}{n-2} = - \left(\binom{2n-3}{n-2} - \binom{2n-3}{n-3}\right) = -C_{n-1}.
+\]
+The eigenvalues are:
+\[
+\epsilon_i = -(-C_{n-1} + K_{n-i}) = C_{n-1} - K_{n-i}.
+\]
+The explicit formula for the eigenvalues $\epsilon_1, \ldots, \epsilon_n$ is:
+\[
+\epsilon_i = \frac{1}{n}\binom{2n-2}{n-1} - \left( \binom{2n-3}{n-i} - 2\binom{2n-3}{n-i-1} + \binom{2n-3}{n-i-2} \right),
+\]
+where $\binom{N}{k}=0$ if $k<0$ or $k>N$.
+
+\end{solution}
+
+
+
+\end{document}
