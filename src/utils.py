@@ -22,6 +22,30 @@ from dotenv import load_dotenv
 #     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+def llm(prompt, model="openrouter/google/gemini-3.1-flash-lite-preview", system=None, max_tokens=2048):
+    """
+    LiteLLM wrapper for OpenRouter. Returns response text.
+    model format: 'openrouter/<provider>/<model>'
+    Reads OPENROUTER_API_KEY from .env.
+    """
+    import litellm
+    load_dotenv()
+    os.environ["OPENROUTER_API_KEY"] = os.getenv("OPENROUTER_API_KEY", "")
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    resp = litellm.completion(model=model, messages=messages, max_tokens=max_tokens)
+    content = resp.choices[0].message.content
+    # Some thinking models (e.g. Gemini Pro) put the answer in reasoning_content
+    # when content is None
+    if content is None:
+        content = getattr(resp.choices[0].message, "reasoning_content", None)
+    if content is None:
+        raise ValueError(f"Model {model} returned None content. Full response: {resp}")
+    return content
+
+
 def openrouter(prompt, model="google/gemini-3.1-flash-lite-preview", system=None, max_tokens=512):
     """
     Call any OpenRouter model. Returns the response text string.

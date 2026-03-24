@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-This project is a generic instance for rapid research development and testing on (TODO update with project details).
+This project is an agentic math-solving pipeline (generator → verifier ↔ reviser loop → final judge).
 
 ## Off-Limits Files
 
@@ -16,12 +16,14 @@ Do NOT edit these files under any circumstances:
 ```bash
 uv venv
 source .venv/bin/activate
-uv pip install matplotlib requests python-dotenv # TODO update as needed
+uv pip install matplotlib requests python-dotenv litellm
 ```
 
-Run a script:
+Run the pipeline:
 ```bash
-uv run train_baseline.py
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt
+uv run src/pipeline.py --problem "Find all primes p such that..." --iterations 3
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt --mock   # smoke test, no API calls
 ```
 
 ## Instance & API
@@ -30,9 +32,33 @@ IF REMOTE INSTANCE CONNECTED (TODO update/confirm instance details)
 
 ## Assignment Structure
 
-Unclear yet. Will update when task begins.
+Main pipeline: `src/pipeline.py`
 
-Writeup is in `docs/writeup.md`. TODO Writing/drafting details.
+### Pipeline
+`generator → verifier ↔ reviser loop (up to N iterations) → final judge`
+
+- **generate**: produce an initial solution given a problem
+- **verify**: check the solution step-by-step; output `VERDICT: correct` or `VERDICT: issues_found`
+- **revise**: fix issues identified by the verifier; produce an updated solution
+- **judge**: final evaluation (0–7 score with ground truth, or `incorrect|partial|almost|correct` without)
+
+### Running against IMO problems
+```bash
+# Smoke test (no API calls)
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt --mock
+
+# Real run, 3 verify/revise iterations
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt --iterations 3
+
+# With ground-truth judge
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt --ground-truth benchmarks/winning-gold/solution_imo01.log
+
+# Write result JSON to file
+uv run src/pipeline.py benchmarks/winning-gold/imo01.txt -o results/run1.json
+```
+
+### Logs
+Every model call is appended as a JSON record to `logs/pipeline_<YYYYMMDD_HHMMSS>.jsonl`.
 
 ## Key Implementation Patterns
 - Always report results as `mean ± std` over multiple seeds (≥3)
@@ -47,8 +73,17 @@ include experiment results, hyperparameters and seed count when applicable.
 
 ## Utility Templates
 
-### OpenRouter Utility 
-`src/utils.openrouter()` — call any OpenRouter model
+### LiteLLM Wrapper (preferred)
+`src/utils.llm()` — LiteLLM wrapper for OpenRouter
+
+```python
+from utils import llm
+text = llm("Your prompt here")   # default: openrouter/google/gemini-3.1-flash-lite-preview
+text = llm("prompt", model="openrouter/z-ai/glm-4.7-flash", system="You are...")
+```
+
+### OpenRouter Utility (legacy)
+`src/utils.openrouter()` — direct OpenRouter API call
 
 ```python
 from utils import openrouter
@@ -56,6 +91,6 @@ text = openrouter("Your prompt here")   # default: google/gemini-3.1-flash-lite-
 text = openrouter("prompt", model="z-ai/glm-4.7-flash", system="You are...")
 ```
 
-Reads `OPENROUTER_API_KEY` from `.env`. Returns response as a plain string. Use for quick LLM calls without loading a local model.
+Both read `OPENROUTER_API_KEY` from `.env`. Return response as a plain string.
 
 ---
