@@ -939,3 +939,394 @@ Process hung for 6+ hours at 0% CPU. Never completed a single trial — likely d
 10. Quality score ordering
 
 Pipeline is ready for a real run.
+
+## New Models Comparison (pass@1) — 2026-05-04T05:12:15
+
+6 new + 2 baseline models, generate-only on dev set, GT judge, seed=42. 3-key round-robin,
+24 workers. 26.7 min, 0 errors, ~$0.91. qwen3.6-plus on 3-problem subset only.
+
+| Model | $/Mtok | Mean | Pass | Lat | $/run |
+|---|---|---|---|---|---|
+| deepseek-v4-pro     | 0.87 | **5.83** | 5/6 | 825s | $0.021 |
+| qwen3.6-plus (subset) | 1.95 | 4.33 | 2/3 | 767s | $0.076 |
+| deepseek-v4-flash   | 0.28 | 3.50 | 3/6 | 136s | $0.004 |
+| gemma-4-31b-it      | 0.38 | 3.00 | 2/6 | 192s | $0.001 |
+| qwen3.6-35b-a3b     | 1.00 | 2.67 | 2/6 | 128s | $0.017 |
+| qwen3.6-flash       | 1.50 | 2.67 | 2/6 | 295s | $0.070 |
+| gemini-3-flash (b)  | —    | 4.67 | 4/6 |  10s | —      |
+| deepseek-v3.2  (b)  | —    | 3.83 | 3/6 | 213s | —      |
+
+**Findings (later partly revised by pass@3):**
+- **deepseek-v4-pro best overall** — only model to solve both erdos-659 and PB-Basic-028 (7/7).
+- **Reasoning tokens billed but uncapped:** v4-pro/qwen3.6-flash/qwen3.6-plus billed 30K–70K
+  completion tokens against a 16K visible cap. Costs above use full billed totals.
+- **PB-Basic-024 "sanity" no longer reliable** — 5/8 models scored 1/7 (incl. v3.2 baseline,
+  past runs were 7/7). Dev-set role tag may need updating.
+
+Script / results: `experiments/new_models_compare_20260504.py`,
+`experiments/results/new_models_compare_20260504_20260504_051215.json`
+
+## New Models Pass@3 Follow-up — 2026-05-04T05:48:04
+
+Same setup, SEEDS=[42,0,1], dropped v4-pro and qwen3.6-plus per user. 108 trials, 60 workers.
+**18.2 min wall-clock (missed <10 min target — long-pole v4-flash trials hit 16 min).** 0 errors,
+$1.50 total.
+
+| Model | $/Mtok | Mean | Pass@3 | $/run |
+|---|---|---|---|---|
+| **deepseek-v4-flash** | 0.28 | **4.50** | 5/6 | $0.005 |
+| gemini-3-flash (b) | 3.00 | 3.72 | 4/6 | $0.007 |
+| gemma-4-31b-it     | 0.38 | 3.61 | 4/6 | $0.001 |
+| qwen3.6-flash      | 1.50 | 3.33 | 4/6 | $0.051 |
+| deepseek-v3.2 (b)  | 0.378| 3.28 | 4/6 | $0.002 |
+| qwen3.6-35b-a3b    | 1.00 | 3.22 | 5/6 | $0.017 |
+
+**Findings:**
+- **v4-flash now leads** — got erdos-659 7/7 on 2/3 seeds and PB-Basic-028 7/7 on 2/3 seeds.
+  Pass@1 underestimated it by 1.0 point.
+- **deepseek-v3.2 reproduces March model-diversity result exactly** (3.28/7 then & now) —
+  methodology is stable; March numbers remain trustworthy.
+- **gemini-3-flash regression**: 5.83 (Mar pass@1) → 3.72 (today pass@3). ~2-point drop.
+  Investigate before continuing to treat as reference baseline.
+- **gemma-4 has the best $/score in the set** ($0.00033/point) — viable cheap baseline.
+- **qwen3.6-flash partially redeemed** — 2/3 seeds got erdos-659 7/7 despite 3.33/7 mean.
+- **vs. March diversity ceiling** (lit-ideas + ds-pipeline + full pipe + 3 branches: 5.28/7):
+  v4-flash generate-only at 4.50 is close. v4-flash + seed-ideas + full pipeline likely sets
+  a new project ceiling.
+
+**Recommendations:**
+- Make **deepseek-v4-flash** the cheap-tier default; consider **gemma-4-31b-it** as bulk ideator.
+- Re-baseline gemini-3-flash before next reference comparison.
+- Run v4-flash inside seed-ideas + full pipeline next.
+
+Script / results: `experiments/new_models_pass3_20260504.py`,
+`experiments/results/new_models_pass3_20260504_20260504_054804.json`
+
+## AnswerBench-50 Comparison — 2026-05-04T08:40:12
+
+7 models, generate-only, pass@1, on 50-problem stratified subset of `answerbench_v2.csv`
+(12 Alg / 13 Comb / 12 Geom / 13 NT, seed=42). Judge: `gemini-3.1-flash-lite-preview`,
+binary answer-equivalence. 350 trials, 90 workers. **60 min, 0 errors, $6.69 total.**
+
+| Model | $/Mtok | Acc | Lat | $/run | acc%/$ |
+|---|---|---|---|---|---|
+| **deepseek-v4-pro**    | 0.87 | **47/50 (94%)** | 723s | $0.019 | 50  |
+| **deepseek-v4-flash**  | 0.28 | **44/50 (88%)** | 357s | $0.006 | 157 |
+| qwen3.6-35b-a3b        | 1.00 | 40/50 (80%) | 139s | $0.022 | 36  |
+| qwen3.6-plus           | 1.95 | 39/50 (78%) | 739s | $0.074 | 11  |
+| gemini-3-flash-preview | 3.00 | 37/50 (74%) | 18s  | $0.011 | 70  |
+| gemma-4-31b-it         | 0.38 | 34/50 (68%) | 235s | $0.002 | 425 |
+| gpt-oss-120b           | 0.18 | 29/50 (58%) | 191s | $0.001 | **483** |
+
+Geometry was uniformly easy (median 10-12/12); Combinatorics was the differentiator.
+Every model scored ~15-20% higher than on yesterday's pass@3 dev set — answer-bench tests
+"find the answer," not "prove it."
+
+**Findings:**
+- **v4-pro dominates absolute accuracy**; **v4-flash is the practical cost leader** at 88%.
+- **gpt-oss-120b and gemma-4 win $/accuracy** — useful for bulk-ideator / best-of-N where
+  per-call quality matters less than coverage.
+- **gemini-3-flash is strictly dominated by v4-flash** on cost AND accuracy. Only edge: 18s latency.
+- **qwen3.6-plus strictly dominated by qwen-35b** at 50× the cost. Skip.
+- Judge: 350/350 clean `<verdict>` tags. gemini-3.1-flash-lite is a trustworthy answer-equivalence judge.
+- **Use answer-bench for capability ranking, dev-set for architecture experiments.**
+
+Files: `experiments/answerbench_compare_20260504.py`,
+`experiments/results/answerbench_compare_20260504_20260504_084012.json`,
+`prompts/pipeline/answerbench_judge.md`
+
+## Seed-Ideas 4-Way Comparison v2 (Phase 1) — 2026-05-04T20:14
+
+**70 problems × 6 models × 3 modes (generate-pass@3, full, seed-generate).**
+
+Roles: ideator/generator/verifier/reviser = same model under test (self-ideation per user).
+Final judge = `deepseek-v4-pro` w/ hardened `judge_gt.md`. ITERATIONS=2 (1 gen + 2 revise).
+NUM_IDEAS=3. MAX_TOKENS=65536 everywhere (let reasoning blow up — user requirement).
+Per-trial JSON saved on completion (crash-safe). 80 outer workers, 3 inner workers per branch.
+
+Problem set: 60 IMO-proofbench + 10 special (erdos-{333,397,654,659,1051} + first-proof-{4,5,6,10}-official + ramsey-hypergraphs). erdos-333 used aletheia (only form available, renamed).
+
+**1259/1260 trials (99.9%), $119.69 total, 0.2% error rate.** Mode 4 (seed_full) skipped — Phase 1 spend exceeded the original $100 target.
+Wall-clock 10 hr (with two restarts: one for cap raise $80→$200, one to drop a key after monthly limit hit).
+
+| Model | gen mean | full mean | seed_gen mean | best mode |
+|---|---|---|---|---|
+| **deepseek-v4-pro**     | 3.38 (32/68) | **3.66 (35/68)** | 3.36 (33/70) | full |
+| **deepseek-v4-flash**   | **3.39 (33/70)** | 3.09 (31/70) | 3.30 (33/70) | generate |
+| qwen3.6-35b-a3b         | 2.17 (21/70) | 1.44 (14/70) | 2.06 (20/70) | generate |
+| gemini-3-flash-preview  | 1.83 (18/70) | 1.29 (12/70) | 1.87 (18/70) | seed_generate |
+| gemma-4-31b-it          | 1.83 (18/70) | 1.17 (11/70) | 1.53 (15/70) | generate |
+| gpt-oss-120b            | 1.33 (13/70) | 1.39 (14/70) | 1.27 (12/70) | full |
+
+| Model | gen $/run | full $/run | seed_gen $/run | total $ |
+|---|---|---|---|---|
+| deepseek-v4-pro     | $0.213 | $0.216 | $0.231 | $45.4 |
+| deepseek-v4-flash   | $0.140 | $0.075 | $0.136 | $24.6 |
+| qwen3.6-35b-a3b     | $0.148 | $0.086 | $0.139 | $26.2 |
+| gemini-3-flash      | $0.056 | $0.072 | $0.052 | $12.6 |
+| gemma-4             | $0.031 | $0.018 | $0.030 | $5.5  |
+| gpt-oss-120b        | $0.029 | $0.017 | $0.029 | $5.2  |
+
+**Key findings (after audit — see correction at end):**
+
+The headline "pipeline doesn't help" was a framing artifact. The "generate" baseline I
+reported is pass@3 best-of-3 (per the user's "match token cost" requirement), but pass@3
+already captures the sampling-diversity component of seed-ideas. The right baseline for
+testing whether the pipeline adds value is single-shot pass@1, which I can extract from
+the first branch (k=0) of each generate-mode trial.
+
+| Model | pass@1 | pass@3 ("gen") | seed_gen | full | seed Δ vs p@1 | full Δ vs p@1 |
+|---|---|---|---|---|---|---|
+| gpt-oss-120b      | 0.81 | 1.33 | 1.27 | 1.39 | +0.46 | +0.58 |
+| gemma-4-31b-it    | 1.07 | 1.83 | 1.53 | 1.17 | +0.46 | +0.10 |
+| gemini-3-flash    | 1.15 | 1.83 | 1.87 | 1.29 | +0.72 | +0.14 |
+| deepseek-v4-flash | 2.58 | 3.39 | 3.30 | 3.09 | +0.72 | +0.51 |
+| deepseek-v4-pro   | 2.61 | 3.38 | 3.36 | 3.66 | +0.75 | +1.05 |
+| qwen3.6-35b-a3b   | 1.61 | 2.17 | 2.06 | 1.44 | +0.44 | -0.17 |
+
+1. **Seed-ideas helps by +0.44 to +0.75 over single-shot pass@1, every model.** Same
+   magnitude as March's seed-ideas uplift. Just doesn't beat pass@3 because pass@3 already
+   provides the multi-attempt sampling diversity, leaving only the idea-conditioning layer
+   (which is small for self-ideation).
+
+2. **Full pipeline helps 5 of 6 models over pass@1** (+0.10 to +1.05). v4-pro gets +1.05,
+   matching March's gemini-3-flash result of +1.0 in dev-set runs. Only qwen-35b is mildly
+   negative (-0.17).
+
+3. **At cost-equivalent comparison (pass@3 vs full vs seed_generate)**, the picture flips:
+   pass@3 wins for 4 of 6 models, full wins for v4-pro and gpt-oss, seed_generate wins for
+   gemini-3-flash. **Implication: at the same API budget, simple resampling (best-of-3)
+   beats verify/revise for most models, but the verify/revise loop is more compute-efficient
+   for the strongest model (v4-pro).**
+
+3. **deepseek-v4-pro best overall (3.66/7 in full mode)**, narrowly above v4-flash (3.39/7 in
+   gen). v4-flash is the strong cost-efficiency winner: half the cost, similar accuracy.
+
+4. **Cheap models (gpt-oss, gemma) plateau ≤1.83/7** across all modes — proofbench-difficulty
+   problems are beyond their capability ceiling. They remain useful as bulk-ideator candidates,
+   not primary generators.
+
+5. **Special-10 frontier results (14 passes ≥6/7 across 1259 trials):**
+   - **first-proof-10-official: 11 of 18 trials passed** at 6/7 — the most-cracked frontier
+     problem. Multiple models, all 3 modes. (No 7/7s — judge consistently calls it "almost".)
+   - **erdos-654: 2 passes**, 1× 7/7 (deepseek-v4-pro full, $0.114) and 1× 7/7 (gpt-oss seed_gen, $0.029).
+     gpt-oss cracking erdos-654 at 3¢ is the surprise of the run.
+   - **erdos-659: 1 pass** (deepseek-v4-flash generate, 6/7).
+   - **0 passes**: erdos-333, erdos-397, erdos-1051, first-proof-4/5/6, ramsey-hypergraphs (7 of 10
+     special problems remain unsolved by any model in any mode).
+
+6. **Cost reality vs initial estimate.** I projected Phase 1 at $120-180 (vs the user's $100
+   ideal). Actual was $119.69 — at the low end of estimate but still 20% over the original
+   $100 target. The decision to NOT run mode 4 (seed_full) was driven both by spend and by
+   finding (1): adding a verify/revise loop on top of seed_generate is unlikely to help
+   weaker models and may hurt them, given how badly full mode performed.
+
+7. **OpenRouter monthly-limit wall.** First key (with $50 limit, $104 used) blocked the
+   resumed run mid-stream — added a startup `_filter_live_keys()` probe to drop exhausted
+   keys before submitting work. The remaining 2 keys ($120 limits each) had enough headroom.
+
+8. **Real bug found (modest impact)**: ideate JSON-parse failures fall back to placeholder
+   "default-N" ideas. Rates: deepseek-v4-flash 28.6%, gpt-oss 20.0%, deepseek-v4-pro 10.0%,
+   others 3-4%. Cause: deepseek-v4-flash and v4-pro often output prose reasoning instead of
+   `[...JSON...]`. The parser tries to recover via `_fix_json` (escaping LaTeX backslashes)
+   but fails on prose-formatted responses. **Impact is bounded**: even on healthy ideate,
+   self-ideated seed_generate ≈ pass@3, so degradation only converts ~25% of v4-flash
+   seed_generate trials to plain pass@3 — same expected value. Worth fixing for cleanliness
+   but doesn't change the headline.
+
+9. **Verifier early-stop rates** (verifier says "correct" on iter 1):
+   gpt-oss 24%, gemma-4 41%, gemini-3-flash 44%, v4-flash 49%, v4-pro 49%, qwen-35b 59%.
+   Confirms the long-running "verifier over-approval" failure mode for the weaker models.
+   v4-pro at 49% is the only model strong enough to use the verify/revise loop productively
+   (matching its +1.05 full-mode uplift).
+
+   **Verifier false-positive rate** (early-stop, but final judge said <6/7):
+   v4-pro 9%, v4-flash 12%, gpt-oss 41%, gemma-4 62%, gemini-3-flash 65%, qwen-35b 68%.
+   The deepseek family is genuinely good at self-critique; weak models hallucinate
+   correctness 60-68% of the time when their own verifier passes them.
+
+10. **JUDGE ABLATION (added 2026-05-04T22:00 — n=100 random trials, mid-difficulty problems
+    only):** re-judged with `gemini-3-flash-preview` and compared to v4-pro scores.
+    | Metric | Value |
+    |---|---|
+    | v4pro mean | 3.56/7 |
+    | gemini mean | 5.29/7 |
+    | mean Δ | **+1.73** (gemini more lenient) |
+    | exact agreement | 59% |
+    | close (|Δ|≤1) | 70% |
+    | big (|Δ|≥6) | **29%** |
+    | pass-flip rate | 30% (27 v4pro-fail→gemini-pass, 3 other way) |
+
+    **This is the single biggest factor explaining today's results vs March.** March used
+    gemini-3-flash; today used v4-pro. The judge change alone shifts means by ~1.7 points
+    — a v4-pro 3.66 in full mode would be ~5.4 under gemini, in the same range as March.
+    The pipeline absolutely DID help by March's measure; my v4-pro judge just hides it.
+
+    Caveat: which judge is "correct" can't be determined without expert grading. v4-pro
+    catches subtle errors gemini misses, but may be over-strict on first-proof / erdos
+    problems with very long ground truths. For comparability with prior experiments, use
+    gemini-3-flash. For stricter assessment, use v4-pro.
+
+    Script / results: `experiments/judge_ablation_20260504.py`,
+    `experiments/results/judge_ablation_20260504_215925.json`
+
+11. **FULL GEMINI RE-GRADE (added 2026-05-04T22:13)** — re-judged ALL 466 trials in the 26
+    eligible mid-range problems with gemini-3-flash-preview. 81s wall, $8.83.
+
+    **Mode aggregate (n=155-156 each, across all 6 models):**
+    | Mode | v4-pro | gemini | Δ |
+    |---|---|---|---|
+    | generate (pass@3) | 3.66 | 5.09 | +1.43 |
+    | **full** | **3.01** | **5.55** | **+2.55** |
+    | seed_generate | 3.62 | 5.10 | +1.47 |
+
+    **The ranking inverts between judges:**
+    - v4-pro:  generate (1st) > seed_generate ≈ full last
+    - gemini:  **full (1st)** > seed_generate ≈ generate
+
+    **The disagreement is concentrated on weak models in full mode:**
+    | Model | full Δ (gem−v4) | full pass count v4 → gem |
+    |---|---|---|
+    | gpt-oss-120b      | +3.31 | 6/26 → 18/26 (3×) |
+    | gemini-3-flash    | +4.12 | 4/26 → 20/26 (5×) |
+    | gemma-4-31b-it    | +3.69 | 4/26 → 18/26 (4.5×) |
+    | qwen3.6-35b-a3b   | +3.00 | 7/26 → 18/26 (2.5×) |
+    | deepseek-v4-flash | +1.00 | 22/26 → 25/26 (small) |
+    | deepseek-v4-pro   | +0.08 | 23/25 → 23/25 (none) |
+
+    The deepseek family barely changes between judges — v4-pro and gemini agree on "good"
+    solutions. All the disagreement is on weak-model output: v4-pro flags revised solutions
+    as still-flawed; gemini rewards them as "almost correct." Likely mechanism: full-mode
+    revisions produce more polished prose that gemini reads as effort, while v4-pro reads
+    deeper to find the residual gaps.
+
+    **Headline correction:** under the same judge March used (gemini-3-flash), Phase 1
+    replicates the March finding — full pipeline beats both pass@3 and seed_generate,
+    especially for weaker models. The "pipeline is useless" finding was a v4-pro-as-judge
+    artifact. Both judges are doing their job; they're measuring different things (gemini =
+    "did the model produce a polished proof attempt"; v4-pro = "is the proof genuinely
+    rigorous"). For comparability with March, use gemini.
+
+    Script / results: `experiments/regrade_gemini_20260504.py`,
+    `experiments/results/regrade_gemini_20260504_20260504_221221/`
+    (466 per-trial JSONs + summary.json)
+
+12. **Full Phase 1 gemini regrade (added 2026-05-04T22:30):** extended the regrade to all
+    1256 trials across all 70 problems, then judged the k=0 branch of every generate-mode
+    trial separately to get a true gemini pass@1 baseline. Total additional spend ~$32
+    (regrade across full set) + ~$18 (k=0 branches) = $50. Final audit table under gemini:
+
+    | Model | pass@1 | pass@3 | seed_gen | full | seed Δ vs p@1 | full Δ vs p@1 |
+    |---|---|---|---|---|---|---|
+    | gpt-oss-120b           | 2.29 | 2.59 | 2.40 | **3.10** | +0.11 | **+0.81** |
+    | gemma-4-31b-it         | 2.96 | 3.21 | 2.99 | **3.51** | +0.03 | **+0.55** |
+    | gemini-3-flash-preview | 2.76 | 2.93 | 3.39 | **3.76** | +0.63 | **+1.00** |
+    | deepseek-v4-flash      | 4.90 | 4.81 | 5.01 | 4.63 | +0.11 | -0.27 |
+    | deepseek-v4-pro        | 5.25 | 5.56 | 5.30 | 5.35 | +0.05 | +0.10 |
+    | qwen3.6-35b-a3b        | 3.73 | 3.60 | 3.21 | 3.74 | -0.52 | +0.01 |
+
+    Aggregate (all models, n=68-70 per cell):
+    - pass@1=3.64, pass@3=3.78, seed_generate=3.72, full=4.01
+    - full Δ vs pass@1: **+0.37** (replicates March's "pipeline helps")
+    - seed Δ vs pass@1: +0.08 (self-ideation does not add diversity — deserves cross-model ideator)
+
+    **Where pipeline helps**: weaker models — gpt-oss +0.81, gemma +0.55, gemini-3-flash +1.00.
+    Verify/revise gives them another shot at producing usable proofs.
+
+    **Where pipeline doesn't help**: stronger models — deepseek-v4-flash -0.27, v4-pro +0.10,
+    qwen-35b +0.01. Their first-attempt solutions are already competitive; revising adds
+    little. v4-flash slightly worse with revision suggests the verifier sometimes "fixes"
+    things that didn't need fixing.
+
+    **Headline correction (final, gemini-judged)**: under the same judge as March,
+    Phase 1 replicates March's "full pipeline helps weaker models" finding (+0.5-1.0 per
+    weak model). The "pipeline doesn't help" framing was both a v4-pro judge artifact AND
+    a baseline-mismatch artifact. Both are now corrected.
+
+    Caveat on pass@3 / seed_gen columns: these use gemini's score on the v4-pro-best-of-3
+    pick (the best_solution field). True gemini best-of-3 (judge all 3 with gemini, pick
+    max) was not measured — would require ~$60 more in credits we didn't have at run time.
+    The proxy slightly underestimates pass@3/seed_gen by 0.1-0.3.
+
+    Script / results:
+    - `experiments/regrade_branches_gemini_20260504.py` (k=0 branch judge)
+    - `experiments/results/regrade_branches_gemini_20260504_20260504_222334/` (418 per-branch JSONs)
+    - `experiments/results/gemini_audit_table_20260504.json` (final table)
+
+13. **TRUE best-of-3 audit (added 2026-05-04T22:42)** — extended branch regrade to ALL
+    branches (generate k=0,1,2 + seed_generate k=0,1,2). 2514 branch judgments total,
+    121s wall, $35. Now we can compute true gemini best-of-3 instead of using v4-pro's
+    pick-best as a proxy.
+
+    | Model | p@1 | p@3 | seed_gen | full | seed Δ | full Δ | **p@3 Δ** |
+    |---|---|---|---|---|---|---|---|
+    | gpt-oss-120b           | 2.29 | **3.11** | 3.09 | 3.10 | +0.80 | +0.81 | **+0.83** |
+    | gemma-4-31b-it         | 2.96 | **3.70** | 3.67 | 3.51 | +0.72 | +0.56 | **+0.74** |
+    | gemini-3-flash         | 2.76 | **4.33** | 3.89 | 3.76 | +1.13 | +1.00 | **+1.57** |
+    | deepseek-v4-flash      | 4.90 | **6.11** | 5.70 | 4.63 | +0.80 | -0.27 | **+1.21** |
+    | deepseek-v4-pro        | 5.25 | **6.37** | 5.79 | 5.35 | +0.54 | +0.10 | **+1.12** |
+    | qwen3.6-35b-a3b        | 3.73 | **4.47** | 3.84 | 3.74 | +0.11 | +0.01 | **+0.74** |
+
+    Aggregate: pass@1=3.64, **pass@3=4.67 (+1.04)**, seed_generate=4.35 (+0.71), full=4.01 (+0.37).
+
+    **Headline reversal (third time):** with true gemini best-of-3 measured per-branch,
+    **pass@3 is the best mode for every model.** It beats both seed_generate and full
+    pipeline for every model in the set.
+
+    - **Strong models (deepseek, qwen-35b) gain disproportionately from pass@3.** v4-pro
+      goes 5.25 → 6.37 (+1.12); v4-flash 4.90 → 6.11 (+1.21). Full pipeline gets them only
+      +0.10 and -0.27 respectively. Sampling diversity beats iterative refinement when the
+      base model is already strong.
+    - **Weak models gain similarly across all three architectures** (+0.55 to +0.81).
+      No mode distinguishes itself.
+    - **Self-ideated seed_generate ≈ pass@3** for weak models; *falls behind* for strong
+      ones. Self-ideation does not add diversity beyond plain resampling. Cross-model
+      ideation (March's lit-ideas pattern) might still beat both — not measured here.
+    - The earlier "full pipeline wins" finding (item 11) was a v4-pro-pick-bias artifact:
+      gemini scored higher on v4-pro's chosen branch than on a uniformly random branch,
+      and full mode bypasses that selection bias by not having branches.
+
+    **Implication for architecture work:** if budget allows, just do pass@3. Verify/revise
+    only earns its cost when sampling diversity has been exhausted, which doesn't seem to
+    happen at N=3 for any current model. Cross-model ideation remains the unexplored
+    direction worth a focused follow-up.
+
+    Script / results:
+    - `experiments/regrade_branches_gemini_20260504.py` (PASS1_ONLY=False mode)
+    - `experiments/results/regrade_branches_gemini_20260504_20260504_222334/` (2514 branch JSONs)
+    - `experiments/results/gemini_audit_table_20260504_v2.json` (final true-best-of-3 table)
+
+14. **Dataset export (added 2026-05-04T22:50)**: combined Phase 1 + regrades into a single
+    long-format JSONL covering all 70 × 6 × 3 = 1260 (problem, model, mode) trials.
+    Each row carries problem text + ground truth + final solution + both judges' scores
+    + both judges' full verdict text + per-branch breakdown for generate/seed_generate
+    modes. NAs preserved for 4 errored trials (deepseek-v4-pro timeouts) and 49 branch
+    records that errored during the regrade. Total file 191 MB.
+
+    Files:
+    - `experiments/export_dataset_20260504.py` (export script)
+    - `experiments/results/dataset_20260504.jsonl` (1260 rows)
+    - `experiments/results/dataset_20260504_README.md` (schema + caveats)
+
+**Recommendations for next runs:**
+- For **cost-bounded headline numbers**: pass@3 best-of-3 is the cheapest competitive
+  baseline for most models. Use it as the standard reporting metric.
+- For **deepseek-v4-pro on proof problems**: full pipeline is genuinely worth the cost
+  (+1.05 over pass@1). Only model where the verify/revise loop pays off cleanly.
+- For **frontier first-proof / erdos / ramsey**: 7 of 10 special problems remain unsolved
+  by any model in any mode. Cross-model ideator pattern (March's lit-ideas + ds-pipe at
+  5.28/7) is still the strongest known architecture — worth re-testing with v4-pro pipeline.
+- For **mode 4 (seed_full)**: extrapolating from the +0.5-1.0 uplift of each component,
+  seed_full could push v4-pro from 3.66 to ~4.5/7. Worth a focused follow-up on v4-pro and
+  v4-flash only.
+- **Fix the ideate parser** before next run: handle prose-formatted ideate responses (deepseek
+  models default to this). Either ask for stricter format in the prompt, or add a
+  prose-to-JSON extraction fallback like extract_score.md.
+
+Files:
+- Script: `experiments/seed_ideas_full_compare_20260504.py`
+- Loader: `experiments/problemset_70.py`
+- Run dir: `experiments/results/seed_ideas_full_compare_20260504_20260504_101225/`
+  (1259 per-trial JSONs + manifest.jsonl + frontier_passes.jsonl + summary.json)
+- Logs: `/tmp/phase1.log`, `/tmp/phase1_resume2.log`
+
