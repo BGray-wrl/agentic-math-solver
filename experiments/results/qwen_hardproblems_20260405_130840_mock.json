@@ -1,0 +1,25 @@
+{
+  "model": "openrouter/qwen/qwen3.6-plus:free",
+  "date": "2026-04-05",
+  "mock": true,
+  "results": [
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "ramsey-hypergraphs",
+      "level": "Moderately Interesting",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "erdos-1051-aletheia",
+      "level": "Minor Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "elapsed_s": 0.0
+    }
+  ]
+}

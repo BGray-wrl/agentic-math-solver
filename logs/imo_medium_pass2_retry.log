@@ -1,0 +1,155 @@
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/imo_medium_pass2_retry.py:167: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+Found 10 trials to retry:
+  PB-Basic-028  nemotron-3-super-120b-a12b  seed=42
+  PB-Basic-029  deepseek-v3.2  seed=123
+  PB-Basic-007  deepseek-v3.2  seed=123
+  PB-Basic-026  deepseek-v3.2  seed=42
+  PB-Basic-024  deepseek-v3.2  seed=123
+  PB-Advanced-014  deepseek-v3.2  seed=123
+  PB-Basic-028  deepseek-v3.2  seed=42
+  PB-Advanced-029  deepseek-v3.2  seed=42
+  PB-Basic-012  deepseek-v3.2  seed=123
+  PB-Advanced-023  deepseek-v3.2  seed=123
+
+Submitting 10 trials (max_workers=16)
+
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/imo_medium_pass2_retry.py:46: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().strftime("%H:%M:%S")
+[01:35:08] [PB-Basic-028|nemotron-3-super-120b-a12b|seed=42] generate → nemotron-3-super-120b-a12b
+[01:35:08] [PB-Basic-007|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Basic-029|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Basic-026|deepseek-v3.2|seed=42] generate → deepseek-v3.2
+[01:35:08] [PB-Advanced-014|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Basic-024|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Basic-028|deepseek-v3.2|seed=42] generate → deepseek-v3.2
+[01:35:08] [PB-Basic-012|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Advanced-023|deepseek-v3.2|seed=123] generate → deepseek-v3.2
+[01:35:08] [PB-Advanced-029|deepseek-v3.2|seed=42] generate → deepseek-v3.2
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Advanced-023|deepseek-v3.2|seed=123] generate done in 142.85s (13419 chars)
+[01:35:08] [PB-Advanced-023|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Advanced-023|deepseek-v3.2|seed=123] → score=0/7 pass=False total=147.56s
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/imo_medium_pass2_retry.py:46: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().strftime("%H:%M:%S")
+[01:37:35] Progress: 1/10
+[01:35:08] [PB-Basic-024|deepseek-v3.2|seed=123] generate done in 150.33s (9734 chars)
+[01:35:08] [PB-Basic-024|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-024|deepseek-v3.2|seed=123] → score=2/7 pass=False total=154.62s
+[01:37:42] Progress: 2/10
+[01:35:08] [PB-Advanced-014|deepseek-v3.2|seed=123] generate done in 204.28s (17111 chars)
+[01:35:08] [PB-Advanced-014|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Advanced-014|deepseek-v3.2|seed=123] → score=0/7 pass=False total=211.64s
+[01:38:39] Progress: 3/10
+[01:35:08] [PB-Basic-028|deepseek-v3.2|seed=42] generate done in 248.99s (18689 chars)
+[01:35:08] [PB-Basic-028|deepseek-v3.2|seed=42] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-028|deepseek-v3.2|seed=42] → score=0/7 pass=False total=253.91s
+[01:39:22] Progress: 4/10
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-028|nemotron-3-super-120b-a12b|seed=42] generate done in 292.75s (51091 chars)
+[01:35:08] [PB-Basic-028|nemotron-3-super-120b-a12b|seed=42] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-028|nemotron-3-super-120b-a12b|seed=42] → score=0/7 pass=False total=298.44s
+[01:40:06] Progress: 5/10
+[01:35:08] [PB-Advanced-029|deepseek-v3.2|seed=42] generate done in 324.05s (12213 chars)
+[01:35:08] [PB-Advanced-029|deepseek-v3.2|seed=42] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Advanced-029|deepseek-v3.2|seed=42] → score=1/7 pass=False total=329.39s
+[01:40:37] Progress: 6/10
+[01:35:08] [PB-Basic-026|deepseek-v3.2|seed=42] generate done in 410.04s (13467 chars)
+[01:35:08] [PB-Basic-026|deepseek-v3.2|seed=42] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-026|deepseek-v3.2|seed=42] → score=0/7 pass=False total=415.51s
+[01:42:03] Progress: 7/10
+[01:35:08] [PB-Basic-012|deepseek-v3.2|seed=123] generate done in 708.48s (10560 chars)
+[01:35:08] [PB-Basic-012|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-012|deepseek-v3.2|seed=123] → score=0/7 pass=False total=727.11s
+[01:47:15] Progress: 8/10
+[01:35:08] [PB-Basic-029|deepseek-v3.2|seed=123] generate done in 925.37s (22913 chars)
+[01:35:08] [PB-Basic-029|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-029|deepseek-v3.2|seed=123] → score=0/7 pass=False total=930.79s
+[01:50:38] Progress: 9/10
+[01:35:08] [PB-Basic-007|deepseek-v3.2|seed=123] generate done in 1037.55s (12098 chars)
+[01:35:08] [PB-Basic-007|deepseek-v3.2|seed=123] judge (with ground truth)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[01:35:08] [PB-Basic-007|deepseek-v3.2|seed=123] → score=7/7 pass=True total=1044.32s
+[01:52:32] Progress: 10/10
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/imo_medium_pass2_retry.py:282: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "retry_source": str(source_path), "retry_date": datetime.utcnow().isoformat() + "Z"}
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/imo_medium_pass2_retry.py:283: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  run_ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+
+Replaced 10 entries with retry results.
+
+======================================================================
+MERGED RESULTS SUMMARY
+======================================================================
+
+nemotron-3-super-120b-a12b
+  Mean score:  2.500 ± 3.210  (n=36)
+  pass@2 rate: 44.4%  (8/18 problems)
+  Score dist:  0/7:19  1/7:4  2/7:1  7/7:12
+
+deepseek-v3.2
+  Mean score:  0.886 ± 1.968  (n=35)
+  pass@2 rate: 16.7%  (3/18 problems)
+  Score dist:  0/7:27  1/7:1  2/7:3  4/7:1  6/7:1  7/7:2
+  Errors:      1
+
+--- Per-problem scores (threshold >= 6/7) ---
+  Problem               nemotron-3-super-120b-a1  deepseek-v3.2             
+  --------------------------------------------------------------------------
+  PB-Advanced-002       ✗ [0/0]                   ✓ [0/6]                   
+  PB-Advanced-005       ✗ [1/0]                   ✗ [0/2]                   
+  PB-Advanced-008       ✓ [7/7]                   ✗ [0/0]                   
+  PB-Advanced-010       ✗ [0/0]                   ✗ [0/0]                   
+  PB-Advanced-011       ✗ [0/1]                   ✗ [0]                     
+  PB-Advanced-014       ✓ [7/0]                   ✗ [0/0]                   
+  PB-Advanced-020       ✗ [1/0]                   ✗ [0/0]                   
+  PB-Advanced-023       ✗ [0/0]                   ✗ [0/0]                   
+  PB-Advanced-026       ✓ [7/0]                   ✗ [0/4]                   
+  PB-Advanced-029       ✗ [2/1]                   ✗ [1/2]                   
+  PB-Basic-006          ✓ [7/7]                   ✗ [0/0]                   
+  PB-Basic-007          ✓ [7/7]                   ✓ [0/7]                   
+  PB-Basic-012          ✓ [7/7]                   ✗ [0/0]                   
+  PB-Basic-023          ✗ [0/0]                   ✓ [0/7]                   
+  PB-Basic-024          ✓ [0/7]                   ✗ [0/2]                   
+  PB-Basic-026          ✓ [0/7]                   ✗ [0/0]                   
+  PB-Basic-028          ✗ [0/0]                   ✗ [0/0]                   
+  PB-Basic-029          ✗ [0/0]                   ✗ [0/0]                   
+
+Merged results saved to: /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/results/imo_medium_pass2_merged_20260327_015232.json
+Pipeline log:            /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/logs/pipeline_20260327_013508.jsonl

@@ -1,0 +1,247 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\title{An Elementary Counterexample to a Shifted Power-of-Two Small-$\Omega$ Principle}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $\Omega(m)$ be the number of prime factors of $m$ counted with multiplicity.
+We disprove, unconditionally, the assertion that for all sufficiently large integers $n$
+there exists $k\ge 0$ with $m=n-2^k>0$ and $\Omega(m)<\log\log m$.
+In fact, we construct infinitely many $n$ for which
+\[
+\Omega(n-2^k)\ge \log\log(n-2^k)
+\qquad\text{for every }k\ge 0\text{ with }2^k\le n.
+\]
+The proof uses only the Chinese remainder theorem and a crude bound for primes derived from
+Bertrand's postulate.
+\end{abstract}
+
+\section{Introduction}
+
+For a positive integer $m$, let $\Omega(m)$ denote the total number of prime factors of $m$,
+counted with multiplicity. Consider the following statement:
+\begin{equation}\label{eq:star}
+\text{(*) \quad There exists }N\text{ such that for every }n\ge N\text{ there is }k\ge 0\text{ with }m=n-2^k>0
+\text{ and }\Omega(m)<\log\log m.
+\end{equation}
+Heuristically, one might expect \eqref{eq:star} from typical-order results (Hardy--Ramanujan,
+Erd\H{o}s--Kac), but \eqref{eq:star} is in fact false.
+
+\begin{theorem}\label{thm:main}
+There exist infinitely many integers $n$ such that for every integer $k\ge 0$ with $2^k\le n$,
+\begin{equation}\label{eq:goal}
+\Omega(n-2^k)\ge \log\log(n-2^k).
+\end{equation}
+Consequently, \eqref{eq:star} fails.
+\end{theorem}
+
+\section{Auxiliary lemmas}
+
+We shall use a very crude upper bound on the $m$-th prime, obtainable from Bertrand's postulate.
+
+\begin{lemma}\label{lem:pm_bound}
+Let $p_m$ denote the $m$-th prime. Then for all $m\ge 1$,
+\[
+p_m\le 2^m.
+\]
+\end{lemma}
+
+\begin{proof}
+Bertrand's postulate asserts: for every real $x\ge 2$ there is a prime in $(x,2x)$.
+We prove by induction that $p_m\le 2^m$. The base case $m=1$ is $p_1=2\le 2^1$.
+Assume $p_m\le 2^m$. Then there exists a prime in $(2^m,2^{m+1})$, and hence
+$p_{m+1}\le 2^{m+1}$. This completes the induction.
+\end{proof}
+
+We also record the Chinese remainder theorem.
+
+\begin{lemma}[CRT]\label{lem:crt}
+If $M_1,\dots,M_s$ are pairwise coprime and $b_1,\dots,b_s$ are integers, then the system
+\[
+n\equiv b_i\pmod{M_i}\qquad(1\le i\le s)
+\]
+has a solution modulo $M:=\prod_{i=1}^s M_i$.
+\end{lemma}
+
+\section{Construction of the counterexamples}
+
+Fix an integer parameter $E\ge 10$.
+We will construct an integer $n=n(E)$ such that \eqref{eq:goal} holds for all $k$ with $2^k\le n$.
+
+\subsection{Choice of moduli with large $\Omega$}
+
+Select $E^2$ distinct odd primes, none equal to $3$; for definiteness, take the first $E^2$
+odd primes $\ge 5$ and label them as
+\[
+\{p_{k,j}:\ 0\le k\le E-1,\ 1\le j\le E\}.
+\]
+Define
+\begin{equation}\label{eq:Qk_def}
+Q_k:=\prod_{j=1}^E p_{k,j}\qquad(0\le k\le E-1).
+\end{equation}
+Then each $Q_k$ is odd and squarefree, the integers $Q_0,\dots,Q_{E-1}$ are pairwise coprime,
+and
+\begin{equation}\label{eq:OmegaQk}
+\Omega(Q_k)=E\qquad(0\le k\le E-1).
+\end{equation}
+
+\subsection{A system of congruences for $n$}
+
+Consider the congruence system
+\begin{equation}\label{eq:system}
+\begin{aligned}
+n &\equiv 0 \pmod{2^E},\\
+n &\equiv 0 \pmod{3},\\
+n &\equiv 2^k \pmod{Q_k}\qquad(0\le k\le E-1).
+\end{aligned}
+\end{equation}
+The moduli $2^E$, $3$, and $Q_0,\dots,Q_{E-1}$ are pairwise coprime, hence by
+Lemma~\ref{lem:crt} there exists a solution $n$ modulo
+\begin{equation}\label{eq:M_def}
+M:=2^E\cdot 3\cdot \prod_{k=0}^{E-1}Q_k.
+\end{equation}
+Let $n(E)$ be the least positive solution, so $1\le n(E)\le M$.
+Since $3\mid n(E)$, the integer $n(E)$ is not a power of $2$; therefore $n(E)-2^k\neq 0$ for all $k$.
+In particular, for every $k$ with $2^k\le n(E)$ we have
+\[
+m:=n(E)-2^k>0.
+\]
+
+\subsection{A uniform lower bound for $\Omega(n(E)-2^k)$}
+
+\begin{lemma}\label{lem:Omega_lower}
+For every integer $k\ge 0$ with $2^k\le n(E)$,
+\[
+\Omega\bigl(n(E)-2^k\bigr)\ge E.
+\]
+\end{lemma}
+
+\begin{proof}
+Fix such $k$ and write $m:=n(E)-2^k$.
+
+If $0\le k\le E-1$, then from \eqref{eq:system} we have $n(E)\equiv 2^k\pmod{Q_k}$, hence $Q_k\mid m$.
+Therefore
+\[
+\Omega(m)\ge \Omega(Q_k)=E
+\]
+by \eqref{eq:OmegaQk}.
+
+If instead $k\ge E$, then $2^E\mid n(E)$ by \eqref{eq:system}, and also $2^E\mid 2^k$.
+Hence $2^E\mid m$, so
+\[
+\Omega(m)\ge \Omega(2^E)=E.
+\]
+This covers all cases.
+\end{proof}
+
+\subsection{An upper bound for $\log\log(n(E)-2^k)$}
+
+Since $0<m<n(E)\le M$, we have
+\begin{equation}\label{eq:loglog_reduce}
+\log\log m\le \log\log n(E)\le \log\log M.
+\end{equation}
+Thus it suffices to bound $\log\log M$ in terms of $E$.
+
+\begin{lemma}\label{lem:loglogM}
+For all $E\ge 10$, one has $\log\log M<E$, where $M$ is defined in \eqref{eq:M_def}.
+\end{lemma}
+
+\begin{proof}
+Each prime $p_{k,j}$ lies among the first $E^2$ odd primes $\ge 5$, hence among the first
+$E^2+2$ primes overall. By Lemma~\ref{lem:pm_bound},
+\[
+p_{k,j}\le p_{E^2+2}\le 2^{E^2+2}.
+\]
+Using \eqref{eq:Qk_def}, we obtain
+\[
+Q_k=\prod_{j=1}^E p_{k,j}\le (2^{E^2+2})^E = 2^{E(E^2+2)}=2^{E^3+2E}.
+\]
+Multiplying over $k=0,\dots,E-1$ yields
+\[
+\prod_{k=0}^{E-1}Q_k \le (2^{E^3+2E})^{E}=2^{E^4+2E^2}.
+\]
+Hence by \eqref{eq:M_def},
+\begin{equation}\label{eq:M_bound}
+M \le 2^E\cdot 3\cdot 2^{E^4+2E^2}= 3\cdot 2^{E^4+2E^2+E}.
+\end{equation}
+Taking natural logarithms gives
+\[
+\log M \le \log 3 + (E^4+2E^2+E)\log 2,
+\]
+and therefore
+\[
+\log\log M \le \log\!\Big(\log 3 + (E^4+2E^2+E)\log 2\Big).
+\]
+For $E\ge 10$, the inner quantity is certainly $<2E^4$, hence
+\[
+\log\log M \le \log(2E^4)=\log 2 + 4\log E < E.
+\]
+\end{proof}
+
+\subsection{Completion of the proof of Theorem \ref{thm:main}}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Let $E\ge 10$ and let $n(E)$ be defined by \eqref{eq:system}.
+Fix $k\ge 0$ with $2^k\le n(E)$ and set $m:=n(E)-2^k$.
+By Lemma~\ref{lem:Omega_lower}, $\Omega(m)\ge E$.
+By \eqref{eq:loglog_reduce} and Lemma~\ref{lem:loglogM}, we have $\log\log m\le \log\log M<E$.
+Thus
+\[
+\Omega(n(E)-2^k)=\Omega(m)\ge E > \log\log m=\log\log(n(E)-2^k),
+\]
+which implies \eqref{eq:goal}.
+
+Finally, since $2^E\mid n(E)$ for each $E$, the integers $n(E)$ are unbounded and hence yield
+infinitely many counterexamples. Therefore (*) is false.
+\end{proof}
+
+\section{Remarks}
+
+\begin{remark}
+The construction partitions the exponents into $k<E$ and $k\ge E$.
+For $k\ge E$, the single congruence $n\equiv 0\pmod{2^E}$ forces $2^E\mid (n-2^k)$, giving
+$\Omega(n-2^k)\ge E$ by multiplicity of the prime $2$.
+The remaining finitely many exponents $k<E$ are handled individually by congruences
+$n\equiv 2^k\pmod{Q_k}$ with $\Omega(Q_k)=E$.
+No probabilistic input or deep results on prime divisors of $2^d-1$ are required.
+\end{remark}
+
+\begin{remark}
+One may view \eqref{eq:system} as a ``finite cover'' of the exponents by two families:
+a singleton modulus $2^E$ covering all $k\ge E$, and the finitely many singleton classes
+$\{k\}$ for $0\le k\le E-1$.
+This is sufficient to force a uniform lower bound on $\Omega(n-2^k)$ across all relevant $k$.
+\end{remark}
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{Bertrand}
+J. Bertrand, \emph{M\'emoire sur le nombre de valeurs que peut prendre une fonction quand on y permute les lettres qu'elle renferme},
+Journal de l'\'Ecole Royale Polytechnique \textbf{18} (1845), 123--140.
+
+\bibitem{HardyRamanujan}
+G. H. Hardy and S. Ramanujan, \emph{The normal number of prime factors of a number $n$},
+Quart. J. Math. \textbf{48} (1917), 76--92.
+
+\bibitem{ErdosKac}
+P. Erd\H{o}s and M. Kac, \emph{The Gaussian law of errors in the theory of additive number theoretic functions},
+Amer. J. Math. \textbf{62} (1940), 738--742.
+\end{thebibliography}
+
+\end{document}

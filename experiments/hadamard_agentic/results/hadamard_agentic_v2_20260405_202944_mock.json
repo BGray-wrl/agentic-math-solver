@@ -1,0 +1,149 @@
+{
+  "experiment": "hadamard_agentic_v2",
+  "target_order": 668,
+  "date": "2026-04-05T20:29:44.604829+00:00",
+  "mock": true,
+  "solved": false,
+  "exec_timeout": 300,
+  "reasoning_effort": "high",
+  "branches": {
+    "0": {
+      "branch": "williamson-qr",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 5,
+      "solved": false,
+      "best_order": 0,
+      "best_violations": null,
+      "elapsed_s": 0.3,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 2,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 3,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 4,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 5,
+          "event": "reflection",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "elapsed": 0.1
+        }
+      ]
+    },
+    "1": {
+      "branch": "williamson-search",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 5,
+      "solved": false,
+      "best_order": 0,
+      "best_violations": null,
+      "elapsed_s": 0.3,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 2,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 3,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 4,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 5,
+          "event": "reflection",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "elapsed": 0.1
+        }
+      ]
+    }
+  }
+}

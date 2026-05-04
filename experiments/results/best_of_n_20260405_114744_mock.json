@@ -1,0 +1,2634 @@
+{
+  "experiment": "best_of_n",
+  "description": "Hypothesis: Generating more diverse ideas (higher N) improves best-of-N score,\nwith diminishing returns. Tests whether diversity alone (without verify/revise)\ncan match or beat the full pipeline.\n\nVariables:\n  Independent: N (number of ideas/branches) = 1, 3, 5, 7\n  Dependent:   best-of-N judge score (0-7), mean score, score distribution\n  Controlled:  ideator model, generator model, judge model, prompts, seed",
+  "date": "2026-04-05T11:47:44.609803+00:00",
+  "conditions": {
+    "1": {
+      "name": "n1-ds",
+      "n_ideas": 1,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/deepseek/deepseek-v3.2"
+    },
+    "2": {
+      "name": "n1-oss",
+      "n_ideas": 1,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/openai/gpt-oss-120b"
+    },
+    "3": {
+      "name": "n3-ds",
+      "n_ideas": 3,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/deepseek/deepseek-v3.2"
+    },
+    "4": {
+      "name": "n3-oss",
+      "n_ideas": 3,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/openai/gpt-oss-120b"
+    },
+    "5": {
+      "name": "n5-ds",
+      "n_ideas": 5,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/deepseek/deepseek-v3.2"
+    },
+    "6": {
+      "name": "n5-oss",
+      "n_ideas": 5,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/openai/gpt-oss-120b"
+    },
+    "7": {
+      "name": "n7-ds",
+      "n_ideas": 7,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/deepseek/deepseek-v3.2"
+    },
+    "8": {
+      "name": "n7-oss",
+      "n_ideas": 7,
+      "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "generator": "openrouter/openai/gpt-oss-120b"
+    }
+  },
+  "n_values": [
+    1,
+    3,
+    5,
+    7
+  ],
+  "seeds": [
+    42
+  ],
+  "pass_threshold": 6,
+  "judge_model": "gemini/gemini-3-flash-preview",
+  "ideator_model": "openrouter/google/gemini-3.1-flash-lite-preview",
+  "mock": true,
+  "dev_set": {
+    "PB-Basic-007": {
+      "role": "hard"
+    },
+    "PB-Basic-012": {
+      "role": "boundary-verifier-bug"
+    },
+    "PB-Basic-017": {
+      "role": "boundary-pipeline-hurts"
+    },
+    "PB-Basic-024": {
+      "role": "sanity"
+    },
+    "PB-Basic-028": {
+      "role": "boundary-pipeline-helps"
+    },
+    "erdos-659": {
+      "role": "frontier"
+    }
+  },
+  "all_results": [
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 1,
+      "condition_name": "n1-ds",
+      "n_ideas": 1,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.05,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.05,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 2,
+      "condition_name": "n1-oss",
+      "n_ideas": 1,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.05,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 3,
+      "condition_name": "n3-ds",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.05,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 4,
+      "condition_name": "n3-oss",
+      "n_ideas": 3,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.05,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 5,
+      "condition_name": "n5-ds",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 6,
+      "condition_name": "n5-oss",
+      "n_ideas": 5,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 7,
+      "condition_name": "n7-ds",
+      "n_ideas": 7,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "deepseek-v3.2",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 2,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 0,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    },
+    {
+      "condition_id": 8,
+      "condition_name": "n7-oss",
+      "n_ideas": 7,
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "all_branch_scores": [
+        7,
+        7,
+        7
+      ],
+      "best_idea_idx": 1,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "models": {
+        "generator": "gpt-oss-120b",
+        "ideator": "gemini-3.1-flash"
+      }
+    }
+  ]
+}

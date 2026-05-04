@@ -1,0 +1,1224 @@
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+Ranker Comparison Experiment
+  10 problems × 7 branches = 70 ground-truth trials
+  10 problems × 5 rankers = 50 ranking calls
+  Ideator: gemini-3.1-flash-lit
+  Generator: deepseek-v3.2
+  Judge: gemini-3-flash-previ
+  Workers: 20  Timeout: 1800s
+
+  Rankers:
+    flash-lite     gemini-3.1-flash-lit
+    gemini-flash   gemini-3-flash-previ
+    gemma-4        gemma-4-31b-it
+    qwen3.6        qwen3.6-plus:free
+    deepseek       deepseek-v3.2
+
+  PB-Advanced-006          IMO-hard         hard-extra
+  PB-Advanced-012          IMO-hard         hard-extra
+  PB-Advanced-021          IMO-hard         hard-extra
+  PB-Advanced-027          IMO-hard         hard-extra
+  PB-Basic-007             IMO-medium       hard
+  PB-Basic-012             IMO-medium       boundary-verifier-bug
+  PB-Basic-017             pre-IMO          boundary-pipeline-hurts
+  PB-Basic-024             IMO-medium       sanity
+  PB-Basic-028             IMO-medium       boundary-pipeline-helps
+  erdos-659                Negligible Novelty frontier
+
+
+Running 10 problems × 7 branches + 5 rankers
+
+[12:26:15] [PB-Advanced-006|s42] ideate (n=7)
+[12:26:15] [PB-Advanced-027|s42] ideate (n=7)
+[12:26:15] [PB-Basic-007|s42] ideate (n=7)
+[12:26:15] [PB-Basic-012|s42] ideate (n=7)
+[12:26:15] [PB-Advanced-021|s42] ideate (n=7)
+[12:26:15] [PB-Advanced-012|s42] ideate (n=7)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Advanced-006|s42] got 7 ideas: ['Substitution and Constant Analysis', 'Fixed Point Characterization', 'Bijectivity and Injectivity Proof', 'Kernel and Image Investigation', 'Inductive Sequence Construction', 'Symmetry and Invariant Properties', 'Modular Arithmetic Reduction']
+[12:26:15] [PB-Advanced-006|s42][b0] generate (deepseek-v3.2, idea=Substitution and Constant Anal)
+[12:26:15] [PB-Advanced-006|s42][b1] generate (deepseek-v3.2, idea=Fixed Point Characterization)
+[12:26:15] [PB-Advanced-006|s42][b3] generate (deepseek-v3.2, idea=Kernel and Image Investigation)
+[12:26:15] [PB-Advanced-006|s42][b4] generate (deepseek-v3.2, idea=Inductive Sequence Constructio)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b5] generate (deepseek-v3.2, idea=Symmetry and Invariant Propert)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b2] generate (deepseek-v3.2, idea=Bijectivity and Injectivity Pr)
+[12:26:15] [PB-Advanced-006|s42][b6] generate (deepseek-v3.2, idea=Modular Arithmetic Reduction)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Advanced-021|s42] got 7 ideas: ['State Transition Mapping', 'Generating Functions Approach', 'Pigeonhole Principle on Frequencies', 'Dynamic Programming Invariant', 'Combinatorial Game Interpretation', 'Shift Register Sequences', 'Density Evolution Analysis']
+[12:26:15] [PB-Advanced-021|s42][b1] generate (deepseek-v3.2, idea=Generating Functions Approach)
+[12:26:15] [PB-Advanced-021|s42][b0] generate (deepseek-v3.2, idea=State Transition Mapping)
+[12:26:15] [PB-Advanced-021|s42][b3] generate (deepseek-v3.2, idea=Dynamic Programming Invariant)
+[12:26:15] [PB-Advanced-021|s42][b2] generate (deepseek-v3.2, idea=Pigeonhole Principle on Freque)
+[12:26:15] [PB-Advanced-021|s42][b4] generate (deepseek-v3.2, idea=Combinatorial Game Interpretat)
+[12:26:15] [PB-Advanced-021|s42][b5] generate (deepseek-v3.2, idea=Shift Register Sequences)
+[12:26:15] [PB-Advanced-021|s42][b6] generate (deepseek-v3.2, idea=Density Evolution Analysis)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Advanced-012|s42] got 7 ideas: ['Infinite Descent via Factoring', 'Method of Local Constraints', 'Elliptic Curve Mapping', 'Descent via Gaussian Integers', 'Thue Equation Analysis', 'Bounds via Unitary Geometry', 'Parity and Class Number']
+[12:26:15] [PB-Advanced-012|s42][b0] generate (deepseek-v3.2, idea=Infinite Descent via Factoring)
+[12:26:15] [PB-Advanced-012|s42][b1] generate (deepseek-v3.2, idea=Method of Local Constraints)
+[12:26:15] [PB-Advanced-012|s42][b2] generate (deepseek-v3.2, idea=Elliptic Curve Mapping)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b3] generate (deepseek-v3.2, idea=Descent via Gaussian Integers)
+[12:26:15] [PB-Advanced-012|s42][b5] generate (deepseek-v3.2, idea=Bounds via Unitary Geometry)
+[12:26:15] [PB-Advanced-012|s42][b4] generate (deepseek-v3.2, idea=Thue Equation Analysis)
+[12:26:15] [PB-Advanced-012|s42][b6] generate (deepseek-v3.2, idea=Parity and Class Number)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Basic-007|s42] got 7 ideas: ['Polynomial Fixed Point Analysis', 'Recursive Constraint Satisfaction', 'Modular Arithmetic Reduction', 'Fixed Magnitude Bounding', 'Dynamic Programming Search', 'Coefficient Symmetry Exploitation', 'Limit and Asymptotic Analysis']
+[12:26:15] [PB-Basic-007|s42][b1] generate (deepseek-v3.2, idea=Recursive Constraint Satisfact)
+[12:26:15] [PB-Basic-007|s42][b2] generate (deepseek-v3.2, idea=Modular Arithmetic Reduction)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b3] generate (deepseek-v3.2, idea=Fixed Magnitude Bounding)
+[12:26:15] [PB-Basic-007|s42][b4] generate (deepseek-v3.2, idea=Dynamic Programming Search)
+[12:26:15] [PB-Basic-007|s42][b0] generate (deepseek-v3.2, idea=Polynomial Fixed Point Analysi)
+[12:26:15] [PB-Basic-007|s42][b5] generate (deepseek-v3.2, idea=Coefficient Symmetry Exploitat)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b6] generate (deepseek-v3.2, idea=Limit and Asymptotic Analysis)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Basic-012|s42] got 7 ideas: ['Lindström-Gessel-Viennot Lemma', 'Reflection Principle Combinatorics', 'Dynamic Programming Recurrence', 'Interpretation as Catalan Generalizations', 'Generating Functions Approach', 'Bijection to Plane Partitions', 'Grid Network Flow']
+[12:26:15] [PB-Basic-012|s42][b0] generate (deepseek-v3.2, idea=Lindström-Gessel-Viennot Lemma)
+[12:26:15] [PB-Basic-012|s42][b1] generate (deepseek-v3.2, idea=Reflection Principle Combinato)
+[12:26:15] [PB-Basic-012|s42][b2] generate (deepseek-v3.2, idea=Dynamic Programming Recurrence)
+[12:26:15] [PB-Basic-012|s42][b4] generate (deepseek-v3.2, idea=Generating Functions Approach)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b3] generate (deepseek-v3.2, idea=Interpretation as Catalan Gene)
+[12:26:15] [PB-Basic-012|s42][b5] generate (deepseek-v3.2, idea=Bijection to Plane Partitions)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b6] generate (deepseek-v3.2, idea=Grid Network Flow)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:26:15] [PB-Advanced-027|s42] got 7 ideas: ['Geometric Constraint Contradiction', 'Rigidity and Packing Limits', 'Strategic Set Construction', 'Dynamic Point Configuration', 'Algebraic Encoding of Roads', 'Topological Obstruction Argument', 'Iterative Construction Game']
+[12:26:15] [PB-Advanced-027|s42][b1] generate (deepseek-v3.2, idea=Rigidity and Packing Limits)
+[12:26:15] [PB-Advanced-027|s42][b3] generate (deepseek-v3.2, idea=Dynamic Point Configuration)
+[12:26:15] [PB-Advanced-027|s42][b0] generate (deepseek-v3.2, idea=Geometric Constraint Contradic)
+[12:26:15] [PB-Advanced-027|s42][b2] generate (deepseek-v3.2, idea=Strategic Set Construction)
+[12:26:15] [PB-Advanced-027|s42][b4] generate (deepseek-v3.2, idea=Algebraic Encoding of Roads)
+[12:26:15] [PB-Advanced-027|s42][b5] generate (deepseek-v3.2, idea=Topological Obstruction Argume)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b6] generate (deepseek-v3.2, idea=Iterative Construction Game)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b2] generated (15049 chars, 37.1s)
+[12:26:15] [PB-Advanced-027|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b6] generated (14323 chars, 42.7s)
+[12:26:15] [PB-Advanced-021|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b1] generated (5773 chars, 49.1s)
+[12:26:15] [PB-Advanced-006|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b2] → 0/7 (52.08s)
+[12:26:15] [PB-Advanced-021|s42][b6] → 0/7 (58.08s)
+[12:26:15] [PB-Advanced-012|s42][b5] generated (10606 chars, 57.7s)
+[12:26:15] [PB-Advanced-012|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b6] generated (13769 chars, 57.9s)
+[12:26:15] [PB-Basic-007|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b1] generated (17640 chars, 61.9s)
+[12:26:15] [PB-Basic-007|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b3] generated (12374 chars, 65.6s)
+[12:26:15] [PB-Advanced-012|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b4] generated (14536 chars, 69.9s)
+[12:26:15] [PB-Advanced-021|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b6] generated (13919 chars, 77.4s)
+[12:26:15] [PB-Advanced-027|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b1] generated (10991 chars, 87.0s)
+[12:26:15] [PB-Advanced-012|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b1] → 0/7 (90.79s)
+[12:26:15] [PB-Advanced-021|s42][b4] → 0/7 (93.32s)
+[12:26:15] [PB-Basic-012|s42][b2] generated (12566 chars, 92.7s)
+[12:26:15] [PB-Basic-012|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b0] generated (13332 chars, 94.5s)
+[12:26:15] [PB-Advanced-021|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b6] → 1/7 (94.11s)
+[12:26:15] [PB-Advanced-012|s42][b5] → 1/7 (95.26s)
+[12:26:15] [PB-Basic-007|s42][b1] → 0/7 (99.86s)
+[12:26:15] [PB-Advanced-027|s42][b1] generated (11083 chars, 98.9s)
+[12:26:15] [PB-Advanced-027|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b2] generated (13521 chars, 110.1s)
+[12:26:15] [PB-Advanced-006|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b3] → 1/7 (128.48s)
+[12:26:15] [PB-Advanced-006|s42][b4] generated (10926 chars, 133.3s)
+[12:26:15] [PB-Advanced-006|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b2] generated (11035 chars, 132.2s)
+[12:26:15] [PB-Advanced-012|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b0] → 0/7 (133.64s)
+[12:26:15] [PB-Advanced-027|s42][b6] → 0/7 (136.22s)
+[12:26:15] [PB-Advanced-027|s42][b4] generated (13762 chars, 138.1s)
+[12:26:15] [PB-Advanced-027|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b1] → 0/7 (142.83s)
+[12:26:15] [PB-Advanced-027|s42][b0] generated (17281 chars, 145.5s)
+[12:26:15] [PB-Advanced-027|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b1] → 1/7 (147.41s)
+[12:26:15] [PB-Basic-012|s42][b3] generated (11872 chars, 152.0s)
+[12:26:15] [PB-Basic-012|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b4] generated (9802 chars, 154.3s)
+[12:26:15] [PB-Basic-007|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b2] → 1/7 (156.2s)
+[12:26:15] [PB-Basic-012|s42][b1] generated (14809 chars, 155.1s)
+[12:26:15] [PB-Basic-012|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b0] generated (11115 chars, 157.6s)
+[12:26:15] [PB-Advanced-006|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b0] generated (13127 chars, 156.9s)
+[12:26:15] [PB-Advanced-012|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b1] generated (15170 chars, 163.7s)
+[12:26:15] [PB-Advanced-021|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-027|s42][b0] → 0/7 (166.9s)
+[12:26:15] [PB-Advanced-021|s42][b2] generated (14517 chars, 170.0s)
+[12:26:15] [PB-Advanced-021|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b4] → 1/7 (179.4s)
+[12:26:15] [PB-Advanced-006|s42][b3] generated (13106 chars, 182.7s)
+[12:26:15] [PB-Advanced-006|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b3] generated (12376 chars, 181.4s)
+[12:26:15] [PB-Basic-007|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b2] → 1/7 (186.24s)
+[12:26:15] [PB-Basic-007|s42][b2] generated (11794 chars, 186.4s)
+[12:26:15] [PB-Basic-007|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b4] → 1/7 (186.46s)
+[12:26:15] [PB-Basic-012|s42][b3] → 7/7 (186.97s)
+[12:26:15] [PB-Basic-012|s42][b2] → 1/7 (188.01s)
+[12:26:15] [PB-Advanced-027|s42][b4] → 0/7 (190.87s)
+[12:26:15] [PB-Basic-012|s42][b1] → 7/7 (202.6s)
+[12:26:15] [PB-Advanced-006|s42][b0] → 1/7 (207.78s)
+[12:26:15] [PB-Advanced-012|s42][b0] → 0/7 (215.17s)
+[12:26:15] [PB-Advanced-006|s42][b3] → 1/7 (217.8s)
+[12:26:15] [PB-Advanced-021|s42][b1] → 0/7 (217.85s)
+[12:26:15] [PB-Advanced-021|s42][b2] → 0/7 (232.88s)
+[12:26:15] [PB-Basic-007|s42][b3] → 1/7 (235.53s)
+[12:26:15] [PB-Advanced-012|s42][b6] generated (19978 chars, 239.6s)
+[12:26:15] [PB-Advanced-012|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b2] → 1/7 (240.64s)
+[12:26:15] [PB-Advanced-021|s42][b5] generated (16092 chars, 249.0s)
+[12:26:15] [PB-Advanced-021|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b4] generated (19751 chars, 251.0s)
+[12:26:15] [PB-Basic-012|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-021|s42][b5] → 0/7 (295.07s)
+[12:26:15] [PB-Advanced-027|s42][b3] generated (12687 chars, 300.4s)
+[12:26:15] [PB-Advanced-027|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b4] → 0/7 (306.19s)
+[12:26:15] [PB-Advanced-021|s42][b3] generated (16773 chars, 308.4s)
+[12:26:15] [PB-Advanced-021|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b6] → 1/7 (317.59s)
+[12:26:15] [PB-Advanced-027|s42][b3] → 0/7 (330.77s)
+[12:26:15] [PB-Advanced-021|s42][b3] → 0/7 (335.82s)
+[12:26:15] [PB-Advanced-021|s42] ground truth: best=idea_6(0/7) all={0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+[12:31:54] [ranker:flash-lite] ranking 7 ideas
+[12:31:54] [ranker:gemini-flash] ranking 7 ideas
+[12:31:54] [ranker:gemma-4] ranking 7 ideas
+[12:31:54] [ranker:qwen3.6] ranking 7 ideas
+[12:31:54] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:31:54] [ranker:flash-lite] ranking: [2, 0, 5, 3, 6, 1, 4] (1.66s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:31:54] [ranker:gemini-flash] ranking: [2, 0, 6, 3, 5, 1, 4] (4.34s)
+[12:26:15] [PB-Advanced-006|s42][b5] generated (10126 chars, 348.6s)
+[12:26:15] [PB-Advanced-006|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b5] generated (21153 chars, 354.5s)
+[12:26:15] [PB-Basic-012|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:31:54] [ranker:gemma-4] ranking: [0, 2, 6, 3, 5, 1, 4] (24.23s)
+[12:31:54] [ranker:deepseek] ranking: [2, 0, 3, 5, 6, 4, 1] (39.26s)
+[12:26:15] [PB-Advanced-027|s42][b5] generated (15580 chars, 395.2s)
+[12:26:15] [PB-Advanced-027|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b0] generated (12361 chars, 399.7s)
+[12:26:15] [PB-Basic-012|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-006|s42][b5] → 1/7 (409.99s)
+[12:26:15] [PB-Advanced-027|s42][b5] → 0/7 (419.05s)
+[12:26:15] [PB-Advanced-027|s42] ground truth: best=idea_2(0/7) all={0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+[12:33:20] [ranker:flash-lite] ranking 7 ideas
+[12:33:20] [ranker:gemini-flash] ranking 7 ideas
+[12:33:20] [ranker:gemma-4] ranking 7 ideas
+[12:33:20] [ranker:qwen3.6] ranking 7 ideas
+[12:33:20] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:33:20] [ranker:gemini-flash] ranking: [3, 0, 1, 5, 2, 6, 4] (1.76s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:33:20] [ranker:flash-lite] ranking: [5, 1, 0, 4, 6, 3, 2] (2.28s)
+[12:33:20] [ranker:deepseek] ranking: [1, 0, 5, 4, 6, 2, 3] (5.43s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:33:20] [ranker:gemma-4] ranking: [4, 0, 5, 1, 6, 2, 3] (9.12s)
+[12:26:15] [PB-Basic-012|s42][b5] → 7/7 (430.36s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:31:54] [ranker:qwen3.6] ranking: [3, 0, 2, 6, 5, 1, 4] (105.75s)
+[12:26:15] [PB-Advanced-021|s42] done (444.8s)
+[12:33:40] Progress: 1/10 problems
+[12:33:40] [PB-Basic-017|s42] ideate (n=7)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:33:40] [PB-Basic-017|s42] got 1 ideas: ['default']
+[12:33:40] [PB-Basic-017|s42][b0] generate (deepseek-v3.2, idea=default)
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b0] → 7/7 (452.36s)
+[12:26:15] [PB-Basic-007|s42][b0] generated (11876 chars, 486.5s)
+[12:26:15] [PB-Basic-007|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b4] generated (15314 chars, 486.9s)
+[12:26:15] [PB-Advanced-012|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:33:20] [ranker:qwen3.6] ranking: [0, 5, 3, 1, 4, 2, 6] (70.74s)
+[12:26:15] [PB-Advanced-027|s42] done (495.23s)
+[12:34:30] Progress: 2/10 problems
+[12:34:30] [PB-Basic-024|s42] ideate (n=7)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:34:30] [PB-Basic-024|s42] got 7 ideas: ['Modular Arithmetic Analysis', 'Parity and Factorization', 'Bounding via Logarithms', 'p-adic Valuation Analysis', 'Reducing to Elliptic Curves', 'Monotonicity and Exhaustion', 'Linear Forms in Logarithms']
+[12:34:30] [PB-Basic-024|s42][b0] generate (deepseek-v3.2, idea=Modular Arithmetic Analysis)
+[12:34:30] [PB-Basic-024|s42][b2] generate (deepseek-v3.2, idea=Bounding via Logarithms)
+[12:34:30] [PB-Basic-024|s42][b3] generate (deepseek-v3.2, idea=p-adic Valuation Analysis)
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b4] generate (deepseek-v3.2, idea=Reducing to Elliptic Curves)
+[12:34:30] [PB-Basic-024|s42][b6] generate (deepseek-v3.2, idea=Linear Forms in Logarithms)
+[12:34:30] [PB-Basic-024|s42][b5] generate (deepseek-v3.2, idea=Monotonicity and Exhaustion)
+[12:34:30] [PB-Basic-024|s42][b1] generate (deepseek-v3.2, idea=Parity and Factorization)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:33:40] [PB-Basic-017|s42][b0] generated (12682 chars, 70.4s)
+[12:33:40] [PB-Basic-017|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Advanced-012|s42][b4] → 1/7 (534.55s)
+[12:26:15] [PB-Advanced-012|s42] ground truth: best=idea_5(1/7) all={0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+[12:35:14] [ranker:flash-lite] ranking 7 ideas
+[12:35:14] [ranker:gemini-flash] ranking 7 ideas
+[12:35:14] [ranker:gemma-4] ranking 7 ideas
+[12:35:14] [ranker:qwen3.6] ranking 7 ideas
+[12:35:14] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:35:14] [ranker:flash-lite] ranking: [3, 0, 1, 4, 2, 5, 6] (1.84s)
+[12:26:15] [PB-Basic-007|s42][b0] → 1/7 (536.76s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:35:14] [ranker:gemini-flash] ranking: [6, 3, 0, 1, 4, 2, 5] (3.4s)
+[12:35:14] [ranker:deepseek] ranking: [3, 1, 0, 4, 2, 5, 6] (6.84s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:35:14] [ranker:gemma-4] ranking: [3, 6, 1, 0, 2, 4, 5] (46.44s)
+[12:33:40] [PB-Basic-017|s42][b0] → 7/7 (138.54s)
+[12:33:40] [PB-Basic-017|s42] ground truth: best=idea_0(7/7) all={0: 7}
+[12:36:01] [ranker:flash-lite] ranking 1 ideas
+[12:36:01] [ranker:gemini-flash] ranking 1 ideas
+[12:36:01] [ranker:gemma-4] ranking 1 ideas
+[12:36:01] [ranker:deepseek] ranking 1 ideas
+[12:36:01] [ranker:qwen3.6] ranking 1 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:01] [ranker:flash-lite] ranking: [0] (2.37s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:01] [ranker:gemini-flash] ranking: [0] (3.74s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:01] [ranker:gemma-4] ranking: [0] (14.16s)
+[12:26:15] [PB-Basic-012|s42][b6] generated (18737 chars, 602.3s)
+[12:26:15] [PB-Basic-012|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b5] generated (10967 chars, 111.8s)
+[12:34:30] [PB-Basic-024|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:01] [ranker:deepseek] ranking: [0] (27.69s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:01] [ranker:qwen3.6] ranking: [0] (48.85s)
+[12:33:40] [PB-Basic-017|s42] done (189.97s)
+[12:36:50] Progress: 3/10 problems
+[12:36:50] [PB-Basic-028|s42] ideate (n=7)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:50] [PB-Basic-028|s42] got 7 ideas: ['Homothetic Center Analysis', 'Barycentric Coordinate Geometry', 'Inversion and Reflection', 'Power of a Point', 'Reflected Triangle Properties', 'Complex Number Mapping', 'Isogonal Conjugate Method']
+[12:36:50] [PB-Basic-028|s42][b2] generate (deepseek-v3.2, idea=Inversion and Reflection)
+[12:36:50] [PB-Basic-028|s42][b1] generate (deepseek-v3.2, idea=Barycentric Coordinate Geometr)
+[12:36:50] [PB-Basic-028|s42][b3] generate (deepseek-v3.2, idea=Power of a Point)
+[12:36:50] [PB-Basic-028|s42][b0] generate (deepseek-v3.2, idea=Homothetic Center Analysis)
+[12:36:50] [PB-Basic-028|s42][b5] generate (deepseek-v3.2, idea=Complex Number Mapping)
+[12:36:50] [PB-Basic-028|s42][b6] generate (deepseek-v3.2, idea=Isogonal Conjugate Method)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:36:50] [PB-Basic-028|s42][b4] generate (deepseek-v3.2, idea=Reflected Triangle Properties)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:35:14] [ranker:qwen3.6] ranking: [3, 6, 1, 0, 4, 2, 5] (102.77s)
+[12:26:15] [PB-Advanced-012|s42] done (641.37s)
+[12:36:57] [erdos-659|s42] ideate (n=7)
+[12:36:57] Progress: 4/10 problems
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:36:57] [erdos-659|s42] got 7 ideas: ['Arithmetic Progression Grids', 'Probabilistic Construction Methods', 'Salem-Spencer Set Variants', 'Recursive Geometric Dilations', 'Low-Rank Matrix Projections', 'Energy Minimization on Spheres', 'Graph-Theoretic Distance Graphs']
+[12:36:57] [erdos-659|s42][b0] generate (deepseek-v3.2, idea=Arithmetic Progression Grids)
+[12:36:57] [erdos-659|s42][b1] generate (deepseek-v3.2, idea=Probabilistic Construction Met)
+[12:36:57] [erdos-659|s42][b2] generate (deepseek-v3.2, idea=Salem-Spencer Set Variants)
+[12:36:57] [erdos-659|s42][b3] generate (deepseek-v3.2, idea=Recursive Geometric Dilations)
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b4] generate (deepseek-v3.2, idea=Low-Rank Matrix Projections)
+[12:36:57] [erdos-659|s42][b5] generate (deepseek-v3.2, idea=Energy Minimization on Spheres)
+[12:36:57] [erdos-659|s42][b6] generate (deepseek-v3.2, idea=Graph-Theoretic Distance Graph)
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b3] generated (10766 chars, 152.6s)
+[12:34:30] [PB-Basic-024|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-012|s42][b6] → 0/7 (649.32s)
+[12:26:15] [PB-Basic-012|s42] ground truth: best=idea_3(7/7) all={0: 7, 1: 7, 2: 1, 3: 7, 4: 0, 5: 7, 6: 0}
+[12:37:09] [ranker:flash-lite] ranking 7 ideas
+[12:37:09] [ranker:gemini-flash] ranking 7 ideas
+[12:37:09] [ranker:gemma-4] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+[12:37:09] [ranker:qwen3.6] ranking 7 ideas
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:37:09] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 1 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 5s
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:37:09] [ranker:flash-lite] ranking: [0, 5, 3, 2, 4, 1, 6] (1.8s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:37:09] [ranker:gemini-flash] ranking: [0, 5, 2, 1, 3, 4, 6] (2.26s)
+[12:37:09] [ranker:deepseek] ranking: [0, 3, 1, 2, 4, 5, 6] (2.61s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 2 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 10s
+[12:34:30] [PB-Basic-024|s42][b5] → 0/7 (168.14s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:34:30] [PB-Basic-024|s42][b2] generated (12909 chars, 170.4s)
+[12:34:30] [PB-Basic-024|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:37:09] [ranker:gemma-4] ranking: [0, 5, 2, 1, 3, 4, 6] (25.26s)
+[12:36:57] [erdos-659|s42][b6] generated (12087 chars, 34.0s)
+[12:36:57] [erdos-659|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b4] generated (13665 chars, 185.1s)
+[12:34:30] [PB-Basic-024|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b6] → 0/7 (49.4s)
+[12:34:30] [PB-Basic-024|s42][b1] generated (15837 chars, 196.8s)
+[12:34:30] [PB-Basic-024|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:26:15] [PB-Basic-007|s42][b5] generated (17911 chars, 696.8s)
+[12:26:15] [PB-Basic-007|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b0] generated (15383 chars, 203.9s)
+[12:34:30] [PB-Basic-024|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b3] → 1/7 (219.21s)
+[12:36:57] [erdos-659|s42][b0] generated (9494 chars, 78.5s)
+[12:36:57] [erdos-659|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b4] generated (9208 chars, 81.9s)
+[12:36:57] [erdos-659|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b4] → 0/7 (227.73s)
+[12:36:50] [PB-Basic-028|s42][b1] generated (14289 chars, 104.1s)
+[12:36:50] [PB-Basic-028|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b1] → 0/7 (245.58s)
+[12:26:15] [PB-Basic-007|s42][b5] → 1/7 (742.35s)
+[12:26:15] [PB-Basic-007|s42] ground truth: best=idea_6(1/7) all={0: 1, 1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+[12:38:42] [ranker:gemini-flash] ranking 7 ideas
+[12:38:42] [ranker:gemma-4] ranking 7 ideas
+[12:38:42] [ranker:qwen3.6] ranking 7 ideas
+[12:38:42] [ranker:deepseek] ranking 7 ideas
+[12:38:42] [ranker:flash-lite] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:38:42] [ranker:flash-lite] ranking: [3, 0, 5, 1, 5, 2, 4] (1.37s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:38:42] [ranker:gemini-flash] ranking: [3, 1, 0, 6, 2, 5, 4] (1.96s)
+[12:36:57] [erdos-659|s42][b1] generated (13730 chars, 104.2s)
+[12:36:57] [erdos-659|s42][b1] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b4] → 0/7 (106.5s)
+[12:34:30] [PB-Basic-024|s42][b2] → 1/7 (256.08s)
+[12:38:42] [ranker:deepseek] ranking: [0, 1, 2, 3, 6, 5, 4] (14.97s)
+[12:36:50] [PB-Basic-028|s42][b3] generated (13528 chars, 124.5s)
+[12:36:50] [PB-Basic-028|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:38:42] [ranker:gemma-4] ranking: [1, 0, 3, 5, 6, 2, 4] (17.23s)
+[12:36:50] [PB-Basic-028|s42][b2] generated (15772 chars, 129.2s)
+[12:36:50] [PB-Basic-028|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b3] generated (14807 chars, 127.1s)
+[12:36:57] [erdos-659|s42][b3] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:50] [PB-Basic-028|s42][b3] → 0/7 (136.53s)
+[12:34:30] [PB-Basic-024|s42][b0] → 0/7 (275.98s)
+[12:36:50] [PB-Basic-028|s42][b6] generated (15235 chars, 138.7s)
+[12:36:50] [PB-Basic-028|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b0] → 1/7 (135.39s)
+[12:36:50] [PB-Basic-028|s42][b1] → 1/7 (148.65s)
+[12:36:50] [PB-Basic-028|s42][b5] generated (15337 chars, 152.7s)
+[12:36:50] [PB-Basic-028|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:50] [PB-Basic-028|s42][b4] generated (14873 chars, 158.1s)
+[12:36:50] [PB-Basic-028|s42][b4] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:50] [PB-Basic-028|s42][b6] → 0/7 (158.31s)
+[12:36:57] [erdos-659|s42][b1] → 1/7 (152.34s)
+[12:36:50] [PB-Basic-028|s42][b5] → 0/7 (163.68s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:37:09] [ranker:qwen3.6] ranking: [0, 2, 1, 5, 4, 3, 6] (148.42s)
+[12:26:15] [PB-Basic-012|s42] done (802.5s)
+[12:39:38] Progress: 5/10 problems
+[12:36:50] [PB-Basic-028|s42][b2] → 0/7 (166.07s)
+[12:36:50] [PB-Basic-028|s42][b0] generated (17826 chars, 176.2s)
+[12:36:50] [PB-Basic-028|s42][b0] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b3] → 0/7 (172.96s)
+[12:36:50] [PB-Basic-028|s42][b4] → 0/7 (192.03s)
+[12:36:50] [PB-Basic-028|s42][b0] → 0/7 (192.1s)
+[12:36:50] [PB-Basic-028|s42] ground truth: best=idea_1(1/7) all={0: 0, 1: 1, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+[12:40:06] [ranker:flash-lite] ranking 7 ideas
+[12:40:06] [ranker:gemini-flash] ranking 7 ideas
+[12:40:06] [ranker:gemma-4] ranking 7 ideas
+[12:40:06] [ranker:qwen3.6] ranking 7 ideas
+[12:40:06] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:40:06] [ranker:flash-lite] ranking: [0, 4, 3, 5, 2, 1, 6] (1.83s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:40:06] [ranker:gemini-flash] ranking: [4, 3, 0, 2, 1, 5, 6] (4.92s)
+[12:40:06] [ranker:deepseek] ranking: [0, 4, 5, 6, 3, 2, 1] (6.82s)
+[12:26:15] [PB-Advanced-006|s42][b6] generated (10909 chars, 847.0s)
+[12:26:15] [PB-Advanced-006|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:40:06] [ranker:gemma-4] ranking: [0, 4, 3, 1, 2, 5, 6] (25.22s)
+[12:26:15] [PB-Advanced-006|s42][b6] → 1/7 (903.63s)
+[12:26:15] [PB-Advanced-006|s42] ground truth: best=idea_2(1/7) all={0: 1, 1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+[12:41:22] [ranker:gemini-flash] ranking 7 ideas
+[12:41:22] [ranker:gemma-4] ranking 7 ideas
+[12:41:22] [ranker:flash-lite] ranking 7 ideas
+[12:41:22] [ranker:qwen3.6] ranking 7 ideas
+[12:41:22] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 1 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 5s
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:41:22] [ranker:flash-lite] ranking: [0, 1, 2, 5, 4, 3, 6] (1.68s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:41:22] [ranker:gemini-flash] ranking: [0, 1, 3, 2, 4, 5, 6] (2.09s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 2 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 10s
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:41:22] [ranker:gemma-4] ranking: [0, 3, 1, 2, 5, 4, 6] (10.0s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:41:22] [ranker:deepseek] ranking: [0, 4, 5, 3, 2, 1, 6] (26.62s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:38:42] [ranker:qwen3.6] ranking: [3, 1, 0, 6, 5, 2, 4] (243.53s)
+[12:26:15] [PB-Basic-007|s42] done (990.17s)
+[12:42:45] Progress: 6/10 problems
+[12:36:57] [erdos-659|s42][b5] generated (15283 chars, 385.8s)
+[12:36:57] [erdos-659|s42][b5] judge
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:41:22] [ranker:qwen3.6] ranking: [0, 3, 2, 1, 5, 4, 6] (133.15s)
+[12:26:15] [PB-Advanced-006|s42] done (1039.57s)
+[12:43:35] Progress: 7/10 problems
+[12:36:57] [erdos-659|s42][b2] generated (15367 chars, 397.9s)
+[12:36:57] [erdos-659|s42][b2] judge
+python-dotenv could not parse statement starting at line 6
+[12:34:30] [PB-Basic-024|s42][b6] generated (16397 chars, 544.2s)
+[12:34:30] [PB-Basic-024|s42][b6] judge
+python-dotenv could not parse statement starting at line 6
+[12:36:57] [erdos-659|s42][b5] → 0/7 (408.91s)
+[12:36:57] [erdos-659|s42][b2] → 1/7 (439.63s)
+[12:36:57] [erdos-659|s42] ground truth: best=idea_0(1/7) all={0: 1, 1: 1, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0}
+[12:44:20] [ranker:gemini-flash] ranking 7 ideas
+[12:44:20] [ranker:gemma-4] ranking 7 ideas
+[12:44:20] [ranker:qwen3.6] ranking 7 ideas
+[12:44:20] [ranker:deepseek] ranking 7 ideas
+[12:44:20] [ranker:flash-lite] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:20] [ranker:flash-lite] ranking: [0, 3, 5, 2, 4, 1, 6] (1.6s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:20] [ranker:gemini-flash] ranking: [0, 1, 2, 3, 5, 4, 6] (2.21s)
+[12:34:30] [PB-Basic-024|s42][b6] → 7/7 (604.64s)
+[12:34:30] [PB-Basic-024|s42] ground truth: best=idea_6(7/7) all={0: 0, 1: 0, 2: 1, 3: 1, 4: 0, 5: 0, 6: 7}
+[12:44:40] [ranker:flash-lite] ranking 7 ideas
+[12:44:40] [ranker:gemini-flash] ranking 7 ideas
+[12:44:40] [ranker:gemma-4] ranking 7 ideas
+[12:44:40] [ranker:qwen3.6] ranking 7 ideas
+[12:44:40] [ranker:deepseek] ranking 7 ideas
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 1 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 5s
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:40] [ranker:gemini-flash] ranking: [0, 3, 1, 5, 2, 6, 4] (2.09s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:40] [ranker:flash-lite] ranking: [3, 0, 5, 1, 2, 6, 4] (2.2s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[retry] openrouter/qwen/qwen3.6-plus:free attempt 2 failed: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"qwen/qwen3.6-plus:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations","provider_name":"Alibaba","is_byok":false}},"user_id":"user_30sw5F332ckZvvtyWeO89Jbf7rG"}, retrying in 10s
+[12:44:40] [ranker:deepseek] ranking: [3, 0, 1, 5, 2, 6, 4] (8.1s)
+[12:44:20] [ranker:deepseek] ranking: [3, 1, 0, 2, 5, 4, 6] (29.58s)
+python-dotenv could not parse statement starting at line 6
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:20] [ranker:gemma-4] ranking: [0, 2, 1, 3, 5, 4, 6] (48.67s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:40] [ranker:gemma-4] ranking: [0, 3, 1, 6, 5, 2, 4] (53.48s)
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:20] [ranker:qwen3.6] ranking: [1, 0, 2, 3, 6, 4, 5] (126.64s)
+[12:36:57] [erdos-659|s42] done (570.28s)
+[12:46:27] Progress: 8/10 problems
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:44:40] [ranker:qwen3.6] ranking: [0, 3, 1, 6, 5, 2, 4] (120.73s)
+[12:34:30] [PB-Basic-024|s42] done (730.02s)
+[12:46:40] Progress: 9/10 problems
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[12:40:06] [ranker:qwen3.6] ranking: [4, 2, 1, 5, 0, 3, 6] (561.43s)
+[12:49:28] PROBLEM FAILED [PB-Basic-028]: 1 (of 5) futures unfinished
+[12:49:28] Progress: 10/10 problems
+
+==============================================================================================================
+RANKER COMPARISON EXPERIMENT — RESULTS
+==============================================================================================================
+
+Ranker            Top-1  Top-3  Score@1  Kendall τ   Avg Rank of Best
+---------------------------------------------------------------------------
+  flash-lite       22%    44%     2.11/7     -0.066               3.44
+  gemini-flash     22%    33%     2.00/7     -0.026               3.00
+  gemma-4          22%    33%     1.89/7      0.042               3.00
+  qwen3.6          11%    33%     2.00/7      0.085               3.11
+  deepseek         11%    33%     2.00/7      0.082               3.33
+
+  (random)         14%    43%         —       0.000                3.00
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+PER-PROBLEM RANKER ACCURACY (✓=top-1 correct, ○=top-3 correct, ✗=miss):
+
+  Problem              Best Scores                           flash-lite gemini-flash      gemma-4      qwen3.6     deepseek
+
+  PB-Advanced-006         2 [1,0,1,1,1,1,1               ] ○#0(1):>12 ✗#0(1):>12 ✗#0(1):>12 ○#0(1):>12 ✗#0(1):>12
+  PB-Advanced-012         5 [0,1,1,1,1,1,1               ] ✗#3(1):>12 ✗#6(1):>12 ✗#3(1):>12 ✗#3(1):>12 ✗#3(1):>12
+  PB-Advanced-021         6 [0,0,0,0,0,0,0               ] ✗#2(0):>12 ○#2(0):>12 ○#0(0):>12 ✗#3(0):>12 ✗#2(0):>12
+  PB-Advanced-027         2 [0,0,0,0,0,0,0               ] ✗#5(0):>12 ✗#3(0):>12 ✗#4(0):>12 ✗#0(0):>12 ✗#1(0):>12
+  PB-Basic-007            6 [1,0,1,1,1,1,1               ] ✗#3(1):>12 ✗#3(1):>12 ✗#1(0):>12 ✗#3(1):>12 ✗#0(1):>12
+  PB-Basic-012            3 [7,7,1,7,0,7,0               ] ○#0(7):>12 ✗#0(7):>12 ✗#0(7):>12 ✗#0(7):>12 ○#0(7):>12
+  PB-Basic-017            0 [7                           ] ✓#0(7):>12 ✓#0(7):>12 ✓#0(7):>12 ✓#0(7):>12 ✓#0(7):>12
+  PB-Basic-024            6 [0,0,1,1,0,0,7               ] ✗#3(1):>12 ✗#0(0):>12 ✗#0(0):>12 ✗#0(0):>12 ✗#3(1):>12
+  erdos-659               0 [1,1,1,0,0,0,0               ] ✓#0(1):>12 ✓#0(1):>12 ✓#0(1):>12 ○#1(1):>12 ○#3(0):>12
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+FULL RANKINGS vs GROUND TRUTH:
+
+  PB-Advanced-006:
+    Ground truth: #2(1) > #4(1) > #0(1) > #3(1) > #5(1) > #6(1) > #1(0)
+    flash-lite    : #0(1) > #1(0) > #2(1) > #5(1) > #4(1) > #3(1) > #6(1)  (τ=-0.667)
+    gemini-flash  : #0(1) > #1(0) > #3(1) > #2(1) > #4(1) > #5(1) > #6(1)  (τ=-0.667)
+    gemma-4       : #0(1) > #3(1) > #1(0) > #2(1) > #5(1) > #4(1) > #6(1)  (τ=-0.333)
+    qwen3.6       : #0(1) > #3(1) > #2(1) > #1(0) > #5(1) > #4(1) > #6(1)  (τ=+0.000)
+    deepseek      : #0(1) > #4(1) > #5(1) > #3(1) > #2(1) > #1(0) > #6(1)  (τ=+0.667)
+
+  PB-Advanced-012:
+    Ground truth: #5(1) > #3(1) > #1(1) > #2(1) > #6(1) > #4(1) > #0(0)
+    flash-lite    : #3(1) > #0(0) > #1(1) > #4(1) > #2(1) > #5(1) > #6(1)  (τ=-0.667)
+    gemini-flash  : #6(1) > #3(1) > #0(0) > #1(1) > #4(1) > #2(1) > #5(1)  (τ=-0.333)
+    gemma-4       : #3(1) > #6(1) > #1(1) > #0(0) > #2(1) > #4(1) > #5(1)  (τ=+0.000)
+    qwen3.6       : #3(1) > #6(1) > #1(1) > #0(0) > #4(1) > #2(1) > #5(1)  (τ=+0.000)
+    deepseek      : #3(1) > #1(1) > #0(0) > #4(1) > #2(1) > #5(1) > #6(1)  (τ=-0.333)
+
+  PB-Advanced-021:
+    Ground truth: #6(0) > #4(0) > #0(0) > #1(0) > #2(0) > #5(0) > #3(0)
+    flash-lite    : #2(0) > #0(0) > #5(0) > #3(0) > #6(0) > #1(0) > #4(0)  (τ=+0.000)
+    gemini-flash  : #2(0) > #0(0) > #6(0) > #3(0) > #5(0) > #1(0) > #4(0)  (τ=+0.000)
+    gemma-4       : #0(0) > #2(0) > #6(0) > #3(0) > #5(0) > #1(0) > #4(0)  (τ=+0.000)
+    qwen3.6       : #3(0) > #0(0) > #2(0) > #6(0) > #5(0) > #1(0) > #4(0)  (τ=+0.000)
+    deepseek      : #2(0) > #0(0) > #3(0) > #5(0) > #6(0) > #4(0) > #1(0)  (τ=+0.000)
+
+  PB-Advanced-027:
+    Ground truth: #2(0) > #6(0) > #1(0) > #0(0) > #4(0) > #3(0) > #5(0)
+    flash-lite    : #5(0) > #1(0) > #0(0) > #4(0) > #6(0) > #3(0) > #2(0)  (τ=+0.000)
+    gemini-flash  : #3(0) > #0(0) > #1(0) > #5(0) > #2(0) > #6(0) > #4(0)  (τ=+0.000)
+    gemma-4       : #4(0) > #0(0) > #5(0) > #1(0) > #6(0) > #2(0) > #3(0)  (τ=+0.000)
+    qwen3.6       : #0(0) > #5(0) > #3(0) > #1(0) > #4(0) > #2(0) > #6(0)  (τ=+0.000)
+    deepseek      : #1(0) > #0(0) > #5(0) > #4(0) > #6(0) > #2(0) > #3(0)  (τ=+0.000)
+
+  PB-Basic-007:
+    Ground truth: #6(1) > #4(1) > #3(1) > #2(1) > #0(1) > #5(1) > #1(0)
+    flash-lite    : #3(1) > #0(1) > #5(1) > #1(0) > #5(1) > #2(1) > #4(1)  (τ=+0.000)
+    gemini-flash  : #3(1) > #1(0) > #0(1) > #6(1) > #2(1) > #5(1) > #4(1)  (τ=-0.667)
+    gemma-4       : #1(0) > #0(1) > #3(1) > #5(1) > #6(1) > #2(1) > #4(1)  (τ=-1.000)
+    qwen3.6       : #3(1) > #1(0) > #0(1) > #6(1) > #5(1) > #2(1) > #4(1)  (τ=-0.667)
+    deepseek      : #0(1) > #1(0) > #2(1) > #3(1) > #6(1) > #5(1) > #4(1)  (τ=-0.667)
+
+  PB-Basic-012:
+    Ground truth: #3(7) > #1(7) > #5(7) > #0(7) > #2(1) > #4(0) > #6(0)
+    flash-lite    : #0(7) > #5(7) > #3(7) > #2(1) > #4(0) > #1(7) > #6(0)  (τ=+0.714)
+    gemini-flash  : #0(7) > #5(7) > #2(1) > #1(7) > #3(7) > #4(0) > #6(0)  (τ=+0.714)
+    gemma-4       : #0(7) > #5(7) > #2(1) > #1(7) > #3(7) > #4(0) > #6(0)  (τ=+0.714)
+    qwen3.6       : #0(7) > #2(1) > #1(7) > #5(7) > #4(0) > #3(7) > #6(0)  (τ=+0.429)
+    deepseek      : #0(7) > #3(7) > #1(7) > #2(1) > #4(0) > #5(7) > #6(0)  (τ=+0.714)
+
+  PB-Basic-017:
+    Ground truth: #0(7)
+    flash-lite    : #0(7)  (τ=+0.000)
+    gemini-flash  : #0(7)  (τ=+0.000)
+    gemma-4       : #0(7)  (τ=+0.000)
+    qwen3.6       : #0(7)  (τ=+0.000)
+    deepseek      : #0(7)  (τ=+0.000)
+
+  PB-Basic-024:
+    Ground truth: #6(7) > #3(1) > #2(1) > #5(0) > #4(0) > #1(0) > #0(0)
+    flash-lite    : #3(1) > #0(0) > #5(0) > #1(0) > #2(1) > #6(7) > #4(0)  (τ=-0.143)
+    gemini-flash  : #0(0) > #3(1) > #1(0) > #5(0) > #2(1) > #6(7) > #4(0)  (τ=-0.286)
+    gemma-4       : #0(0) > #3(1) > #1(0) > #6(7) > #5(0) > #2(1) > #4(0)  (τ=+0.000)
+    qwen3.6       : #0(0) > #3(1) > #1(0) > #6(7) > #5(0) > #2(1) > #4(0)  (τ=+0.000)
+    deepseek      : #3(1) > #0(0) > #1(0) > #5(0) > #2(1) > #6(7) > #4(0)  (τ=-0.143)
+
+  erdos-659:
+    Ground truth: #0(1) > #1(1) > #2(1) > #6(0) > #4(0) > #3(0) > #5(0)
+    flash-lite    : #0(1) > #3(0) > #5(0) > #2(1) > #4(0) > #1(1) > #6(0)  (τ=+0.167)
+    gemini-flash  : #0(1) > #1(1) > #2(1) > #3(0) > #5(0) > #4(0) > #6(0)  (τ=+1.000)
+    gemma-4       : #0(1) > #2(1) > #1(1) > #3(0) > #5(0) > #4(0) > #6(0)  (τ=+1.000)
+    qwen3.6       : #1(1) > #0(1) > #2(1) > #3(0) > #6(0) > #4(0) > #5(0)  (τ=+1.000)
+    deepseek      : #3(0) > #1(1) > #0(1) > #2(1) > #5(0) > #4(0) > #6(0)  (τ=+0.500)
+
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+BEST RANKER BY STRATEGY:
+
+  Prune-to-1 (top-1 accuracy): flash-lite (22%)
+  Prune-to-3 (top-3 accuracy): flash-lite (44%)
+  Score@pruned-1:              flash-lite (2.11/7)
+  Overall ranking (Kendall τ): qwen3.6 (0.085)
+
+Results saved to: /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/results/ranker_comparison_20260405_124928.json
+Pipeline log:     /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/logs/pipeline_20260405_122615.jsonl

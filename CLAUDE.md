@@ -1,15 +1,11 @@
 # CLAUDE.md
-
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 This project is an agentic math-solving pipeline (generator → verifier ↔ reviser loop → final judge).
 
 ## Off-Limits Files
 
 Do NOT edit these files under any circumstances:
-- `human_testing.py`
-- `human_log.md`
-- `docs/human_notes.md`
+- `human_testing.py`, `human_log.md`, `docs/human_notes.md`
 
 ## Environment Setup
 
@@ -31,7 +27,6 @@ uv run src/pipeline.py benchmarks/winning-gold/imo01.txt --mock   # smoke test, 
 IF REMOTE INSTANCE CONNECTED (TODO update/confirm instance details)
 
 ## Assignment Structure
-
 Main pipeline: `src/pipeline.py`
 
 ### Pipeline
@@ -70,6 +65,30 @@ IMPORTANT: After every experiment run, and after completing any major task, appe
 > short description & detail 
 
 include experiment results, hyperparameters and seed count when applicable.
+
+## Experiments
+
+Use `experiments/experiment_template.py` as the starting point for all new experiments. Copy, rename with a descriptive name + date, set the configuration block at the top:
+- `EXPERIMENT_NAME`, `MODELS`, `JUDGE_MODEL`, `SEEDS`
+- `select_problems()` — filter function for which CSV rows to include
+- `PIPELINE_MODE` — `"generate"` (cheap) or `"full"` (generate → verify ↔ revise → judge)
+- `USE_GROUND_TRUTH` — Mode A (0–7) vs Mode B (classification)
+and edit the machinery below as needed for non-standard patterns (cross-judging, custom metrics, etc.).
+
+Built-in `--retry <results.json>` re-runs only 402 credit failures and merges back.
+
+```bash
+uv run experiments/<name>.py --mock    # always smoke test first
+uv run experiments/<name>.py           # real run
+uv run experiments/<name>.py --retry experiments/results/<prev>.json  # re-run failures
+```
+
+### Lessons learned
+- **Always store full solution/verdict text** — truncation prevents regrading
+- **Output filenames must include timestamp** (YYYYMMDD_HHMMSS) to prevent overwrites
+- **Use pass@1 for exploratory runs**, pass@k≥2 only when needed — seeds multiply cost linearly
+- **Thread-safe logging**: wrap `make_logger` with a `threading.Lock` when parallelizing
+- **Parallelize branches within seed-ideas trials** — sequential branches are the #1 wall-clock bottleneck (3 branches × full pipeline = 24 serial API calls per trial)
 
 ## Utility Templates
 

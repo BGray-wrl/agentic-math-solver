@@ -1,0 +1,246 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{remark}[lemma]{Remark}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries PRIMES IN A LOGARITHMIC BLOCK PRODUCT}
+\end{center}
+
+\medskip
+
+\noindent\textsc{Abstract.} For $n \ge 3$ let
+\[
+F(n):=\prod_{1\le i\le \lfloor \log n\rfloor}(n+i),
+\]
+and let $q(n,k)$ denote the least prime that does not divide $\prod_{1\le i\le k}(n+i)$. We prove that for every fixed real $C>2$ there are infinitely many integers $n$ such that every prime $p\le C\log n$ divides $F(n)$; equivalently, $q(n,\lfloor \log n\rfloor)>C\log n$ infinitely often. The construction is elementary apart from the standard estimate $\theta(x)=x+o(x)$ for the Chebyshev function. It combines a multiple of $\prod_{k<p\le 2k}p$ near $e^k$ with a weighted simultaneous approximation argument for the primes in $(2k,Ak]$, where $A>C$ is fixed. We also record the unconditional upper bound $q(n,\lfloor \log n\rfloor)\le (1+o(1))(\log n)^2$.
+
+\section{Introduction}
+
+For $n\ge 3$ define
+\[
+F(n):=\prod_{1\le i\le \lfloor \log n\rfloor}(n+i),
+\]
+where $\log$ denotes the natural logarithm. The problem considered here asks whether there exists some $\varepsilon>0$ such that infinitely many integers $n$ satisfy
+\[
+\forall p\le (2+\varepsilon)\log n,\qquad p\mid F(n),
+\]
+with $p$ running over the primes. Equivalently, if $q(n,k)$ denotes the least prime that does not divide $\prod_{1\le i\le k}(n+i)$, the question is whether
+\[
+q(n,\lfloor \log n\rfloor)>(2+\varepsilon)\log n
+\]
+for infinitely many $n$.
+
+We prove a stronger statement: the constant $2+\varepsilon$ may be replaced by an arbitrary fixed constant $C>2$. The proof has two ingredients. First, if
+\[
+Q_k:=\prod_{k<p\le 2k}p,
+\]
+then a multiple of $Q_k$ automatically supplies divisibility by every prime in $(k,2k]$. Second, after multiplying by a factor of size $\exp(o(k))$, one can arrange that the resulting center lies within distance $(k-1)/2$ of a multiple of every prime in $(2k,Ak]$, where $A>C$ is fixed. Since the center is chosen near $e^k$, the corresponding block of $k$ consecutive integers is contained in the longer block defining $F(n)$, and its logarithmic scale is still $k+o(k)$.
+
+We use the standard notation
+\[
+\theta(x):=\sum_{p\le x}\log p.
+\]
+
+The only asymptotic input is the prime number theorem in the form
+\begin{equation}
+\theta(x)=x+o(x)\qquad (x\to\infty).
+\end{equation}
+
+\bigskip
+\noindent\rule{2cm}{0.4pt}
+
+\noindent\textit{2020 Mathematics Subject Classification.} 11A41, 11B25, 11J25.
+
+\noindent\textit{Key words and phrases.} prime divisors, short intervals, simultaneous approximation, pigeonhole principle.
+
+\section{The lower bound construction}
+
+We first isolate the simultaneous approximation step in a convenient weighted form.
+
+\begin{lemma}
+Let $r\ge 1$, let $\alpha_1,\dots,\alpha_r\in\mathbb{R}$, and let $M_1,\dots,M_r$ be positive integers. Put
+\[
+B:=\prod_{j=1}^r M_j.
+\]
+Then there exists an integer $t$ with $1\le t\le B$ such that
+\[
+\|t\alpha_j\|\le \frac{1}{M_j}\qquad (1\le j\le r),
+\]
+where $\|x\|$ denotes the distance from $x$ to the nearest integer.
+\end{lemma}
+
+\begin{proof}
+Consider the $B+1$ points of $[0,1)^r$
+\[
+x_u:=\bigl(\{u\alpha_1\},\dots,\{u\alpha_r\}\bigr),\qquad 0\le u\le B,
+\]
+where $\{x\}$ denotes the fractional part of $x$. Partition $[0,1)^r$ into the half-open boxes
+\[
+\prod_{j=1}^r \left[\frac{a_j}{M_j},\frac{a_j+1}{M_j}\right),\qquad 0\le a_j\le M_j-1.
+\]
+There are exactly $B$ such boxes. Hence two of the points, say $x_u$ and $x_v$ with $u>v$, lie in the same box. Put $t:=u-v$. Then $1\le t\le B$, and for every $j$ the two fractional parts $\{u\alpha_j\}$ and $\{v\alpha_j\}$ differ by at most $1/M_j$ inside the unit circle. Equivalently,
+\[
+\|t\alpha_j\|\le \frac{1}{M_j}\qquad (1\le j\le r).
+\]
+\end{proof}
+
+The main theorem is as follows.
+
+\begin{theorem}
+For every fixed $C>2$, there exist infinitely many integers $n$ such that every prime
+\[
+p\le C\log n
+\]
+divides $F(n)$. Equivalently,
+\[
+q(n,\lfloor \log n\rfloor)>C\log n
+\]
+for infinitely many $n$.
+\end{theorem}
+
+\begin{proof}
+Fix $C>2$, and choose a real number $A>C$. Let $k$ be a large odd integer, and write
+\[
+h:=\frac{k-1}{2}.
+\]
+Define
+\[
+Q_k:=\prod_{k<p\le 2k}p.
+\]
+By (1),
+\begin{equation}
+\log Q_k=\theta(2k)-\theta(k)=k+o(k).
+\end{equation}
+Let $M_k$ be the least positive multiple of $Q_k$ that is not smaller than $e^{k+2}$. Then
+\[
+Q_k\mid M_k,\qquad M_k\ge e^{k+2},\qquad M_k<e^{k+2}+Q_k.
+\]
+In particular, (2) implies
+\begin{equation}
+\log M_k=k+o(k).
+\end{equation}
+
+Let $p_1,\dots,p_r$ be the primes in the interval $(2k,Ak]$. For each $j$ put
+\[
+N_j:=\left\lfloor \frac{p_j}{h}\right\rfloor,\qquad B_k:=\prod_{j=1}^r N_j,
+\]
+with the convention $B_k=1$ if $r=0$. Since $p_j\le Ak$ and $h=(k-1)/2$, we have
+\[
+N_j\le \frac{p_j}{h}+1\le \frac{2Ak}{k-1}+1\le 2A+2
+\]
+for all sufficiently large $k$. Also, by the prime number theorem,
+\[
+r=\pi(Ak)-\pi(2k)=O\!\left(\frac{k}{\log k}\right).
+\]
+Therefore
+\begin{equation}
+\log B_k=O(r)=O\!\left(\frac{k}{\log k}\right)=o(k).
+\end{equation}
+
+If $r\ge 1$, apply Lemma 2.1 with
+\[
+\alpha_j=\frac{M_k}{p_j},\qquad M_j=N_j.
+\]
+We obtain an integer $t_k$ with
+\[
+1\le t_k\le B_k
+\]
+and
+\[
+\left\|\frac{t_kM_k}{p_j}\right\|\le \frac{1}{N_j}\le \frac{h}{p_j}\qquad (1\le j\le r).
+\]
+Thus for each $j$ there exists an integer $m_j$ such that
+\begin{equation}
+|t_kM_k-m_jp_j|\le h.
+\end{equation}
+If $r=0$, set simply $t_k:=1$. In either case,
+\begin{equation}
+1\le t_k\le B_k,\qquad \log t_k=o(k)
+\end{equation}
+by (4).
+
+Now put
+\[
+m_k:=M_kt_k,\qquad n_k:=m_k-h-1.
+\]
+Since $k=2h+1$, the block
+\[
+n_k+1,\dots,n_k+k
+\]
+is exactly the symmetric interval
+\begin{equation}
+[m_k-h,m_k+h].
+\end{equation}
+We claim that every prime $p\le Ak$ divides
+\[
+\prod_{i=1}^k(n_k+i).
+\]
+There are three cases.
+
+\textit{Case 1:} $p\le k$. Any interval of $k$ consecutive integers contains a multiple of $p$, because among any $p$ consecutive integers there is exactly one multiple of $p$, and here $k\ge p$. Hence some $n_k+i$ with $1\le i\le k$ is divisible by $p$.
+
+\textit{Case 2:} $k<p\le 2k$. By definition, $p$ divides $Q_k$, hence also $M_k$ and therefore $m_k=M_kt_k$. Since $m_k\in [m_k-h,m_k+h]$, the integer $m_k$ itself is one of the $k$ terms in (7). Thus $p$ divides one of the factors $n_k+i$.
+
+\textit{Case 3:} $2k<p\le Ak$. Then $p=p_j$ for some $j$. By (5), there is an integer $m_jp_j$ with
+\[
+|m_k-m_jp_j|\le h.
+\]
+Hence $m_jp_j\in [m_k-h,m_k+h]$, so again $p$ divides one of the integers $n_k+1,\dots,n_k+k$.
+
+We have proved that every prime $p\le Ak$ divides the shorter product $\prod_{i=1}^k(n_k+i)$. We now compare $k$ with $\log n_k$. By (3) and (6),
+\[
+\log m_k=\log M_k+\log t_k=k+o(k).
+\]
+Since $m_k\ge M_k\ge e^{k+2}$ and $n_k=m_k-h-1$, we have
+\[
+0\le \frac{m_k-n_k}{m_k}=\frac{h+1}{m_k}\le \frac{k+1}{2e^{k+2}},
+\]
+so in particular
+\begin{equation}
+\log n_k=\log m_k+o(1)=k+o(k).
+\end{equation}
+The lower bound $n_k\ge e^{k+2}-(k+1)/2-1$ shows that $\log n_k\ge k+1$ for all sufficiently large $k$, and hence
+\begin{equation}
+\lfloor \log n_k\rfloor\ge k
+\end{equation}
+for all sufficiently large $k$.
+
+Finally, since $A>C$ and (8) gives $\log n_k=k+o(k)$, we obtain
+\[
+C\log n_k<Ak
+\]
+for all sufficiently large $k$. Therefore every prime $p\le C\log n_k$ is at most $Ak$, hence divides the shorter product $\prod_{i=1}^k(n_k+i)$, and a fortiori divides
+\[
+F(n_k)=\prod_{1\le i\le \lfloor \log n_k\rfloor}(n_k+i)
+\]
+by (9). Since $n_k\to\infty$ as $k\to\infty$ through odd integers, this gives infinitely many such $n$.
+\end{proof}
+
+\begin{remark}
+The proof yields more than the original formulation. Since $C>2$ is arbitrary, for every fixed $C>2$ there are infinitely many integers $n$ with
+\[
+q(n,\lfloor \log n\rfloor)>C\log n.
+\]
+Thus, the barrier at the constant $2$ can be exceeded by any prescribed amount.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{erdos}
+P. Erd\H{o}s, \textit{Some unconventional problems in number theory}, Acta Math. Acad. Sci. Hungar. \textbf{33} (1979), 73--82.
+
+\bibitem{bloom}
+T. F. Bloom, \textit{Erd\H{o}s Problem \#457}, \url{https://www.erdosproblems.com/457} (accessed 2026-03-02).
+
+\end{thebibliography}
+
+\end{document}

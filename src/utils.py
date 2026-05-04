@@ -36,11 +36,11 @@ def llm(prompt, model="openrouter/google/gemini-3.1-flash-lite-preview", system=
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
     resp = litellm.completion(model=model, messages=messages, max_tokens=max_tokens)
-    content = resp.choices[0].message.content
+    content = resp.choices[0].message.content #type: ignore
     # Some thinking models (e.g. Gemini Pro) put the answer in reasoning_content
     # when content is None
     if content is None:
-        content = getattr(resp.choices[0].message, "reasoning_content", None)
+        content = getattr(resp.choices[0].message, "reasoning_content", None) #type: ignore
     if content is None:
         raise ValueError(f"Model {model} returned None content. Full response: {resp}")
     return content

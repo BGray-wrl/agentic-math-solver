@@ -1,0 +1,135 @@
+{
+  "experiment": "hadamard_agentic",
+  "target_order": 668,
+  "date": "2026-04-05T15:38:53.176539+00:00",
+  "mock": true,
+  "solved": false,
+  "branches": {
+    "2": {
+      "branch": "qwen-algebraic",
+      "model": "openrouter/qwen/qwen3-max-thinking",
+      "turns": 3,
+      "solved": false,
+      "best_order": 0,
+      "best_violations": null,
+      "best_matrix_csv": null,
+      "elapsed_s": 0.3,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 2,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 3,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        }
+      ]
+    },
+    "1": {
+      "branch": "gemini-tensor",
+      "model": "openrouter/google/gemini-3.1-pro-preview",
+      "turns": 3,
+      "solved": false,
+      "best_order": 0,
+      "best_violations": null,
+      "best_matrix_csv": null,
+      "elapsed_s": 0.3,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 2,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 3,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        }
+      ]
+    },
+    "0": {
+      "branch": "opus-paley",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "turns": 3,
+      "solved": false,
+      "best_order": 0,
+      "best_violations": null,
+      "best_matrix_csv": null,
+      "elapsed_s": 0.3,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 2,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        },
+        {
+          "turn": 3,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 0.1
+        }
+      ]
+    }
+  }
+}

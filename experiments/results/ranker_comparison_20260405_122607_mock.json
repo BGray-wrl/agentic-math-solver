@@ -1,0 +1,1072 @@
+{
+  "experiment": "ranker_comparison",
+  "description": "Hypothesis: Stronger or differently-capable ranker models can better predict\nwhich seed idea will produce the best solution. Tests 5 ranker models including\nnew gemma-4 and qwen3.6-plus, plus deepseek (same as generator) to test\nself-prediction.\n\nVariables:\n  Independent: ranker model\n  Dependent:   top-1 accuracy, top-3 accuracy, score@pruned-1, Kendall tau\n  Controlled:  ideator, generator, judge, ideas (shared), problem set",
+  "date": "2026-04-05T12:26:07.901035+00:00",
+  "rankers": {
+    "flash-lite": "openrouter/google/gemini-3.1-flash-lite-preview",
+    "gemini-flash": "openrouter/google/gemini-3-flash-preview",
+    "gemma-4": "openrouter/google/gemma-4-31b-it",
+    "qwen3.6": "openrouter/qwen/qwen3.6-plus:free",
+    "deepseek": "openrouter/deepseek/deepseek-v3.2"
+  },
+  "n_ideas": 7,
+  "seeds": [
+    42
+  ],
+  "ideator_model": "openrouter/google/gemini-3.1-flash-lite-preview",
+  "generator_model": "openrouter/deepseek/deepseek-v3.2",
+  "judge_model": "gemini/gemini-3-flash-preview",
+  "mock": true,
+  "all_results": [
+    {
+      "problem_id": "PB-Advanced-027",
+      "level": "IMO-hard",
+      "role": "hard-extra",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "1": 7,
+        "2": 7,
+        "0": 7
+      },
+      "best_idx": 1,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Advanced-012",
+      "level": "IMO-hard",
+      "role": "hard-extra",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "2": 7,
+        "0": 7,
+        "1": 7
+      },
+      "best_idx": 2,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Advanced-021",
+      "level": "IMO-hard",
+      "role": "hard-extra",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "0": 7,
+        "1": 7,
+        "2": 7
+      },
+      "best_idx": 0,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "role": "hard-extra",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "2": 7,
+        "1": 7,
+        "0": 7
+      },
+      "best_idx": 2,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "role": "hard",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "0": 7,
+        "1": 7,
+        "2": 7
+      },
+      "best_idx": 0,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "role": "boundary-verifier-bug",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "2": 7,
+        "0": 7,
+        "1": 7
+      },
+      "best_idx": 2,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.05
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "role": "sanity",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "1": 7,
+        "2": 7,
+        "0": 7
+      },
+      "best_idx": 1,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.04
+    },
+    {
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "role": "boundary-pipeline-helps",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "0": 7,
+        "2": 7,
+        "1": 7
+      },
+      "best_idx": 0,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.04
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "level": "pre-IMO",
+      "role": "boundary-pipeline-hurts",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "2": 7,
+        "1": 7,
+        "0": 7
+      },
+      "best_idx": 2,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.04
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "role": "frontier",
+      "seed": 42,
+      "ideas": [
+        {
+          "name": "Direct construction",
+          "description": "Build an explicit example satisfying the conditions."
+        },
+        {
+          "name": "Contradiction argument",
+          "description": "Assume the negation and derive a contradiction."
+        },
+        {
+          "name": "Induction on n",
+          "description": "Use strong induction on the parameter n."
+        }
+      ],
+      "branch_scores": {
+        "0": 7,
+        "1": 7,
+        "2": 7
+      },
+      "best_idx": 0,
+      "best_score": 7,
+      "branches": [
+        {
+          "idea_idx": 0,
+          "idea": {
+            "name": "Direct construction",
+            "description": "Build an explicit example satisfying the conditions."
+          },
+          "score": 7,
+          "elapsed_s": 0.02,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 1,
+          "idea": {
+            "name": "Contradiction argument",
+            "description": "Assume the negation and derive a contradiction."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        },
+        {
+          "idea_idx": 2,
+          "idea": {
+            "name": "Induction on n",
+            "description": "Use strong induction on the parameter n."
+          },
+          "score": 7,
+          "elapsed_s": 0.03,
+          "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+          "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+        }
+      ],
+      "ranker_results": {
+        "flash-lite": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemini-flash": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "gemma-4": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "deepseek": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        },
+        "qwen3.6": {
+          "ranking": [
+            0,
+            1,
+            2
+          ],
+          "raw_response": "```json\n[0, 1, 2]\n```\nIdea 0 is best because it's the most direct approach."
+        }
+      },
+      "elapsed_s": 0.04
+    }
+  ]
+}

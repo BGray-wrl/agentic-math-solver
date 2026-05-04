@@ -1,0 +1,45 @@
+{
+  "experiment": "hadamard_agentic_v2",
+  "target_order": 668,
+  "date": "2026-04-06T00:56:21.584992+00:00",
+  "mock": false,
+  "solved": false,
+  "exec_timeout": 300,
+  "reasoning_efforts": {
+    "openrouter/anthropic/claude-opus-4.6": "medium",
+    "openrouter/google/gemini-3.1-pro-preview": "high"
+  },
+  "resumed_from": null,
+  "branches": {
+    "0": {
+      "branch": "williamson-qr",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 0,
+      "solved": false,
+      "best_order": 0,
+      "best_quality": 0.0,
+      "best_violations": null,
+      "elapsed_s": 5.4,
+      "turn_summaries": []
+    },
+    "1": {
+      "branch": "williamson-search",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 0,
+      "solved": false,
+      "best_order": 0,
+      "best_quality": 0.0,
+      "best_violations": null,
+      "elapsed_s": 5.4,
+      "turn_summaries": []
+    }
+  }
+}

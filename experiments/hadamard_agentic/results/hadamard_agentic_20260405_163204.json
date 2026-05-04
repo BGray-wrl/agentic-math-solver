@@ -1,0 +1,505 @@
+{
+  "experiment": "hadamard_agentic",
+  "target_order": 668,
+  "date": "2026-04-05T16:32:04.548248+00:00",
+  "mock": false,
+  "solved": false,
+  "branches": {
+    "0": {
+      "branch": "opus-paley",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "turns": 20,
+      "solved": false,
+      "best_order": 4,
+      "best_violations": 1,
+      "best_matrix_csv": null,
+      "elapsed_s": 1566.6,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "code_success": false,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 22.6
+        },
+        {
+          "turn": 2,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 30.5
+        },
+        {
+          "turn": 3,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 94.6
+        },
+        {
+          "turn": 4,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 86.6
+        },
+        {
+          "turn": 5,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 71.8
+        },
+        {
+          "turn": 6,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 30.9
+        },
+        {
+          "turn": 7,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 134.8
+        },
+        {
+          "turn": 8,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 29.3
+        },
+        {
+          "turn": 9,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 23.0
+        },
+        {
+          "turn": 10,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 71.3
+        },
+        {
+          "turn": 11,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 24.3
+        },
+        {
+          "turn": 12,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 134.9
+        },
+        {
+          "turn": 13,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 59.0
+        },
+        {
+          "turn": 14,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 27.2
+        },
+        {
+          "turn": 15,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 183.8
+        },
+        {
+          "turn": 16,
+          "code_success": false,
+          "timed_out": true,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 135.7
+        },
+        {
+          "turn": 17,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 131.5
+        },
+        {
+          "turn": 18,
+          "code_success": false,
+          "timed_out": true,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 135.4
+        },
+        {
+          "turn": 19,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 98.4
+        },
+        {
+          "turn": 20,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 41.0
+        }
+      ]
+    },
+    "2": {
+      "branch": "relay-opus-gemini",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "turns": 20,
+      "solved": false,
+      "best_order": 3,
+      "best_violations": 1,
+      "best_matrix_csv": null,
+      "elapsed_s": 1867.5,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "code_success": false,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 11.0
+        },
+        {
+          "turn": 2,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 16.0
+        },
+        {
+          "turn": 3,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 30.6
+        },
+        {
+          "turn": 4,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 59.4
+        },
+        {
+          "turn": 5,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 64.3
+        },
+        {
+          "turn": 6,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 13.3
+        },
+        {
+          "turn": 7,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 41.3
+        },
+        {
+          "turn": 8,
+          "code_success": false,
+          "timed_out": true,
+          "has_matrix": false,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 140.6
+        },
+        {
+          "turn": 9,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 71.0
+        },
+        {
+          "turn": 10,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 45.7
+        },
+        {
+          "turn": 11,
+          "code_success": false,
+          "timed_out": false,
+          "has_matrix": false,
+          "best_order": 3,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 210.1
+        },
+        {
+          "turn": 12,
+          "event": "no_code",
+          "elapsed": 126.3
+        },
+        {
+          "turn": 13,
+          "event": "no_code",
+          "elapsed": 129.5
+        },
+        {
+          "turn": 14,
+          "event": "no_code",
+          "elapsed": 132.7
+        },
+        {
+          "turn": 15,
+          "event": "no_code",
+          "elapsed": 126.5
+        },
+        {
+          "turn": 16,
+          "event": "no_code",
+          "elapsed": 118.0
+        },
+        {
+          "turn": 17,
+          "event": "no_code",
+          "elapsed": 155.9
+        },
+        {
+          "turn": 18,
+          "event": "no_code",
+          "elapsed": 119.1
+        },
+        {
+          "turn": 19,
+          "event": "no_code",
+          "elapsed": 126.1
+        },
+        {
+          "turn": 20,
+          "event": "no_code",
+          "elapsed": 130.0
+        }
+      ]
+    },
+    "1": {
+      "branch": "gemini-tensor",
+      "model": "openrouter/google/gemini-3.1-pro-preview",
+      "turns": 20,
+      "solved": false,
+      "best_order": 4,
+      "best_violations": 1,
+      "best_matrix_csv": null,
+      "elapsed_s": 2622.9,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "event": "no_code",
+          "elapsed": 210.3
+        },
+        {
+          "turn": 2,
+          "event": "no_code",
+          "elapsed": 39.0
+        },
+        {
+          "turn": 3,
+          "event": "no_code",
+          "elapsed": 122.6
+        },
+        {
+          "turn": 4,
+          "event": "no_code",
+          "elapsed": 125.8
+        },
+        {
+          "turn": 5,
+          "event": "no_code",
+          "elapsed": 123.5
+        },
+        {
+          "turn": 6,
+          "event": "no_code",
+          "elapsed": 117.1
+        },
+        {
+          "turn": 7,
+          "event": "no_code",
+          "elapsed": 214.0
+        },
+        {
+          "turn": 8,
+          "event": "no_code",
+          "elapsed": 124.0
+        },
+        {
+          "turn": 9,
+          "event": "no_code",
+          "elapsed": 127.7
+        },
+        {
+          "turn": 10,
+          "event": "no_code",
+          "elapsed": 128.7
+        },
+        {
+          "turn": 11,
+          "event": "no_code",
+          "elapsed": 146.8
+        },
+        {
+          "turn": 12,
+          "code_success": true,
+          "timed_out": false,
+          "has_matrix": true,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 119.7
+        },
+        {
+          "turn": 13,
+          "event": "no_code",
+          "elapsed": 124.4
+        },
+        {
+          "turn": 14,
+          "event": "no_code",
+          "elapsed": 125.1
+        },
+        {
+          "turn": 15,
+          "event": "no_code",
+          "elapsed": 124.5
+        },
+        {
+          "turn": 16,
+          "event": "no_code",
+          "elapsed": 144.6
+        },
+        {
+          "turn": 17,
+          "event": "no_code",
+          "elapsed": 124.9
+        },
+        {
+          "turn": 18,
+          "event": "no_code",
+          "elapsed": 123.1
+        },
+        {
+          "turn": 19,
+          "event": "no_code",
+          "elapsed": 125.2
+        },
+        {
+          "turn": 20,
+          "event": "no_code",
+          "elapsed": 131.8
+        }
+      ]
+    }
+  }
+}

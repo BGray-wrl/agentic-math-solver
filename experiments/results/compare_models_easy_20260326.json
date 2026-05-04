@@ -1,0 +1,678 @@
+{
+  "experiment": "compare_models_easy_20260326",
+  "date": "2026-03-26",
+  "mock": false,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "problems": [
+    "PB-Basic-002",
+    "PB-Basic-008",
+    "PB-Basic-013",
+    "PB-Basic-014",
+    "PB-Basic-017"
+  ],
+  "models": [
+    "openrouter/nvidia/nemotron-3-super-120b-a12b",
+    "openrouter/stepfun/step-3.5-flash",
+    "openrouter/deepseek/deepseek-v3.2",
+    "openrouter/qwen/qwen3.5-flash-02-23"
+  ],
+  "judge_model": "openrouter/google/gemini-3-flash-preview",
+  "score_map": {
+    "correct": 3,
+    "almost": 2,
+    "partial": 1,
+    "incorrect": 0
+  },
+  "model_stats": {
+    "openrouter/nvidia/nemotron-3-super-120b-a12b": {
+      "mean": 2.6,
+      "std": 1.02,
+      "n": 15,
+      "breakdown": {
+        "correct": 13,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 2
+      }
+    },
+    "openrouter/stepfun/step-3.5-flash": {
+      "mean": 2.6,
+      "std": 1.02,
+      "n": 15,
+      "breakdown": {
+        "correct": 13,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 2
+      }
+    },
+    "openrouter/deepseek/deepseek-v3.2": {
+      "mean": 2.8,
+      "std": 0.748,
+      "n": 15,
+      "breakdown": {
+        "correct": 14,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 1
+      }
+    },
+    "openrouter/qwen/qwen3.5-flash-02-23": {
+      "mean": 3.0,
+      "std": 0.0,
+      "n": 15,
+      "breakdown": {
+        "correct": 15,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 0
+      }
+    }
+  },
+  "all_results": [
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 61.49,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved\n\n**Method sketch:** Apply AM‑GM to bound the product \\(P=xyzt\\) by \\((x+y+z+t)^4/256\\). Together with the given condition \\(2(x+y+z+t)\\ge P\\), show that \\(P\\le (x+y+z+t)^2/4\\) by a simple case analysis on the sum \\(S=x+y+z+t\\). Then use QM‑AM (or Cauchy‑Schwarz) to ob",
+      "judge_snippet": "The candidate solution is a complete and rigorous proof of the stated inequality.\n\n### Evaluation and Justification:\n\n1.  **Logical Structure:** The solution correctly identifies the relationship between the sum $S = x+y+z+t$, the sum of squares $Q = x^2+y^2+z^2+t^2$, and the product $P = xyzt$.\n2. "
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 62.25,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Reduce the problem via scaling to four variables \\(a,b,c,d\\) with condition \\(a+b+c+d \\ge 4abcd\\), and prove \\(a^2+b^2+c^2+d^2 \\ge 4abcd\\) using the facts \\(\\sum a^2 \\ge (\\sum a)^2/4\\) (Cauchy) and \\(\\sum a^2 \\ge 4\\sqrt{abcd}\\) (AM‑GM). Split into",
+      "judge_snippet": "The candidate solution provides a clear, rigorous, and complete proof of the inequality.\n\n### Evaluation:\n1.  **Scaling (Step 1):** The substitution $x=2a, y=2b, z=2c, t=2d$ is a standard and effective technique. It correctly transforms the problem into showing $a^2+b^2+c^2+d^2 \\ge 4abcd$ under the "
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 76.96,
+      "solution_snippet": "**Summary**\n\nThe inequality is proven by scaling the variables: set $a=x/2$, $b=y/2$, $c=z/2$, $d=t/2$.  \nThe condition becomes $a+b+c+d \\ge 4abcd$, and we need to show $a^2+b^2+c^2+d^2 \\ge 4abcd$.  \n- If $abcd \\le 1$, AM–GM on the squares gives $a^2+b^2+c^2+d^2 \\ge 4\\sqrt{abcd} \\ge 4abcd$.  \n- If $",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof of the inequality.\n\n### Evaluation and Justification:\n\n1.  **Scaling and Reduction:** The candidate correctly scales the variables by setting $a = x/2, b = y/2, c = z/2, d = t/2$. This simplifies the problem significantly. The condition $"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 126.97,
+      "solution_snippet": "To prove the inequality $x^2 + y^2 + z^2 + t^2 \\ge xyzt$ given $2(x + y + z + t) \\ge xyzt$ for positive real numbers $x, y, z, t$, we will define the relevant sums and products and use standard inequalities.\n\nLet us denote:\n$$S = x + y + z + t$$\n$$P = xyzt$$\n$$Q = x^2 + y^2 + z^2 + t^2$$\n\nThe given ",
+      "judge_snippet": "The candidate solution provides a clear, rigorous, and complete proof of the inequality.\n\n### Evaluation of the Steps:\n1.  **Notation and Problem Statement:** The candidate correctly identifies the goal to show $Q \\ge P$ given $P \\le 2S$, where $Q = \\sum x^2$, $S = \\sum x$, and $P = \\prod x$.\n2.  **"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 137.56,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved  \n**Method sketch:** We prove the inequality by splitting the problem into two cases based on the magnitude of the product $P = xyzt$. Using the AM-GM inequality on the squares $x^2, y^2, z^2, t^2$ provides a lower bound for the sum of squares. Using the given conditi",
+      "judge_snippet": "**CLASSIFICATION: correct**\n\nThe candidate solution provides a complete and rigorous proof of the inequality $x^2 + y^2 + z^2 + t^2 \\ge xyzt$ under the condition $2(x+y+z+t) \\ge xyzt$.\n\n### Logical Steps:\n1.  **Definitions:** The solution correctly defines the sum of squares ($S_2$), the sum ($S_1$)"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 149.31,
+      "solution_snippet": "**Summary**\n\n**Verdict:** Solved  \n**Method sketch:** Use the condition \\(2(x+y+z+t)\\ge xyzt\\) to derive \\((x+y+z+t)^2\\ge4xyzt\\) via AM–GM and a contradiction argument. Then apply the inequality \\((x+y+z+t)^2\\le4(x^2+y^2+z^2+t^2)\\) (Cauchy–Schwarz) to obtain \\(x^2+y^2+z^2+t^2\\ge xyzt\\).\n\n---\n\n**Deta",
+      "judge_snippet": "CLASSIFICATION: correct\n\n**Evaluation:**\nThe candidate solution provides a rigorous and complete proof of the inequality. \n\n1.  **Step 1:** The derivation of $(x+y+z+t)^2 \\ge 4xyzt$ from the condition $2(x+y+z+t) \\ge xyzt$ is logically sound. The use of AM-GM ($S \\ge 4P^{1/4}$) to establish a contra"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 208.75,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Use the inequalities \\(x^2+y^2+z^2+t^2\\ge\\frac{(x+y+z+t)^2}{4}\\) (QM–AM) and \\(x^2+y^2+z^2+t^2\\ge4\\sqrt{xyzt}\\) (AM–GM on the squares). Split into two cases according to whether \\(\\frac{S^2}{4}\\ge P\\) or not, where \\(S=x+y+z+t\\) and \\(P=xyzt\\). The given cond",
+      "judge_snippet": "The solution is correct and rigorous. It uses a clever case-based logic (framed here as a proof by contradiction) to demonstrate that the lower bound of $x^2+y^2+z^2+t^2$ provided by classical inequalities (QM-AM and AM-GM) must exceed $xyzt$ given the constraint.\n\n**Evaluation:**\n1.  **Lower Bounds"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 110.68,
+      "solution_snippet": "We need to prove: For positive reals a,b,c with a+b+c=1, show sqrt(a)+sqrt(b)+sqrt(c) >= 3√3 (ab+bc+ca). Wait, check: The right side is 3√3 (ab+bc+ca). That's a linear combination? But dimensions: LHS is sqrt of something, dimension: sqrt(a) ~ sqrt( variable). RHS: ab+bc+ca is quadratic, times const",
+      "judge_snippet": "The problem asks to prove that for positive reals $a, b, c$ with $a+b+c=1$, the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ holds.\n\n**1. Dimensional Analysis and Equality Case:**\nThe candidate solution correctly identifies that the inequality is dimensionally consistent given th"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 107.85,
+      "solution_snippet": "We are asked: Let a,b,c be positive reals such that a+b+c=1, prove that sqrt(a)+sqrt(b)+sqrt(c) >= 3 sqrt(3) (ab+bc+ca).\n\nWe need to prove: sqrt(a)+sqrt(b)+sqrt(c) >= 3√3 (ab+bc+ca). Given a+b+c=1.\n\nWe need to check if inequality holds. Possibly need to use standard inequalities like Cauchy-Schwarz,",
+      "judge_snippet": "The problem asks us to prove that for positive reals $a, b, c$ such that $a+b+c=1$, the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ holds.\n\n**1. Symmetry and Reduction:**\nThe inequality is symmetric in $a, b, c$. Due to the nature of the functions (sum of square roots vs. polyno"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 113.43,
+      "solution_snippet": "We need to prove that for positive real numbers a,b,c with a+b+c=1, we have:\n\n√a + √b + √c ≥ 3√3 (ab + bc + ca).\n\nIs this true? Let's test some values: If a=b=c=1/3, then LHS = 3 * √(1/3) = 3/√3 = √3 ≈ 1.732. RHS: ab+bc+ca = 3*(1/3*1/3)=3*(1/9)=1/3. Then RHS = 3√3 * (1/3) = √3 ≈ 1.732. So equality h",
+      "judge_snippet": "The candidate's solution follows a rigorous and logically sound path to prove the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ under the constraint $a+b+c=1$.\n\n**1. Preliminary Analysis and Substitution:**\nThe candidate begins by testing values ($a=b=c=1/3$ and boundary cases) to"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 206.76,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Prove the one‑variable inequality \\(\\sqrt{t}\\ge \\frac{3\\sqrt3}{2}\\,t(1-t)\\) for \\(t\\in[0,1]\\) (by AM–GM or calculus).  Using \\(a+b+c=1\\) we sum this inequality for \\(t=a,b,c\\) and obtain \\(\\sum\\sqrt a\\ge\\frac{3\\sqrt3}{2}\\sum a(1-a)=3\\sqrt3(ab+bc+ca)\\).\n\n---\n\n",
+      "judge_snippet": "The solution is correct and rigorous.\n\n### Evaluation:\n1.  **Transformation of the Inequality:** The candidate correctly identifies that given $a+b+c=1$, the expression $ab+bc+ca$ can be related to $a(1-a) + b(1-b) + c(1-c)$. Specifically, $\\sum a(1-a) = (a+b+c) - \\sum a^2 = 1 - \\sum a^2$. Using the"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 212.35,
+      "solution_snippet": "\n\n\\[\n\\text{Let }a,b,c>0,\\;a+b+c=1.\n\\]\n\nPut  \n\n\\[\nx=\\sqrt a,\\qquad y=\\sqrt b,\\qquad z=\\sqrt c\\qquad (x,y,z\\ge 0).\n\\]\n\nThen  \n\n\\[\nx^{2}+y^{2}+z^{2}=a+b+c=1                                    \\tag{1}\n\\]\n\nand we have to prove  \n\n\\[\nx+y+z\\ge 3\\sqrt3\\,(x^{2}y^{2}+y^{2}z^{2}+z^{2}x^{2}).        \\tag{2}\n\\]\n",
+      "judge_snippet": "The candidate solution is a rigorous and complete proof of the inequality. \n\n### Analysis of the Solution:\n1.  **Transformation of Variables:** The substitution $x=\\sqrt{a}, y=\\sqrt{b}, z=\\sqrt{c}$ is a standard and effective move, leading to the condition $x^2+y^2+z^2=1$ and the target inequality $"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 278.36,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved\n**Method sketch:**\nWe perform a change of variables $x=2a, y=2b, z=2c, t=2d$ to simplify the constants, transforming the problem into showing $\\sum a^2 \\ge 4 \\prod a$ given $\\sum a \\ge 4 \\prod a$. We utilize a scaling argument: for any point in the feasible region ($\\",
+      "judge_snippet": "CLASSIFICATION: correct\n\n### Detailed Evaluation:\n\n**1. Strategy and Change of Variables:**\nThe candidate starts by substituting $x=2a, y=2b, z=2c, t=2d$. This simplifies the problem to:\nGiven $a+b+c+d \\ge 4abcd$, prove $a^2+b^2+c^2+d^2 \\ge 4abcd$.\nThe substitution is correct and simplifies the coef"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 286.15,
+      "solution_snippet": "**Summary**\n\n**Verdict:** Solved  \n**Method sketch:** Scale the variables by \\( \\frac12 \\) to transform the condition \\(2(x+y+z+t)\\ge xyzt\\) into \\(S\\ge 4u\\) where \\(S=a+b+c+d\\) and \\(u=abcd\\).  The desired inequality becomes \\(Q\\ge 4u\\) with \\(Q=a^2+b^2+c^2+d^2\\).  Using \\(Q\\ge S^2/4\\) (Cauchy–Schw",
+      "judge_snippet": "In this problem, we are asked to prove a conditional inequality. The provided candidate solution uses a substitution/scaling method and a case-by-case analysis based on the sum of the scaled variables.\n\n### Rigorous Evaluation:\n\n1.  **Scaling and Transformation:**\n    The transformation $a=x/2, b=y/"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 355.01,
+      "solution_snippet": "---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Use the given constraint \\(2(x+y+z+t) \\geq xyzt\\) to substitute into the inequality \\(x^2+y^2+z^2+t^2 \\geq xyzt\\). Show equivalently that  \n\\[\nx^2+y^2+z^2+t^2 \\geq \\frac{xyzt}{2(x+y+z+t)} \\cdot 2(x+y+z+t) \\geq \\text{(something)}\n\\]  \nbut bett",
+      "judge_snippet": "The candidate's solution provides a clear and rigorous proof of the inequality $x^2 + y^2 + z^2 + t^2 \\ge xyzt$ given the constraint $2(x + y + z + t) \\ge xyzt$ for $x, y, z, t > 0$.\n\n### Analysis of the Argument:\n\n1.  **Fundamental Lower Bound:**\n    The solution correctly identifies that by the Qu"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 362.65,
+      "solution_snippet": "Alright — let’s go step-by-step.\n\n---\n\n**Step 1: Restate the problem**  \nWe are given positive real numbers \\(x, y, z, t\\) satisfying  \n\n\\[\n2(x + y + z + t) \\ge xyzt.\n\\]  \n\nWe want to prove\n\n\\[\nx^2 + y^2 + z^2 + t^2 \\ge xyzt.\n\\]\n\n---\n\n**Step 2: Use AM–QM inequality**  \n\nBy AM–QM (or the fact that sq",
+      "judge_snippet": "The candidate's solution identifies a two-case strategy based on the value of the product $xyzt$.\n\n### 1. Verification of Logic\n\n**Case 1: $xyzt \\le 16$**\nThe candidate observes that $x^2 + y^2 + z^2 + t^2 \\ge 2(xy + zt)$.  \nBy the Arithmetic Mean-Geometric Mean (AM-GM) inequality, $xy + zt \\ge 2\\sq"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 155.06,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved  \n**Method sketch:** We aim to prove \\(\\sqrt{a} + \\sqrt{b} + \\sqrt{c} \\ge 3\\sqrt{3} (ab + bc + ca)\\) under \\(a,b,c > 0\\), \\(a+b+c = 1\\). First normalize by setting \\(a+b+c = 1\\) and write the inequality in terms of \\(p = \\sum a\\), \\(q = \\sum ab\\), \\(r = abc\\) and know",
+      "judge_snippet": "The problem asks to prove that for positive reals $a, b, c$ with $a+b+c=1$, the inequality $\\sqrt{a} + \\sqrt{b} + \\sqrt{c} \\ge 3\\sqrt{3}(ab + bc + ca)$ holds.\n\n**Evaluation of the Candidate Solution:**\n1.  **Initial Strategy:** The candidate correctly identifies the constraint $a+b+c=1$ and the symm"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 456,
+      "classification": "incorrect",
+      "score": 0,
+      "elapsed_s": 287.71,
+      "solution_snippet": "We need to prove that for positive reals a, b, c with a+b+c = 1, we have\n\n√a + √b + √c ≥ 3√3 (ab + bc + ca).\n\nWe need to produce a proof.\n\nGiven the RHS: 3√3 times sum of pairwise products. Since a+b+c=1, the maximum of ab+bc+ca occurs when a=b=c=1/3, giving (3 * (1/3)^2?) Actually ab+bc+ca = (1/2)[",
+      "judge_snippet": "The goal is to prove that for positive reals $a, b, c$ such that $a+b+c=1$, the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ holds.\n\n**1. Symmetry and Equality Case:**\nThe inequality is symmetric in $a, b, c$. When $a=b=c=1/3$, we have $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} = 3\\sqrt{1/3} = "
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 91.03,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Count the total incidences of colors in boxes to get \\(\\sum r_i = 48\\).  \nIf no two colors appear together in more than one box, then any two boxes intersect in at most one color, so \\(\\sum\\binom{r_i}{2}\\le \\binom{8}{2}=28\\).  \nBy convexity, \\(\\sum\\binom{r_i}",
+      "judge_snippet": "The candidate solution is complete, rigorous, and logically sound. It correctly translates the problem into a combinatorial design context and uses a double-counting argument (counting pairs of colors within boxes versus pairs of boxes sharing a color) to reach a contradiction.\n\n### Evaluation of St"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "classification": "incorrect",
+      "score": 0,
+      "elapsed_s": 112.71,
+      "solution_snippet": "\n\n**Answer:**  \nThere are two colors that occur together in at least two different boxes.\n\n**Explanation**\n\nLet the 22 possible colours be the vertices of a set \\(X\\) (\\(|X|=22\\)).  \nEach of the 8 boxes contains 6 different colours; thus each box corresponds to a 6‑element subset of \\(X\\).\n\nDenote b",
+      "judge_snippet": "The candidate solution attempts to use a counting argument based on pairs of colors to prove the statement. However, it contains several logical errors in the counting and the formulation of the proof by contradiction.\n\n**1. Logical Errors in Counting:**\n- The candidate defines $S = \\sum_{i=1}^{22} "
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 49.59,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Use the pigeonhole principle on pairs of colors. Each box contains \\(\\binom{6}{2} = 15\\) color pairs. Over 8 boxes, that’s \\(8 \\times 15 = 120\\) pairs. There are \\(\\binom{22}{2} = 231\\) possible color pairs. If no color pair occurred in more than ",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof for the problem. Here is the breakdown:\n\n1.  **Correct Assumption for Contradiction**: The candidate assumes that no two colors appear together in more than one box. This is equivalent to saying that any two boxes share at most one color."
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 76.35,
+      "solution_snippet": "**Verdict:** Solved\n\n**Method sketch:** Double counting of common colors among boxes; use convexity to obtain a lower bound on the sum of binomial coefficients of color frequencies, which contradicts the upper bound arising from the assumption that no pair of colors appears in two boxes.\n\n## Detaile",
+      "judge_snippet": "The candidate has provided a complete and rigorous proof using the method of double counting and convexity.\n\n**Step-by-step verification:**\n1.  **Objective:** The problem asks to prove that at least one pair of colors $\\{x, y\\}$ appears in at least two boxes.\n2.  **Assumption:** The candidate assume"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 76.57,
+      "solution_snippet": "**Verdict:** Solved\n\n**Method sketch:**  \nDouble counting: let \\(r_c\\) be the number of boxes containing color \\(c\\). If any two boxes intersect in at most one color, then \\(\\sum_{c} \\binom{r_c}{2} \\le \\binom{8}{2}=28\\). But from \\(\\sum_c r_c=48\\) and \\(22\\) colors, the minimal possible value of \\(\\",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof of the statement using double counting and Jensen's inequality (or the logic of discrete convexity).\n\n**Evaluation and Steps:**\n1.  **Translation to Set Theory:** The solution correctly reformulates the problem: each box $B_i$ is a 6-elem"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 94.21,
+      "solution_snippet": "**Summary**\n\n**Verdict:** Solved  \n**Method sketch:** Model the situation with an 8 × 22 incidence matrix (rows = boxes, columns = colors).  If no pair of colors appeared together in more than one box, then any two rows would have dot product at most 1.  Counting the total dot‑product in two ways gi",
+      "judge_snippet": "CLASSIFICATION: correct\n\n**Justification:**\nThe candidate solution provides a complete and mathematically rigorous proof using a standard double-counting argument (also known as the \"pairing\" argument or a Turán-type problem on graphs).\n\n1.  **Definitions and Identities:** The solution correctly def"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 208.57,
+      "solution_snippet": "Let $a,b,c$ be positive real numbers such that $a+b+c=1$. We want to prove that $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$.\n\nFirst, we use the identity relating the elementary symmetric polynomials. Given $a+b+c=1$, we have:\n$$(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+bc+ca) = 1.$$\nThus, we can expr",
+      "judge_snippet": "CLASSIFICATION: correct\n\nThe candidate solution correctly proves the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ for positive reals $a, b, c$ summing to 1.\n\n**Detailed Breakdown:**\n1.  **Identity Substitution:** The candidate correctly uses the identity $(a+b+c)^2 = 1 \\implies a"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 107.83,
+      "solution_snippet": "Alright, let's carefully parse the problem.\n\n---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Use the pigeonhole principle on pairs (color, box). Each box contains 6 distinct colors, so total appearances of colors across boxes is \\( 8 \\times 6 = 48 \\). If each color appears in at most 4 box",
+      "judge_snippet": "The candidate provides a complete and mathematically rigorous proof using a double-counting argument.\n\n### Evaluation of Logical Steps:\n\n1.  **Negation Assumption:** The candidate correctly states the negation: assume no two colors appear together in more than one box. This implies that any pair of "
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 123,
+      "classification": "incorrect",
+      "score": 0,
+      "elapsed_s": 136.95,
+      "solution_snippet": "We are given: 8 boxes, each contains 6 balls. Each ball colored with one of 22 colors. In each box, no two balls have the same color. So each box contains 6 distinct colors. The total number of balls = 8*6 = 48. But there are 22 colors, each color can appear multiple times across boxes, but within a",
+      "judge_snippet": "To show that there must be two colors that occur together in more than one box, we assume the contrary: no pair of colors appears together in more than one box. This implies that any two distinct boxes can share at most one color (if they shared two colors, those two colors would appear together in "
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 254.52,
+      "solution_snippet": "The problem asks to prove that for positive real numbers $a, b, c$ such that $a+b+c=1$, the following inequality holds:\n$$ \\sqrt{a} + \\sqrt{b} + \\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca) $$\n\n---\n\n## Summary\n\n**Verdict:** Solved\n**Method sketch:**\n1.  Substitute $a=x^2, b=y^2, c=z^2$ to transform the inequal",
+      "judge_snippet": "The candidate solution provides a clear and correct roadmap to solving the inequality. Here is a step-by-step evaluation:\n\n1.  **Reformulation**: The substitution $a=x^2, b=y^2, c=z^2$ correctly transforms the problem onto the unit sphere $x^2+y^2+z^2=1$, and the identity $\\sum ab = \\sum x^2y^2 = \\f"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 47.75,
+      "solution_snippet": "\n\n**Summary**\n\n**Verdict:** Solved  \n**Method sketch:** Translate the condition into a triangle‑free “disjointness” graph, use Mantel’s theorem to bound its edges, then count pairs of Googlers that share a colour in two ways. The resulting inequality forces some colour to appear on at least 200 Goog",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof for the problem.\n\n### Analysis of the Solution:\n\n1.  **Graph Theoretical Formulation**: The solution correctly identifies the relationship between the problem's condition and a triangle-free graph. By defining an edge as a pair of Googler"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 284.72,
+      "solution_snippet": "The problem asks us to prove the inequality $\\sum_{cyc} \\sqrt{a} \\geq 3\\sqrt{3} \\sum_{cyc} ab$ for positive real numbers $a,b,c$ such that $a+b+c=1$.\n\n### Summary\n\n**Verdict:** Solved\n**Method sketch:** We utilize the method of Lagrange multipliers to reduce the problem to the case where at least tw",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof of the inequality $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ under the constraint $a+b+c=1$ for $a,b,c > 0$.\n\n### Evaluation:\n1.  **Reduction via Lagrange Multipliers:** The candidate correctly sets up the Lagrange function and"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 130.32,
+      "solution_snippet": "To prove that there are two colors that occur together in more than one box, we will use a proof by contradiction.\n\n**1. Problem Formulation**\n\nLet the set of colors be $C = \\{1, 2, \\dots, 22\\}$, so $|C| = 22$.\nLet the boxes be denoted by $B_1, B_2, \\dots, B_8$.\nEach box $B_i$ contains 6 balls, each",
+      "judge_snippet": "The candidate provides a complete and mathematically rigorous proof using a double-counting argument (counting pairs of colors in boxes) and a proof by contradiction.\n\n### Evaluation of Logical Steps:\n1.  **Formulation:** The candidate correctly translates the problem into the language of sets and i"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 88.52,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** The condition that any three Googlers share a color implies that no three flag‑sets are pairwise disjoint, so the hypergraph of flag‑sets has matching number at most 2. A maximum matching then yields a vertex cover of size at most 5·2 = 10 colors; every Googl",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof for the problem.\n\n### Analysis of the Solution:\n1.  **Formulation as a Hypergraph:** The solution correctly identifies the set of flag colors as vertices and the sets of colors held by each Googler as edges of a hypergraph $H$. The condit"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 144.79,
+      "solution_snippet": "**Summary**\n**Verdict:** Solved\n**Method sketch:** Assume the negation, that no pair of colors appears in more than one box. This implies that any two boxes intersect in at most one color, and for each color $c$, it appears in at most 4 boxes (since it needs 5 distinct neighbors in each box it appea",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof by contradiction. The logic is structured correctly and all quantitative steps are explained in detail.\n\n**Evaluation of the steps:**\n1.  **Contradiction Assumption:** The solver correctly assumes that no pair of colors appears together i"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 161.66,
+      "solution_snippet": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** The problem is modeled using set theory, where each box corresponds to a subset of size 6 from a set of 22 colors. We assume the negation: that every pair of colors appears together in at most one box. This implies that any two distinct boxes inters",
+      "judge_snippet": "The candidate solution provides a clear and rigorous proof of the statement.\n\n### Logic Evaluation:\n1.  **Reframing the problem:** The solution correctly identifies the problem as a set theory problem where each box $B_i$ is a set $S_i$ of 6 colors from a set $C$ of 22 colors. It correctly identifie"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 123,
+      "classification": "incorrect",
+      "score": 0,
+      "elapsed_s": 383.04,
+      "solution_snippet": "---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:** We use AM ≥ GM and the inequality between quadratic mean and arithmetic mean (QM ≥ AM) to bound \\((\\sqrt a + \\sqrt b + \\sqrt c)^2\\) from below in terms of \\(ab + bc + ca\\) under the condition \\(a+b+c=1\\), then optimize the constants.\n\n---\n\n##",
+      "judge_snippet": "The candidate's solution identifies a correct path to prove the inequality and provides a logical sequence of steps. Here is a detailed evaluation:\n\n1.  **Objective:** To prove $\\sqrt{a}+\\sqrt{b}+\\sqrt{c} \\geq 3\\sqrt{3}(ab+bc+ca)$ given $a+b+c=1$.\n2.  **Reformulation:** The candidate defines $S = \\s"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 163.16,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Model the situation with a graph whose edges join Googlers that share a colour.  \nThe condition on triples means the graph has independence number ≤ 2, so its complement is triangle‑free.  \nMantel’s theorem gives a lower bound on the number of edges in the or",
+      "judge_snippet": "The candidate solution is an excellent application of graph theory and extremal combinatorics to solve the problem.\n\n### Analysis of the Solution:\n1.  **Graph Formulation:** The solution correctly identifies that the condition \"any group of three Googlers has at least two sharing a color\" translates"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 123.43,
+      "solution_snippet": "We need to analyze: There are 2024 Googlers. Each holds up to five flags of various colors. So each person can have 0 to 5 flags? \"hold up to five flags\" means each person holds at most five flags. They can hold different colors? Possibly each flag is of a color. Multiple flags of same color? Possib",
+      "judge_snippet": "To show that one specific flag color is held by at least 200 Googlers, we analyze the intersection graph of the color sets held by the $n=2024$ Googlers.\n\nLet $V$ be the set of Googlers, $|V| = n$. For each Googler $v \\in V$, let $F_v$ be the set of colors of the flags held by $v$. We are given that"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 128.02,
+      "solution_snippet": "We are given: \"In Shoreline Amphitheatre, 2024 Googlers each hold up to five flags of various colors. Any group of three Googlers will always have at least two people holding flags of the same color. Prove that one specific flag color is held by at least 200 Googlers.\"\n\nInterpretation: There are 202",
+      "judge_snippet": "The problem states that there are $n = 2024$ Googlers, each holding a set of flags of various colors, with the size of each set $S_i$ (colors held by Googler $i$) being $|S_i| \\le 5$. The condition \"any group of three Googlers will always have at least two people holding flags of the same color\" tra"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 456,
+      "classification": "incorrect",
+      "score": 0,
+      "elapsed_s": 127.11,
+      "solution_snippet": "We are given: \"In Shoreline Amphitheatre, 2024 Googlers each hold up to five flags of various colors. Any group of three Googlers will always have at least two people holding flags of the same color. Prove that one specific flag color is held by at least 200 Googlers.\"\n\nInterpretation: There are 202",
+      "judge_snippet": "The problem states that there are $n = 2024$ Googlers, each holding at most $t = 5$ flags of various colors. Any triple of Googlers must contain at least one pair who share a common flag color. We must prove that some specific color is held by at least 200 Googlers.\n\n**1. Graph Representation:**\nLet"
+    },
+    {
+      "problem_id": "PB-Basic-008",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 448.78,
+      "solution_snippet": "Alright, let’s work through this step-by-step.\n\n---\n\n## **Step 1 — Understanding the problem**\n\nWe are given  \n\\[\na,b,c > 0, \\quad a+b+c=1.\n\\]\nWe need to prove:\n\\[\n\\sqrt{a} + \\sqrt{b} + \\sqrt{c} \\ge 3\\sqrt{3}\\,(ab+bc+ca).\n\\]\n\nThe right-hand side is symmetric in \\(a,b,c\\). The left-hand side is symme",
+      "judge_snippet": "The candidate solution provides a logically sound approach to proving the inequality. Here is a step-by-step evaluation:\n\n1.  **Identity and Transformation (Steps 1-4):** The candidate correctly identifies the equality case ($a=b=c=1/3$) and performs a change of variables $x=\\sqrt{a}, y=\\sqrt{b}, z="
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 145.27,
+      "solution_snippet": "---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:**  \nWe use the Pigeonhole Principle on color distributions among the Googlers. The condition that no group of three has more than one flag color per person is equivalent to saying the flag colors present among any three Googlers must intersect ",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof of the statement.\n\n### Evaluation of Logical Steps:\n\n1.  **Interpretation and Set Reformulation:** The candidate correctly identifies the condition \"any group of three Googlers will always have at least two people holding flags of the sam"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 44.71,
+      "solution_snippet": "\n\n\\[\nA_n = 1+3^{20(n^{2}+n+1)}+9^{14(n^{2}+n+1)}\n      =1+3^{20k}+3^{28k}\\qquad\\bigl(k=n^{2}+n+1\\bigr)\n\\]\n\nSet  \n\n\\[\nt = 3^{4k}\\;(>0).\n\\]\n\nThen  \n\n\\[\n3^{20k}=t^{5},\\qquad 3^{28k}=t^{7},\n\\]\n\nso  \n\n\\[\nA_n = 1+t^{5}+t^{7}.\n\\]\n\nFactor the polynomial:\n\n\\[\n\\begin{aligned}\nt^{7}+t^{5}+1\n&=(t^{2}+t+1)(t^{5}",
+      "judge_snippet": "The candidate solution correctly identifies the form of the expression $A_n$ and uses an appropriate substitution to factorize it.\n\n1.  **Substitution and Formulation:** The solution correctly identifies $k = n^2 + n + 1$ and substitutes $t = 3^{4k}$, leading to $A_n = 1 + t^5 + t^7$.\n2.  **Factoriz"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 128.7,
+      "solution_snippet": "---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Model each Googler by the set of flag colors they hold. The condition about triples forces a certain uniformity — we first prove that at most two distinct flag colors appear among all Googlers. Then by averaging, one color appears at least \\(",
+      "judge_snippet": "The candidate solution provides a proof for the problem through a combinatorial approach, specifically analyzing the condition that no three sets (collections of flag colors per Googler) are pairwise disjoint.\n\n### Rigorous Evaluation:\n\n1.  **Understanding of the Condition:** The candidate correctly"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 85.77,
+      "solution_snippet": "\n\n**Summary**  \n**Verdict:** No non‑negative integer \\(n\\) makes \\(A_n\\) prime.  \n**Method sketch:** Substitute \\(k=n^2+n+1\\) and \\(x=3^k\\) to obtain \\(A_n=x^{28}+x^{20}+1\\).  \nSetting \\(y=x^4=3^{4k}\\) gives \\(A_n=y^7+y^5+1\\).  \nUsing the fact that \\(y^2+y+1\\) divides \\(y^7+y^5+1\\) (since it vanishe",
+      "judge_snippet": "The candidate's solution identifies and executes a correct algebraic factorization to determine the primality of $A_n$.\n\n### Detailed Evaluation:\n1.  **Algebraic Substitution**: The solution correctly reformulates $A_n$ in terms of $y = 3^{4(n^2+n+1)}$, leading to the polynomial $P(y) = y^7 + y^5 + "
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 93.6,
+      "solution_snippet": "**Summary**\n\n**Verdict:** No non‑negative integer \\(n\\) makes \\(A_n\\) prime.  \n**Method sketch:** Rewrite \\(A_n\\) as \\(1+3^{20t}+3^{28t}\\) with \\(t=n^2+n+1\\).  Substitute \\(y=3^t\\) and then \\(z=y^4=3^{4t}\\) to obtain \\(A_n=z^7+z^5+1\\).  Factor this polynomial as \\((z^2+z+1)(z^5-z^4+z^3-z+1)\\).  For ",
+      "judge_snippet": "The candidate solution provides a clear, rigorous, and complete proof that no such non-negative integer $n$ exists.\n\n### Analysis of the Argument:\n1.  **Algebraic Reformulation:** The solution correctly identifies $A_n$ as a function of $t = n^2+n+1$. It simplifies $A_n$ to $1 + 3^{20t} + 3^{28t}$.\n"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 65.09,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Rewrite the expression as a polynomial in \\(X=3^{4(n^2+n+1)}\\), then use the algebraic factorization  \n\\(1+X^5+X^7=(X^2+X+1)(X^5-X^4+X^3-X+1)\\).  \nSince \\(X>1\\) for all non‑negative integers \\(n\\), both factors exceed 1, making \\(A_n\\) composite. Hence no suc",
+      "judge_snippet": "The candidate's solution identifies a crucial algebraic factorization and correctly applies it to the problem.\n\n### Analysis of the Solution:\n1.  **Reformulation**: The solution correctly reformulates $A_n$ in terms of $X = 3^{4k}$ where $k = n^2 + n + 1$. It notes that $k \\ge 1$, which implies $X \\"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 83.72,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:**  \nFactor the expression using the substitution \\(t = 3^{4(n^2+n+1)}\\). Then \\(A_n = t^7 + t^5 + 1\\). Since \\(\\omega = e^{2\\pi i/3}\\) (a primitive 3rd root of unity) satisfies \\(\\omega^2+\\omega+1=0\\) and also \\( \\omega^7+\\omega^5+1=\\omega+\\omega^2+1=0\\), the p",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof that $A_n$ is never prime for any non-negative integer $n$.\n\n### Detailed Evaluation:\n1.  **Algebraic Substitution:** The choice of $k = n^2+n+1$ and $t = 3^{4k}$ is correct. This transforms $A_n$ into the polynomial $f(t) = t^7 + t^5 + 1"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 88.69,
+      "solution_snippet": "Alright — let’s work through this step by step.\n\n---\n\n## **Step 1: Understanding the problem**\n\nWe are given:\n\n\\[\nA_n = 1 + 3^{20(n^2 + n + 1)} + 9^{14(n^2 + n + 1)}\n\\]\n\nWe want all **non-negative integers \\(n\\)** such that \\(A_n\\) is prime.\n\nAlso \\(9^{14m} = (3^2)^{14m} = 3^{28m}\\).\n\nLet \\(m = n^2 ",
+      "judge_snippet": "The candidate's solution identifies the correct expression for $A_n$ in terms of $m = n^2 + n + 1$:\n$$A_n = 1 + 3^{20m} + 3^{28m}$$\nThe candidate then performs a clever substitution $a = 3^{4m}$, which allows the expression to be rewritten as a polynomial in $a$:\n$$A_n = 1 + a^5 + a^7$$\nThe solution"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/stepfun/step-3.5-flash",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 118.09,
+      "solution_snippet": "**Verdict:** Solved  \n**Method sketch:** Rewrite \\(A_n\\) as \\(x^7+x^5+1\\) with \\(x=3^{4(n^2+n+1)}\\). Use the polynomial identity \\(x^7+x^5+1=(x^2+x+1)(x^5-x^4+x^3-x+1)\\). For all \\(n\\ge0\\), \\(x\\ge81>2\\), so both factors exceed 1; hence \\(A_n\\) is always composite. No non‑negative integer \\(n\\) yield",
+      "judge_snippet": "The candidate's solution is complete, rigorous, and logically sound.\n\n### Evaluation:\n1.  **Algebraic Substitution:** The solver correctly identifies that $A_n$ can be expressed as a polynomial in terms of $x = 3^{4m}$, where $m = n^2 + n + 1$. The transformation $A_n = 1 + x^5 + x^7$ is accurate.\n2"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 236.26,
+      "solution_snippet": "The problem asks us to prove that among 2024 Googlers, where each can hold up to 5 distinct colors of flags, under the condition that any group of three Googlers contains at least two who share a flag color, there must exist a specific color held by at least 200 Googlers.\n\n### Summary\n\n**Verdict:** ",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof for the problem.\n\n**Analysis of the Solution:**\n1.  **Formulation:** The solution correctly models the problem using hypergraph theory. Let $C_i$ be the set of colors held by Googler $i$, where $|C_i| \\le 5$.\n2.  **Matching Number ($\\nu$)"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 121.6,
+      "solution_snippet": "---\n\n## **Summary**\n\n**Verdict:** Solved  \n**Method sketch:**  \nRewrite \\( A_n \\) in base \\(3^{20}\\) as \\( x^2 + x + 1 \\) with \\( x = 3^{20(n^2+n+1)} \\), factor it using the identity \\( x^2 + x + 1 = \\frac{x^3 - 1}{x - 1} \\) and cyclotomic factorization. Show primality requires \\( x^2 + x + 1 \\) its",
+      "judge_snippet": "The candidate solution provides a systematic and logically consistent approach to factoring $A_n$ and checking for primality.\n\n**1. Expression Representation:**\nThe candidate correctly identifies $N = n^2 + n + 1 \\ge 1$ for all non-negative integers $n$. The expression $A_n = 1 + 3^{20N} + 9^{14N}$ "
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 295.55,
+      "solution_snippet": "**Summary**\n\n**Verdict:** Solved\n**Method sketch:** Model the Googlers as vertices in a graph where edges connect those who share no flag colors (disjointness graph). The problem's condition implies this graph must be triangle-free. Using Turan's theorem to bound the maximum number of edges in a tri",
+      "judge_snippet": "The candidate's solution follows a rigorous and correct logical path to solve the problem.\n\n### Evaluation:\n1.  **Interpretation of the Condition:** The solution correctly identifies that the condition (any group of three contains a pair sharing a color) is equivalent to saying the disjointness grap"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 365.8,
+      "solution_snippet": "---\n\n## Summary\n\n**Verdict:** Solved  \n**Method sketch:** Use the pigeonhole principle on colors and sets of three Googlers. The condition that in any triple, at least two share a color forces that there is a single color appearing in many people’s sets. Formalizing via minimal counterexample and co",
+      "judge_snippet": "The candidate solution provides a clear and rigorous proof of the statement. Here is the evaluation:\n\n1.  **Logical Structure:** The solution uses a proof by contradiction (reductio ad absurdum). It assumes the negation of the conclusion (that every color is held by at most 199 Googlers) and demonst"
+    },
+    {
+      "problem_id": "PB-Basic-002",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 985.1,
+      "solution_snippet": "Alright, let’s go step by step.\n\n---\n\n## **Summary**\n\n**Verdict:** Solved  \n**Method sketch:**  \nWe first prove a preliminary inequality using AM–GM, and then use the given constraint to bound \\( xyzt \\) and show the desired result.\n\n---\n\n## **Detailed Solution**\n\nWe are given \\( x, y, z, t > 0 \\) a",
+      "judge_snippet": "### Evaluation of the Candidate Solution\n\n**1. Verification of Logic and Correctness:**\n*   **Step 1:** The candidate correctly establishes the lower bound for the sum of squares $Q = x^2 + y^2 + z^2 + t^2$ using AM–GM.\n    *   $x^2 + y^2 \\ge 2xy$ and $z^2 + t^2 \\ge 2zt \\implies Q \\ge 2(xy + zt)$.\n "
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 247.23,
+      "solution_snippet": "The problem asks to find all non-negative integers $n$ such that the number\n$$A_n = 1 + 3^{20(n^2+n+1)} + 9^{14(n^2+n+1)}$$\nis a prime number.\n\n**Step 1: Simplify the expression**\nLet $k = n^2+n+1$. Since $n$ is a non-negative integer, $n \\ge 0$, so $n^2+n+1 \\ge 1$. Thus $k$ is a positive integer.\nT",
+      "judge_snippet": "The candidate solution provides a rigorous and complete proof that $A_n$ is never prime for any non-negative integer $n$.\n\n### Evaluation:\n1.  **Simplification and Substitution:** The candidate correctly substitutes $k = n^2 + n + 1$ and identifies that $A_n = 1 + 3^{20k} + 3^{28k}$. By setting $x ="
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 265.76,
+      "solution_snippet": "The problem asks us to find all non-negative integers $n$ such that the number $A_n = 1 + 3^{20(n^2+n+1)} + 9^{14(n^2+n+1)}$ is a prime number.\n\n**Step 1: Reformulate the expression**\n\nLet $k = n^2 + n + 1$. Since $n$ is a non-negative integer ($n \\ge 0$), we can analyze the quadratic $n^2 + n + 1$.",
+      "judge_snippet": "The candidate has provided a complete and rigorous solution to the problem.\n\n### Evaluation of Steps:\n1.  **Reformulation**: The candidate correctly identifies $k = n^2 + n + 1$ and realizes that $n \\ge 0 \\implies k \\ge 1$. The simplification $A_n = 1 + 3^{20k} + 3^{28k}$ is correct.\n2.  **Polynomia"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 315.69,
+      "solution_snippet": "Alright, let's go step by step.\n\n---\n\n## **1. Understanding the problem**\n\nWe are given:\n\n\\[\nA_n = 1 + 3^{20(n^2+n+1)} + 9^{14(n^2+n+1)}\n\\]\n\nwhere \\( n \\) is a nonnegative integer, and we want \\( A_n \\) to be a prime number.\n\n---\n\nLet \\( k = n^2 + n + 1 \\).  \nThen\n\n\\[\nA_n = 1 + 3^{20k} + 9^{14k}.\n\\]",
+      "judge_snippet": "The candidate solution accurately identifies the structure of the expression $A_n$ and successfully finds a non-trivial factorization.\n\n### Evaluation of Steps:\n1.  **Algebraic Substitution:** The candidate correctly substitutes $k = n^2 + n + 1$ and $x = 3^{4k}$, transforming the expression into $A"
+    },
+    {
+      "problem_id": "PB-Basic-014",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 123,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 451.96,
+      "solution_snippet": "The problem asks us to prove that among 2024 Googlers, each holding up to 5 flags, there must exist a color held by at least 200 Googlers, given that any group of three includes at least two people sharing a flag color.\n\nLet $P$ be the set of Googlers, $|P| = N = 2024$. Let $C$ be the set of flag co",
+      "judge_snippet": "The candidate solution provides a complete and correct proof using a graph-theoretic approach.\n\n### Detailed Evaluation:\n1.  **Graph Reformulation:** The solver correctly identifies that the condition \"any group of three people will always have at least two people holding flags of the same color\" is"
+    },
+    {
+      "problem_id": "PB-Basic-017",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 261.99,
+      "solution_snippet": "The problem asks for all non-negative integers $n$ such that the number $A_n = 1 + 3^{20(n^2+n+1)} + 9^{14(n^2+n+1)}$ is a prime number.\n\nFirst, let us simplify the expression for $A_n$.\nLet $k = n^2 + n + 1$. Since $n$ is a non-negative integer, $n^2 + n + 1 \\ge 1$ (specifically, $k=1$ for $n=0$, $",
+      "judge_snippet": "The problem asks for all non-negative integers $n$ such that $A_n = 1 + 3^{20(n^2+n+1)} + 9^{14(n^2+n+1)}$ is a prime number.\n\n### 1. Simplification and Substitution\nLet $k = n^2 + n + 1$. Since $n \\ge 0$, the minimum value for $k$ is $0^2 + 0 + 1 = 1$.\nThe expression for $A_n$ is:\n$$A_n = 1 + 3^{20"
+    },
+    {
+      "problem_id": "PB-Basic-013",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 456,
+      "classification": "correct",
+      "score": 3,
+      "elapsed_s": 1330.79,
+      "solution_snippet": "**Summary**\n\n**Verdict:** Solved  \n**Method sketch:** We apply the pigeonhole principle to color pairs across boxes, showing that if we try to avoid two colors co-occurring more than once, the number of required distinct color pairs exceeds the number of pairs available from 22 colors.\n\n---\n\n## Deta",
+      "judge_snippet": "The candidate solution provides a complete and correct proof of the problem. Here is a step-by-step evaluation of the logic:\n\n1.  **Combinatorial Reformulation:** The solution correctly identifies the problem as showing that among 8 sets (boxes) of 6 elements (colors) chosen from a universe of 22 el"
+    }
+  ]
+}

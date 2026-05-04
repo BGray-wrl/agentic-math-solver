@@ -14,3 +14,12 @@ htmlcov/
 .vscode/
 dist/
 build/
+*.so
+
+
+
+
+*.c
+logs/hadamard*
+H.csv
+.claude

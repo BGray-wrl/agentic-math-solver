@@ -1,0 +1,909 @@
+{
+  "experiment": "full_pipeline_imo_medium_pass1_20260327",
+  "date": "2026-03-27",
+  "mock": true,
+  "seeds": [
+    42
+  ],
+  "iterations": 3,
+  "pass_threshold": 6,
+  "problems": [
+    "PB-Advanced-002",
+    "PB-Advanced-005",
+    "PB-Advanced-008",
+    "PB-Advanced-010",
+    "PB-Advanced-011",
+    "PB-Advanced-014",
+    "PB-Advanced-020",
+    "PB-Advanced-023",
+    "PB-Advanced-026",
+    "PB-Advanced-029",
+    "PB-Basic-006",
+    "PB-Basic-007",
+    "PB-Basic-012",
+    "PB-Basic-023",
+    "PB-Basic-024",
+    "PB-Basic-026",
+    "PB-Basic-028",
+    "PB-Basic-029"
+  ],
+  "models": [
+    "openrouter/nvidia/nemotron-3-super-120b-a12b",
+    "openrouter/deepseek/deepseek-v3.2"
+  ],
+  "judge_model": "openrouter/google/gemini-3-flash-preview",
+  "model_stats": {
+    "openrouter/nvidia/nemotron-3-super-120b-a12b": {
+      "mean_score": 7.0,
+      "std_score": 0.0,
+      "pass1_rate": 1.0,
+      "pass1_count": 18,
+      "pass1_total": 18,
+      "n_valid": 18,
+      "n_errors": 0,
+      "mean_iters": 1.0,
+      "stopped_early_n": 18,
+      "score_distribution": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 18
+      }
+    },
+    "openrouter/deepseek/deepseek-v3.2": {
+      "mean_score": 7.0,
+      "std_score": 0.0,
+      "pass1_rate": 1.0,
+      "pass1_count": 18,
+      "pass1_total": 18,
+      "n_valid": 18,
+      "n_errors": 0,
+      "mean_iters": 1.0,
+      "stopped_early_n": 18,
+      "score_distribution": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 18
+      }
+    }
+  },
+  "all_results": [
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-005",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-005",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-010",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-011",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-011",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-002",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-002",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-008",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-020",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-008",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-020",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-010",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-029",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-029",
+      "level": "IMO-medium",
+      "category": "PB-Advanced",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-006",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-026",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-012",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-006",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-023",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-026",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-023",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-029",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-028",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-029",
+      "level": "IMO-medium",
+      "category": "PB-Basic",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "stopped_early": true,
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    }
+  ]
+}

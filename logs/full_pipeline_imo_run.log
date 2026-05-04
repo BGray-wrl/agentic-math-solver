@@ -1,0 +1,2226 @@
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/gemini_gpt_cross_judge_20260326.py:292: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+Problems: 18
+  PB-Advanced-001  [IMO-easy]
+  PB-Advanced-004  [IMO-easy]
+  PB-Advanced-007  [IMO-easy]
+  PB-Advanced-013  [IMO-easy]
+  PB-Advanced-016  [IMO-easy]
+  PB-Advanced-017  [IMO-easy]
+  PB-Advanced-019  [IMO-easy]
+  PB-Advanced-022  [IMO-easy]
+  PB-Advanced-025  [IMO-easy]
+  PB-Advanced-028  [IMO-easy]
+  PB-Basic-006  [IMO-medium]
+  PB-Basic-007  [IMO-medium]
+  PB-Basic-012  [IMO-medium]
+  PB-Basic-023  [IMO-medium]
+  PB-Basic-024  [IMO-medium]
+  PB-Basic-026  [IMO-medium]
+  PB-Basic-028  [IMO-medium]
+  PB-Basic-029  [IMO-medium]
+
+Generator-judge pairs: 2
+  gen=gemini-3-flash-preview  judge=gpt-5.4-mini
+  gen=gpt-5.4-mini  judge=gemini-3-flash-preview
+
+Seeds (pass@2): [42, 123]
+Total trials: 18 × 2 pairs × 2 seeds = 72
+
+Submitting 72 trials to ThreadPoolExecutor(max_workers=12)
+
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/gemini_gpt_cross_judge_20260326.py:90: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().strftime("%H:%M:%S")
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=123] generate done in 9.56s (5253 chars, $0.0000)
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=123] generate done in 9.56s (5251 chars, $0.0000)
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=123] generate done in 11.1s (6447 chars, $0.0000)
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=42] generate done in 11.34s (6141 chars, $0.0000)
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=42] generate done in 13.15s (6541 chars, $0.0000)
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=42] generate done in 15.58s (9235 chars, $0.0000)
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=123] → 0/7  total=25.26s  cost=$0.0099
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/gemini_gpt_cross_judge_20260326.py:90: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().strftime("%H:%M:%S")
+[02:03:28] Progress: 1/72
+[02:03:28] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=123] → 0/7  total=30.13s  cost=$0.0144
+[02:03:33] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:33] Progress: 2/72
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=123] → 0/7  total=30.24s  cost=$0.0129
+[02:03:33] Progress: 3/72
+[02:03:33] [PB-Advanced-013|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-001|gen=gpt-5.4-mini|seed=42] → 0/7  total=32.81s  cost=$0.0142
+[02:03:36] Progress: 4/72
+[02:03:36] [PB-Advanced-013|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-007|gen=gpt-5.4-mini|seed=42] → 0/7  total=33.51s  cost=$0.0143
+[02:03:36] Progress: 5/72
+[02:03:36] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-004|gen=gpt-5.4-mini|seed=42] → 0/7  total=36.14s  cost=$0.0147
+[02:03:39] Progress: 6/72
+[02:03:39] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:33] [PB-Advanced-013|gen=gpt-5.4-mini|seed=42] generate done in 12.98s (6305 chars, $0.0000)
+[02:03:33] [PB-Advanced-013|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:36] [PB-Advanced-013|gen=gpt-5.4-mini|seed=123] generate done in 12.48s (5989 chars, $0.0000)
+[02:03:36] [PB-Advanced-013|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:03:36] [PB-Advanced-013|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:03:36] [PB-Advanced-013|gen=gpt-5.4-mini|seed=123] → 0/7  total=30.45s  cost=$0.0143
+[02:04:06] Progress: 7/72
+[02:04:06] [PB-Advanced-016|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:03:33] [PB-Advanced-013|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:33] [PB-Advanced-013|gen=gpt-5.4-mini|seed=42] → 0/7  total=33.35s  cost=$0.0144
+[02:04:07] [PB-Advanced-016|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:04:07] Progress: 8/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:06] [PB-Advanced-016|gen=gpt-5.4-mini|seed=42] generate done in 10.12s (5235 chars, $0.0000)
+[02:04:06] [PB-Advanced-016|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:07] [PB-Advanced-016|gen=gpt-5.4-mini|seed=123] generate done in 10.61s (5702 chars, $0.0000)
+[02:04:07] [PB-Advanced-016|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=123] generate done in 79.01s (3498 chars, $0.0489)
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=42] generate done in 81.04s (3259 chars, $0.0515)
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=42] generate done in 81.55s (2684 chars, $0.0598)
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=123] → 2/7  total=82.22s  cost=$0.0489
+[02:04:25] Progress: 9/72
+[02:04:25] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=42] → 0/7  total=84.52s  cost=$0.0598
+[02:04:28] Progress: 10/72  cumulative cost=$0.2178
+[02:04:28] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=42] → 0/7  total=84.64s  cost=$0.0515
+[02:04:28] Progress: 11/72
+[02:04:28] [PB-Advanced-017|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:04:06] [PB-Advanced-016|gen=gpt-5.4-mini|seed=42] → 0/7  total=25.97s  cost=$0.0099
+[02:04:32] Progress: 12/72
+[02:04:32] [PB-Advanced-017|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=123] generate done in 89.51s (3530 chars, $0.0544)
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:28] [PB-Advanced-017|gen=gpt-5.4-mini|seed=42] generate done in 6.75s (3575 chars, $0.0000)
+[02:04:28] [PB-Advanced-017|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-001|gen=gemini-3-flash-preview|seed=123] → 0/7  total=91.99s  cost=$0.0544
+[02:04:35] Progress: 13/72
+[02:04:35] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:04:07] [PB-Advanced-016|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:04:07] [PB-Advanced-016|gen=gpt-5.4-mini|seed=123] → 0/7  total=31.9s  cost=$0.0135
+[02:04:38] Progress: 14/72
+[02:04:38] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:32] [PB-Advanced-017|gen=gpt-5.4-mini|seed=123] generate done in 7.15s (3648 chars, $0.0000)
+[02:04:32] [PB-Advanced-017|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:04:28] [PB-Advanced-017|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:04:28] [PB-Advanced-017|gen=gpt-5.4-mini|seed=42] → 0/7  total=26.61s  cost=$0.0145
+[02:04:54] Progress: 15/72
+[02:04:54] [PB-Advanced-019|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:04:32] [PB-Advanced-017|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:04:32] [PB-Advanced-017|gen=gpt-5.4-mini|seed=123] → 0/7  total=27.12s  cost=$0.0145
+[02:04:59] Progress: 16/72
+[02:04:59] [PB-Advanced-019|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:03:36] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=42] generate done in 93.71s (3742 chars, $0.0592)
+[02:03:36] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:54] [PB-Advanced-019|gen=gpt-5.4-mini|seed=42] generate done in 17.77s (9127 chars, $0.0000)
+[02:04:54] [PB-Advanced-019|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:36] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:36] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=42] → 0/7  total=96.12s  cost=$0.0592
+[02:05:13] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:05:13] Progress: 17/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:59] [PB-Advanced-019|gen=gpt-5.4-mini|seed=123] generate done in 15.42s (7603 chars, $0.0000)
+[02:04:59] [PB-Advanced-019|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=123] generate done in 133.87s (2949 chars, $0.0861)
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-007|gen=gemini-3-flash-preview|seed=123] → 6/7  total=136.2s  cost=$0.0861
+[02:05:19] Progress: 18/72
+[02:05:19] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=42] generate done in 144.48s (3639 chars, $0.0862)
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:03] [PB-Advanced-004|gen=gemini-3-flash-preview|seed=42] → 0/7  total=147.87s  cost=$0.0862
+[02:05:31] Progress: 19/72
+[02:05:31] [PB-Advanced-022|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:04:54] [PB-Advanced-019|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:04:54] [PB-Advanced-019|gen=gpt-5.4-mini|seed=42] → 0/7  total=37.94s  cost=$0.0150
+[02:05:32] Progress: 20/72  cumulative cost=$0.6225
+[02:05:32] [PB-Advanced-022|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:04:59] [PB-Advanced-019|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:04:59] [PB-Advanced-019|gen=gpt-5.4-mini|seed=123] → 0/7  total=35.68s  cost=$0.0147
+[02:05:35] Progress: 21/72
+[02:05:35] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:32] [PB-Advanced-022|gen=gpt-5.4-mini|seed=123] generate done in 4.44s (2736 chars, $0.0000)
+[02:05:32] [PB-Advanced-022|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:03:28] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=42] generate done in 128.57s (3289 chars, $0.0834)
+[02:03:28] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:31] [PB-Advanced-022|gen=gpt-5.4-mini|seed=42] generate done in 6.2s (3838 chars, $0.0000)
+[02:05:31] [PB-Advanced-022|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:28] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:03:28] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=42] → 0/7  total=130.33s  cost=$0.0834
+[02:05:39] Progress: 22/72
+[02:05:39] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:03:33] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=123] generate done in 134.72s (2735 chars, $0.0961)
+[02:03:33] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:33] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:03:33] [PB-Advanced-013|gen=gemini-3-flash-preview|seed=123] → 0/7  total=136.31s  cost=$0.0961
+[02:05:49] Progress: 23/72
+[02:05:49] [PB-Advanced-025|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:05:31] [PB-Advanced-022|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:05:31] [PB-Advanced-022|gen=gpt-5.4-mini|seed=42] → 0/7  total=25.74s  cost=$0.0133
+[02:05:57] Progress: 24/72
+[02:05:57] [PB-Advanced-025|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:05:32] [PB-Advanced-022|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:05:32] [PB-Advanced-022|gen=gpt-5.4-mini|seed=123] → 0/7  total=24.79s  cost=$0.0132
+[02:05:57] Progress: 25/72
+[02:05:57] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:49] [PB-Advanced-025|gen=gpt-5.4-mini|seed=42] generate done in 8.33s (4037 chars, $0.0000)
+[02:05:49] [PB-Advanced-025|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:04:35] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=42] generate done in 85.91s (3149 chars, $0.0612)
+[02:04:35] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:57] [PB-Advanced-025|gen=gpt-5.4-mini|seed=123] generate done in 7.42s (3957 chars, $0.0000)
+[02:05:57] [PB-Advanced-025|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:35] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=42] → 0/7  total=89.09s  cost=$0.0612
+[02:06:04] Progress: 26/72
+[02:06:04] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:04:25] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=42] generate done in 108.5s (3356 chars, $0.0689)
+[02:04:25] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+[02:03:39] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=123] generate done in 154.92s (3431 chars, $0.0961)
+[02:03:39] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:03:39] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:03:39] [PB-Advanced-016|gen=gemini-3-flash-preview|seed=123] → 0/7  total=155.78s  cost=$0.0961
+[02:06:15] Progress: 27/72
+[02:06:15] [PB-Advanced-028|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:25] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:04:25] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=42] → 0/7  total=111.48s  cost=$0.0689
+[02:06:17] Progress: 28/72
+[02:06:17] [PB-Advanced-028|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:05:49] [PB-Advanced-025|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:05:49] [PB-Advanced-025|gen=gpt-5.4-mini|seed=42] → 0/7  total=28.55s  cost=$0.0134
+[02:06:18] [PB-Basic-006|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:06:18] Progress: 29/72
+[02:05:57] [PB-Advanced-025|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:05:57] [PB-Advanced-025|gen=gpt-5.4-mini|seed=123] → 0/7  total=26.38s  cost=$0.0134
+[02:06:23] Progress: 30/72  cumulative cost=$1.0963
+[02:06:23] [PB-Basic-006|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:15] [PB-Advanced-028|gen=gpt-5.4-mini|seed=42] generate done in 9.62s (4862 chars, $0.0000)
+[02:06:15] [PB-Advanced-028|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:04:38] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=123] generate done in 107.12s (3490 chars, $0.0741)
+[02:04:38] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+[02:04:28] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=123] generate done in 118.25s (3734 chars, $0.0810)
+[02:04:28] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:17] [PB-Advanced-028|gen=gpt-5.4-mini|seed=123] generate done in 10.19s (5962 chars, $0.0000)
+[02:06:17] [PB-Advanced-028|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:28] [PB-Advanced-017|gen=gemini-3-flash-preview|seed=123] → 1/7  total=120.37s  cost=$0.0810
+[02:06:28] [PB-Basic-006|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:06:28] Progress: 31/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:04:38] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:04:38] [PB-Advanced-019|gen=gemini-3-flash-preview|seed=123] → 0/7  total=110.27s  cost=$0.0741
+[02:06:29] Progress: 32/72
+[02:06:29] [PB-Basic-006|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:29] [PB-Basic-006|gen=gpt-5.4-mini|seed=123] generate done in 7.88s (4709 chars, $0.0000)
+[02:06:29] [PB-Basic-006|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:28] [PB-Basic-006|gen=gpt-5.4-mini|seed=42] generate done in 10.28s (6790 chars, $0.0000)
+[02:06:28] [PB-Basic-006|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:06:15] [PB-Advanced-028|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:06:15] [PB-Advanced-028|gen=gpt-5.4-mini|seed=42] → 0/7  total=28.67s  cost=$0.0135
+[02:06:44] Progress: 33/72
+[02:06:44] [PB-Basic-007|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:06:17] [PB-Advanced-028|gen=gpt-5.4-mini|seed=123] → 6/7  total=30.27s  cost=$0.0136
+[02:06:47] Progress: 34/72
+[02:06:47] [PB-Basic-007|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:05:35] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=42] generate done in 74.76s (2916 chars, $0.0464)
+[02:05:35] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:35] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:05:35] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=42] → 0/7  total=77.28s  cost=$0.0464
+[02:06:52] Progress: 35/72
+[02:06:52] [PB-Basic-007|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:06:29] [PB-Basic-006|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:06:29] [PB-Basic-006|gen=gpt-5.4-mini|seed=123] → 0/7  total=28.94s  cost=$0.0134
+[02:06:58] [PB-Basic-007|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:06:58] Progress: 36/72
+[02:06:28] [PB-Basic-006|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:06:28] [PB-Basic-006|gen=gpt-5.4-mini|seed=42] → 0/7  total=30.58s  cost=$0.0137
+[02:06:58] Progress: 37/72
+[02:06:58] [PB-Basic-012|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:06:04] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=123] generate done in 55.77s (3618 chars, $0.0370)
+[02:06:04] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:04] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:06:04] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=123] → 0/7  total=58.72s  cost=$0.0370
+[02:07:03] [PB-Basic-012|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:07:03] Progress: 38/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:52] [PB-Basic-007|gen=gpt-5.4-mini|seed=42] generate done in 12.03s (6249 chars, $0.0000)
+[02:06:52] [PB-Basic-007|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:58] [PB-Basic-007|gen=gpt-5.4-mini|seed=123] generate done in 7.81s (4097 chars, $0.0000)
+[02:06:58] [PB-Basic-007|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:05:39] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=123] generate done in 94.12s (3113 chars, $0.0598)
+[02:05:39] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+[02:05:19] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=123] generate done in 115.03s (3606 chars, $0.0715)
+[02:05:19] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:39] [PB-Advanced-025|gen=gemini-3-flash-preview|seed=123] → 0/7  total=96.33s  cost=$0.0598
+[02:07:15] Progress: 39/72
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:06:52] [PB-Basic-007|gen=gpt-5.4-mini|seed=42] → 0/7  total=23.17s  cost=$0.0091
+[02:07:15] Progress: 40/72  cumulative cost=$1.4580
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:19] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=123] → 0/7  total=116.84s  cost=$0.0715
+[02:07:16] Progress: 41/72
+[02:07:16] [PB-Basic-023|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=42] generate done in 4.26s (2258 chars, $0.0000)
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=123] generate done in 4.64s (2605 chars, $0.0000)
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:06:58] [PB-Basic-007|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:06:58] [PB-Basic-007|gen=gpt-5.4-mini|seed=123] → 0/7  total=29.14s  cost=$0.0149
+[02:07:27] Progress: 42/72
+[02:07:27] [PB-Basic-023|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:05:57] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=42] generate done in 97.19s (3429 chars, $0.0639)
+[02:05:57] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:57] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:05:57] [PB-Advanced-028|gen=gemini-3-flash-preview|seed=42] → 0/7  total=99.75s  cost=$0.0639
+[02:07:37] Progress: 43/72
+[02:07:37] [PB-Basic-023|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=123] → 0/7  total=22.58s  cost=$0.0132
+[02:07:38] Progress: 44/72
+[02:07:38] [PB-Basic-023|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:07:15] [PB-Basic-012|gen=gpt-5.4-mini|seed=42] → 0/7  total=24.16s  cost=$0.0131
+[02:07:39] [PB-Basic-024|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+[02:07:39] Progress: 45/72
+[02:05:13] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=42] generate done in 150.47s (3118 chars, $0.0959)
+[02:05:13] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:05:13] [PB-Advanced-022|gen=gemini-3-flash-preview|seed=42] → 0/7  total=152.78s  cost=$0.0959
+[02:07:45] Progress: 46/72
+[02:07:45] [PB-Basic-024|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:37] [PB-Basic-023|gen=gpt-5.4-mini|seed=42] generate done in 9.4s (4436 chars, $0.0000)
+[02:07:37] [PB-Basic-023|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:38] [PB-Basic-023|gen=gpt-5.4-mini|seed=123] generate done in 9.77s (4577 chars, $0.0000)
+[02:07:38] [PB-Basic-023|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:07:37] [PB-Basic-023|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:07:37] [PB-Basic-023|gen=gpt-5.4-mini|seed=42] → 0/7  total=29.91s  cost=$0.0139
+[02:08:07] Progress: 47/72
+[02:08:07] [PB-Basic-024|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:07:38] [PB-Basic-023|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:07:38] [PB-Basic-023|gen=gpt-5.4-mini|seed=123] → 0/7  total=30.88s  cost=$0.0139
+[02:08:09] Progress: 48/72
+[02:08:09] [PB-Basic-024|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:07] [PB-Basic-024|gen=gpt-5.4-mini|seed=42] generate done in 10.58s (5825 chars, $0.0000)
+[02:08:07] [PB-Basic-024|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:06:58] [PB-Basic-012|gen=gemini-3-flash-preview|seed=42] generate done in 81.07s (3495 chars, $0.0580)
+[02:06:58] [PB-Basic-012|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:58] [PB-Basic-012|gen=gemini-3-flash-preview|seed=42] → 7/7  total=82.26s  cost=$0.0580
+[02:08:21] Progress: 49/72
+[02:08:21] [PB-Basic-026|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:09] [PB-Basic-024|gen=gpt-5.4-mini|seed=123] generate done in 13.83s (7168 chars, $0.0000)
+[02:08:09] [PB-Basic-024|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:07:03] [PB-Basic-012|gen=gemini-3-flash-preview|seed=123] generate done in 85.09s (3709 chars, $0.0557)
+[02:07:03] [PB-Basic-012|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:03] [PB-Basic-012|gen=gemini-3-flash-preview|seed=123] → 6/7  total=87.75s  cost=$0.0557
+[02:08:31] [PB-Basic-026|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:08:31] Progress: 50/72  cumulative cost=$1.8721
+[02:08:07] [PB-Basic-024|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:08:07] [PB-Basic-024|gen=gpt-5.4-mini|seed=42] → 0/7  total=30.29s  cost=$0.0139
+[02:08:37] Progress: 51/72
+[02:08:37] [PB-Basic-026|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:08:09] [PB-Basic-024|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:08:09] [PB-Basic-024|gen=gpt-5.4-mini|seed=123] → 0/7  total=33.4s  cost=$0.0143
+[02:08:42] Progress: 52/72
+[02:08:42] [PB-Basic-026|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:37] [PB-Basic-026|gen=gpt-5.4-mini|seed=42] generate done in 6.71s (3691 chars, $0.0000)
+[02:08:37] [PB-Basic-026|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+[02:06:18] [PB-Basic-006|gen=gemini-3-flash-preview|seed=42] generate done in 146.23s (2932 chars, $0.0961)
+[02:06:18] [PB-Basic-006|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:18] [PB-Basic-006|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:06:18] [PB-Basic-006|gen=gemini-3-flash-preview|seed=42] → 0/7  total=148.98s  cost=$0.0961
+[02:08:47] Progress: 53/72
+[02:08:47] [PB-Basic-028|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:42] [PB-Basic-026|gen=gpt-5.4-mini|seed=123] generate done in 9.56s (5332 chars, $0.0000)
+[02:08:42] [PB-Basic-026|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:06:23] [PB-Basic-006|gen=gemini-3-flash-preview|seed=123] generate done in 148.99s (3606 chars, $0.0961)
+[02:06:23] [PB-Basic-006|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+[02:07:39] [PB-Basic-024|gen=gemini-3-flash-preview|seed=42] generate done in 74.58s (2587 chars, $0.0484)
+[02:07:39] [PB-Basic-024|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:23] [PB-Basic-006|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:06:23] [PB-Basic-006|gen=gemini-3-flash-preview|seed=123] → 0/7  total=150.97s  cost=$0.0961
+[02:08:54] Progress: 54/72
+[02:08:54] [PB-Basic-028|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:39] [PB-Basic-024|gen=gemini-3-flash-preview|seed=42] → 7/7  total=76.29s  cost=$0.0484
+[02:08:55] Progress: 55/72
+[02:08:55] [PB-Basic-028|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:08:37] [PB-Basic-026|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:08:37] [PB-Basic-026|gen=gpt-5.4-mini|seed=42] → 0/7  total=26.02s  cost=$0.0133
+[02:09:03] Progress: 56/72
+[02:09:03] [PB-Basic-028|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+[02:07:45] [PB-Basic-024|gen=gemini-3-flash-preview|seed=123] generate done in 78.19s (2514 chars, $0.0530)
+[02:07:45] [PB-Basic-024|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:55] [PB-Basic-028|gen=gpt-5.4-mini|seed=42] generate done in 9.71s (5036 chars, $0.0000)
+[02:08:55] [PB-Basic-028|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:45] [PB-Basic-024|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:07:45] [PB-Basic-024|gen=gemini-3-flash-preview|seed=123] → 0/7  total=80.7s  cost=$0.0530
+[02:09:06] Progress: 57/72
+[02:09:06] [PB-Basic-029|gen=gemini-3-flash-preview|seed=42] generate → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:09:03] [PB-Basic-028|gen=gpt-5.4-mini|seed=123] generate done in 8.61s (5060 chars, $0.0000)
+[02:09:03] [PB-Basic-028|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:08:42] [PB-Basic-026|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:08:42] [PB-Basic-026|gen=gpt-5.4-mini|seed=123] → 0/7  total=29.9s  cost=$0.0137
+[02:09:12] Progress: 58/72
+[02:09:12] [PB-Basic-029|gen=gemini-3-flash-preview|seed=123] generate → gemini-3-flash-preview
+[02:06:47] [PB-Basic-007|gen=gemini-3-flash-preview|seed=123] generate done in 146.63s (2500 chars, $0.0961)
+[02:06:47] [PB-Basic-007|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+[02:06:44] [PB-Basic-007|gen=gemini-3-flash-preview|seed=42] generate done in 152.25s (2535 chars, $0.0961)
+[02:06:44] [PB-Basic-007|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:47] [PB-Basic-007|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:06:47] [PB-Basic-007|gen=gemini-3-flash-preview|seed=123] → 0/7  total=149.29s  cost=$0.0961
+[02:09:16] [PB-Basic-029|gen=gpt-5.4-mini|seed=42] generate → gpt-5.4-mini
+[02:09:16] Progress: 59/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:06:44] [PB-Basic-007|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:06:44] [PB-Basic-007|gen=gemini-3-flash-preview|seed=42] → 0/7  total=155.03s  cost=$0.0961
+[02:09:19] Progress: 60/72  cumulative cost=$2.4131
+[02:09:19] [PB-Basic-029|gen=gpt-5.4-mini|seed=123] generate → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:09:16] [PB-Basic-029|gen=gpt-5.4-mini|seed=42] generate done in 5.74s (3339 chars, $0.0000)
+[02:09:16] [PB-Basic-029|gen=gpt-5.4-mini|seed=42] judge → gemini-3-flash-preview
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:09:19] [PB-Basic-029|gen=gpt-5.4-mini|seed=123] generate done in 5.42s (3601 chars, $0.0000)
+[02:09:19] [PB-Basic-029|gen=gpt-5.4-mini|seed=123] judge → gemini-3-flash-preview
+[02:07:16] [PB-Basic-023|gen=gemini-3-flash-preview|seed=42] generate done in 128.75s (3750 chars, $0.0835)
+[02:07:16] [PB-Basic-023|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+[02:08:55] [PB-Basic-028|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:08:55] [PB-Basic-028|gen=gpt-5.4-mini|seed=42] → 0/7  total=30.6s  cost=$0.0135
+[02:09:26] Progress: 61/72
+[02:07:27] [PB-Basic-023|gen=gemini-3-flash-preview|seed=123] generate done in 119.41s (4001 chars, $0.0773)
+[02:07:27] [PB-Basic-023|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:16] [PB-Basic-023|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:07:16] [PB-Basic-023|gen=gemini-3-flash-preview|seed=42] → 0/7  total=130.78s  cost=$0.0835
+[02:09:27] Progress: 62/72
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:07:27] [PB-Basic-023|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:07:27] [PB-Basic-023|gen=gemini-3-flash-preview|seed=123] → 0/7  total=121.8s  cost=$0.0773
+[02:09:29] Progress: 63/72
+[02:09:03] [PB-Basic-028|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:09:03] [PB-Basic-028|gen=gpt-5.4-mini|seed=123] → 0/7  total=29.5s  cost=$0.0135
+[02:09:32] Progress: 64/72
+[02:09:16] [PB-Basic-029|gen=gpt-5.4-mini|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:09:16] [PB-Basic-029|gen=gpt-5.4-mini|seed=42] → 0/7  total=27.59s  cost=$0.0132
+[02:09:44] Progress: 65/72
+[02:09:19] [PB-Basic-029|gen=gpt-5.4-mini|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:09:19] [PB-Basic-029|gen=gpt-5.4-mini|seed=123] → 0/7  total=27.64s  cost=$0.0132
+[02:09:46] Progress: 66/72
+[02:08:47] [PB-Basic-028|gen=gemini-3-flash-preview|seed=42] generate done in 68.29s (2560 chars, $0.0422)
+[02:08:47] [PB-Basic-028|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:47] [PB-Basic-028|gen=gemini-3-flash-preview|seed=42] → 0/7  total=71.63s  cost=$0.0422
+[02:09:59] Progress: 67/72
+[02:08:31] [PB-Basic-026|gen=gemini-3-flash-preview|seed=123] generate done in 99.43s (2778 chars, $0.0761)
+[02:08:31] [PB-Basic-026|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:31] [PB-Basic-026|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:08:31] [PB-Basic-026|gen=gemini-3-flash-preview|seed=123] → 0/7  total=102.33s  cost=$0.0761
+[02:10:13] Progress: 68/72
+[02:08:54] [PB-Basic-028|gen=gemini-3-flash-preview|seed=123] generate done in 83.67s (3492 chars, $0.0531)
+[02:08:54] [PB-Basic-028|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:54] [PB-Basic-028|gen=gemini-3-flash-preview|seed=123] WARNING: could not parse score. Defaulting to 0.
+[02:08:54] [PB-Basic-028|gen=gemini-3-flash-preview|seed=123] → 0/7  total=85.61s  cost=$0.0531
+[02:10:20] Progress: 69/72
+[02:09:12] [PB-Basic-029|gen=gemini-3-flash-preview|seed=123] generate done in 88.46s (3825 chars, $0.0530)
+[02:09:12] [PB-Basic-029|gen=gemini-3-flash-preview|seed=123] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:09:12] [PB-Basic-029|gen=gemini-3-flash-preview|seed=123] → 7/7  total=89.59s  cost=$0.0530
+[02:10:42] Progress: 70/72  cumulative cost=$2.8516
+[02:08:21] [PB-Basic-026|gen=gemini-3-flash-preview|seed=42] generate done in 152.86s (2666 chars, $0.0952)
+[02:08:21] [PB-Basic-026|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:08:21] [PB-Basic-026|gen=gemini-3-flash-preview|seed=42] WARNING: could not parse score. Defaulting to 0.
+[02:08:21] [PB-Basic-026|gen=gemini-3-flash-preview|seed=42] → 0/7  total=154.84s  cost=$0.0952
+[02:10:56] Progress: 71/72
+[02:09:06] [PB-Basic-029|gen=gemini-3-flash-preview|seed=42] generate done in 124.52s (4482 chars, $0.0767)
+[02:09:06] [PB-Basic-029|gen=gemini-3-flash-preview|seed=42] judge → gpt-5.4-mini
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+[02:09:06] [PB-Basic-029|gen=gemini-3-flash-preview|seed=42] → 7/7  total=126.31s  cost=$0.0767
+[02:11:12] Progress: 72/72  cumulative cost=$3.0235
+/Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/gemini_gpt_cross_judge_20260326.py:437: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  run_ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+
+======================================================================
+RESULTS SUMMARY
+======================================================================
+
+  Generator: gemini-3-flash-preview  |  Judge: gpt-5.4-mini
+  Overall   mean=1.194±2.481  pass@2=22.2%  n=36
+  IMO-easy     mean=0.450±1.359  pass@2=10.0%  n=20
+  IMO-medium   mean=2.125±3.160  pass@2=37.5%  n=16
+
+  Generator: gpt-5.4-mini  |  Judge: gemini-3-flash-preview
+  Overall   mean=0.167±0.986  pass@2=5.6%  n=36
+  IMO-easy     mean=0.300±1.308  pass@2=10.0%  n=20
+  IMO-medium   mean=0.000±0.000  pass@2=0.0%  n=16
+
+--- Per-problem scores ---
+Problem                Level         gemini-3-flash-pre(judged by gpt-5.4-mi)  gpt-5.4-mini(judged by gemini-3-f)
+----------------------------------------------------------------------------------------------------
+PB-Advanced-001        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-004        IMO-easy       1.0±1.0   [2/0]   0.0±0.0   [0/0]
+PB-Advanced-007        IMO-easy       3.0±3.0✓  [0/6]   0.0±0.0   [0/0]
+PB-Advanced-013        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-016        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-017        IMO-easy       0.5±0.5   [0/1]   0.0±0.0   [0/0]
+PB-Advanced-019        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-022        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-025        IMO-easy       0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Advanced-028        IMO-easy       0.0±0.0   [0/0]   3.0±3.0✓  [0/6]
+PB-Basic-006           IMO-medium     0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Basic-007           IMO-medium     0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Basic-012           IMO-medium     6.5±0.5✓  [7/6]   0.0±0.0   [0/0]
+PB-Basic-023           IMO-medium     0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Basic-024           IMO-medium     3.5±3.5✓  [7/0]   0.0±0.0   [0/0]
+PB-Basic-026           IMO-medium     0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Basic-028           IMO-medium     0.0±0.0   [0/0]   0.0±0.0   [0/0]
+PB-Basic-029           IMO-medium     7.0±0.0✓  [7/7]   0.0±0.0   [0/0]
+
+Errors: 0/72  |  Score parse fails (defaulted 0): 31/72
+Total cost: $3.0235
+
+Results saved to: /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/experiments/results/gemini_gpt_cross_20260327_021112.json
+Pipeline log:     /Users/benjamingrayzel/sandbox/agentic-math-solver/agentic-math-solver/logs/pipeline_20260327_020303.jsonl

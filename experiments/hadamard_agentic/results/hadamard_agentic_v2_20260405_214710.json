@@ -1,0 +1,698 @@
+{
+  "experiment": "hadamard_agentic_v2",
+  "target_order": 668,
+  "date": "2026-04-05T21:47:10.318098+00:00",
+  "mock": false,
+  "solved": false,
+  "exec_timeout": 300,
+  "reasoning_effort": "high",
+  "branches": {
+    "1": {
+      "branch": "williamson-search",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 35,
+      "solved": false,
+      "best_order": 4,
+      "best_violations": 1,
+      "elapsed_s": 4006.1,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": false,
+          "num_blocks": 3,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 206.6
+        },
+        {
+          "turn": 2,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": true,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 48.4
+        },
+        {
+          "turn": 3,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 249.5
+        },
+        {
+          "turn": 4,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 49.3
+        },
+        {
+          "turn": 5,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 244.3
+        },
+        {
+          "turn": 6,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 14.8
+        },
+        {
+          "turn": 7,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 75.3
+        },
+        {
+          "turn": 8,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 16.7
+        },
+        {
+          "turn": 9,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": true,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 324.0
+        },
+        {
+          "turn": 10,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": true,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 17.5
+        },
+        {
+          "turn": 11,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 270.1
+        },
+        {
+          "turn": 12,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 15.2
+        },
+        {
+          "turn": 13,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 259.4
+        },
+        {
+          "turn": 14,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 20.7
+        },
+        {
+          "turn": 15,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 237.9
+        },
+        {
+          "turn": 16,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 24.7
+        },
+        {
+          "turn": 17,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 79.0
+        },
+        {
+          "turn": 18,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 19.4
+        },
+        {
+          "turn": 19,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 241.1
+        },
+        {
+          "turn": 20,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 9.8
+        },
+        {
+          "turn": 21,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 269.8
+        },
+        {
+          "turn": 22,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 16.1
+        },
+        {
+          "turn": 23,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 224.3
+        },
+        {
+          "turn": 24,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 17.9
+        },
+        {
+          "turn": 25,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 238.7
+        },
+        {
+          "turn": 26,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": false,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 15.2
+        },
+        {
+          "turn": 27,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 19.2
+        },
+        {
+          "turn": 28,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 22.5
+        },
+        {
+          "turn": 29,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 247.2
+        },
+        {
+          "turn": 30,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 19.1
+        },
+        {
+          "turn": 31,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 1,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 77.4
+        },
+        {
+          "turn": 32,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": true,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 34.7
+        },
+        {
+          "turn": 33,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 239.7
+        },
+        {
+          "turn": 34,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 20.0
+        },
+        {
+          "turn": 35,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 4,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 115.4
+        }
+      ]
+    },
+    "0": {
+      "branch": "williamson-qr",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 26,
+      "solved": false,
+      "best_order": 2,
+      "best_violations": 1,
+      "elapsed_s": 4115.6,
+      "turn_summaries": [
+        {
+          "turn": 1,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 381.7
+        },
+        {
+          "turn": 2,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 15.0
+        },
+        {
+          "turn": 3,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 247.0
+        },
+        {
+          "turn": 4,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 41.0
+        },
+        {
+          "turn": 5,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 235.3
+        },
+        {
+          "turn": 6,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 31.9
+        },
+        {
+          "turn": 7,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 14.7
+        },
+        {
+          "turn": 8,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 13.0
+        },
+        {
+          "turn": 9,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 92.1
+        },
+        {
+          "turn": 10,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 13.8
+        },
+        {
+          "turn": 11,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": true,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 336.5
+        },
+        {
+          "turn": 12,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 18.4
+        },
+        {
+          "turn": 13,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 277.7
+        },
+        {
+          "turn": 14,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 0,
+          "best_violations": null,
+          "solved": false,
+          "elapsed": 263.5
+        },
+        {
+          "turn": 15,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": true,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 45.5
+        },
+        {
+          "turn": 16,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 74.1
+        },
+        {
+          "turn": 17,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 145.8
+        },
+        {
+          "turn": 18,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": false,
+          "timed_out": true,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 341.2
+        },
+        {
+          "turn": 19,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 294.2
+        },
+        {
+          "turn": 20,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 309.6
+        },
+        {
+          "turn": 21,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 92.7
+        },
+        {
+          "turn": 22,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 5.0
+        },
+        {
+          "turn": 23,
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "code_success": false,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 155.8
+        },
+        {
+          "turn": 24,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 276.2
+        },
+        {
+          "turn": 25,
+          "event": "no_code",
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "no_code_streak": 1,
+          "elapsed": 248.5
+        },
+        {
+          "turn": 26,
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "code_success": true,
+          "timed_out": false,
+          "num_blocks": 1,
+          "has_matrix": false,
+          "best_order": 2,
+          "best_violations": 1,
+          "solved": false,
+          "elapsed": 140.2
+        }
+      ]
+    }
+  }
+}

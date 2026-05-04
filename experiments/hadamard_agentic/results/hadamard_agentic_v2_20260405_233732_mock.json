@@ -1,0 +1,46 @@
+{
+  "experiment": "hadamard_agentic_v2",
+  "target_order": 668,
+  "date": "2026-04-05T23:37:32.740508+00:00",
+  "mock": true,
+  "solved": false,
+  "exec_timeout": 300,
+  "reasoning_efforts": {
+    "openrouter/anthropic/claude-opus-4.6": "medium",
+    "openrouter/google/gemini-3.1-pro-preview": "high"
+  },
+  "resumed_from": {
+    "williamson-search": "experiments/hadamard_agentic/results/conversation_williamson-search_20260405_214710.json",
+    "williamson-qr": "experiments/hadamard_agentic/results/conversation_williamson-qr_20260405_214710.json"
+  },
+  "branches": {
+    "0": {
+      "branch": "williamson-qr",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 0,
+      "solved": false,
+      "best_order": 2,
+      "best_violations": null,
+      "elapsed_s": 0.0,
+      "turn_summaries": []
+    },
+    "1": {
+      "branch": "williamson-search",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "alternating_models": [
+        "openrouter/anthropic/claude-opus-4.6",
+        "openrouter/google/gemini-3.1-pro-preview"
+      ],
+      "turns": 0,
+      "solved": false,
+      "best_order": 4,
+      "best_violations": null,
+      "elapsed_s": 0.0,
+      "turn_summaries": []
+    }
+  }
+}

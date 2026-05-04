@@ -1,0 +1,173 @@
+{
+  "experiment": "iteration_depth_v3",
+  "date": "2026-04-06T12:11:15.971355+00:00",
+  "models": [
+    "openrouter/deepseek/deepseek-v3.2",
+    "openrouter/openai/gpt-oss-120b"
+  ],
+  "ideator": "openrouter/google/gemini-3.1-flash-lite-preview",
+  "judge_model": "gemini/gemini-3-flash-preview",
+  "iter_counts": [
+    0,
+    1,
+    2,
+    4,
+    6
+  ],
+  "seeds": [
+    42
+  ],
+  "num_ideas": 1,
+  "problems": [
+    "PB-Basic-007",
+    "PB-Basic-012",
+    "PB-Basic-017",
+    "PB-Basic-024",
+    "PB-Basic-028",
+    "erdos-659"
+  ],
+  "mock": true,
+  "total_elapsed_min": 0.0,
+  "all_results": [
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "n_iters": 0,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.04,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "n_iters": 1,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "n_iters": 2,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "n_iters": 4,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/deepseek/deepseek-v3.2",
+      "seed": 42,
+      "n_iters": 6,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "n_iters": 0,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.04,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "n_iters": 1,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "n_iters": 2,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "n_iters": 4,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    },
+    {
+      "problem_id": "PB-Basic-007",
+      "level": "IMO-medium",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "n_iters": 6,
+      "best_score": 7,
+      "passed": true,
+      "iters_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.05,
+      "best_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "best_verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>"
+    }
+  ]
+}

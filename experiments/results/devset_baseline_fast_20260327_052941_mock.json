@@ -1,0 +1,1518 @@
+{
+  "experiment": "devset_baseline_fast",
+  "description": "Baseline v2 with hardened judge (DeepMind-style, mode-specific prompts,\nextraction fallback) and adversarial verifier. 6 fast models on the 6-problem\ndev set, both generate-only and full pipeline modes.",
+  "date": "2026-03-27T05:29:41.293138+00:00",
+  "models": [
+    "openrouter/qwen/qwen3.5-flash-02-23",
+    "openai/gpt-5.4-mini",
+    "gemini/gemini-3-flash-preview",
+    "openrouter/openai/gpt-oss-120b",
+    "openrouter/nvidia/nemotron-3-super-120b-a12b",
+    "openrouter/google/gemini-3.1-flash-lite-preview"
+  ],
+  "judge_model": "gemini/gemini-3-flash-preview",
+  "seeds": [
+    42
+  ],
+  "iterations": 3,
+  "pass_threshold": 6,
+  "mock": true,
+  "dev_set": {
+    "PB-Advanced-006": {
+      "role": "hard"
+    },
+    "PB-Advanced-014": {
+      "role": "boundary-pipeline-helps"
+    },
+    "PB-Advanced-023": {
+      "role": "boundary-verifier-bug"
+    },
+    "PB-Advanced-026": {
+      "role": "boundary-pipeline-hurts"
+    },
+    "PB-Basic-024": {
+      "role": "sanity"
+    },
+    "erdos-659": {
+      "role": "frontier"
+    }
+  },
+  "all_results": [
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "generate",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-006",
+      "level": "IMO-hard",
+      "category": "Algebra",
+      "role": "hard",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-014",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-pipeline-helps",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-023",
+      "level": "IMO-medium",
+      "category": "Combinatorics",
+      "role": "boundary-verifier-bug",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Advanced-026",
+      "level": "IMO-medium",
+      "category": "Algebra",
+      "role": "boundary-pipeline-hurts",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/openai/gpt-oss-120b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "gemini/gemini-3-flash-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openai/gpt-5.4-mini",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "PB-Basic-024",
+      "level": "IMO-medium",
+      "category": "Number theory",
+      "role": "sanity",
+      "model": "openrouter/qwen/qwen3.5-flash-02-23",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    },
+    {
+      "problem_id": "erdos-659",
+      "level": "Negligible Novelty",
+      "category": "Combinatorics",
+      "role": "frontier",
+      "model": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+      "seed": 42,
+      "pipeline_mode": "full",
+      "score": 7,
+      "passed": true,
+      "iterations_run": 1,
+      "stopped_early": true,
+      "elapsed_s": 0.04,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "critique": "## Verdict\nThe solution appears correct.\n\n## Findings\n1. None found.\n\n## Log\nChecked all steps.\n\nVERDICT: correct",
+          "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes."
+        }
+      ]
+    }
+  ]
+}

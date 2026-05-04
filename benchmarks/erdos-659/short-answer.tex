@@ -1,0 +1,32 @@
+
+\[
+\text{Take the anisotropic lattice box}
+\]
+
+\[
+P_m=\{(i,\sqrt{2}j):0\le i,j\le m-1\}\subset \mathbb{Z}\times \sqrt{2}\mathbb{Z}
+\]
+
+so \(|P_m|=m^2\). Squared distances in \(P_m\) are exactly values of \(u^2+2v^2\) with
+\(|u|,|v|\le m-1\), hence \(\le 3m^2\).
+
+By Bernays' theorem for the form \(u^2+2v^2\) (discriminant \(-8\)), the number of represented
+integers \(\le x\) is \(\asymp \dfrac{x}{\sqrt{\log x}}\), giving
+
+\[
+|\mathrm{D}(P_m)|=O\!\left(\frac{m^2}{\sqrt{\log m}}\right)
+=O\!\left(\frac{n}{\sqrt{\log n}}\right).
+\]
+
+For the local 4-point condition, use the classification of 4-point two-distance sets: the only possibilities (up to similarity) that do not
+contain an equilateral triangle are the square and the ``regular pentagon trapezoid.''
+None occur in \(\mathbb{Z}\times \sqrt{2}\mathbb{Z}\).
+
+Squares would force a \(90^\circ\) rotation to stay in the lattice (impossible unless degenerate),
+equilateral triangles would force \(60^\circ\) rotation (and hence coefficients of
+\(\tfrac{1}{\sqrt{3}}\)) to lie in \(\mathbb{Q}(\sqrt{2})\), and the pentagon trapezoid forces
+the golden-ratio squared \(\frac{3+\sqrt{5}}{2}\) as a ratio of squared distances, but squared
+distances here are integers so the ratio is rational.
+
+As such, every 4-point subset determines \(\ge 3\) distances. For general \(n\), take any
+\(n\)-point subset of \(P_{\lceil \sqrt{n}\rceil}\).

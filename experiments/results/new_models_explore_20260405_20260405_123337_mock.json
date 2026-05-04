@@ -1,0 +1,213 @@
+{
+  "experiment": "new_models_explore_20260405",
+  "description": "Hypothesis: Get a baseline feel for qwen3.6-plus:free and gemma-4-31b-it on easy math problems.\nVariables:\n  Independent: model (qwen3.6-plus:free vs gemma-4-31b-it)\n  Dependent:   classification (correct/almost/partial/incorrect), output quality\n  Controlled:  problems (5 IMO-easy), seed (42), generate-only mode",
+  "date": "2026-04-05",
+  "pipeline_mode": "generate",
+  "ground_truth": false,
+  "mock": true,
+  "seeds": [
+    42
+  ],
+  "problems": [
+    "PB-Basic-001",
+    "PB-Basic-003",
+    "PB-Basic-004",
+    "PB-Basic-005",
+    "PB-Basic-009"
+  ],
+  "models": [
+    "openrouter/qwen/qwen3.6-plus:free",
+    "openrouter/google/gemma-4-31b-it"
+  ],
+  "judge_model": "openrouter/google/gemini-3-flash-preview",
+  "model_stats": {
+    "openrouter/qwen/qwen3.6-plus:free": {
+      "mean_score": 3.0,
+      "std_score": 0.0,
+      "passk_rate": 1.0,
+      "n_valid": 5,
+      "n_errors": 0,
+      "distribution": {
+        "correct": 5,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 0
+      }
+    },
+    "openrouter/google/gemma-4-31b-it": {
+      "mean_score": 3.0,
+      "std_score": 0.0,
+      "passk_rate": 1.0,
+      "n_valid": 5,
+      "n_errors": 0,
+      "distribution": {
+        "correct": 5,
+        "almost": 0,
+        "partial": 0,
+        "incorrect": 0
+      }
+    }
+  },
+  "all_results": [
+    {
+      "problem_id": "PB-Basic-001",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-003",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-001",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/google/gemma-4-31b-it",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-005",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-005",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/google/gemma-4-31b-it",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-004",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/google/gemma-4-31b-it",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-003",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/google/gemma-4-31b-it",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-004",
+      "level": "IMO-easy",
+      "category": "Algebra",
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-009",
+      "level": "IMO-easy",
+      "category": "Combinatorics",
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    },
+    {
+      "problem_id": "PB-Basic-009",
+      "level": "IMO-easy",
+      "category": "Combinatorics",
+      "model": "openrouter/google/gemma-4-31b-it",
+      "seed": 42,
+      "score": 3,
+      "label": "correct",
+      "passed": true,
+      "iterations_run": 0,
+      "stopped_early": false,
+      "elapsed_s": 0.02,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+      "loop_log": []
+    }
+  ]
+}

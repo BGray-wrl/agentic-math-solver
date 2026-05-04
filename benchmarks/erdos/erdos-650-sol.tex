@@ -1,0 +1,591 @@
+\documentclass[11pt,letterpaper,reqno]{amsart}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta, calc, positioning}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{enumitem} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} 
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{doi}
+\usepackage{float} 
+\usepackage{comment} 
+\addtolength{\hoffset}{-1.5cm}\addtolength{\textwidth}{3cm}
+\addtolength{\voffset}{-1cm}\addtolength{\textheight}{2cm}
+
+\usepackage{bookmark}
+\usepackage{hyperref}
+\hypersetup{pdfstartview={FitH}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\abs}[1]{| #1 |}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\tr}{\operatorname{Tr}}
+\DeclareMathOperator{\rank}{rank}
+
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\numberwithin{equation}{section}
+
+\newcommand{\snorm}[1]{\lVert#1\rVert}
+\newcommand{\sang}[1]{\langle #1 \rangle}
+\newcommand{\pvec}[1]{{\vec{#1}\,}'}
+\newcommand{\avec}[1]{{\vec{#1}\,}^\ast}
+\newcommand{\evec}[2]{{\vec{#1}\,}^{#2}}
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\mb}{\mathbb}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mbm}{\mathbbm}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\mr}{\mathrm}
+\newcommand{\msc}{\mathscr}
+\newcommand{\ol}{\overline}
+\newcommand{\on}{\operatorname}
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+\newcommand{\edit}[1]{{\color{red}#1}}
+\newcommand{\imod}[1]{~\mathrm{mod}~#1}
+
+
+% \left(\right) should behave the same as ()
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\newcommand{\tO}{\wt{\Omega}}
+\newcommand{\wtilde}{\widetilde}
+\renewcommand{\Re}{\mathrm{Re}}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\taufunc}{\tau}
+\newcommand{\omegap}{\omega}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\R}{\mathbb{R}}        % real numbers
+\newcommand{\E}{\mathbb{E}}        % expectation
+\newcommand{\Var}{\mathrm{Var}}    % variance
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\PP}{\mathbb{P}}     % probability
+\newcommand{\eps}{\varepsilon}     % epsilon
+\newcommand{\ind}{\mathbf{1}}      % indicator function
+\newcommand{\seq}[1]{\left(#1\right)} % sequence
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\muo}{\mu}
+\newcommand{\ph}{\varphi}
+\newcommand{\ta}{\tau}
+
+\makeatother
+
+
+\begin{document}
+
+
+\title{A note on Problem~\#650}
+
+
+
+
+
+\date{\today}
+
+
+
+\maketitle
+
+
+
+
+
+
+
+
+
+\section{Introduction}
+
+
+
+In~\cite{Er95c}, Erd\H{o}s and Graham posed the following question, which also appears as Problem~\#650 on Bloom's Erd\H{o}s Problems website~\cite{EP}.
+\begin{problem}\label{prob:650}
+Let $f(m)$ be such that if $A\subseteq \{1,\ldots,N\}$ has $\lvert A\rvert=m$ then every interval in $[1,\infty)$ of length $2N$ contains $\geq f(m)$ many distinct integers $b_1,\ldots,b_r$ where each $b_i$ is divisible by some $a_i\in A$, where $a_1,\ldots,a_r$ are distinct.
+
+Estimate $f(m)$. In particular is it true that $f(m)\ll m^{1/2}$?
+\end{problem}
+
+
+
+Erd\H{o}s and Sar\'{a}nyi \cite{ErSa59} proved that $f(m)\gg m^{1/2}$.
+
+
+
+
+In this note, we solve Problem~\ref{prob:650}.
+
+
+
+
+
+
+\section{Main Result}
+
+
+
+\begin{theorem}
+For every integer $m \ge 1$, one has
+\[
+f(m)\le 2\lceil \sqrt m\rceil.
+\]
+More generally, for all integers $s,t\ge 1$,
+\[
+f(st)\le s+t.
+\]
+In particular,
+\[
+f(m)\ll \sqrt m.
+\]
+\end{theorem}
+
+\begin{proof}
+We first prove the stronger statement
+\[
+f(st)\le s+t
+\qquad (s,t\ge 1).
+\]
+
+
+Here, by a matching we mean a collection of distinct pairs $(a_i,b_i)$ such that
+\[
+a_i\in A,\qquad b_i\in I\cap \mathbb Z,\qquad a_i\mid b_i,
+\]
+with all the $a_i$ distinct and all the $b_i$ distinct.
+
+If $s=1$ or $t=1$, then any matching has size at most $|A|=st$, so trivially
+\[
+f(st)\le st\le s+t.
+\]
+Thus it remains to consider the case $s,t\ge 2$.
+
+Define
+\[
+E:=\prod_{p\le st} p^{\,1+\lfloor \log_p(s-1)\rfloor},
+\qquad
+D:=E\cdot \mathrm{lcm}(1,2,\dots,st).
+\]
+Then for every prime $p\le st$ and every integer $\delta$ with
+\[
+1\le |\delta|\le s-1,
+\]
+we have
+\[
+v_p(D)>v_p(\delta),
+\]
+where $v_p(\cdot)$ denotes the $p$-adic valuation. Indeed,
+\[
+v_p(\delta)\le \lfloor \log_p(s-1)\rfloor,
+\]
+while the exponent of $p$ in $E$ is
+\[
+1+\lfloor \log_p(s-1)\rfloor.
+\]
+
+Next let
+\[
+\mathcal P:=
+\Bigl\{
+p>st:\ p \text{ is prime and } p\mid (qD+\delta)
+\text{ for some }1\le q\le t-1,\ 1\le |\delta|\le s-1
+\Bigr\}.
+\]
+This is a finite set of primes.
+
+For each $p\in\mathcal P$, consider the residue classes
+\[
+i-jD \pmod p
+\qquad (1\le i\le s,\ 0\le j\le t-1).
+\]
+There are at most $st$ such classes, whereas $p>st$, so they do not exhaust all residue classes modulo $p$. Hence we may choose a residue class
+\[
+r_p \pmod p
+\]
+such that
+\[
+r_p\not\equiv i-jD\pmod p
+\qquad (1\le i\le s,\ 0\le j\le t-1).
+\]
+
+By the Chinese remainder theorem, there exists an integer $a$ such that
+\[
+a\equiv r_p \pmod p
+\qquad (\forall p\in\mathcal P),
+\]
+and also
+\[
+a>2(t-1)D+4s.
+\]
+
+For $1\le i\le s$ and $0\le j\le t-1$, define
+\[
+a_{i,j}:=a+jD-i.
+\]
+These integers are pairwise distinct. Indeed, if
+\[
+a+jD-i=a+\ell D-k,
+\]
+then
+\[
+(j-\ell)D=i-k.
+\]
+Since
+\[
+|i-k|<s\le st\le D,
+\]
+it follows that $j=\ell$, and then $i=k$.
+
+Now set
+\[
+A:=\{a_{i,j}:1\le i\le s,\ 0\le j\le t-1\},
+\qquad
+N:=a+(t-1)D-1.
+\]
+Then $|A|=st$, and every element of $A$ lies in $\{1,\dots,N\}$, because
+\[
+1\le a-s\le a_{i,j}\le a+(t-1)D-1=N.
+\]
+
+We claim that for any two pairs $(i,j)$ and $(k,\ell)$,
+\[
+\gcd(a_{i,j},a_{k,\ell})\mid (k-i).
+\]
+Let
+\[
+d:=\gcd(a_{i,j},a_{k,\ell}).
+\]
+Since
+\[
+a_{i,j}-a_{k,\ell}=(j-\ell)D+(k-i),
+\]
+we have
+\[
+d\mid (j-\ell)D+(k-i).
+\]
+
+We distinguish three cases.
+
+\medskip
+
+\noindent
+\emph{Case 1:} $i=k$.
+
+Then
+\[
+d\mid 0=(k-i),
+\]
+so there is nothing to prove.
+
+\medskip
+
+\noindent
+\emph{Case 2:} $i\ne k$ and $j=\ell$.
+
+Then immediately
+\[
+d\mid (k-i).
+\]
+
+\medskip
+
+\noindent
+\emph{Case 3:} $i\ne k$ and $j\ne \ell$.
+
+Let
+\[
+q:=|j-\ell|\in\{1,\dots,t-1\},
+\]
+and choose
+\[
+\delta=
+\begin{cases}
+k-i,& j>\ell,\\
+i-k,& j<\ell.
+\end{cases}
+\]
+Then
+\[
+d\mid qD+\delta,
+\qquad
+1\le |\delta|=|k-i|\le s-1.
+\]
+
+We first show that every prime divisor of $d$ is at most $st$. Suppose, for contradiction, that some prime $p>st$ divides $d$. Since
+\[
+p\mid d\mid qD+\delta,
+\]
+we have $p\in\mathcal P$ by definition of $\mathcal P$. On the other hand,
+\[
+p\mid d\mid a_{i,j}=a+jD-i,
+\]
+so
+\[
+a\equiv i-jD \pmod p,
+\]
+contradicting the choice of $a\equiv r_p\pmod p$, where $r_p$ avoids all residue classes $i-jD\pmod p$. Thus every prime divisor of $d$ is at most $st$.
+
+Now let $p\le st$ be any prime. Since
+\[
+v_p(qD)\ge v_p(D)>v_p(\delta),
+\]
+it follows that
+\[
+v_p(qD+\delta)=v_p(\delta).
+\]
+Because $d\mid qD+\delta$, we obtain
+\[
+v_p(d)\le v_p(qD+\delta)=v_p(\delta)=v_p(k-i).
+\]
+Since all prime divisors of $d$ are at most $st$, we conclude that
+\[
+d\mid (k-i).
+\]
+This proves the claim.
+
+Consequently, the system of congruences
+\[
+x\equiv -i \pmod{a_{i,j}}
+\qquad (1\le i\le s,\ 0\le j\le t-1)
+\]
+is pairwise compatible: for any two congruences in the system, the difference of the residues is
+\[
+(-i)-(-k)=k-i,
+\]
+and by the claim this is divisible by $\gcd(a_{i,j},a_{k,\ell})$. Therefore, by the generalized Chinese remainder theorem~\cite[Theorem~11.5]{Donaldson180A}, the system has a solution $x_0$.
+
+Replacing $x_0$ by a sufficiently large positive integer in the same residue class if necessary, we may assume that the interval introduced below lies in $[1,\infty)$.
+
+Choose an integer $T$ such that
+\[
+2\bigl((t-1)D+s-1\bigr)<T\le a-2s.
+\]
+Such a choice is possible because
+\[
+a>2(t-1)D+4s.
+\]
+
+Consider the interval
+\[
+I:=(x_0-T,\ x_0-T+2N].
+\]
+Its length is $2N$.
+
+Fix $(i,j)$ with $1\le i\le s$ and $0\le j\le t-1$. Since
+\[
+x_0\equiv -i\pmod{a_{i,j}},
+\]
+we have
+\[
+a_{i,j}\mid (x_0+i).
+\]
+Also, since
+\[
+a_{i,j}=a+jD-i,
+\]
+we have
+\[
+x_0+a+jD=(x_0+i)+a_{i,j},
+\]
+so $x_0+a+jD$ is another multiple of $a_{i,j}$.
+
+We now show that these are exactly the two multiples of $a_{i,j}$ contained in $I$.
+
+First, both of them lie in $I$. Indeed, the offset of $x_0+i$ from the left endpoint $x_0-T$ is
+\[
+T+i,
+\]
+which is positive and satisfies
+\[
+T+i\le T+s\le a-s<2N.
+\]
+Hence
+\[
+x_0+i\in I.
+\]
+
+Similarly, the offset of $x_0+a+jD$ from the left endpoint is
+\[
+T+a+jD,
+\]
+which is again positive. Moreover,
+\[
+T+a+jD\le T+a+(t-1)D\le (a-2s)+a+(t-1)D<2N,
+\]
+since
+\[
+2N=2a+2(t-1)D-2
+\]
+and
+\[
+(a-2s)+a+(t-1)D
+<
+2a+2(t-1)D-2
+\]
+for $s,t\ge 2$. Thus
+\[
+x_0+a+jD\in I.
+\]
+
+Next, the preceding multiple of $a_{i,j}$ is
+\[
+(x_0+i)-a_{i,j}.
+\]
+Its offset from the left endpoint is
+\[
+T+i-a_{i,j}.
+\]
+But
+\[
+a_{i,j}=a+jD-i\ge a-s,
+\]
+and
+\[
+T+i\le T+s\le a-s\le a_{i,j},
+\]
+so
+\[
+T+i-a_{i,j}\le 0.
+\]
+Hence this preceding multiple is not contained in $I$.
+
+Finally, the next multiple after $x_0+a+jD$ is
+\[
+(x_0+i)+2a_{i,j},
+\]
+whose offset from the left endpoint is
+\[
+T+i+2a_{i,j}\ge T+1+2(a-s).
+\]
+Using
+\[
+T>2\bigl((t-1)D+s-1\bigr)=2(t-1)D+2s-2,
+\]
+we obtain
+\[
+T+i+2a_{i,j}
+>
+2(t-1)D+2s-2+1+2a-2s
+=
+2a+2(t-1)D-1
+>
+2N,
+\]
+because
+\[
+2N=2a+2(t-1)D-2.
+\]
+Therefore this multiple also lies outside $I$.
+
+Thus $a_{i,j}$ has exactly two multiples in $I$, namely
+\[
+x_0+i
+\qquad\text{and}\qquad
+x_0+a+jD.
+\]
+
+It follows that every integer in $I$ divisible by some element of $A$ lies in the set
+\[
+B:=\{x_0+i:1\le i\le s\}\cup \{x_0+a+jD:0\le j\le t-1\}.
+\]
+The two parts of this union are disjoint, since
+\[
+x_0+i=x_0+a+jD
+\]
+would imply
+\[
+i=a+jD,
+\]
+which is impossible because $1\le i\le s<a\le a+jD$. Hence
+\[
+|B|=s+t.
+\]
+
+Therefore, inside the interval $I$, there are at most $s+t$ integers divisible by some element of $A$. In particular, there cannot exist a matching from $A$ into $I\cap\mathbb Z$ of size larger than $s+t$. Hence
+\[
+f(st)\le s+t.
+\]
+
+Now let
+\[
+n:=\lceil \sqrt m\rceil.
+\]
+Applying the above result with $s=t=n$, we obtain a set
+\[
+A\subseteq\{1,\dots,N\}
+\]
+of size $n^2$ and an interval $I$ of length $2N$ such that at most $2n$ integers in $I$ are divisible by some element of $A$.
+
+Choose any subset $A'\subseteq A$ with $|A'|=m$. Then $A'\subseteq\{1,\dots,N\}$, and the set of integers in $I$ divisible by some element of $A'$ is contained in the corresponding set for $A$, so it still has cardinality at most $2n$. Therefore there cannot exist a matching from $A'$ into $I\cap\mathbb Z$ of size larger than $2n$, and hence
+\[
+f(m)\le 2n=2\lceil \sqrt m\rceil.
+\]
+This completes the proof.
+\end{proof}
+
+
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{EP}
+T. F. Bloom, Erd\H{o}s Problem \#650, \url{https://www.erdosproblems.com/650}, accessed 2026-03-06.
+
+\bibitem{Donaldson180A}
+N.~Donaldson,
+\emph{Math 180A - Notes},
+University of California, Irvine, March 14, 2018.
+Available at:
+\url{https://www.math.uci.edu/~ndonalds/math180a/notes.pdf}
+(accessed March 7, 2026).
+
+
+\bibitem{Er95c}
+P. Erd\H{o}s, Some problems in number theory. Octogon Math. Mag. (1995), 3--5. 
+
+
+\bibitem{ErSa59}
+Erd\H{o}s, P. and Sar\'{a}nyi, Megjegyz\'{e}sek egy versenyfeladathoz. Matematikai Lapok (1959).
+
+
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+\end{document}

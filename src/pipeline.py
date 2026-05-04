@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime
@@ -51,6 +52,12 @@ def make_logger(log_path: str):
 # Mock responses
 # ---------------------------------------------------------------------------
 
+MOCK_IDEAS = [
+    {"name": "Direct construction", "description": "Build an explicit example satisfying the conditions."},
+    {"name": "Contradiction argument", "description": "Assume the negation and derive a contradiction."},
+    {"name": "Induction on n", "description": "Use strong induction on the parameter n."},
+]
+
 MOCK_RESPONSES = {
     "generate": (
         "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n"
@@ -83,9 +90,19 @@ MOCK_RESPONSES = {
 # Core atomic functions
 # ---------------------------------------------------------------------------
 
-def _call_llm(system: str, prompt: str, model: str, max_tokens: int) -> str:
+def _call_llm(system: str, prompt: str, model: str, max_tokens: int,
+              retries: int = 2, backoff: float = 5.0) -> str:
     from utils import llm
-    return llm(prompt, model=model, system=system, max_tokens=max_tokens)
+    for attempt in range(retries + 1):
+        try:
+            return llm(prompt, model=model, system=system, max_tokens=max_tokens)
+        except Exception as e:
+            if attempt < retries:
+                wait = backoff * (2 ** attempt)
+                print(f"[retry] {model} attempt {attempt+1} failed: {e}, retrying in {wait:.0f}s", flush=True)
+                time.sleep(wait)
+            else:
+                raise
 
 
 def generate(
@@ -105,6 +122,50 @@ def generate(
         response = _call_llm(system, problem, model, max_tokens)
     logger("generate", iteration, model, system, problem, response, time.time() - t0)
     return response
+
+
+def ideate(
+    problem: str,
+    system: str,
+    model: str,
+    max_tokens: int,
+    logger,
+    num_ideas: int = 3,
+    mock: bool = False,
+) -> list[dict]:
+    """Generate seed ideas for a problem. Returns list of {name, description}."""
+    prompt = system.replace("{problem}", problem).replace("{num_ideas}", str(num_ideas))
+    t0 = time.time()
+    if mock:
+        response = "```json\n" + json.dumps(MOCK_IDEAS[:num_ideas]) + "\n```"
+        time.sleep(0.01)
+    else:
+        response = _call_llm("", prompt, model, max_tokens)
+    logger("ideate", 0, model, "", prompt, response, time.time() - t0)
+
+    # Parse JSON from response — look for ```json block or bare JSON array
+    # Models often embed LaTeX with unescaped backslashes; fix before parsing
+    def _fix_json(text: str) -> str:
+        # Replace unescaped backslashes that aren't valid JSON escapes
+        return re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', text)
+
+    ideas = None
+    for pattern in [r"```json\s*(\[.*?\])\s*```", r"(\[.*\])"]:
+        m = re.search(pattern, response, re.DOTALL)
+        if m:
+            raw = m.group(1)
+            for attempt in [raw, _fix_json(raw)]:
+                try:
+                    ideas = json.loads(attempt)
+                    break
+                except json.JSONDecodeError:
+                    continue
+            if ideas:
+                break
+
+    if not ideas:
+        ideas = [{"name": "default", "description": "Solve using the most natural approach."}]
+    return ideas
 
 
 def _split_prompt_template(template: str) -> tuple[str, str]:
@@ -171,6 +232,10 @@ def revise(
     return response
 
 
+EXTRACT_MODEL = "openrouter/google/gemini-3.1-flash-lite-preview"
+"""Cheap fast model for score extraction fallback."""
+
+
 def judge(
     problem: str,
     candidate: str,
@@ -180,28 +245,62 @@ def judge(
     max_tokens: int,
     logger,
     mock: bool = False,
+    extract_prompt: str | None = None,
 ) -> str:
+    """Judge a candidate solution.
+
+    Uses judge_gt.md (Mode A, 0-7) when ground_truth is provided,
+    judge_nogt.md (Mode B, classification) otherwise.
+    The `system` parameter should be the contents of the appropriate prompt file.
+
+    If the verdict fails to parse and extract_prompt is provided, runs a cheap
+    extraction pass to recover the score.
+    """
     if ground_truth:
-        gt_section = f"**GROUND TRUTH SOLUTION:**\n{ground_truth}"
         mock_key = "judge_with_gt"
     else:
-        gt_section = ""
         mock_key = "judge_no_gt"
 
-    sys_instructions, content_template = _split_prompt_template(system)
+    # Build prompt from the mode-specific template
+    # judge_gt.md uses {problem}, {ground_truth}, {candidate}
+    # judge_nogt.md uses {problem}, {candidate}
     prompt = (
-        content_template
+        system
         .replace("{problem}", problem)
-        .replace("{ground_truth_section}", gt_section)
+        .replace("{ground_truth}", ground_truth or "")
         .replace("{candidate}", candidate)
+        # Legacy compatibility for old judge.md format
+        .replace("{ground_truth_section}",
+                 f"**GROUND TRUTH SOLUTION:**\n{ground_truth}" if ground_truth else "")
+        .replace("{scoring_instructions}", "")
     )
     t0 = time.time()
     if mock:
         response = MOCK_RESPONSES[mock_key]
         time.sleep(0.01)
     else:
-        response = _call_llm(sys_instructions, prompt, model, max_tokens)
-    logger("judge", 0, model, sys_instructions, prompt, response, time.time() - t0)
+        response = _call_llm("", prompt, model, max_tokens)
+    logger("judge", 0, model, "", prompt, response, time.time() - t0)
+
+    # Extraction fallback: if we expected <points> but didn't get it, run
+    # a cheap extraction pass
+    if (extract_prompt
+            and ground_truth
+            and "<points>" not in response
+            and not mock):
+        ext_prompt = extract_prompt.replace("{verdict}", response)
+        t1 = time.time()
+        ext_response = _call_llm("", ext_prompt, EXTRACT_MODEL, 64)
+        logger("extract_score", 0, EXTRACT_MODEL, "", ext_prompt, ext_response, time.time() - t1)
+        # Map extracted value back into <points> format
+        ext_clean = ext_response.strip()
+        if ext_clean.isdigit() and 0 <= int(ext_clean) <= 7:
+            response += f"\n<points>{ext_clean} out of 7</points>"
+        elif ext_clean in ("correct", "almost", "partial", "incorrect"):
+            classif_scores = {"correct": 7, "almost": 6, "partial": 1, "incorrect": 0}
+            s = classif_scores[ext_clean]
+            response += f"\n<points>{s} out of 7</points>"
+
     return response
 
 
@@ -325,7 +424,7 @@ def main():
     parser.add_argument("--reviser-prompt",
                         default=str(script_dir / "prompts/pipeline/reviser.md"))
     parser.add_argument("--judge-prompt",
-                        default=str(script_dir / "prompts/pipeline/judge.md"))
+                        default=str(script_dir / "prompts/pipeline/judge_gt.md"))
 
     # Judge options
     parser.add_argument("--ground-truth", metavar="FILE",

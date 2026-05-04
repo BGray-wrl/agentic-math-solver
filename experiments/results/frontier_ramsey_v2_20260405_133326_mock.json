@@ -1,0 +1,286 @@
+{
+  "experiment": "frontier_ramsey_v2",
+  "problem_id": "ramsey-hypergraphs",
+  "date": "2026-04-05T13:33:26.074818+00:00",
+  "architecture": {
+    "branches": {
+      "0": {
+        "name": "opus-branch",
+        "generator": "openrouter/anthropic/claude-opus-4.6",
+        "verifier": "openrouter/google/gemini-3.1-pro-preview",
+        "reviser": "openrouter/google/gemini-3.1-pro-preview"
+      },
+      "1": {
+        "name": "gemini-branch",
+        "generator": "openrouter/google/gemini-3.1-pro-preview",
+        "verifier": "openrouter/anthropic/claude-opus-4.6",
+        "reviser": "openrouter/anthropic/claude-opus-4.6"
+      },
+      "2": {
+        "name": "qwen-branch",
+        "generator": "openrouter/qwen/qwen3-max-thinking",
+        "verifier": "openrouter/google/gemini-3.1-pro-preview",
+        "reviser": "openrouter/anthropic/claude-opus-4.6"
+      }
+    },
+    "ideators": [
+      "openrouter/google/gemini-3.1-flash-lite-preview",
+      "openrouter/anthropic/claude-opus-4.6"
+    ],
+    "judges": [
+      "openrouter/anthropic/claude-opus-4.6",
+      "openrouter/google/gemini-3.1-pro-preview",
+      "openrouter/qwen/qwen3-max-thinking"
+    ],
+    "synthesizer": "openrouter/anthropic/claude-opus-4.6",
+    "iterations": 6
+  },
+  "ideas": [
+    {
+      "name": "Direct construction",
+      "description": "Build an explicit example satisfying the conditions."
+    },
+    {
+      "name": "Contradiction argument",
+      "description": "Assume the negation and derive a contradiction."
+    },
+    {
+      "name": "Induction on n",
+      "description": "Use strong induction on the parameter n."
+    }
+  ],
+  "branch_results": [
+    {
+      "branch_id": 0,
+      "name": "opus-branch",
+      "generator": "openrouter/anthropic/claude-opus-4.6",
+      "verifier": "openrouter/google/gemini-3.1-pro-preview",
+      "reviser": "openrouter/google/gemini-3.1-pro-preview",
+      "idea": {
+        "name": "Direct construction",
+        "description": "Build an explicit example satisfying the conditions."
+      },
+      "iterations_run": 1,
+      "verifier_correct": true,
+      "prog_valid": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "verifier": "gemini-3.1-pro-preview"
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "branch_id": 2,
+      "name": "qwen-branch",
+      "generator": "openrouter/qwen/qwen3-max-thinking",
+      "verifier": "openrouter/google/gemini-3.1-pro-preview",
+      "reviser": "openrouter/anthropic/claude-opus-4.6",
+      "idea": {
+        "name": "Induction on n",
+        "description": "Use strong induction on the parameter n."
+      },
+      "iterations_run": 1,
+      "verifier_correct": true,
+      "prog_valid": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "verifier": "gemini-3.1-pro-preview"
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "branch_id": 1,
+      "name": "gemini-branch",
+      "generator": "openrouter/google/gemini-3.1-pro-preview",
+      "verifier": "openrouter/anthropic/claude-opus-4.6",
+      "reviser": "openrouter/anthropic/claude-opus-4.6",
+      "idea": {
+        "name": "Contradiction argument",
+        "description": "Assume the negation and derive a contradiction."
+      },
+      "iterations_run": 1,
+      "verifier_correct": true,
+      "prog_valid": false,
+      "elapsed_s": 0.03,
+      "final_solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "loop_log": [
+        {
+          "iteration": 1,
+          "verdict": "correct",
+          "verifier": "claude-opus-4.6"
+        }
+      ],
+      "status": "completed"
+    }
+  ],
+  "synthesis_result": {
+    "solution": "## Synthesized Solution\n\nMock synthesis.\n\n{1,2,3},{4,5,6}",
+    "prog_valid": false,
+    "prog_result": {
+      "valid": false,
+      "violations": [
+        "mock"
+      ]
+    },
+    "elapsed_s": 0.0
+  },
+  "judge_results": [
+    {
+      "label": "opus-branch",
+      "judge_results": [
+        {
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/qwen/qwen3-max-thinking",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        }
+      ],
+      "classifications": [
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "consensus_positive": true,
+      "programmatic": {
+        "valid": false,
+        "violations": [
+          "mock"
+        ]
+      },
+      "prog_valid": false
+    },
+    {
+      "label": "qwen-branch",
+      "judge_results": [
+        {
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/qwen/qwen3-max-thinking",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        }
+      ],
+      "classifications": [
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "consensus_positive": true,
+      "programmatic": {
+        "valid": false,
+        "violations": [
+          "mock"
+        ]
+      },
+      "prog_valid": false
+    },
+    {
+      "label": "gemini-branch",
+      "judge_results": [
+        {
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/qwen/qwen3-max-thinking",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        }
+      ],
+      "classifications": [
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "consensus_positive": true,
+      "programmatic": {
+        "valid": false,
+        "violations": [
+          "mock"
+        ]
+      },
+      "prog_valid": false
+    },
+    {
+      "label": "synthesis",
+      "judge_results": [
+        {
+          "model": "openrouter/anthropic/claude-opus-4.6",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/google/gemini-3.1-pro-preview",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        },
+        {
+          "model": "openrouter/qwen/qwen3-max-thinking",
+          "classification": "correct",
+          "response": "The solution is complete and rigorous.\n\nCLASSIFICATION: correct",
+          "elapsed_s": 0.0
+        }
+      ],
+      "classifications": [
+        "correct",
+        "correct",
+        "correct"
+      ],
+      "consensus_positive": true,
+      "programmatic": {
+        "valid": false,
+        "violations": [
+          "mock"
+        ]
+      },
+      "prog_valid": false
+    }
+  ],
+  "best_label": "opus-branch",
+  "total_elapsed_s": 0.04,
+  "mock": true
+}

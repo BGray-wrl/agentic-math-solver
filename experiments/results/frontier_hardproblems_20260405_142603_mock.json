@@ -1,0 +1,65 @@
+{
+  "models": [
+    "openrouter/anthropic/claude-opus-4.6",
+    "openrouter/google/gemini-3.1-pro-preview"
+  ],
+  "judge": "openrouter/google/gemini-3-flash-preview",
+  "date": "2026-04-05",
+  "mock": true,
+  "results": [
+    {
+      "problem_id": "erdos-1051-aletheia",
+      "model": "openrouter/google/gemini-3.1-pro-preview",
+      "level": "Minor Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "ramsey-hypergraphs",
+      "model": "openrouter/google/gemini-3.1-pro-preview",
+      "level": "Moderately Interesting",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "erdos-1051-aletheia",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "level": "Minor Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "erdos-659",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "level": "Negligible Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "erdos-659",
+      "model": "openrouter/google/gemini-3.1-pro-preview",
+      "level": "Negligible Novelty",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    },
+    {
+      "problem_id": "ramsey-hypergraphs",
+      "model": "openrouter/anthropic/claude-opus-4.6",
+      "level": "Moderately Interesting",
+      "solution": "## Summary\n\n**Verdict:** Solved\n**Method sketch:** Mock solution using standard techniques.\n\n## Detailed Solution\n\nThis is a mock solution. All steps are trivially justified for testing purposes.",
+      "verdict": "The solution is complete and correct.\n\n<points>7 out of 7</points>",
+      "score": 7,
+      "elapsed_s": 0.0
+    }
+  ]
+}
