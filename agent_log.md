@@ -1330,3 +1330,1665 @@ Files:
   (1259 per-trial JSONs + manifest.jsonl + frontier_passes.jsonl + summary.json)
 - Logs: `/tmp/phase1.log`, `/tmp/phase1_resume2.log`
 
+## Seed-Ideas Phase 2 — seed_full on cheap models — 2026-05-05T01:46:26
+
+Ran the missing 4th condition from the seed-ideas comparison (`seed_full`: ideate(3) → 3 parallel
+branches × full pipeline) on **gpt-oss-120b + gemma-4-31b-it across all 70 problems**. Judge =
+`openrouter/google/gemini-3-flash-preview` (matches Phase 1 regrade for direct comparability).
+Self-ideation, ITERATIONS=2 (1 gen + 2 revisions per branch), NUM_IDEAS=3, MAX_TOKENS=65536.
+
+**Single key (`OPENROUTER_API_KEY_seedgen`)**, no rotation per user requirement.
+**140/140 trials (100%), 0 errors, $9.70 / $75 cap, 77 min wall-clock.**
+Per-branch + per-trial atomic saves; frontier passes appended to `frontier_branches.jsonl`
+the moment they complete (not waiting for trial finalization).
+
+| Model              | n  | mean | std  | pass  | $/run  | $ tot |
+|---|---|---|---|---|---|---|
+| **gemma-4-31b-it** | 70 | **4.26** | 3.27 | 41/70 | $0.071 | $5.00 |
+| **gpt-oss-120b**   | 70 | **3.99** | 3.45 | 40/70 | $0.067 | $4.70 |
+
+**vs Phase 1 (same gemini judge, same 70 problems):**
+
+| Model | p@1 | p@3 | seed_gen | full | **seed_full (P2)** | uplift vs best P1 mode |
+|---|---|---|---|---|---|---|
+| gemma-4-31b-it | 2.96 | 3.70 | 3.67 | 3.51 | **4.26** | **+0.56** vs pass@3 |
+| gpt-oss-120b   | 2.29 | 3.11 | 3.09 | 3.10 | **3.99** | **+0.88** vs pass@3 |
+
+**Headline**: seed_full beats every Phase 1 mode for both cheap models. gpt-oss gains the most
+(+0.88) — combining cross-idea diversity with verify/revise gives weaker base models two
+independent shots at correctness. Predicted uplift from item 14 ("seed_full could push v4-pro
+to ~4.5") materialized for the cheap models. Std deviations near 3.3 indicate mostly bimodal
+outcomes (0 or 7) — typical for proofbench problems.
+
+**Special-10 frontier breakthroughs (NEW vs Phase 1):**
+
+| Problem | Phase 1 best | **Phase 2 seed_full** | Notes |
+|---|---|---|---|
+| **erdos-1051** | 0 passes (any model, any mode) | **gpt-oss 7/7 (2 of 3 ideas)**, **gemma 7/7 (2 of 3 ideas)** | First-ever solve |
+| **erdos-654**  | 1 pass (gpt-oss seed_gen 7/7) | **gpt-oss 7/7 (ALL 3 ideas)** | Hat-trick — not actually frontier for gpt-oss |
+| **erdos-659**  | 1 pass (deepseek-v4-flash gen 6/7) | **gemma 7/7 (idea 0)** | First 7/7 from a cheap model |
+| first-proof-10 | 11/18 at 6/7 (Phase 1) | gpt-oss 6/7 (ideas 0 + 2) | Consistent with Phase 1 |
+
+Winning ideas (paraphrased from `frontier_branches.jsonl`):
+- **erdos-654** gpt-oss: "Random Point Expectation" / "Incidence Graph / Szemerédi–Trotter" /
+  "Algebraic Polynomial Method" — three orthogonal attacks all reaching 7/7
+- **erdos-1051** gpt-oss: "Constructive Counterexample via Sparse Set" / "Transcendence Theory and
+  Linear Forms"; gemma: "Telescoping Series Comparison" / "Diophantine Approximation and Gap Analysis"
+- **erdos-659** gemma: "Algebraic Construction via Grids"
+
+**Still 0/7 for both models in any mode**: erdos-333, erdos-397, first-proof-{4,5,6}-official,
+ramsey-hypergraphs (5 of 10 special problems remain frontier-unsolved at this tier).
+
+**Cost note**: $0.067-0.071/run is in line with the projection (seed_full ≈ 3× full + ideate,
+with gemini-3-flash judge being the only inflator vs Phase 1's v4-pro). Special-10 problems with
+long ground-truths cost up to $0.19/trial (judge prompt size dominates). Came in 8× under cap.
+
+**Caveats:**
+1. Self-ideation only (per saved feedback memory). Cross-model ideation (lit-ideas pattern from
+   March's 5.28/7) unmeasured for these two models.
+2. Cheap-model 7/7s on Erdős problems may partly reflect gemini judge leniency — Phase 1 noted
+   |Δ|≈+1.7 between gemini and v4-pro on revised solutions. A v4-pro re-grade of the 5 Phase 2
+   frontier solves would be the cleanest sanity check (~$2 estimate).
+3. Wall-time tail: longest trial 41 min (gemma × ramsey-hypergraphs, branch_0 hit OpenRouter
+   429s and rode through retries). Median trial much faster.
+4. One sequence of harmless `litellm.RateLimitError 429 → retry in 5s` events from the upstream
+   Chutes provider for gemma; all retried successfully; no impact on results.
+
+**Implications:**
+- For cheap-model bulk solving on proofbench, **seed_full is now the recommended mode** —
+  beats pass@3 by +0.6 to +0.9 at ~$0.07/trial.
+- The v4-pro `seed_full` follow-up suggested in item 14 of Phase 1 is even more attractive:
+  if v4-pro shows similar +0.5–1.0 uplift on top of its 5.35 full / 5.56 pass@3, expect ~6.0+/7.
+- erdos-1051, erdos-654, erdos-659 should be removed from the "frontier" set for gemini-judged
+  comparisons going forward — they're solvable at the cheap tier with seed_full.
+
+Files:
+- Script: `experiments/seed_full_phase2_20260504.py`
+- Run dir: `experiments/results/seed_full_phase2_20260504_20260505_002924/`
+  - `manifest.jsonl` (140 lines, one per trial)
+  - `frontier_branches.jsonl` (10 entries: 5 Phase 2 frontier solves × branches)
+  - `seed_full/<model>/<pid>.json` (per-trial — full call log + branches)
+  - `branches/<model>/<pid>/branch_{0,1,2}.json` (per-branch incremental — survives mid-trial crashes)
+- Log: `/tmp/phase2.log`
+
+## Phase 2 frontier v4-pro re-grade — 2026-05-05T02:23:46
+
+Re-judged all 10 Phase 2 frontier-branch solves (gemini 6-7/7) with `deepseek-v4-pro`,
+concurrent. **All 10 went to 0-1/7.** Mean Δ = −6.8. Every "breakthrough" was
+gemini-leniency, not a real solve. erdos-1051/654/659 remain unsolved at the cheap tier.
+Cost $0.14, wall 12 min. Results: `experiments/results/regrade_phase2_v4pro_20260505_022346.json`.
+
+
+## Expensive-Models Comparison (4 frontier models) — 2026-05-04T22:09
+
+4 expensive models on the same 12-problem stratified subset (3 Alg / 3 Comb / 3 Geom / 3 NT,
+seed=42 sub-sample) from prior `answerbench_compare_20260504_084012` set, like-to-like.
+Goal: figure out if any of the more expensive models we've been avoiding is actually
+cost-effective. Generate-only, pass@1, judge = `gemini-3.1-flash-lite-preview` (matches prior).
+MAX_TOKENS_GEN=65536 (no reasoning suppression). Single dedicated `OPENROUTER_API_KEY_price_compare`
+key with $12 cap and a $9.50 hard killswitch via OpenRouter `/auth/key` polling.
+48-way parallelism (one worker per (model, problem) trial, single wave).
+
+**46/48 trials, ~$7 OpenRouter spend (price_compare key).** 2 kimi combinatorics trials
+killed at 49 min wall-clock after 10+ min stuck on 65k-token reasoning loops; remaining
+10 kimi trials all correct, so kimi accuracy is "10/10 with 2 dropped" not 12/12.
+
+### Unified table — 11 models on the same 12 problems (4 new ⊕ 7 prior)
+
+| Model | $/Mtok | Acc | mean_out | lat(s) | $/run | acc%/$ |
+|---|---|---|---|---|---|---|
+| **kimi-k2.6** (NEW)            | 3.49  | **10/10 (100%)** | 27.7K | 641 | $0.098 | 1026 |
+| **qwen3.6-max-preview** (NEW)  | 6.24  | 11/12 (92%)      | 27.6K | 656 | $0.174 | 528  |
+| gemini-3-flash-preview         | —     | 11/12 (92%)      | 2.1K  | 12  | —      | —    |
+| **deepseek-v4-flash**          | 0.28  | 11/12 (92%)      | 20.0K | 387 | $0.006 | **16183** |
+| deepseek-v4-pro                | 0.87  | 11/12 (92%)      | 21.8K | 712 | $0.019 | 4777 |
+| **gemini-3.1-pro-preview** (NEW) | 12.00 | 10/12 (83%)    | 20.8K | 174 | $0.252 | 330  |
+| qwen3.6-35b-a3b                | 1.00  | 10/12 (83%)      | 21.0K | 125 | $0.021 | 3917 |
+| qwen3.6-plus                   | 1.95  | 10/12 (83%)      | 39.0K | 703 | $0.077 | 1090 |
+| gpt-oss-120b                   | —     | 9/12 (75%)       | 6.3K  | 162 | —      | —    |
+| gemma-4-31b-it                 | 0.38  | 8/12 (67%)       | 3.1K  | 142 | $0.001 | 51893|
+| **gpt-5.4** (NEW)              | 15.00 | **6/12 (50%)**   | 3.6K  | 51  | $0.057 | 879  |
+
+**Findings:**
+- **None of the 4 expensive models earn their cost on AnswerBench.** `deepseek-v4-flash`
+  at $0.28/Mtok ties or beats every expensive model on accuracy, at ≥17× lower $/run.
+- **gpt-5.4 is the surprise loser: 6/12 (50%), worst overall.** ~50s mean latency and
+  3.6K mean output tokens — appears to *not* engage extended reasoning on these problems
+  (vs. kimi/qwen-max at 27K out tokens). Skip until we understand why.
+- **gemini-3.1-pro-preview disappoints (83%) at $12/Mtok** — strictly dominated by
+  deepseek-v4-pro AND qwen3.6-35b-a3b. Skip.
+- **kimi-k2.6 is the only expensive model worth a second look.** Perfect 10/10 (with 2
+  dropped) hints at higher capability than v4-flash; needs harder benchmark and the missing
+  2 combinatorics trials before we trust it. At ~$0.10/run real cost, plausibly a niche
+  premium-tier choice for combinatorics.
+- **qwen3.6-max-preview matches v4-flash absolute accuracy at 30× the cost** — same
+  story as qwen3.6-plus vs. qwen-35b in the prior run. Qwen "max"/"plus" tiers don't
+  pay back on this benchmark.
+- **OpenRouter actual spend ($7.00) ran 30%+ higher than blended-estimate sum (~$5.30)**.
+  Blended price under-estimates real cost on these models — keep killswitches via
+  OpenRouter `/auth/key` polling, not estimated cost.
+
+**Decision:** keep using deepseek-v4-flash as the cost-leader baseline. Re-test
+kimi-k2.6 only if we move to a harder benchmark where v4-flash hits a ceiling.
+Avoid gpt-5.4, gemini-3.1-pro-preview, and qwen3.6-max-preview for capability work.
+
+Files: `experiments/expensive_models_compare_20260504.py`,
+`experiments/results/expensive_models_compare_20260504_20260505_012855_partial.json`.
+
+## Phase 2 FULL v4-pro re-grade (Method B) — 2026-05-05T03:36:00
+
+Re-judged all 140 Phase 2 trial best_solutions with `deepseek-v4-pro` for an apples-to-apples
+comparison against Phase 1 v4-pro means. **$1.49 total, 35 min wall, 0 errors** (matches the
+$1.5-2.5 projection — empirical token-cost model is solid).
+
+**Apples-to-apples v4-pro means (same 70 problems × 2 cheap models):**
+
+| Mode (judge=v4-pro) | gpt-oss-120b | gemma-4-31b-it |
+|---|---|---|
+| P1 pass@3 (generate)  | 1.33 | 1.83 |
+| P1 full (V↔R loop)    | 1.39 | 1.17 |
+| P1 seed_generate      | 1.27 | 1.53 |
+| **P2 seed_full**      | **1.37** | **1.67** |
+
+**Headline: under v4-pro, seed_full is no better than any Phase 1 mode** (within ±0.1 of
+pass@3 / seed_generate / full for both models). The +0.6-0.9 uplift gemini saw was 100%
+judge artifact.
+
+**Score distribution under v4-pro (Phase 2 seed_full, n=140):**
+
+| Score | gpt-oss | gemma |
+|---|---|---|
+| 0/7 | 53 | 49 |
+| 1/7 |  3 |  4 |
+| 6/7 |  5 |  6 |
+| 7/7 |  9 | 11 |
+
+Bimodal — v4-pro doesn't grant partial credit for elaborate-but-wrong proofs.
+
+**Judge confusion (rows = gemini, cols = v4-pro):**
+
+|              | v4=0 | =1 | =6 | =7 |
+|---|---|---|---|---|
+| gemini=0     | 46 | 0 | 0 | 0 |
+| gemini=1     | 13 | 0 | 0 | 0 |
+| gemini=6     |  3 | 0 | 0 | 0 |
+| gemini=7     | 40 | 7 | 11 | 20 |
+
+Of 81 gemini-≥6/7 calls, **v4-pro agrees on only 31 (38%)** — the other 50 went to 0-1/7.
+Disagreement is one-sided: zero cases of v4-pro overruling gemini upward.
+
+**Head-to-head (best of P1 modes vs P2 seed_full per (model, problem)):**
+
+| Model | P2 better | tie | P2 worse | P1 score-margin | P2 score-margin |
+|---|---|---|---|---|---|
+| gemma-4-31b-it | 3 | 54 | 13 | 40 | 12 |
+| gpt-oss-120b   | 3 | 52 | 15 | 52 | 18 |
+
+P1 wins more cells AND wins by larger margins on those cells. seed_full not only fails to
+help under v4-pro — it actively regresses gpt-oss × erdos-654 (Phase 1 had a real $0.029
+seed_generate 7/7) and gemma × first-proof-10 (P1 had real 6/7s in generate + seed_generate).
+
+**Final intuition (now confirmed by data):** judges flip rankings end-to-end.
+- v4-pro: pass@3 ≈ full ≈ seed ≈ seed_full (all ~1.3-1.7) — pipeline doesn't help cheap models
+- gemini: seed_full > pass@3 ≈ seed ≈ full (+0.6) — pipeline *appears* to help
+
+Neither cheap model is at a capability tier where seed_full unlocks real frontier proofs.
+The next architecture experiment with a chance of moving real numbers under v4-pro is
+**v4-pro running seed_full on itself** — predicted +0.5-1.0 from item 14, still untested.
+
+**Truncation/parse audit (Phase 2 regrade)**: 0 of 140 calls hit the 32K completion cap
+(max observed 28,455).  1 call (gpt-oss × first-proof-4-official) returned an empty body
+and was silently scored 0; re-judged → real 0/7.  Means above are correct as reported.
+
+**Phase 1 v4-pro judge-call parse audit** — answers "is the gemini-vs-v4pro gap just
+v4-pro truncating?".  Scanned all 2934 v4-pro judge calls in the Phase 1 run dir:
+- 2 truly cap-truncated at 65K (deep reasoning loops on PB-Basic problems)
+- 4 short mid-thought failures (<500 out_tok)
+- 60 substantive analyses without a wrapping `<points>` tag
+- = 66 (2.25%) silently scored 0/7 in original Phase 1 means
+
+Re-judged all 16 cheap-model parse failures with fresh v4-pro calls (concurrent, $0.15,
+11 min).  Recovered: 12×0, 1×1, 1×6, 2×7.  Both full-mode cheap-model parse failures
+re-judged to **real 0/7**.  Net correction to cheap-model Phase 1 means:
+
+| Model × Mode | orig | corrected | Δ |
+|---|---|---|---|
+| gemma generate | 1.83 | 1.90 | +0.07 |
+| gemma seed_generate | 1.53 | 1.56 | +0.03 |
+| gemma full | 1.17 | 1.17 | 0.00 |
+| gpt-oss × all modes | (unchanged) | | 0.00 |
+
+**Conclusion**: the judge gap is NOT an artifact of v4-pro truncation or parse failure.
+Phase 2 regrade is clean.  Phase 1 baseline correction is ≤+0.07, which actually widens
+the head-to-head (gemma P1-best 1.90 vs P2 seed_full 1.67) — Phase 2 still loses to
+Phase 1 under v4-pro.  The judge-flip finding stands.
+
+Files:
+- Phase 2 script: `experiments/regrade_phase2_full_v4pro_20260504.py`
+- Phase 2 results: `experiments/results/regrade_phase2_full_v4pro_20260505_033600.json`
+- Phase 1 audit script: `experiments/regrade_p1_parse_fails_20260505.py`
+- Phase 1 audit results: `experiments/results/regrade_p1_parse_fails_20260505_051120.json`
+- Logs: `/tmp/regrade_b.log`
+
+## GPT-5.4 family @ xhigh reasoning — 2026-05-05T00:20
+
+Re-test of the GPT-5.4 family at `reasoning.effort=xhigh` after the prior
+`expensive_models_compare_20260504` run found gpt-5.4 at default effort getting
+only 6/12 with 3.6K mean output tokens — i.e. it wasn't actually reasoning.
+User wanted to know whether xhigh changes that picture and whether the cheaper
+mini/nano siblings are usable at premium effort.
+
+Plan:
+- nano + mini on all 12 PIDs (the same stratified subset).
+- gpt-5.4 only on the 6 PIDs it got WRONG at default effort (skip the 6 it
+  already had — saves money, leverages prior data).
+- All at `reasoning.effort=xhigh`, MAX_TOKENS=65536, judge unchanged
+  (gemini-3.1-flash-lite, answer-bench prompt).
+- Single `OPENROUTER_API_KEY_price_compare` key topped to $20, $19 hard cap.
+- `extra_body={"reasoning": {"effort": "xhigh"}}` via litellm — verified
+  working with a direct OpenRouter call before the run.
+
+**29/30 trials, ~$11.74 OpenRouter spend.** One nano trial (geometry-021) hung
+at 49 min wall-clock with the litellm timeout not firing — killed at the
+process level, then wave 2 re-launched separately to merge gpt-5.4 results in.
+
+### Results — corrected for judge errors
+
+| Model | judge acc | corrected | $/run | total $ | mean out_tok | reason_tok |
+|---|---|---|---|---|---|---|
+| **gpt-5.4-nano** (xhigh)     | 10/11  | **11/11 (100%)** | $0.024 | $0.26  | 12.0K | 11.7K |
+| **gpt-5.4-mini** (xhigh)     | 12/12  | **12/12 (100%)** | $0.151 | $1.82  | 28.6K | 28.2K |
+| **gpt-5.4** (xhigh, 6 PIDs)  | 5/6    | 5/6 → **11/12 effective** | $0.657 | $3.94  | 43.8K | 41.6K |
+| gpt-5.4 (default, prior run) | 6/12   | 6/12             | $0.054 | $0.65  | 3.6K  | n/a |
+
+**Effective gpt-5.4-xhigh accuracy on full 12 = 11/12** (6 from prior default
+run + 5/6 from xhigh re-test of the failures). Only `combinatorics-084`
+remained wrong — model gave `s=n` and guessed `2023` or `1997`; GT is `3`.
+
+**Manual judge override:** `combinatorics-026 | nano-xhigh` answered $3^{25}+1$.
+GT is `847288609444`. $3^{25}+1 = 847288609444$ exactly — judge missed the
+symbolic equivalence. Counting it as correct gives nano its 11/11.
+
+### Findings
+
+- **xhigh fixed gpt-5.4.** At default effort it engaged minimal reasoning
+  (3.6K out tokens, 6/12). At xhigh it produces 44K mean out (42K reasoning),
+  jumping from 6/12 to **11/12 effective**. The prior writeup's "gpt-5.4 is
+  bad" conclusion was wrong — the model just wasn't trying.
+- **gpt-5.4-mini @ xhigh is the standout: 12/12 at $0.15/run.** Cheaper than
+  qwen-max and gemini-pro from the prior run, and the only model with
+  perfect accuracy on this subset.
+- **gpt-5.4-nano @ xhigh: 11/11 at $0.024/run.** Genuinely cost-effective —
+  competitive with deepseek-v4-flash ($0.006/run, 11/12 prior) on accuracy,
+  4× the price. Worth a head-to-head retest on harder benchmarks.
+- **Cost scales 12× from default → xhigh on gpt-5.4** ($0.054 → $0.66/run),
+  roughly doubling accuracy. Whether that's worth it depends on the use case.
+- **OpenAI billing quirk:** at xhigh, `prompt_tokens` reported back is
+  inflated (30-65K vs. ~250 actual user prompt). Likely the reasoning context
+  rolled into "input" billing. Real spend per run already accounts for this
+  via authoritative pricing × token counts.
+- **One stuck nano trial (geometry-021)** — litellm timeout did not fire after
+  49 min. Need to investigate or use a hard `requests`-level timeout for
+  these heavy reasoning runs.
+
+### Decision update vs. prior writeup
+- **Reverse the prior verdict on gpt-5.4** — at xhigh it's competitive (11/12).
+  Still expensive at $0.66/run but no longer "shockingly bad".
+- **Add gpt-5.4-mini and gpt-5.4-nano** to the candidate cost-effective set
+  alongside deepseek-v4-flash. Mini at $0.15/run for 12/12 is the new tier
+  benchmark to beat; nano at $0.024/run for 11/11 is in v4-flash's price
+  band.
+- Future expensive-model comparisons MUST set reasoning effort explicitly —
+  default effort is not a fair test of the model.
+
+Files:
+- `experiments/gpt5_xhigh_compare_20260504.py` (script, supports reasoning param)
+- `experiments/gpt5_xhigh_wave2_20260505.py` (resume-only wave 2 script)
+- `experiments/results/gpt5_xhigh_compare_20260504_20260505_041943_wave2_merged.json`
+
+## Best-of-N Scaling: oss + gemma — 2026-05-05T05:11:55
+
+Best-of-N curves for `gpt-oss-120b` and `gemma-4-31b-it` on the **30 PB-Advanced** problems
+(the canonical "scaling-meaningful" cut: harder than PB-Basic, not all-or-nothing like the
+SPECIAL_10). Generation only — no verify/revise. N ∈ {1, 3, 5, 7}.
+
+**Reuse trick:** k=0..2 come from Phase 1 generate-mode branches (already judged by both
+gemini-3-flash-preview and v4-pro). This script ran k=3..6 fresh and judged each new
+sample with **both** judges. So 4 new gens × 30 problems × 2 models = 240 generations,
+each judged twice = 480 new judge calls.
+
+**60/60 trials, 0 errors, $6.22 / $25 cap, 99 min wall.**
+Key: `OPENROUTER_API_KEY_X` (separate from seedgen — ran concurrently with role-swap experiment).
+
+### Scaling table (mean / pass≥6 out of 30 problems)
+
+| Model | Judge | N=1 | N=3 | N=5 | N=7 |
+|---|---|---|---|---|---|
+| gpt-oss-120b   | gemini | 1.57 (7) | 1.63 (7) | **2.10 (9)** | 2.10 (9) |
+| gpt-oss-120b   | v4-pro | 0.03 (0) | 0.10 (0) | 0.37 (1) | **0.40 (1)** |
+| gemma-4-31b-it | gemini | 1.67 (7) | 2.50 (10) | 3.20 (13) | **3.63 (15)** |
+| gemma-4-31b-it | v4-pro | 0.43 (2) | 0.57 (2) | 0.63 (2) | **0.93 (3)** |
+
+(Numbers in parentheses are problems passed at ≥6/7.)
+
+### Key findings
+
+1. **Gemini scaling is much steeper than v4-pro scaling.** gemma's gemini mean climbs
+   1.67 → 3.63 (+2.0) from N=1 to N=7; under v4-pro the same model only goes 0.43 → 0.93
+   (+0.5). gemini rewards "looks plausible," so more samples = more chances of looking right;
+   v4-pro stays strict regardless of how many attempts are presented.
+
+2. **gpt-oss saturates between N=3 and N=5.** Under gemini it gains +0.47 from N=3→5 then
+   nothing from N=5→7. Under v4-pro it stalls at 1/30 passes from N=5 onward. PB-Advanced
+   problems either yield to gpt-oss within ~5 samples or not at all.
+
+3. **gemma keeps gaining at N=7** under both judges (gemini +0.43 from N=5→7, v4-pro +0.30).
+   Suggests headroom to N=10–15 for gemma if budget allows.
+
+4. **v4-pro pass rate is brutally low.** Even at N=7, gemma=3/30 (10%) and gpt-oss=1/30 (3%).
+   Best-of-N is not the bottleneck for proof rigor — the model fundamentally lacks
+   PB-Advanced-grade rigor under a strict judge. Verify/revise (Phase 2 seed_full) gave
+   bigger gains for both models (oss 3.99, gemma 4.26 across all 70 problems).
+
+5. **gemma > gpt-oss across the board, more pronounced under v4-pro.** gemini delta: gemma
+   2.0 points higher at N=7. v4-pro delta: gemma 2.3× higher pass count. v4-pro magnifies the
+   capability gap.
+
+6. **Judge divergence is huge** — same observation as Phase 1 item 11. Aggregate gemini-vs-v4
+   delta on these 30 problems × N=7 = +1.5 to +2.7 means.
+
+### Notable per-problem cases
+
+| Problem | Pattern | Reading |
+|---|---|---|
+| **PB-Advanced-001** (gpt-oss) | gem=[7]×6, [0]×1; v4=[0,1,0,0,0,0,0] | "looks polished, isn't right" — gemini saturates; v4 finds gaps every time |
+| **PB-Advanced-007** (gemma)   | gem=[7,0,0,0,0,0,7]; v4=[6,0,0,0,0,0,7] | Both judges agree N=7 hits 7/7 — solid scaling signal under strict judge |
+| **PB-Advanced-028** (gpt-oss) | gem=[0,1,0,7,7,0,7]; v4=[0,0,0,7,0,0,7] | k=3 (first new gen) cracks it under both judges — clean N=3→5 jump |
+| **PB-Advanced-025** (gemma)   | gem=[1,7,6,6,7,7,6]; v4=[0,0,0,0,0,7,0] | Only k=5 satisfies v4-pro — scaling to N=7 is what surfaces it |
+
+### Implications
+
+- For **gemini-judged headlines**: pass@3 gemma underestimates by ~1 point; pass@7 (best-of-7)
+  is the right cost-bounded ceiling for cheap models on PB-Advanced.
+- For **v4-pro–judged correctness**: scaling helps marginally; spending those tokens on
+  verify/revise (Phase 2) or cross-model role swap (Phase 3) is more productive.
+- **gemma > gpt-oss is robust** — judge-agnostic; gemma should be the cheap-tier default for
+  proof problems.
+- The 1/30 vs 3/30 v4-pro pass rates suggest **PB-Advanced is genuinely past these models'
+  rigor ceiling** — even at N=7, well below the v4-pro pass rate seen on PB-Basic.
+
+### Files
+
+- Script: `experiments/scaling_oss_gemma_20260505.py`
+- Run dir: `experiments/results/scaling_oss_gemma_20260505_20260505_033250/`
+  - `trials/<model>/<pid>.json` — full per-trial JSON (existing + new branches merged)
+  - `branches/<model>/<pid>/k{3,4,5,6}.json` — per-new-branch incremental save
+  - `manifest.jsonl` (60 lines)
+- Reused Phase 1 data: `seed_ideas_full_compare_20260504_20260504_101225/generate/`
+  + `regrade_branches_gemini_20260504_20260504_222334/generate/`
+- Log: `/tmp/scaling.log`
+
+
+## Seed-Ideas Phase 3 — v4-flash seed_full + dual-judge — 2026-05-05T05:35:00
+
+Ran the missing v4-flash seed_full condition across 70 problems with priority ordering
+(special-10 ever-solved → v4-flash struggle problems → rest). Same single-key + single-judge
+setup as Phase 2; ITERATIONS=2, NUM_IDEAS=3, MAX_TOKENS=65536 everywhere. **40-worker outer
+× 3 inner branches.** Killswitch at $40.
+
+After completion, regraded the same `best_solution` per trial with `deepseek-v4-pro` to provide
+the strict-judge counterpart (matching Phase 1 item 11/12/13 ablation methodology).
+
+**69/70 trials, $20.58 + $1.50 regrade = $22.07 total ($40 cap).**
+1 trial (`first-proof-4-official`) hit a stuck-retry loop and was killed at the 4-hour mark
+after the rest had been done for ~30 min — Phase 1 had it 0/7 across all models, so loss
+is benign.
+
+### Headline (gemini judge, primary) vs v4-pro regrade
+
+| Metric | Gemini-3-flash | V4-pro (regrade) | Δ |
+|---|---|---|---|
+| Mean (n=68) | **5.83/7** | **3.19/7** | **−2.62** |
+| Pass ≥6 | 57/69 (83%) | 32/68 (47%) | −25 trials |
+| Exact agreement | — | — | 30/68 (44%) |
+| Close (\|Δ\|≤1) | — | — | 44/68 (65%) |
+
+The −2.62 mean delta is **larger than the −1.73 Phase 1 ablation observed on a 100-trial
+mid-difficulty sample** — gemini is inflating v4-flash seed_full output more than it
+inflated other models in Phase 1. Likely mechanism: v4-flash's revised output is more
+*polished* than gpt-oss/gemma's, and gemini reads polish as correctness; v4-pro reads
+deeper for actual rigor.
+
+### vs prior v4-flash data (gemini-judged, where comparable)
+
+| Mode | Mean (gemini) | Mean (v4-pro, where measured) |
+|---|---|---|
+| pass@1 (Phase 1)         | 4.90 | 2.61 |
+| pass@3 best-of-3 (Phase 1) | 6.11 | — |
+| seed_gen (Phase 1)         | 5.70 | — |
+| full pipeline (Phase 1)    | 4.63 | — |
+| **seed_full (Phase 3)**    | **5.83** | **3.19** |
+
+Under gemini, seed_full is between full (4.63) and pass@3 (6.11) — modest +1.20 over full,
+but doesn't reach pass@3. Under v4-pro, seed_full is +0.58 over pass@1, in line with
+Phase 1's general "verify/revise gives small uplift to v4-flash" finding.
+
+### Special-10 outcomes (gem | v4-pro)
+
+| Problem | gemini | v4-pro | Real solve? |
+|---|---|---|---|
+| **erdos-654**             | 7/7 | **6/7** | **YES — confirmed frontier solve** |
+| **first-proof-10-official** | 6/7 | **6/7** | **YES — confirmed near-solve, both judges agree** |
+| erdos-1051            | 7/7 | 0/7 | NO — gemini-leniency artifact |
+| erdos-333             | 7/7 | 0/7 | NO — gemini-leniency artifact |
+| erdos-659             | 7/7 | 0/7 | NO — gemini-leniency artifact |
+| first-proof-6-official | 7/7 | 0/7 | NO — gemini-leniency artifact |
+| erdos-397             | 0/7 | 0/7 | unsolved (consistent) |
+| first-proof-5-official | 0/7 | 0/7 | unsolved (consistent) |
+| ramsey-hypergraphs    | 0/7 | 0/7 | unsolved (consistent) |
+| first-proof-4-official | — (stuck) | — | not measured |
+
+**Major correction to Phase 2's "frontier breakthrough" framing**: the celebrated erdos-1051,
+erdos-659, and first-proof-6 7/7 hits in Phase 2 (gpt-oss, gemma) and Phase 3 (v4-flash)
+do **not survive v4-pro re-grade**. Phase 2 should be re-read with this caveat. Only
+**erdos-654** (Phase 2 gpt-oss + Phase 3 v4-flash) is independently corroborated by both
+judges as a real solve at this tier — and only at 6/7 strict, not 7/7.
+
+### Tier 2 v4-flash struggle problems (where Phase 1 v4-flash got ≤1 but other models got ≥6)
+
+| Problem | Phase 1 v4-flash best | Phase 3 gemini | Phase 3 v4-pro |
+|---|---|---|---|
+| PB-Advanced-003     | 1/7 | 7/7 | 0/7 |
+| PB-Advanced-018     | 0/7 | 1/7 | 0/7 |
+| PB-Advanced-027     | 0/7 | 0/7 | 0/7 |
+| erdos-397           | 0/7 | 0/7 | 0/7 |
+| first-proof-5-official | 1/7 | 0/7 | 0/7 |
+
+Under gemini, seed_full appeared to rescue PB-Advanced-003 (1→7). Under v4-pro that
+rescue evaporates. Net: **seed_full does not meaningfully rescue v4-flash blind spots.**
+
+### Key methodology lessons (write these down)
+
+1. **v4-pro reasoning-cap bug**: at `max_tokens=65536`, v4-pro's reasoning consumes the
+   output budget on heavyweight prompts before emitting the final `<points>` tag — 24 of
+   65 first-pass regrades returned 50–70K-character `reasoning_content` with NO score tag,
+   silently parsed as 0. **Fix**: pass OpenRouter `extra_body={"reasoning": {"max_tokens": 100000}}`
+   plus `max_tokens=131072`. After the fix, all 26 re-judged trials (added 3 stuck specials)
+   committed valid scores.
+2. **Always parse `reasoning_content` as a fallback** when `content` is empty. The Phase 2
+   main script does; the first-cut regrade script didn't, which produced the bug above.
+3. **Strict judge required for frontier claims.** Phase 2 saved 10 frontier_branches; under
+   v4-pro only 1 of those (erdos-654) survives. Future frontier reporting should default
+   to dual-judge confirmation before tagging "first-ever solve."
+4. **Wall-time tail bites hard.** v4-flash on seed_full has 1 problem (`first-proof-4-official`)
+   where branches got into a litellm internal retry loop and never timed out cleanly,
+   running for 4+ hours after the rest of the run finished. Should add an explicit
+   per-trial wall-clock killer (not just per-call timeout).
+
+### Recommendations
+
+- **For headline reporting**: report both judges. Gemini for cross-comparability with the
+  Phase 1 audit table; v4-pro for "is this actually a proof."
+- **For v4-flash specifically**: seed_full is **not better than pass@3** at the same budget
+  ($0.30/run vs $0.14/run for Phase 1 pass@3). Pass@3 remains the dominant cheap-cost mode
+  for v4-flash on this benchmark.
+- **Cost reality**: v4-flash seed_full landed at $0.30/run actual, matching the Phase 2
+  pre-projection (vs the $0.20-$0.30 estimate I gave earlier). Estimate held.
+
+Files:
+- Script:    `experiments/seed_full_v4flash_phase3_20260505.py`
+- Priority:  `experiments/results/v4flash_priority_20260505.json`
+- Phase 3 run dir: `experiments/results/seed_full_v4flash_phase3_20260505_20260505_021635/`
+- V4-pro regrade dir: `experiments/results/regrade_phase3_v4pro_20260505_043627/`
+- Re-judge script (with reasoning budget fix): `experiments/regrade_phase3_v4pro_truncated_20260505.py`
+- Joint table: `experiments/results/phase3_joined_judges.json`
+- Logs: `/tmp/phase3.log`, `/tmp/regrade_phase3_fixed.log`, `/tmp/rejudge_truncated.log`
+
+## Judge-vs-Human gradingbench comparison — 2026-05-05T05:54
+
+Tested four candidate judge models against the **human "Points" baseline** in
+`benchmarks/IMO-bench/gradingbench.csv` (1000 records, 30 problems, sources:
+USAMO 2025, Modified IMO 2024 P1–P6, Novel Problems). All prior judge work
+(Phase 1/2, judge_ablation_20260504, regrade_phase2_full_v4pro_20260504) only
+compared judges against each other; this is the first measurement against
+humans.
+
+Methodology mirrors prior runs: hardened `prompts/pipeline/judge_gt.md` with
+{problem, ground_truth, candidate}; n=200 simple random sample (seed=42);
+`max_tokens=65536`; 80 concurrent workers shared across all judges; multi-key
+rotation. gpt-5.4-nano run at `reasoning.effort=xhigh` via
+`extra_body={"reasoning":{"effort":"xhigh"}}`, verified to engage at 11K+
+reasoning tokens before the run via a `--verify-reasoning` preflight.
+
+**798/800 calls completed** in 50.7 min wall, **$14.23 total**. Two nano calls
+hung past the 1800s litellm timeout (same bug as line 1605) and were killed;
+all four judges have ≥196 valid scores so the cell-level numbers are stable.
+
+### Headline results
+
+| Judge | n_valid | mean_J | mean_H | mean\|Δ\| | mean Δ | r | $cost | wall p50/p95 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **deepseek-v4-pro** | 198 | 2.28 | 3.03 | **1.21** | -0.75 | **0.76** | $2.97 | 299s / 974s |
+| **deepseek-v4-flash** | 199 | 2.22 | 3.02 | 1.23 | -0.80 | **0.76** | **$0.77** | **83s** / 275s |
+| gpt-5.4-nano @ xhigh | 196 | 2.01 | 2.96 | 1.41 | -0.95 | 0.71 | $7.26 | 153s / 416s |
+| gemini-3-flash-preview | 200 | 4.67 | 3.02 | 1.98 | **+1.65** | 0.61 | $3.24 | 4s / 5s |
+
+### Pass/fail confusion at ≥6 (judge≥6 vs human≥6, recall / specificity / precision)
+
+| Judge | recall | specificity | precision | flip rate |
+|---|---:|---:|---:|---:|
+| **gemini-3-flash-preview** | 98.4% | 48.2% | 46.6% | 36.0% |
+| deepseek-v4-pro | 82.5% | 91.9% | 82.5% | 11.1% |
+| deepseek-v4-flash | 79.4% | 91.2% | 80.6% | 12.6% |
+| gpt-5.4-nano @ xhigh | 70.0% | 97.8% | **93.3%** | 10.7% |
+
+### Findings
+
+- **deepseek-v4-flash is the cost/accuracy sweet spot.** Matches v4-pro on
+  correlation (r=0.76), pass-flip rate (12.6% vs 11.1%), and precision (80.6%
+  vs 82.5%) at **¼ the cost** ($0.77 vs $2.97 for n=200) and **3.6× faster
+  wall** (83s vs 299s p50). Recommended default judge for downstream work.
+- **deepseek-v4-pro remains the gold standard** when latency/cost don't bind.
+  Best balanced confusion matrix (82.5%/91.9%/82.5%) but slow long-tail —
+  p95 974s. The "v4-pro takes ~10× longer than v4-flash for marginal accuracy
+  gain" pattern from prior judge-comparison runs reproduces here.
+- **gpt-5.4-nano @ xhigh is the strictest judge — best for high-precision
+  filtering.** 93.3% precision (only 3 false ≥6 calls in 198), 97.8%
+  specificity. But recall just 70% (misses 30% of true human ≥6s) and most
+  expensive at $7.26. Use when "is this definitely correct?" matters more
+  than "did we catch all the correct ones?"
+- **gemini-3-flash-preview is unsuitable as a sole judge.** Persistent +1.65
+  inflation bias on a 0–7 scale. 98% recall with 48% specificity and 47%
+  precision — it flags almost every solution as "passing", so its ≥6
+  verdicts carry little signal. Confirms and quantifies the lenient-bias
+  pattern flagged in the Phase 1/2 work (agent_log lines 1180-1186, 1517).
+- **Judge granularity mismatch is real.** judge_gt.md only emits {0,1,6,7} but
+  human Points span 0–7. Bucketed exact-match (humans→{0,1,6,7}) tops out at
+  58.6% (v4-pro) — even the best judge agrees with humans on bucket only ~3
+  out of 5 times. The pass-flip metric (≥6 yes/no) is the more decision-useful
+  proxy for "judge replicates human verdict".
+- **xhigh nano confirmed engaging.** Median 17.5K reasoning tokens, all
+  parseable scores in {0,1,6,7}. The two stragglers that hung past the 1800s
+  timeout reproduce the litellm-doesn't-respect-timeout bug (line 1605); a
+  process-level wrapper or `signal.alarm` would prevent the kill-and-restart
+  next time.
+
+### Decision update for downstream judge selection
+
+- **Default judge for new experiments → deepseek-v4-flash.** Within 3 percentage
+  points of v4-pro on every binary-pass metric, 4× cheaper, 3.6× faster.
+- **Validation/audit judge → deepseek-v4-pro.** Use for high-stakes or borderline
+  cases where the wall-time hit is acceptable.
+- **High-precision filter → gpt-5.4-nano @ xhigh.** When you need "the judge said
+  yes, so trust it" semantics rather than "the judge caught most of them".
+- **Drop gemini-3-flash from the judge candidate set.** Inflation bias makes its
+  pass/fail signal nearly noise.
+
+Files:
+- Script: `experiments/judge_vs_human_gradingbench_20260505.py`
+- Results: `experiments/results/judge_vs_human_gradingbench_20260505_20260505_050213.json`
+  (798/800 — 2 nano calls killed at >36 min after litellm timeout failed to fire)
+- Log: `/tmp/jvh_full.log`
+- Smoke result (n=8, separate file): `experiments/results/judge_vs_human_gradingbench_20260505_20260505_045014.json`
+
+## v4-flash judge — reasoning ON vs OFF — 2026-05-05T06:39
+
+Counterfactual to the prior judge_vs_human run: re-ran the exact same n=200
+sample (seed=42) using only **deepseek-v4-flash with `reasoning.enabled=False`**
+to test whether the "v4-flash matches v4-pro at ¼ the cost" headline depends on
+v4-flash's default thinking budget.
+
+Pre-flight: confirmed `extra_body={"reasoning": {"enabled": False}}` cleanly
+zeros out reasoning_tokens (rt=0, 0.6s) on a one-shot test, while v4-pro only
+*partially* throttled with the same param (rt fell from 108→75, latency
+unchanged). So this counterfactual is meaningful for v4-flash specifically.
+
+Run: 200/200 calls in 1:50 wall, **$0.30 total** (vs $0.77 with reasoning ON
+on the same sample). 192/200 valid (8 errors after a temporary key-limit
+throttle on key#0 — non-systematic, sample remains representative).
+
+### Side-by-side (same n=200 sample, same judge_gt.md prompt)
+
+| metric | ON (rt~7K) | OFF (rt=0) | delta |
+|---|---:|---:|---:|
+| n_valid | 199 | 192 | -7 |
+| mean(J) | 2.22 | 1.72 | -0.50 |
+| mean\|Δ\| | 1.23 | 1.76 | **+0.53 worse** |
+| mean Δ | -0.80 | -1.36 | -0.56 (more deflation) |
+| **Pearson r** | **0.76** | **0.59** | **-0.16 worse** |
+| **≥6-agree** | **87.4%** | **80.7%** | **-6.7 pp** |
+| exact_raw | 55.3% | 43.8% | -11.5 pp |
+| exact_bucketed | 57.8% | 48.4% | -9.4 pp |
+| **recall** (≥6) | **79.4%** | **56.5%** | **-22.9 pp** |
+| specificity | 91.2% | 92.3% | +1.1 |
+| precision | 80.6% | 77.8% | -2.8 |
+| $cost | $0.77 | $0.30 | **-61%** |
+| p50 latency | 83.3s | 12.7s | **-85%** |
+| p95 latency | 275.1s | 33.5s | **-88%** |
+
+### Findings
+
+- **Reasoning is doing real work for v4-flash judging.** Without it, recall on
+  human-≥6 collapses from 79% to **57%** — the model misses 4 out of every 10
+  truly-passing solutions. r drops 0.76→0.59.
+- **Specificity / precision barely change** (+1.1 / -2.8 pp). Reasoning-off
+  v4-flash makes the *same* false-positive judgments but a lot more
+  false-negative ones — the deflation bias deepens (-0.80 → -1.36).
+- **Reasoning-off v4-flash is still better than reasoning-default Gemini 3
+  Flash** on r (0.59 vs 0.61 — basically tied) but with the opposite bias
+  direction (deflation vs inflation). Neither is good enough for a sole judge.
+- **Cost/speed wins are real but don't pay for the accuracy cost.** 6–8×
+  faster wall and 61% cheaper, but at -23 pp recall — too lossy for
+  production judging.
+- **Bottom-line for downstream judge selection:** keep v4-flash with reasoning
+  ON as the recommended default (the main run's headline). If wall-time
+  matters more than recall (e.g. a cheap pre-filter before a v4-pro audit),
+  reasoning-off is a defensible knob.
+
+### Param verification (pre-flight one-shot, "Is 17 prime?" prompt)
+
+| model | param | rt | latency |
+|---|---|---:|---:|
+| v4-flash | `reasoning.enabled=False` | **0** | 0.6s |
+| v4-flash | `reasoning.effort=minimal` | 30 | 0.8s |
+| v4-flash | `reasoning.exclude=True` | 37 | 1.2s |
+| v4-flash | baseline | 37 | 1.5s |
+| v4-pro | `reasoning.enabled=False` | **75** | 3.6s |
+| v4-pro | baseline | 108 | 5.2s |
+
+`reasoning.enabled=False` is the working knob for v4-flash. v4-pro does *not*
+fully respect it — only a partial throttle. `exclude=True` just hides the
+trace, doesn't stop the thinking. Equivalent counterfactual for v4-pro is not
+cleanly achievable through the OpenRouter param surface.
+
+Files:
+- Script: `experiments/judge_v4flash_noreason_20260505.py`
+- Param test: `/tmp/test_ds_reasoning_off.py`
+- Results: `experiments/results/judge_v4flash_noreason_20260505_20260505_063740.json`
+- Log: `/tmp/jvh_v4flash_noreason2.log`
+
+## gemma-4-31b judge — 2026-05-05T06:49
+
+Added `openrouter/google/gemma-4-31b-it` as a sixth judge on the same n=200
+sample (seed=42, judge_gt.md, no reasoning param — gemma is a non-reasoning
+model). 200/200 in 2:36 wall, **$0.42 total**, all parseable.
+
+### Six-way comparison (same n=200)
+
+| judge | n | mean(J) | mean(H) | \|Δ\| | Δ | r | ≥6-agree | recall | spec | prec | $cost | p50/p95 |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| v4-pro | 198 | 2.28 | 3.03 | 1.21 | -0.75 | **0.76** | 88.9% | 83% | 92% | 83% | $2.97 | 299s/974s |
+| **v4-flash ON** | 199 | 2.22 | 3.02 | 1.23 | -0.80 | **0.76** | 87.4% | 79% | 91% | 81% | **$0.77** | 83s/275s |
+| v4-flash OFF | 192 | 1.72 | 3.08 | 1.76 | -1.36 | 0.59 | 80.7% | 56% | 92% | 78% | $0.30 | 13s/34s |
+| nano-xhigh | 196 | 2.01 | 2.96 | 1.41 | -0.95 | 0.71 | 89.3% | 70% | **98%** | **93%** | $7.26 | 153s/416s |
+| gemini-3F | 200 | 4.67 | 3.02 | 1.98 | +1.65 | 0.61 | 64.0% | 98% | 48% | 47% | $3.24 | 4s/5s |
+| **gemma-4-31b** | 200 | 4.55 | 3.02 | 1.87 | +1.53 | 0.63 | 65.5% | 98% | 50% | 48% | **$0.42** | 19s/45s |
+
+### Findings
+
+- **gemma-4-31b is essentially gemini-3-flash's twin** as a judge: same +1.5
+  inflation bias, same 98% recall / 47% precision profile, same r ≈ 0.62.
+  Both are non-reasoning models that rubber-stamp polished-looking proofs.
+- **gemma is 7.7× cheaper than gemini** for the same (poor) accuracy — if
+  you specifically need a non-reasoning lenient judge as a cheap pre-filter,
+  use gemma over gemini.
+- **Two clean clusters emerge across all six setups:**
+  - **Reasoning judges (v4-pro, v4-flash ON, nano-xhigh):** r=0.71–0.76,
+    ≥6-agree 87–89%, slight *deflation* (Δ ∈ -0.75 to -0.95).
+  - **Non-reasoning judges (gemini-3F, gemma-4-31b, v4-flash OFF):** r=0.59–0.63,
+    ≥6-agree 64–81%, *inflation* for the model-types trained that way
+    (gemini, gemma) and *deflation* for v4-flash with reasoning forcibly off.
+- **Reasoning vs non-reasoning is the dominant axis.** Model lineage (DS vs
+  Google vs OpenAI) sets the bias direction; reasoning state sets the
+  accuracy band. Cheap reasoning-on judges (v4-flash) beat expensive
+  reasoning-off judges (gemini) on every accuracy metric.
+- **No new top contender from gemma.** Cheap, fast, but doesn't change the
+  judge-selection conclusion: v4-flash ON remains the recommended default.
+
+Files:
+- Script: `experiments/judge_gemma4_31b_20260505.py`
+- Results: `experiments/results/judge_gemma4_31b_20260505_20260505_064650.json`
+- Log: `/tmp/jvh_gemma4_v2.log`
+
+## gemma-4-31b judge with reasoning ON — 2026-05-05T07:30
+
+Counterfactual to the gemma-default run: same n=200 sample, same judge_gt.md,
+but with `extra_body={"reasoning": {"effort": "high"}}`. Two questions:
+(1) does gemma engage reasoning by default? (2) what changes if it's forced on?
+
+### Reasoning-by-default check
+**No.** All 200 calls in the default-gemma run logged `reasoning_tokens=0`.
+One-shot param test confirmed gemma supports reasoning via OpenRouter's
+`reasoning` knob but never engages without one:
+
+| param                       | wall | rt   |
+|-----------------------------|-----:|-----:|
+| baseline                    | 9.8s | 0    |
+| `reasoning.effort=xhigh`    | 102s | 685  |
+| `reasoning.effort=high`     | 30s  | 846  |
+| `reasoning.effort=medium`   | 19s  | 676  |
+| `reasoning.enabled=True`    | 14s  | 581  |
+| `reasoning.max_tokens=8000` | 15s  | 432  |
+
+Notable: gemma's reasoning budget is small even at xhigh (sub-1K rt vs
+DS-pair's 7-10K and nano-xhigh's 17K). Provider appears to cap hard for the 31b.
+
+### Full run @ effort=high
+200/200 in 26:35 wall, **$0.75 cost**, all valid. Median rt=2.8K, p95 rt=6.5K
+— modest reasoning, 3-4× lower than the DS judges.
+
+### Seven-way comparison (same n=200)
+
+| judge             | n   | mean(J) | mean(H) | \|Δ\| | Δ      | r       | ≥6agr  | exact_b | recall | spec | prec | $cost  | p50/p95     |
+|-------------------|-----|---------|---------|-------|--------|---------|--------|---------|--------|------|------|--------|-------------|
+| v4-pro            | 198 | 2.28    | 3.03    | 1.21  | -0.75  | 0.76    | 88.9%  | 58.6%   | 83%    | 92%  | 83%  | $2.97  | 299s/974s   |
+| v4-flash ON       | 199 | 2.22    | 3.02    | 1.23  | -0.80  | 0.76    | 87.4%  | 57.8%   | 79%    | 91%  | 81%  | $0.77  | 83s/275s    |
+| v4-flash OFF      | 192 | 1.72    | 3.08    | 1.76  | -1.36  | 0.59    | 80.7%  | 48.4%   | 56%    | 92%  | 78%  | $0.30  | 13s/34s     |
+| nano-xhigh        | 196 | 2.01    | 2.96    | 1.41  | -0.95  | 0.71    | 89.3%  | 45.4%   | 70%    | 98%  | 93%  | $7.26  | 153s/416s   |
+| gemini-3F         | 200 | 4.67    | 3.02    | 1.98  | +1.65  | 0.61    | 64.0%  | 48.0%   | 98%    | 48%  | 47%  | $3.24  | 4s/5s       |
+| gemma-4 default   | 200 | 4.55    | 3.02    | 1.87  | +1.53  | 0.63    | 65.5%  | 49.5%   | 98%    | 50%  | 48%  | $0.42  | 19s/45s     |
+| **gemma-4 HIGH**  | 200 | 3.57    | 3.02    | **1.14** | **+0.55** | **0.78** | 79.0% | **60.0%** | 92% | 73% | 61% | $0.75 | 126s/436s |
+
+### Findings
+
+- **gemma-4 @ high is the highest-correlated judge of any tested.**
+  r=0.78 beats v4-pro/v4-flash (0.76). Lowest \|Δ\| (1.14), highest
+  bucketed exact match (60%).
+- **Reasoning shifts gemma's profile dramatically** but doesn't fully repair
+  it. mean Δ moves from +1.53 (default) to +0.55 (high) — inflation bias
+  shrinks but persists. Recall stays high (92%) and precision lifts from
+  48% → 61%.
+- **gemma-4 HIGH is not strictly dominant.** v4-flash-ON beats it on
+  precision (81% vs 61%) and is faster (p50 83s vs 126s). nano-xhigh beats
+  it on precision (93%). For pass/fail decisions, v4-flash-ON / v4-pro /
+  nano-xhigh remain stronger; for raw correlation with the human score
+  distribution, gemma-HIGH is now the leader.
+- **Refined cluster picture:**
+  - *Strict reasoning judges* (v4-pro, v4-flash ON, nano-xhigh): high
+    precision, slight deflation, r 0.71–0.76.
+  - *Lenient non-reasoning judges* (gemini-3F, gemma-default): high recall,
+    strong inflation, r 0.61–0.63.
+  - *Hybrid* (gemma-HIGH): r 0.78, moderate inflation, moderate precision.
+    Reasoning pulls a non-DS lineage halfway toward the strict cluster but
+    doesn't fully reset its calibration.
+- **Reasoning is the dominant axis, model lineage modulates direction.**
+  Same prompt + reasoning state can land you in either cluster depending on
+  the model family.
+- **Provider caps gemma's reasoning hard.** rt_med 2.8K is well below the DS
+  judges' 7-10K — the reasoning effort param is honored but bounded.
+
+### Updated judge-selection recommendation (multi-axis)
+
+| Use case | Best pick | Why |
+|---|---|---|
+| Absolute correlation with humans | **gemma-4 @ high** | r=0.78, lowest \|Δ\|, $0.75 |
+| Pass/fail decisions (balanced) | v4-flash ON | precision 81%, recall 79%, $0.77 |
+| Pass/fail audit (high precision) | nano-xhigh | precision 93%, specificity 98% |
+| Cheap throughput (no reasoning) | gemma-4 default | $0.42, fast, but inflation bias |
+| Drop entirely | gemini-3F | strictly dominated by gemma-default at 7.7× cost |
+
+Files:
+- Script: `experiments/judge_gemma4_31b_high_20260505.py`
+- Results: `experiments/results/judge_gemma4_31b_high_20260505_20260505_070206.json`
+- Param test: `_test_gemma_reasoning.py` (deleted; output in conversation log)
+- Log: `/tmp/jvh_gemma4_high.log`
+
+## gpt-oss-120b judge + 4-judge ensemble — 2026-05-05T08:18
+
+Same n=200 sample. Two gpt-oss-120b runs (`effort=minimal` and `effort=xhigh`)
+plus an ensemble re-analysis on top of the prior 7 judges.
+
+Param note: gpt-oss requires reasoning — `enabled=False` returns
+`BadRequestError: Reasoning is mandatory`. Closest to off is `effort=minimal`
+(rt_med 82). xhigh produces rt_med 5.6K.
+
+### Updated single-judge ranking (sorted by r)
+
+| Judge | n | r | mean Δ | \|Δ\| | ≥6-agree | rec | spec | prec | $cost | rt_med |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| gemma-4 @ high | 200 | **0.78** | +0.55 | 1.14 | 79.0% | 92 | 73 | 61 | $0.75 | 2800 |
+| **gpt-oss @ xhigh** | 178 | 0.77 | **+0.21** | **1.11** | 84.3% | 90 | 82 | 70 | **$0.39** | 5604 |
+| v4-pro | 198 | 0.76 | -0.75 | 1.21 | 88.9% | 83 | 92 | 83 | $2.97 | 9771 |
+| v4-flash ON | 199 | 0.76 | -0.80 | 1.23 | 87.4% | 79 | 91 | 81 | $0.77 | 7050 |
+| nano-xhigh | 196 | 0.71 | -0.95 | 1.41 | 89.3% | 70 | **98** | **93** | $7.26 | 17504 |
+| gemma-4 default | 200 | 0.63 | +1.53 | 1.87 | 65.5% | 98 | 50 | 48 | $0.42 | 0 |
+| gemini-3F | 200 | 0.61 | +1.65 | 1.98 | 64.0% | 98 | 48 | 47 | $3.24 | 0 |
+| v4-flash OFF | 192 | 0.59 | -1.36 | 1.76 | 80.7% | 56 | 92 | 78 | $0.30 | 0 |
+| **gpt-oss @ minimal** | 199 | **0.51** | +0.11 | 1.89 | 71.9% | 74 | 71 | 53 | **$0.17** | 82 |
+
+### Findings (single judges)
+
+- **gpt-oss-120b @ xhigh is the new cost-effective pick.** r=0.77 ties gemma/DS at half the price ($0.39), best calibration of any judge (mean Δ +0.21, lowest \|Δ\| 1.11), and parses 84% pass/fail correctly.
+- **gpt-oss has the biggest reasoning-effort sensitivity tested.** r jumps 0.51 → 0.77 (+0.26) from minimal → xhigh. Bigger than gemma's +0.15 or v4-flash's +0.17. *Reasoning is the dominant axis* hypothesis re-confirmed and now quantified across three model families.
+- **gpt-oss @ minimal is the worst single judge ever observed** (r=0.51). Even worse than v4-flash forced off. Don't ship a non-reasoning gpt-oss judge.
+- xhigh-nano remains the precision king (93%); v4-pro the balance king (83/92/83).
+
+### Ensemble analysis (3-judge majority-vote at ≥6, by Pearson r of mean)
+
+| Combo | n_join | mean r | maj ≥6-agr | maj rec/spec/prec | unan rec/spec/prec |
+|---|--:|--:|--:|--:|--:|
+| v4-pro + nano + gemma (original trio) | 194 | 0.842 | 90.7% | 85/93/85 | 68/99/98 |
+| oss + nano + gemma | 175 | 0.854 | 85.7% | 89/84/72 | 71/98/95 |
+| v4-pro + oss + gemma | 176 | 0.859 | 85.8% | 90/84/73 | 84/96/91 |
+| v4-flash + oss + gemma | 177 | 0.862 | 85.9% | 91/83/73 | 78/94/87 |
+| v4-pro + oss + nano | 173 | 0.830 | 90.8% | 86/93/86 | 71/98/95 |
+| **4-judge: v4-pro + oss + nano + gemma** | 173 | **0.863** | **91.3%** | **86/94/87** | **71/99/98** |
+| 5-judge: + v4-flash | 173 | 0.866 | 90.8% | 88/92/84 | 70/99/98 |
+
+### Findings (ensembles)
+
+- **4-judge {v4pro + oss-xhigh + nano-xhigh + gemma-high} is the new best overall.**
+  r=0.863, ≥6-agree=91.3%, recall=86 / spec=94 / prec=87, cost ~$11.37/200
+  (~$0.057/decision). Strictly dominates the 3-judge trio on every metric.
+- **Adding gpt-oss-xhigh helps because it's calibrated where the others lean.**
+  gemma-high inflates (+0.55), v4-pro/v4-flash deflate (-0.8), nano deflates
+  more (-0.95). gpt-oss-xhigh sits at +0.21 — closest to the human distribution,
+  pulling the ensemble mean toward truth.
+- **5-judge gives no real lift over 4-judge** (r 0.866 vs 0.863, maj-agree
+  slightly lower). Diminishing returns past 4. Drop v4-flash if cost matters.
+- **Unanimous ≥6 in the 4-judge ensemble: 71% recall, 99% specificity, 98%
+  precision.** When 4 differently-biased judges all say ≥6, trust it — only
+  1 false positive in 173 records.
+
+### Updated decision matrix
+
+| Use case | Best pick |
+|---|---|
+| Single judge by accuracy | gemma-4 @ high (r=0.78, $0.75) |
+| Single judge by $/accuracy | **gpt-oss-120b @ xhigh** (r=0.77, $0.39) |
+| Best pass/fail decision | **4-judge ensemble, majority vote** (91.3%) |
+| Best high-precision audit | **4-judge ensemble, unanimous** (prec=98%) |
+| Skip entirely | gpt-oss @ minimal, gemini-3F, v4-flash OFF |
+
+Files:
+- Scripts: `experiments/judge_gptoss_20260505.py`
+- Results:
+  `experiments/results/judge_gptoss_120b_minimal_20260505_20260505_080159.json`
+  `experiments/results/judge_gptoss_120b_xhigh_20260505_20260505_080159.json`
+- Logs: `/tmp/jvh_gptoss_min.log`, `/tmp/jvh_gptoss_xhigh.log`
+
+## Cheap-trio consensus exploration — 2026-05-05T08:35
+
+Three cost-effective judges with **biases that sum to ~0**: gemma-high (+0.50),
+gpt-oss-xhigh (+0.23), v4-flash-ON (-0.73). Inner-join n=177, total cost $1.61
+($0.009/decision). All numbers below from this subset.
+
+**Best rule per goal:**
+
+| Goal | Rule | Result |
+|---|---|---|
+| Correlation | Mean of 3 | r=**0.862** (= calibrated-mean; biases cancel naturally) |
+| F1 / balanced pass-fail | **Majority vote at ≥7** (not ≥6) | **F1=83.9**, agr=88.7%, rec/spc/prc 90/88/79 |
+| Precision | Unanimous ≥6 | prec=87%, spc=94%, rec=78% |
+| F1 if dropping a judge | (gem+v4f)/2 mean | F1=82.5 — beats trio on F1 by trimming oss |
+| **Best total system** | **Tier: trio auto + v4-pro on the 21% disagreements** | **89.8% accuracy at $0.013/dec — 4× cheaper than 4-judge ensemble (91.3% @ $0.057/dec)** |
+
+**Agreement structure is bimodal:** 79% of decisions land on 0/3 or 3/3 (where
+accuracy is 92.9%); errors concentrate in the 21% middle. Hence tiered escalation works.
+
+**Tip:** majority-vote-at-≥7 outperforms majority-vote-at-≥6 because the
+hardened judge_gt only emits {0,1,6,7} and "said 7" is a much stronger signal
+than "said ≥6" (which collapses 6s and 7s).
+
+Files:
+- Analysis: `_consensus_3.py` (deleted; output in conversation log)
+
+## Frontier baseline: gemini-3.1-pro vs cheap trio — 2026-05-05T12:22
+
+Same n=200 sample. **gemini-3.1-pro-preview** (reasoning ON via
+`extra_body={"reasoning":{"enabled":True}}`), 199/200 valid in 2:21 wall, **$6.93**
+total spend (well under $20 cap; per-call ~$0.033).
+
+### Head-to-head on the 172-record 6-way inner-join
+
+| metric | cheap trio (mean) | gemini-3.1-pro | delta |
+|---|--:|--:|--:|
+| Pearson r | 0.866 | **0.881** | g3-pro +0.015 |
+| ≥6-agree | **90.1%** | 88.4% | trio +1.7 pp |
+| F1 | 84.1 | 84.1 | **tie** |
+| recall | 80% | **95%** | g3-pro +15 pp |
+| precision | **88%** | 76% | trio +13 pp |
+| mean Δ (bias) | -0.01 | +0.08 | both nearly calibrated |
+| cost | $1.55 | $5.72 | **trio −73%** |
+| wall p50 | 116s parallel | **21s** | g3-pro 5.5× faster |
+| disagreements (n=19) | trio right 11/19 | g3-pro right 8/19 | trio wins on hard cases |
+
+### Findings
+
+- **Strict "trio beats frontier on r" fails** — g3-pro's r=0.881 narrowly
+  exceeds the trio's 0.866. The cleanest paper claim is therefore
+  *"matches frontier on F1 and pass/fail metrics at 27% of the cost"*, not
+  *"beats frontier"*.
+- **Trio strictly equal-or-better than g3-pro on every pass/fail metric**:
+  ≥6-agree (+1.7), precision (+13), F1 (tie). Trio loses only on recall,
+  because g3-pro's lean is high-recall (95%/76%).
+- **gemini-3.1-pro is the most calibrated single judge ever observed**:
+  mean Δ +0.08 (everyone else: ±0.5 to ±1.0). Adding g3-pro to the trio
+  (4-judge mean) bumps r 0.866 → **0.886**, F1/agr/rec/prec unchanged.
+- **g3-pro is fast**: 21s p50 wall, 5.5× faster than the trio's parallel
+  max-component. Likely Google's TPU serving stack.
+- **On the 19 cases where trio and g3-pro disagree, trio wins 11–8**.
+
+### Updated single-judge ranking (sorted by r, n=172 6-way subset)
+
+| Judge | r | F1 | $cost | p50 lat |
+|---|--:|--:|--:|--:|
+| **gemini-3.1-pro (frontier)** | **0.881** | 84 | $5.72 | 21s |
+| gemma-4-31b @ high | 0.806 | 77 | $0.63 | 116s |
+| gpt-oss-120b @ xhigh | 0.789 | 80 | $0.31 | 61s |
+| deepseek-v4-pro | 0.784 | 87 | $2.40 | 280s |
+| deepseek-v4-flash | 0.773 | 83 | $0.61 | 72s |
+| gpt-5.4-nano @ xhigh | 0.722 | 81 | $6.00 | 140s |
+
+### Refined paper claim
+
+| Goal | Defensible claim |
+|---|---|
+| Calibration on continuous score | g3-pro narrowly best (r=0.881); cheap trio close (0.866) |
+| Pass/fail decisions | **Cheap trio matches g3-pro on F1, beats on agreement+precision, at 27% of cost** |
+| Cost-effectiveness | **$0.009/decision (trio) vs $0.033/decision (g3-pro), 3.7× cheaper** |
+| Best 4-judge ensemble | Trio + g3-pro: r=0.886, same F1=84 — only marginal gain over trio alone |
+
+Files:
+- Script: `experiments/judge_gemini3_pro_20260505.py`
+- Results: `experiments/results/judge_gemini3_pro_20260505_20260505_121952.json`
+- Log: `/tmp/jvh_g3pro.log`
+
+
+## Phase 3: Role-Swap Matrix — gpt-oss × gemma-4-31b-it — 2026-05-05T06:40:21
+
+8 cross-model conditions × 70 problems = **560 trials, 0 errors, $38.75 / $50 cap, 200 min wall**.
+Judge: gemini-3-flash-preview primary, **escalate to deepseek-v4-pro on (special-10 ∧ gemini≥6)**.
+Single key (`OPENROUTER_API_KEY_seedgen`). seed_full mode (ideate(3) → 3 branches × full pipeline).
+
+### Conditions
+
+| # | Name | Ideator | Generator | Verifier | Reviser |
+|---|---|---|---|---|---|
+| 1 | x_ideate_oss   | oss   | gemma | gemma | gemma |
+| 2 | x_ideate_gemma | gemma | oss   | oss   | oss   |
+| 3 | x_verify_oss   | gemma | gemma | oss   | gemma |
+| 4 | x_verify_gemma | oss   | oss   | gemma | oss   |
+| 5 | x_revise_oss   | gemma | gemma | gemma | oss   |
+| 6 | x_revise_gemma | oss   | oss   | oss   | gemma |
+| 7 | random_run1    | seeded random per (problem, role), seed=1 |
+| 8 | random_run2    | seeded random per (problem, role), seed=2 |
+
+### Per-condition results (all 70 problems, post-escalation scores)
+
+| Condition | n | mean | std | pass | $/run | vs P2 baseline |
+|---|---|---|---|---|---|---|
+| x_ideate_oss | 70 | 4.20 | 3.34 | 41/70 | $0.072 | gemma 4.26 → −0.06 |
+| x_ideate_gemma | 70 | 3.97 | 3.47 | 40/70 | $0.068 | oss 3.99 → −0.02 |
+| x_verify_oss | 70 | 4.16 | 3.33 | 41/70 | $0.068 | gemma 4.26 → −0.10 |
+| **x_verify_gemma** | 70 | **3.44** | 3.44 | 34/70 | $0.071 | oss 3.99 → **−0.55** |
+| x_revise_oss | 70 | 4.24 | 3.38 | 42/70 | $0.070 | gemma 4.26 → −0.02 |
+| x_revise_gemma | 70 | 4.04 | 3.33 | 39/70 | $0.067 | oss 3.99 → +0.05 |
+| random_run1 | 70 | 3.73 | 3.49 | 37/70 | $0.068 | mix 4.12 → −0.40 |
+| random_run2 | 70 | 4.14 | 3.32 | 41/70 | $0.070 | mix 4.12 → +0.02 |
+
+P2 baseline = same model in all roles (Phase 2: gpt-oss=3.99, gemma=4.26, gemini judge, no escalation).
+
+### Key findings
+
+1. **Cross-model role swap is essentially a wash on this benchmark.** 5 of 8 conditions land
+   within ±0.1 of the same-model baseline. The naive expectation that "diversity helps" is
+   not supported at this granularity.
+
+2. **The only meaningfully bad swap is gemma-as-verifier on a gpt-oss pipeline (−0.55).**
+   Replacing oss verifier with gemma verifier strictly hurts. Reverse direction
+   (gemma→oss verifier) is fine. Reading: oss is the better verifier of its own work, gemma
+   isn't catching oss's errors — and gemma's verifier may be over-permissive in the cross
+   direction (more "looks fine" early-stops on broken proofs, which the judge then penalizes).
+
+3. **The reverse for revise: gpt-oss-as-reviser on gemma is fine, but gemma-as-reviser on oss
+   is the one positive (+0.05).** Tiny. Don't read much into it.
+
+4. **random_run1 vs random_run2 swing of 0.41 points** highlights how noisy single-shot
+   role-swap evaluations are. Random run distributions were nearly 50/50 oss:gemma per role
+   (verified post-hoc) so the gap is sampling variance on which problems got which mix, not
+   structural. Conclusion: any reported swap effect under |Δ| < 0.4 is likely sampling noise
+   given n=70.
+
+5. **Earlier preliminary "+0.4 to +0.7 cross-model uplift" was an artifact** of (a) only the
+   easier PB-Basic/PB-Advanced problems being completed at that snapshot, and (b) the v4-pro
+   escalation not yet triggering. Once SPECIAL_10 flowed in and v4-pro stripped the inflated
+   gemini frontier scores, the gap collapsed.
+
+### Special-10 outcomes (post-escalation, definitive)
+
+| Problem | n | passes ≥6/7 | best score | comment |
+|---|---|---|---|---|
+| **first-proof-10-official** | 8 | **3** | **6** | confirmed by both judges; multiple conditions |
+| erdos-1051 | 8 | 0 | 1 | Phase 2's "first-ever solve" walked back under v4-pro |
+| erdos-654   | 8 | 0 | 0 | Phase 2's gpt-oss 7/7 was gemini over-leniency |
+| erdos-659   | 8 | 0 | 0 | Phase 2's gemma 7/7 was gemini over-leniency |
+| erdos-397   | 8 | 0 | 1 | |
+| erdos-333   | 8 | 0 | 0 | |
+| first-proof-4 | 8 | 0 | 1 | |
+| first-proof-5 | 8 | 0 | 1 | |
+| first-proof-6 | 8 | 0 | 0 | |
+| ramsey-hypergraphs | 8 | 0 | 0 | |
+
+**Confirmed frontier branches** (v4-pro re-judged at ≥6/7):
+| Condition | Problem | idea_idx | v4-pro |
+|---|---|---|---|
+| x_revise_oss     | first-proof-10-official | 0 | 6/7 |
+| x_revise_oss     | first-proof-10-official | 1 | 6/7 |
+| x_ideate_gemma   | first-proof-10-official | 0 | 6/7 |
+| random_run2      | first-proof-10-official | 1 | 6/7 |
+
+`first-proof-10-official` is the only special-10 problem that survives strict v4-pro judging
+in this experiment. Phase 2's other frontier solves (erdos-1051/-654/-659) were gemini
+over-leniency; v4-pro confirms them all at 0 (across 24 of 25 escalations, gemini=7→v4=0).
+
+### Judge escalation tally
+
+- **25 escalations triggered** (special-10 ∧ gemini≥6); 24 of 25 changed score under v4-pro.
+- **Pre-flight audit cleared:** all 25 verdicts have proper `<points>` tags; verdict lengths
+  400–2748 chars (no reasoning-overflow signature). The truncation bug from the v4-pro memory
+  note was checked and is **not affecting this run** — the disagreements are real, not parsing.
+- Pattern: gemini=7→v4=0 on 17 trials, gemini=6→v4=0 on 3, gemini=6→v4=1 on 1, gemini=7→v4=6
+  on 3, gemini=6→v4=6 on 1. The 4 v4=6 escalations are the confirmed frontier results above.
+
+### Implications
+
+- **Cross-model role swap is not a free lunch at this model tier.** Best targeted swap (+0.05)
+  and worst (−0.55) bracket Phase 2's same-model baseline; the median is roughly zero.
+  For these two cheap models on proofbench, **stick with same-model seed_full** rather than
+  attempting role mixes.
+- **The verifier role is the most fragile.** Don't drop in a different model as verifier
+  unless you've measured it on the target task — the loss can be material (−0.55 here).
+- **Phase 2 frontier numbers were inflated by gemini.** The "first-ever solve" claim on
+  erdos-1051 doesn't survive v4-pro. The honest Phase 2 frontier result is `first-proof-10`
+  at 6/7, which Phase 3 also confirms.
+- **Cross-model ideation results from March's lit-ideas pattern (5.28/7) remain unmatched.**
+  This Phase 3 experiment used same-tier weak models in both roles; pairing a strong
+  ideator (e.g., v4-pro) with a cheap generator (gemma) is the unexplored direction worth
+  follow-up.
+
+### Files
+
+- Script: `experiments/seed_full_role_swap_20260505.py`
+- Audit:  `experiments/regrade_role_swap_truncated_20260505.py` (ran clean — no re-judges needed)
+- Run dir: `experiments/results/seed_full_role_swap_20260505_20260505_032032/`
+  - `trials/<condition>/<pid>.json` (560 per-trial JSONs)
+  - `branches/<condition>/<pid>/branch_{0,1,2}.json` (1680 per-branch incremental saves)
+  - `manifest.jsonl` (560 lines)
+  - `frontier_branches.jsonl` (escalation-confirmed special-10 hits)
+- Log: `/tmp/role_swap.log`
+
+
+## AnswerBench-50 follow-ups (3 retests) — 2026-05-05T02:55
+
+Three follow-up runs on the original AnswerBench-50 stratified subset (same
+seed=42, same 12 Alg / 13 Comb / 12 Geom / 13 NT), to fill in gaps from the
+prior 7-model run:
+
+1. **gpt-5.4-nano @ reasoning.effort=xhigh** on all 50.
+2. **gemini-3-flash-preview @ reasoning.effort=xhigh** on the 13 it failed at default.
+3. **deepseek-v4-flash with reasoning DISABLED** on all 50 (counterfactual).
+
+All used the same gemini-3.1-flash-lite-preview answer-equivalence judge.
+All used direct OpenRouter API (requests.post) — bypasses the litellm
+timeout-not-firing bug we hit earlier.
+
+### Results
+
+| Model | Acc | Lat (mean) | $/run | $ total | acc%/$ |
+|---|---|---|---|---|---|
+| **deepseek-v4-pro** (orig)         | 47/50 (94%) | 723s | $0.019  | $0.93 | 50 |
+| **gpt-5.4-nano @ xhigh** (NEW)     | **45/49 (92%)** ¹ | 1243s | $0.056 | $2.75 | 16 |
+| **deepseek-v4-flash** (orig)       | 44/50 (88%) | 357s | $0.006  | $0.28 | **157** |
+| qwen3.6-35b-a3b (orig)             | 40/50 (80%) | 139s | $0.022  | $1.10 | 36 |
+| qwen3.6-plus (orig)                | 39/50 (78%) | 739s | $0.074  | $3.72 | 11 |
+| **gemini-3-flash @ xhigh** (NEW)   | ~45/50 (~90%) ² | n/a (orig 18s + 229s for retests) | n/a | $0.28+$1.27 | n/a |
+| gemini-3-flash (orig, default)     | 37/50 (74%) | 18s  | $0.011  | $0.55 | 70 |
+| gemma-4-31b-it (orig)              | 34/50 (68%) | 235s | $0.002  | $0.08 | 425 |
+| **deepseek-v4-flash (no reasoning)** (NEW) | **25/50 (50%)** | 158s | $0.002  | $0.10 | 250 |
+| gpt-oss-120b (orig)                | 29/50 (58%) | 191s | $0.001  | $0.06 | **483** |
+
+¹ nano-xhigh: 1 trial (geometry-021) hung at 70 min — second time this exact
+PID stalled on nano-xhigh (also blew up the 12-problem run). Worth
+investigating as a stable model/problem incompatibility rather than treating
+as random.
+² gemini-3-flash xhigh = 37 prior-correct + 8/13 of the retests at xhigh =
+projected 45/50. Caveat: assumes prior-correct hold under xhigh, untested.
+
+### Findings
+
+- **gpt-5.4-nano @ xhigh is real.** 92% on 50 (with 1 unfinished) — within
+  margin of v4-pro (94%), better than v4-flash (88%). Cost ~3× v4-pro and
+  ~10× v4-flash, so v4-flash still wins acc%/$. But for "best accuracy under
+  $5", nano-xhigh is now a top-2 candidate alongside v4-pro.
+- **Reasoning is the lever, not the model.** v4-flash without reasoning falls
+  off a cliff: 88% → 50%, and cost only drops 65% ($0.28 → $0.10). The
+  reasoning trace IS the value being paid for; cutting it breaks v4-flash.
+  Implication: $/run comparisons across models are mostly comparisons of
+  reasoning effort, not raw model capability.
+- **gemini-3-flash xhigh recovers 8 of 13 failures** — a model that looked
+  "strictly dominated by v4-flash" at default effort is competitive at xhigh
+  (~90% projected). The original "skip gemini-3-flash" verdict was wrong for
+  the same reason as the original "gpt-5.4 is bad" verdict: default effort
+  isn't a fair test.
+- **Reproducible hang on geometry-021 for nano-xhigh.** Hung at 49 min on the
+  12-problem run, hung at 70 min on the 50-problem run. Same model, same
+  problem, two separate processes, two different infrastructures. Not a
+  random network blip — this PID + reasoning blowup specifically defeats our
+  HTTP-level timeout (1500s) and the OpenRouter completion never returns.
+  Workaround: hard process-level watchdog or skip this PID for nano-xhigh.
+- **Cost ranking on 50** (acc%/$ for like-to-like generate-only pass@1):
+  gpt-oss-120b 483 > gemma-4 425 > v4-flash-noR 250 > v4-flash 157 > v4-pro 50
+  > nano-xhigh 16. v4-flash remains the practical workhorse. nano-xhigh is
+  NOT cost-efficient — it earns its place only on absolute accuracy ceiling,
+  and only if you accept the latency and the geometry-021 hang.
+- **Latency note.** nano-xhigh mean is 1243s but median 457s — a heavy tail
+  drives the mean. Most trials finish in 5-8 min; a few (algebra-014 at 32 min,
+  combinatorics-004 at 51 min) are expensive outliers that aren't proportional
+  to problem difficulty.
+
+### Decision update vs prior writeup
+- **Use v4-flash as the cost-leader workhorse** — confirmed.
+- **Add nano-xhigh as a "premium accuracy" tier** alongside v4-pro. Choose
+  nano if you have geometric problems (11/11 here vs v4-pro's variable
+  geometry numbers); choose v4-pro if you need predictable latency.
+- **Drop "default-effort" cost figures from any future cross-model comparison.**
+  They're a property of the configuration, not the model. Always set effort
+  explicitly (xhigh for capability tests; "none" or low for cheap-tier tests).
+- **gemini-3-flash deserves a full xhigh re-run on all 50** before being
+  benched permanently — current 8/13 retest is suggestive but not definitive.
+
+Files:
+- `experiments/nano_xhigh_answerbench50_20260505.py`
+- `experiments/results/nano_xhigh_answerbench50_20260505_partial.json` (49/50)
+- `experiments/gemini3flash_xhigh_retest_20260505.py`
+- `experiments/results/gemini3flash_xhigh_retest_20260505_20260505_064305.json`
+- `experiments/v4flash_noreasoning_answerbench50_20260505.py`
+- `experiments/results/v4flash_noreasoning_answerbench50_20260505_20260505_065140.json`
+
+## Best-of-N Scaling for deepseek-v4-flash + gpt-5.4-nano pass@3 — 2026-05-05T16:30
+
+Two parallel experiments. Both judged by **deepseek-v4-flash** (cheaper alternative to v4-pro).
+
+### v4-flash best-of-N (N ∈ {1, 3, 5, 7})
+70 problems, reusing 3 existing v4-flash generations from Phase 1 + 4 fresh per problem,
+all re-judged by v4-flash. **490 trials, 175 min wall, $8.78.**
+
+| N | n | Mean | Pass (≥6/7) | Δ vs pass@1 |
+|---|---|---|---|---|
+| 1 | 70 | 3.30 | 33/70 (47%) | — |
+| 3 | 70 | 4.06 | 40/70 (57%) | +0.76 |
+| 5 | 70 | 4.19 | 41/70 (59%) | +0.89 |
+| 7 | 69 | **4.54** | **44/69 (64%)** | **+1.24** |
+
+**Diminishing returns are clear:**
+- pass@1 → pass@3: +0.76 (biggest jump)
+- pass@3 → pass@5: +0.13 (nearly flat — pass@5 only adds 1 pass)
+- pass@5 → pass@7: +0.35 (small recovery — 3 more passes from the long tail)
+
+7-attempt best-of-N delivers 64% pass rate, +17pp over single-shot. Worth the 7× cost
+only if the headroom is >0.5/7 mean — borderline for most use cases. **pass@3 captures
+~60% of the total scaling uplift at 3× the cost.**
+
+### gpt-5.4-nano with reasoning_effort='xhigh' pass@3
+70 problems, fresh generations. **210 trials, 274 min wall, $3.36.** 1 generation failure
+(connection drop on PB-Basic-028).
+
+| N | n | Mean | Pass |
+|---|---|---|---|
+| 1 | 69 | 2.73 | 27/69 (39%) |
+| 3 | 67 | **3.15** | **30/67 (45%)** |
+
+### Cross-comparison
+- **v4-flash pass@1 (3.30) ≈ gpt-5.4-nano pass@3 (3.15).** Reaching parity with a single
+  v4-flash shot requires 3 gpt-5.4-nano attempts at xhigh reasoning.
+- v4-flash judge cost: ~$0.0035/call. Comparable parsing reliability to v4-pro
+  (both produce clean `<points>` tags).
+- gpt-5.4-nano at xhigh reasoning is slow (~30-90 min per hard trial) and produces long
+  reasoning traces.
+
+### Headline
+Under v4-flash judge, **best-of-N scales positively but with diminishing returns
+plateauing around N=5.** Consistent with the project's longstanding "best-of-3 is the
+sweet spot" finding from April 5 best-of-N experiment. At pass@7, v4-flash reaches 64%
+pass rate — a strong proof-bench baseline.
+
+Files:
+- `experiments/best_of_n_v4flash_20260504.py`
+- `experiments/results/best_of_n_v4flash_20260504_20260505_115611/` (490 per-trial JSONs + summary.json)
+- `experiments/gpt54nano_pass3_20260504.py`
+- `experiments/results/gpt54nano_pass3_20260504_20260505_115611/` (210 per-trial JSONs + summary.json)
+
+## Phase 1 RE-RUN with reasoning ON — gpt-oss + gemma — 2026-05-05T18:23:48
+
+Re-ran the original 4-mode benchmark (generate / full / seed_generate / seed_full) for
+**gpt-oss-120b and gemma-4-31b-it on all 70 problems** with `extra_body={"reasoning":
+{"effort":"high"}}` for both models. Judge: **deepseek-v4-flash** (single, no escalation,
+per user instruction). Self-ideation, ITERATIONS=2, NUM_IDEAS=3, MAX_TOKENS=65536, 80 outer
+× 3 inner workers, single key (`OPENROUTER_API_KEY_X`).
+
+**560 trials, 9 errors (1.6%, all empty-content from gpt-oss reasoning), $20.46 / $50 cap,
+6.7 hours wall.** Reasoning blew output tokens 3× (62M out vs 21M in).
+
+Pre-flight: tested both models with reasoning=high on PB-Basic-001 — both stayed coherent.
+Notably, gemma was *faster* with reasoning on (90s vs 245s) — the explicit reasoning trace
+seems to help it converge.
+
+### Per-mode means under v4-flash judge
+
+| Mode | Model | n | mean | std | pass≥6 | $/run |
+|---|---|---|---|---|---|---|
+| generate (pass@3) | gpt-oss-120b | 67 | 2.30 | 3.17 | 22/67 | $0.034 |
+| generate (pass@3) | gemma-4-31b-it | 70 | 2.74 | 3.31 | 26/70 | $0.023 |
+| full | gpt-oss-120b | 68 | 2.43 | 3.29 | 24/68 | $0.024 |
+| full | gemma-4-31b-it | 70 | 2.17 | 3.14 | 21/70 | $0.019 |
+| seed_generate | gpt-oss-120b | 69 | 2.54 | 3.24 | 26/69 | $0.031 |
+| seed_generate | gemma-4-31b-it | 70 | 2.74 | 3.34 | 27/70 | $0.024 |
+| **seed_full** | **gpt-oss-120b** | 67 | **3.00** | 3.44 | **29/67** | $0.076 |
+| **seed_full** | **gemma-4-31b-it** | 70 | **3.31** | 3.46 | **33/70** | $0.061 |
+
+### Headlines
+
+1. **seed_full is the best mode for both models** — same pattern as Phase 2 without
+   reasoning. gpt-oss 3.00 vs 2.30-2.54 in other modes; gemma 3.31 vs 2.17-2.74.
+2. **gemma > gpt-oss in every mode** — gap is 0.3-0.4 points across modes.
+3. **Cross-mode ordering with reasoning, by gemma:** seed_full (3.31) > seed_generate ≈ generate (2.74) > full (2.17). Full mode underperforms — verify/revise loop on a reasoning-enabled gpt-oss/gemma may be over-correcting itself (verifier rejects own correct work).
+4. **Cross-mode ordering with reasoning, by gpt-oss:** seed_full (3.00) > seed_generate (2.54) > full (2.43) > generate (2.30). Full mode helps gpt-oss more than gemma — the gpt-oss verifier seems calibrated better.
+5. **Direct comparison to no-reasoning Phase 2** (gemini judge there, v4-flash here, so not strictly comparable): seed_full means dropped (oss 3.99→3.00, gemma 4.26→3.31). But this almost certainly reflects v4-flash being a stricter judge than gemini-3-flash, NOT reasoning hurting. The earlier Phase 1 v4-pro vs gemini regrade showed gemini systematically +1.5 to +2.5 points more lenient on these models. v4-flash is calibrated closer to v4-pro than gemini.
+
+### Special-10 frontier hits with reasoning ON (v4-flash judge, ≥6/7)
+
+| Condition | Model | Problem | Score |
+|---|---|---|---|
+| generate (pass@3) | gpt-oss-120b | first-proof-10-official | **7** |
+| generate (pass@3) | gemma-4-31b-it | first-proof-10-official | **7** |
+| full | gpt-oss-120b | **erdos-654** | 6 |
+| full | gemma-4-31b-it | first-proof-10-official | **7** |
+| seed_generate | gpt-oss-120b | first-proof-10-official | 6 |
+| seed_generate | gemma-4-31b-it | first-proof-10-official | 6 |
+| seed_full | gpt-oss-120b | first-proof-10-official | 6 |
+| seed_full | gemma-4-31b-it | **erdos-333** | 6 |
+| seed_full | gemma-4-31b-it | **erdos-654** | **7** |
+| seed_full | gemma-4-31b-it | first-proof-10-official | **7** |
+
+**3 NEW frontier solves under v4-flash with reasoning ON** that did NOT pass under v4-pro
+in the original Phase 3 (which used gemini→v4-pro escalation):
+- **erdos-333**: gemma seed_full reached 6/7. Phase 3 was 0/7 across all 8 conditions.
+- **erdos-654**: gpt-oss full reached 6/7 + gemma seed_full reached 7/7. Phase 3 was 0/7.
+- **first-proof-10-official**: now confirmed 7/7 (was 6/7 in Phase 3). Real frontier hit
+  for both models with reasoning + seed_full.
+
+This suggests reasoning ON does push frontier capability — at least under v4-flash judge.
+A v4-pro cross-check on these 4 frontier solves would confirm whether they survive strict
+judging.
+
+### Cost / per-trial reasoning blow-up
+
+- 3× output token inflation vs no-reasoning (62M vs ~21M for similar trial count).
+- v4-flash judge (cheap at $0.28/Mtok) keeps the absolute $ small even with reasoning on.
+- $/run for seed_full: $0.076 (gpt-oss), $0.061 (gemma) vs Phase 2's ~$0.07 (no reasoning).
+  Roughly comparable because reasoning blow-up is offset by the much cheaper v4-flash judge.
+
+### Errors
+
+9 trials errored (1.6% of 560), all from `Model returned empty content + reasoning_content`
+on gpt-oss. This is the same provider-side reasoning-overflow pattern flagged in the
+v4-pro memory note — gpt-oss occasionally exhausts its reasoning budget without emitting
+visible content. Not catastrophic at 1.6%; partial trials saved per-branch.
+
+### Files
+
+- Script: `experiments/phase1_reasoning_20260505.py`
+- Run dir: `experiments/results/phase1_reasoning_20260505_20260505_114334/`
+- Log: `/tmp/phase1_reason.log`
+
+
+## Scaling RE-RUN with reasoning ON — N=1,3,5,7,9 — 2026-05-05T17:43:43
+
+Re-ran best-of-N scaling for `gpt-oss-120b` + `gemma-4-31b-it` on the 30 PB-Advanced
+problems with reasoning=high. **9 fresh generations per (model, problem)** (no Phase 1
+reuse — reasoning fundamentally changes generation). Judge: deepseek-v4-flash, single.
+
+**60/60 trials, 0 errors, $5.65 / $20 cap, 6 hours wall.** Reasoning blow-up: 16.5M out
+vs 5.9M in tokens. 60 outer workers, single key (`OPENROUTER_API_KEY_seedgen`).
+
+### Scaling table (mean / pass≥6 out of 30 problems, v4-flash judge)
+
+| Model | N=1 | N=3 | N=5 | N=7 | N=9 |
+|---|---|---|---|---|---|
+| gpt-oss-120b | 0.67 (3) | 1.40 (6) | 1.40 (6) | 1.73 (7) | **1.80 (7)** |
+| gemma-4-31b-it | 0.33 (1) | 0.87 (3) | 1.93 (8) | 1.97 (8) | **2.00 (8)** |
+
+(Numbers in parentheses are problems where best-of-N reached ≥6/7.)
+
+### Reasoning effect
+
+vs no-reasoning scaling under v4-pro (the closest-strictness comparison):
+
+| Model / Judge | N=1 | N=3 | N=5 | N=7 |
+|---|---|---|---|---|
+| gpt-oss no-reasoning, v4-pro | 0.03 | 0.10 | 0.37 | 0.40 |
+| **gpt-oss reasoning, v4-flash** | **0.67** | **1.40** | **1.40** | **1.73** |
+| gemma no-reasoning, v4-pro | 0.43 | 0.57 | 0.63 | 0.93 |
+| **gemma reasoning, v4-flash** | **0.33** | **0.87** | **1.93** | **1.97** |
+
+(v4-pro vs v4-flash both deepseek family; v4-flash is moderately stricter than gemini,
+moderately more lenient than v4-pro. Treat the comparison as "approximately strict-judge".)
+
+**Reasoning roughly doubles the score under strict judging at every N.**
+
+### Headlines
+
+1. **Both models keep gaining at N=9.** gpt-oss N=7→9: +0.07 (saturating), gemma
+   N=7→9: +0.03 (basically saturated). Effective ceiling at N=7 for both with reasoning ON.
+2. **gemma's scaling has a clear knee at N=5** — jumps from 0.87 (N=3) to 1.93 (N=5),
+   then plateaus. Reasoning + sampling diversity together unlock the next plateau.
+3. **gpt-oss has a flatter curve** — 1.40 at N=3 and N=5 (no gain), then bumps to 1.73
+   at N=7. The gpt-oss reasoning trace seems to converge to a small set of attempts that
+   all agree (or all fail) — sampling N=5 doesn't produce a meaningfully different proof.
+4. **gemma > gpt-oss only at N≥5.** At N=1, gpt-oss leads (0.67 vs 0.33); the gap inverts
+   as N grows. Reasoning + scaling differentially benefits gemma.
+5. **Best-of-N with reasoning beats no-reasoning seed_full for both models at strict
+   judging.** Phase 1 reasoning seed_full was 3.00/3.31 (v4-flash), and the scaling subset
+   is just 30 problems vs 70 — but the per-problem ceiling found via N=9 sampling is
+   competitive. For frontier-class problems, simple best-of-N + reasoning is a strong
+   baseline.
+
+### Files
+
+- Script: `experiments/scaling_reasoning_20260505.py`
+- Run dir: `experiments/results/scaling_reasoning_20260505_20260505_114334/`
+  - `trials/<model>/<pid>.json` (60 trial JSONs)
+  - `branches/<model>/<pid>/k{0..8}.json` (540 per-gen incremental saves)
+- Log: `/tmp/scaling_reason.log`
+
+## Master Dataset 20260505 — v4-flash regrade + unified export — 2026-05-05T22:00
+
+Built `results/dataset_20260505.jsonl` (2848 rows, 567 MB) — the new master dataset
+unifying every 0-7-rubric-graded experiment in the repo with up to three independent
+judges per cell (v4-pro, gemini-3-flash, v4-flash).  Supersedes
+`dataset_20260504.jsonl` (1260 rows, two judges, Phase 1 only).
+
+**v4-flash regrade pass.** Re-judged the 5 prior experiments with deepseek-v4-flash
+using hardened call config (max_tokens=131072, extra_body reasoning budget,
+reasoning_content fallback per memory `feedback_v4pro_judge_calls.md`).  **7223/7254
+cells (99.5%), 0.5% parse-failure rate, $30.21 / $100 cap, ~3.5 hours wall.**
+
+Coverage by experiment (v4-flash judged + folded in):
+
+| Experiment | rows | trial v4flash | branch v4flash | inline judge sources also folded |
+|---|---|---|---|---|
+| phase1            | 1259 | 1234 | 2889 | v4pro inline + parsefail patch; gemini regrade (best_solution + per-branch) |
+| phase2            |  140 |  139 |  419 | gemini inline; v4pro full regrade; v4pro frontier regrade (10 branches) |
+| phase3            |   69 |   68 |  205 | gemini inline; v4pro truncation-fixed regrade |
+| roleswap          |  560 |  559 | 1662 | gemini inline; v4pro escalation (special-10 only) |
+| scaling           |   60 |    — |  420 | gemini + v4pro inline (per-branch only) |
+| phase1_reasoning  |  560 |  551 | 1377 | v4flash inline (reasoning ON) |
+| scaling_reasoning |   60 |    — |  540 | v4flash inline (reasoning ON) |
+| scaling_v4flash   |   70 |    — |  489 | v4flash inline |
+| gpt5_nano_pass3   |   70 |    — |  206 | v4flash inline |
+
+**Triple-judge agreement (n=1458 cells with all 3 judges, original experiments):**
+
+|                        | v4pro vs gemini | v4pro vs v4flash | gemini vs v4flash |
+|---|---|---|---|
+| Exact-match            | 60% | **84%** | 63% |
+| Within-1 (\|Δ\|≤1)     | 73% | **95%** | 74% |
+| Pass-flip (≥6 vs <6)   | 27% | **5%**  | 26% |
+| Mean Δ (col − row)     | +1.75 | **+0.07** | -1.68 |
+
+**Headline: v4-flash agrees with v4-pro 84% exactly and 95% within ±1, with mean Δ of
++0.07.  Gemini disagrees with both at ~26% pass-flip and +1.7 systematic offset.**
+This corroborates the gradingbench finding (v4-flash r=0.76, v4-pro r=0.79, gemini
+r=0.51) on a sample 7× larger.  The previous "judge-flip" headline (Phase 2 reversal)
+is now triple-confirmed: v4-flash sides with v4-pro, not gemini.
+
+**Schema** (long-format JSONL): one row per (experiment, condition, model, problem_id);
+nested `judges = {v4pro, gemini, v4flash}` dict at trial level and per-branch.  Each
+judge entry has `{score, verdict, source}` where `source` tracks the regrade run that
+produced it (so consumers can audit multi-stage judging).  See
+`results/dataset_20260505_README.md` for full schema, loading recipes, and aggregation
+patterns; `results/dataset_20260505_REPORT.md` for headline numbers (regenerable from
+the JSONL via `experiments/build_report_20260505.py`).
+
+Files:
+- Dataset: `results/dataset_20260505.jsonl` (2848 rows, 567 MB)
+- README:  `results/dataset_20260505_README.md`
+- Report:  `results/dataset_20260505_REPORT.md`
+- Regrade: `experiments/regrade_all_v4flash_20260505.py`
+- Regrade artifacts: `experiments/results/v4flash_judge_20260505/` (7223 per-call JSONs)
+- Exporter: `experiments/export_dataset_20260505.py`
+- Report builder: `experiments/build_report_20260505.py`
+- Logs: `/tmp/v4flash_regrade.log`
+
+
+
+## Flex-Budget 3-Experiment Sweep — 2026-05-05T15:32:00
+
+Three experiments on a $30 `OPENROUTER_API_KEY_flex` (16-hour expiry) targeting "what
+helps a cheap generator (deepseek-v4-flash) on hard proofs (PB-Advanced)?" Judge:
+deepseek-v4-flash (per user). 20 random PB-Advanced problems (seed=42).
+
+Spend: ~$18.06 / $30 (60% util). ~7 hr wall-clock. 0 errors.
+
+| Method | Mean | Pass | $/run | Δ vs pass@1 |
+|---|---:|---:|---:|---:|
+| pass@1 | 1.75 | 5/20 | $0.020 | — |
+| pass@3 | 2.20 | 6/20 | $0.060 | +0.45 |
+| **pass@8** | **3.35** | **9/20** | $0.158 | **+1.60** |
+| flash_solo full pipeline | 1.85 | 5/20 | $0.060 | +0.10 |
+| **flash + v4-pro V↔R critic** | **2.80** | 8/20 | $0.174 | **+1.05** |
+| self-ideated seed_full | 3.20 | 9/20 | $0.177 | +1.45 |
+| **v4-pro-ideated seed_full** | **2.55** | 7/20 | $0.180 | +0.80 |
+
+### Findings
+
+1. **Strong-critic asymmetric pipeline (v4-flash gen, v4-pro V↔R) is the biggest
+   single-architecture win.** +0.95 over flash_solo, rescuing 3 problems (Adv-004/-005/-014)
+   from 0/7 to 7/7. Solo verifier early-stops only 10% of the time vs 30% with v4-pro;
+   v4-flash genuinely cannot critique its own work, but a strong critic does. Cost 2.9× solo.
+2. **Cross-model ideator (v4-pro IDEATING for v4-flash) HURTS by −0.65.** Counter-intuitive
+   reversal of the "lit-ideas helps" March hypothesis when extended to model-generated
+   ideas. Three problems flipped 7/7 → 0/7 under vp-ideation (Adv-002/-021/-026); only
+   one rescued (Adv-022). Mechanism: v4-pro names a *specific* approach (e.g. "Three-Branch
+   Centroid via Symmedian Point") that v4-flash commits to and cannot escape, even when
+   the method is hard for v4-flash to execute. Self-ideated v4-flash often falls back
+   to placeholder "default-N" ideas (~28% JSON parse failure rate, agent_log known issue),
+   which leaves v4-flash effectively unconstrained — and on these problems, less
+   constraint wins.
+3. **Pass@N keeps scaling through N=8** under v4-flash judge — no saturation visible.
+   Mean climbs +1.6 from N=1 to N=8; passes nearly double 5→9. Self-ideated seed_full
+   (3.20 / 9 passes) ≈ pass@8 (3.35 / 9 passes) at higher cost. Pass@N is the cheapest
+   reliable lever.
+4. **11 of 20 PB-Advanced problems (55%) are never solved in 8 v4-flash samples** —
+   genuine capability ceiling for cheap-generator on these problems.
+5. **flash_solo (full pipeline w/ same model) barely beats pass@1** (+0.10) — verify+revise
+   is real work for this task; cheap-tier verifier doesn't do it.
+
+### Cross-method coverage
+
+Different methods solve disjoint problem sets:
+- pass@8 wins ONLY on Adv-024 (k=7), Adv-003 (k=3, late hit), Adv-017 (k=6).
+- strong-critic wins ONLY on Adv-005, Adv-014.
+- self-seed_full wins ONLY on Adv-002 (6/7), Adv-021, Adv-026.
+- vp-seed_full wins ONLY on Adv-022.
+
+Union of best-method coverage: 12-13 of 20 problems. No single architecture dominates;
+ensembling / method-selection is an open follow-up.
+
+### Methodology
+
+- Three experiments ran in parallel on the same flex key (24 + 10 + 12 = 46 concurrent
+  workers). No 429s observed; OpenRouter rate limits are per-key.
+- Per-trial atomic JSON saves; per-branch incremental saves for cross_ideator.
+- MAX_TOKENS=32768 (down from 65536 in Phase 1-3) was sufficient — no truncation.
+- Cost killswitches at $6 / $10 / $3 caps; none triggered (run finished at 60% of total cap).
+- v4-flash judge sanity-check: agreed with v4-pro on the easy known-passing problems
+  (Adv-001/-019/-025); flagged one possible false positive (Adv-003 at 7/7 once vs Phase 1
+  baseline 0/0/0). Larger calibration audit would need a separate run.
+
+### Files
+
+- Report: `flex_budget_report.md`
+- Scripts: `experiments/{cross_ideator,strong_critic,passN}_v4flash_20260505.py`
+- Aggregator: `experiments/aggregate_flex_runs_20260505.py`
+- Run dirs: `experiments/results/{cross_ideator,strong_critic,passN}_v4flash_20260505_*/`
+- Aggregated summary: `experiments/results/flex_summary_20260505.json`
+- Logs: `/tmp/{cross_ideator,strong_critic,passN}_run.log`
+
+### Suggested follow-ups (untested in this run)
+
+1. **Strong-critic + pass@N composition**: resample then critique-revise. Predicted ~3.7 mean.
+2. **Strip idea names from v4-pro output** to separate "good prompt structure" from
+   "specific approach commitment" — clarifies the cross-ideator regression mechanism.
+3. **N>8 pass@N curve** (no saturation observed; v4-flash likely keeps gaining to N=15).
+4. **Strong-critic with v4-flash @ higher reasoning effort** instead of v4-pro — tests
+   whether the gain is "more compute on critique" or "different model on critique".
+
+
+## Reasoning vs no-reasoning — synthesis report — 2026-05-05T19:45:00
+
+Side-by-side comparison of the reasoning re-runs (Phase 1 + scaling) against the
+original no-reasoning baselines. **Big caveat: judges differ** — original Phase 1 used
+v4-pro, original scaling used gemini + v4-pro, the reasoning re-runs use v4-flash. v4-flash
+strictness sits between v4-pro (very strict) and gemini (lenient). Where comparisons are
+shown below, strict-vs-strict (v4-pro old ↔ v4-flash new) is used.
+
+### Phase 1 results — reasoning re-run
+
+`experiments/results/phase1_reasoning_20260505_20260505_114334/` (560 trials, 9 errors,
+$20.46, 6.7 h wall). 80 outer × 3 inner workers, single key `OPENROUTER_API_KEY_X`,
+judge `deepseek-v4-flash`, `extra_body={"reasoning": {"effort": "high"}}` for both models.
+
+| Mode | Model | n | mean | std | pass≥6 | $/run |
+|---|---|---|---|---|---|---|
+| generate (pass@3) | gpt-oss-120b | 67 | 2.30 | 3.17 | 22/67 | $0.034 |
+| generate (pass@3) | gemma-4-31b-it | 70 | 2.74 | 3.31 | 26/70 | $0.023 |
+| full | gpt-oss-120b | 68 | 2.43 | 3.29 | 24/68 | $0.024 |
+| full | gemma-4-31b-it | 70 | 2.17 | 3.14 | 21/70 | $0.019 |
+| seed_generate | gpt-oss-120b | 69 | 2.54 | 3.24 | 26/69 | $0.031 |
+| seed_generate | gemma-4-31b-it | 70 | 2.74 | 3.34 | 27/70 | $0.024 |
+| **seed_full** | **gpt-oss-120b** | 67 | **3.00** | 3.44 | **29/67** | $0.076 |
+| **seed_full** | **gemma-4-31b-it** | 70 | **3.31** | 3.46 | **33/70** | $0.061 |
+
+### Scaling results — reasoning re-run
+
+`experiments/results/scaling_reasoning_20260505_20260505_114334/` (60 trials, 0 errors,
+$5.65, 6 h wall). 60 workers, single key `OPENROUTER_API_KEY_seedgen`, 9 fresh generations
+per (model, problem), judge `deepseek-v4-flash`.
+
+| Model | N=1 | N=3 | N=5 | N=7 | N=9 |
+|---|---|---|---|---|---|
+| gpt-oss-120b | 0.67 (3) | 1.40 (6) | 1.40 (6) | 1.73 (7) | **1.80 (7)** |
+| gemma-4-31b-it | 0.33 (1) | 0.87 (3) | 1.93 (8) | 1.97 (8) | **2.00 (8)** |
+
+(Numbers in parentheses = problems where best-of-N reached ≥6/7.)
+
+### Δ vs no-reasoning, strict judge (Phase 1)
+
+| Mode | Model | no-reasoning v4-pro | reasoning v4-flash | Δ |
+|---|---|---|---|---|
+| generate | gpt-oss | 1.33 | **2.30** | +0.97 |
+| generate | gemma | 1.83 | **2.74** | +0.91 |
+| full | gpt-oss | 1.39 | **2.43** | +1.04 |
+| full | gemma | 1.17 | **2.17** | +1.00 |
+| seed_generate | gpt-oss | 1.27 | **2.54** | +1.27 |
+| seed_generate | gemma | 1.53 | **2.74** | +1.21 |
+| seed_full | gpt-oss | (not measured in old Phase 1) | **3.00** | — |
+| seed_full | gemma | (not measured in old Phase 1) | **3.31** | — |
+
+(no-reasoning v4-pro numbers are from agent_log Phase 1 row 5 / item 5: original v4-pro
+final-judge means across all 70 problems.)
+
+### Δ vs no-reasoning, strict judge (Scaling)
+
+| Model | N | no-reasoning v4-pro | reasoning v4-flash | Δ |
+|---|---|---|---|---|
+| gpt-oss | 1 | 0.03 | **0.67** | +0.64 |
+| gpt-oss | 3 | 0.10 | **1.40** | +1.30 |
+| gpt-oss | 5 | 0.37 | **1.40** | +1.03 |
+| gpt-oss | 7 | 0.40 | **1.73** | +1.33 |
+| gemma | 1 | 0.43 | 0.33 | −0.10 |
+| gemma | 3 | 0.57 | **0.87** | +0.30 |
+| gemma | 5 | 0.63 | **1.93** | +1.30 |
+| gemma | 7 | 0.93 | **1.97** | +1.04 |
+
+(no-reasoning numbers are from `experiments/results/scaling_oss_gemma_20260505_20260505_033250/`
+under the v4-pro judge column — see the Best-of-N Scaling agent_log entry from 2026-05-05T05:11:55.)
+
+### Headlines
+
+1. **Reasoning roughly doubles strict-judge score across modes (~+1.0 point uplift).**
+2. **Reasoning roughly doubles best-of-N at every N≥3.** gemma N=1 is a wash; both models
+   keep gaining slightly to N=9 but plateau by N=7.
+3. **Cross-mode ordering with reasoning:** seed_full > seed_generate ≈ generate > full
+   for gemma; seed_full > seed_generate > full ≈ generate for gpt-oss. Reasoning improves
+   gpt-oss's verifier (full mode no longer last) but gemma's reasoning-on verifier
+   over-corrects (full underperforms generate).
+4. **gemma > gpt-oss in 7 of 8 mode-cells** (only gpt-oss seed_full edges close; the gap
+   stays small but consistent).
+5. **3 NEW frontier solves under v4-flash with reasoning** (vs Phase 3 with v4-pro):
+   erdos-333 (gemma seed_full 6/7), erdos-654 (gpt-oss full 6/7 + gemma seed_full 7/7),
+   first-proof-10-official now confirmed 7/7 (was 6/7 in Phase 3).
+
+### Cost summary
+
+| Run | trials | $ | $/trial | wall |
+|---|---|---|---|---|
+| Phase 1 reasoning | 560 | **$20.46** | $0.037 | 6.7 h |
+| Scaling reasoning | 60 | **$5.65** | $0.094 | 6 h |
+| (Old Phase 2 no-reasoning, ref) | 140 | $9.70 | $0.069 | 1.3 h |
+| (Old scaling no-reasoning, ref) | 60 | $6.22 | $0.104 | 1.7 h |
+
+Reasoning blows up output tokens 3–4× (62M out vs 21M in for Phase 1; 16.5M vs 5.9M for
+scaling) but absolute $ stays flat because v4-flash is far cheaper than the gemini/v4-pro
+judges used in older runs. **Net cost neutral, capability roughly doubles.**
+
+### Caveats
+
+- Cross-judge noise: v4-flash strictness ≠ v4-pro. The "reasoning ~doubles score" headline
+  could be partly a judge-leniency artifact. A v4-pro re-grade of these reasoning trials
+  would tighten the comparison; estimated cost ~$10 for the most-interesting subset
+  (Phase 1 seed_full + scaling N=9 = ~190 trials).
+- 9 errors in Phase 1 reasoning (1.6%) all from `Model returned empty content +
+  reasoning_content` on gpt-oss — provider-side reasoning overflow without visible content.
+  Trials saved at per-branch granularity, so partial work survives.
+- Frontier solves on erdos-333 / erdos-654 should be sanity-checked with v4-pro before
+  being treated as canonical results — Phase 3's v4-pro escalation was definitive at
+  walking back gemini-only frontier claims.
+
+### Files
+
+- Phase 1 reasoning script: `experiments/phase1_reasoning_20260505.py`
+- Phase 1 reasoning run dir: `experiments/results/phase1_reasoning_20260505_20260505_114334/`
+  - 560 per-trial JSONs (tree under `mode/<model_short>/<pid>.json`)
+  - `manifest.jsonl` (560 lines)
+  - Log: `/tmp/phase1_reason.log`
+- Scaling reasoning script: `experiments/scaling_reasoning_20260505.py`
+- Scaling reasoning run dir: `experiments/results/scaling_reasoning_20260505_20260505_114334/`
+  - 60 per-trial JSONs under `trials/<model_short>/<pid>.json`
+  - 540 per-branch JSONs under `branches/<model_short>/<pid>/k{0..8}.json`
+  - `manifest.jsonl` (60 lines)
+  - Log: `/tmp/scaling_reason.log`
+
+
+## Composed strong-critic + pass@N (partial) — 2026-05-05T16:04:00
+
+Follow-up to the flex-budget sweep. Tested whether v4-pro V↔R critique on top of
+a v4-flash pass@8 best-of-N starting solution composes the gains of the two
+winning methods (strong-critic +0.95, pass@8 +1.60 over pass@1).
+
+Status at write-up: 4 of 20 trials done, all 7→7 preserved. The informative
+0/7-starter trials are still in-flight after 25 min each (v4-pro reasoning is
+slow on cases where the verifier doesn't early-stop). Run is left running in
+background; results to be folded into a future agent_log update.
+
+Partial preliminary read: **v4-pro V↔R preserves 7/7 starters reliably** — no
+regressions in 4/4. Verifier early-stops on iter 1 ("VERDICT: correct") for
+all 4 7-starter trials, costing only ~$0.03/trial.
+
+Run dir: `experiments/results/composed_critic_passN_20260505_20260505_193921/`
+
+Final flex-key spend at report time: $19.15 used / $30 cap (64% utilization).
+Run was left in background for additional data collection per remaining budget.
+

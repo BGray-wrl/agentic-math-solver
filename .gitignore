@@ -23,3 +23,13 @@ build/
 logs/hadamard*
 H.csv
 .claude
+
+
+# Delete this soon ish
+experiments/results/*/
+experiments/results/*.log
+experiments/results/*.json
+
+
+experiments/results/*.jsonl
+results/*.jsonl
