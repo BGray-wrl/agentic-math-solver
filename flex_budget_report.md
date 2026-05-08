@@ -15,14 +15,16 @@ Headline results (mean score / 7, pass@≥6 of 20, judged by v4-flash):
 | **strong-critic full pipeline** (v4-flash gen, **v4-pro V↔R**) | **2.80** | **8/20** | $0.174 | **+1.05** |
 | self-ideated `seed_full` (3 ideas × full pipeline) | 3.20 | 9/20 | $0.177 | +1.45 |
 | **v4-pro-ideated `seed_full`** (cross-ideator) | **2.55** | 7/20 | $0.180 | +0.80 |
+| pass@8 best + v4-pro V↔R (composition) | 3.32 | 9/19 | +$0.13 add'l | (no gain over pass@8) |
 
-Three findings worth keeping:
+Four findings worth keeping:
 
 1. **A stronger critic helps the cheap generator a lot** (+0.95 over `flash_solo`, raising 3 problems from 0/7 to 7/7). Asymmetric pipelines where v4-pro only verifies and revises beat same-model verify-revise loops cleanly. Worth its 2.9× cost on problems where the cheap generator would otherwise plateau at 0.
 2. **Pass@N keeps scaling through N=8** for v4-flash on PB-Advanced — no saturation. Each step from N=1→3→5→8 adds ~+0.5 to the mean and ~1 more pass. This is the cheapest reliable lever.
 3. **A stronger ideator HURTS** (−0.65 vs self-ideation). v4-pro produces cleaner, named ideas, but v4-flash performs *worse* on those than on the prose-style or "default-N" fallbacks it gets when self-ideating. Three problems flipped from 7/7 (self) to 0/7 (vp). Counter-intuitive but reproducible at this n=20.
+4. **Composing strong-critic with pass@N best-of-N gives no benefit** (Δ −0.21 mean, same 9/19 pass count). The two methods don't stack: pass@N already finds a high-quality solution per problem, and v4-pro is then more likely to *introduce* a regression (1 case of 7→0) than fix a residual error. One rescue (1→7) is exactly cancelled by one ruin (7→0). Mean drops from extra small-regressions on 1-starters.
 
-The strong-critic positive and the cross-ideator negative are the two interesting wins of the run. They jointly suggest **the bottleneck for v4-flash is critique/revision quality, not approach selection**: a strong critic finds errors v4-flash can fix, but a strong ideator's cleaner approach pushes v4-flash off paths it would have taken (and could execute) on its own.
+The strong-critic positive and the cross-ideator negative are the two interesting wins of the run. They jointly suggest **the bottleneck for v4-flash is critique/revision quality, not approach selection**: a strong critic finds errors v4-flash can fix, but a strong ideator's cleaner approach pushes v4-flash off paths it would have taken (and could execute) on its own. The composition negative refines that further: strong-critic earns its keep on *raw* (low-effort) generations, not on already-best-of-N-filtered ones.
 
 ## Setup
 
@@ -226,27 +228,60 @@ Combined: if you union the {pass@8 winners} ∪ {strong-critic winners} ∪ {sel
 
 The run finished well under both the dollar budget and the 16-hour key window (≈7 hours wall-clock).
 
-## Experiment 4 — Composed strong-critic + pass@N (partial)
+## Experiment 4 — Composed strong-critic + pass@N
 
 **Hypothesis**: Pass@N best-of-8 solution as starting point + v4-pro V↔R critique on top should compose the two winning methods. Predicted mean ~3.7-4.0.
 
 **Design**: Take the BEST-judged sample from passN per problem (best-of-8), apply v4-pro verify+revise (ITER=2), re-judge with v4-flash. 20 trials × $5 cap.
 
-**Status (as of report write-up)**: experiment is still in-flight. v4-pro reasoning on long PB-Advanced solutions is slow — the 7/7 starters complete in 17-22 min each (verifier early-stops on iter 1 typically), and the 0/7 starters are still in flight after 25 min. Per-trial cost ~$0.02-0.04 for 7→7 preserved; expected ~$0.10-0.20 for 0→? attempted rescues.
+**Total cost**: $2.56 / $5 cap. 19/20 valid (1 OpenRouter connection-drop on Adv-030).
 
-**Partial results — first 5 of 20 (all 7-starter cases)**:
+**Headline result (n=19)**:
 
-| Problem | starter | after V↔R | Δ | Note |
+| Stage | Mean | Pass≥6 |
+|---|---:|---:|
+| Starter (pass@8 best) | 3.53 | 9/19 |
+| After v4-pro V↔R | 3.32 | 9/19 |
+| Δ | **−0.21** | **0** |
+
+**Per-problem**: 1 improved, 14 unchanged, 4 regressed.
+
+| Problem | starter | after | Δ | Type |
 |---|---:|---:|---:|---|
-| PB-Advanced-001 | 7 | 7 | 0 | early-stop |
-| PB-Advanced-014 | 7 | 7 | 0 | early-stop |
-| PB-Advanced-019 | 7 | 7 | 0 | early-stop |
-| PB-Advanced-028 | 7 | 7 | 0 | early-stop |
-| PB-Advanced-024 | 7 | **0** | **−7** | full V↔R, regression |
+| PB-Advanced-001 | 7 | 7 | 0 | preserved |
+| PB-Advanced-003 | 7 | 7 | 0 | preserved |
+| PB-Advanced-004 | 7 | 7 | 0 | preserved |
+| PB-Advanced-014 | 7 | 7 | 0 | preserved |
+| PB-Advanced-017 | 7 | 7 | 0 | preserved |
+| PB-Advanced-019 | 7 | 7 | 0 | preserved |
+| PB-Advanced-025 | 7 | 7 | 0 | preserved |
+| PB-Advanced-028 | 7 | 7 | 0 | preserved |
+| PB-Advanced-002 | 0 | 0 | 0 | preserved |
+| PB-Advanced-005 | 0 | 0 | 0 | preserved |
+| PB-Advanced-009 | 0 | 0 | 0 | preserved |
+| PB-Advanced-018 | 0 | 0 | 0 | preserved |
+| PB-Advanced-021 | 0 | 0 | 0 | preserved |
+| PB-Advanced-022 | 0 | 0 | 0 | preserved |
+| **PB-Advanced-026** | **1** | **7** | **+6** | **RESCUED** |
+| PB-Advanced-008 | 1 | 0 | −1 | regressed |
+| PB-Advanced-010 | 1 | 0 | −1 | regressed |
+| PB-Advanced-029 | 1 | 0 | −1 | regressed |
+| **PB-Advanced-024** | **7** | **0** | **−7** | regressed |
 
-**Updated read**: v4-pro V↔R is **not** a free preservative. 4 of 5 7-starters were preserved (verifier early-stopped on iter 1), but PB-Advanced-024 went 7→0 after a full v4-pro critique-revise cycle ($0.19 / 33 min). v4-pro found something it judged wrong, revised, and the v4-flash judge then scored the revised solution at 0. This is the same hazard that the gemma-as-verifier-on-oss case in Phase 3 highlighted: a different critic doesn't always preserve good work — sometimes it "improves" away the correctness. The 1-in-5 regression rate at this n is large enough to be a real concern, not a sampling fluke.
+**Reading**: composition does NOT meaningfully improve over pass@8 alone.
 
-Open question (un-resolved at report time): does v4-pro V↔R *rescue* 0/7 or 1/7 starters often enough to outweigh the rescues it ruins? The 11 0/7 starters and 4 1/7 starters are still in flight; their results will determine whether composition is net positive or net neutral.
+- **Pass count is identical** (9/19 before and after) — Adv-026 was rescued (1→7), Adv-024 was ruined (7→0), exactly cancelling.
+- **Mean drops 3.53 → 3.32** because the 3 small regressions on 1-starters (Adv-008, -010, -029, all 1→0) lose 3 score points without compensating gains.
+- **The strong-critic effect from Experiment 2 (+0.95) does not stack on top of pass@N's gains.** The reason is structural: pass@N already finds a high-quality solution per problem (so there's nothing for the critic to fix on the 7s), and the critic occasionally "improves" a correct solution into an incorrect one (the Adv-024 regression is the headline case).
+- **The one rescue (Adv-026 1→7)** confirms strong-critic still works *in principle*, but the regression rate at this stage cancels the upside.
+- **Cost**: $2.56 for the V↔R stage on top of an already-completed $3.16 pass@N base. Total ~$5.72. Pure pass@8 was $0.16/run × 20 = $3.16 to reach the same 9/19 pass count.
+
+**Lesson**: don't compose strong-critic with pass@N best-of-N. Strong-critic earns its keep on *raw* generations (Experiment 2), where it finds errors that v4-flash made and then itself can't fix. On a v4-flash-judge-best-of-8 starting solution, the residual errors are subtle enough (or absent) that v4-pro is more likely to introduce a regression than fix one.
+
+A cleaner composition would be **strong-critic on every sample, then take best-of-N of the critiqued solutions** — but that is N× more expensive and was not tested here.
+
+**Files**:
+- Run dir: `experiments/results/composed_critic_passN_20260505_20260505_193921/`
 
 **Run dir**: `experiments/results/composed_critic_passN_20260505_20260505_193921/`
 

@@ -7,6 +7,36 @@ exposed under a unified `judges` schema for direct cross-judge comparison.
 
 This dataset supersedes `dataset_20260504.jsonl` (Phase 1 only, two judges).
 
+## Focused bucket views (added 2026-05-07)
+
+For most analysis tasks the master JSONL is more than you need. The bucket
+sub-datasets below are filtered + transformed views of this master, each with
+its own data dictionary, summary CSV, and report:
+
+- **`results/architecture_20260506/`** — cross-mode, cross-model architecture
+  comparison (sources: phase1, phase1_reasoning, phase2, phase3,
+  gpt5_nano_pass3). Canonical judge: v4-flash. Includes a derived
+  `pass_at_1_v4flash` column for generate-mode rows.
+- **`results/scaling_20260506/`** — best-of-N curves with **bootstrap-resampled
+  pass@n** instead of nested-prefix pass@n (sources: scaling, scaling_reasoning,
+  scaling_v4flash). One row per (model, problem, n).
+- **`results/roleswap_20260506/`** — cross-model role-assignment matrix
+  (sources: roleswap, roleswap_reasoning, flex_cross_ideator with
+  `subclass="ideator_strength"`).
+
+All three buckets are enriched with:
+- `difficulty` ∈ 0..5 (0=pre-IMO, 1=IMO-tier, 2=research-easy, 3=research-medium,
+  4=research-hard, 5=research-frontier) — see `experiments/difficulty_20260506.py`
+- `is_26_research` (bool) — True for the 10 problems in the 2026 research-tier
+  set (renamed from `is_special_10`)
+- `reasoning` ∈ {`default`, `max`, `min`} — uniform label of the reasoning
+  configuration intent across providers (most rows are `default`; `max` is the
+  set of explicit-reasoning experiments; `min` is reserved)
+
+The `flex_strong_critic`, `flex_passn`, and `flex_composed_critic` rows remain
+in the master JSONL only — they're outside the three thematic buckets and are
+not in any sub-dataset for this pass.
+
 ## Files
 
 - `dataset_20260505.jsonl` — long-format JSONL, one record per (experiment, condition,
@@ -24,9 +54,14 @@ This dataset supersedes `dataset_20260504.jsonl` (Phase 1 only, two judges).
 | `roleswap` | `seed_full_role_swap_20260505_20260505_032032/`     | 560  | 3 | 8 cross-model role-assignment conditions × 70 |
 | `scaling`  | `scaling_oss_gemma_20260505_20260505_033250/`       | 60   | 7 (k=0..6) | Best-of-N curves; trial-level best is **not** picked, use branches[].judges to compute pass@k |
 | `phase1_reasoning`  | `phase1_reasoning_20260505_20260505_114334/` | 560  | 3 (generate / seed_generate / seed_full); 1 (full) | gpt-oss + gemma, 4 modes × 70, **reasoning ON**.  Judged inline by v4-flash. |
-| `scaling_reasoning` | `scaling_reasoning_20260505_20260505_114334/` |  60  | 9 (k=0..8) | gpt-oss + gemma scaling **with reasoning ON** on PB-Advanced (n=30).  Judged inline by v4-flash. |
+| `scaling_reasoning` | `scaling_reasoning_20260505_20260505_114334/` | 124  | 9 (k=0..8) | gpt-oss + gemma scaling **with reasoning ON** on PB-Advanced.  Judged inline by v4-flash. |
 | `scaling_v4flash`   | `best_of_n_v4flash_20260504_20260505_115611/` |  70  | 7 (k=0..6) | Best-of-N for deepseek-v4-flash on all 70 problems.  Judged inline by v4-flash. |
 | `gpt5_nano_pass3`   | `gpt54nano_pass3_20260504_20260505_115611/`   |  70  | 3 (k=0..2) | gpt-5.4-nano pass@3 with reasoning_effort=xhigh.  Judged inline by v4-flash. |
+| `roleswap_reasoning` | `role_swap_reasoning_20260505_20260505_114334/` | 560 | 3 | 8 cross-model role-assignment conditions × 70 with **reasoning ON**.  gpt-oss + gemma in different pipeline roles.  Judged inline by v4-flash. |
+| `flex_cross_ideator` | `cross_ideator_v4flash_20260505_20260505_120545/` | 40 | 3 | 2 conditions (self_v4flash / vp_v4flash) × 20 PB-Advanced.  Tests cross-model ideator effect.  v4-flash inline. |
+| `flex_strong_critic` | `strong_critic_v4flash_20260505_20260505_121438/` | 40 | 0 (full pipeline only) | 2 conditions (flash_solo / flash_with_vp) × 20 PB-Advanced.  Tests strong-critic effect on V↔R loop.  v4-flash inline. |
+| `flex_passn`         | `passN_v4flash_20260505_20260505_120944/`         | 20 | 8 (k=0..7) | Pass@8 on 20 PB-Advanced problems with v4-flash.  v4-flash inline. |
+| `flex_composed_critic` | `composed_critic_passN_20260505_20260505_193921/` | 20 | 0 | Pass@8 best → v4-pro V↔R refinement.  Tests composition of pass@N and strong-critic.  Trial extras carry both starter and post-critic scores. |
 
 All 70 problems = 60 IMO-proofbench + 10 special (5 erdos + 4 first-proof + 1 ramsey).
 The `_reasoning` and `_v4flash` experiments were judged **only** by v4-flash (no v4-pro
@@ -132,16 +167,21 @@ multi-stage regrades or choosing which judge call to trust.
 
 |              | rows | with v4pro | with gemini | with v4flash | branch-rows | branch-v4pro | branch-gemini | branch-v4flash |
 |---|---|---|---|---|---|---|---|---|
-| phase1            | 1259 | 1256 | 1256 | 1234 | 2932 | 2932 | 2932 | 2889 |
-| phase2            |  140 |  140 |  140 |  139 |  420 |   10 |  420 |  419 |
-| phase3            |   69 |   68 |   69 |   68 |  207 |    0 |  207 |  205 |
-| roleswap          |  560 |   18 |  560 |  559 | 1680 |   25 | 1668 | 1662 |
-| scaling           |   60 |    0 |    0 |    0 |  420 |  420 |  420 |  420 |
-| phase1_reasoning  |  560 |    0 |    0 |  551 | 1377 |    0 |    0 | 1377 |
-| scaling_reasoning |   60 |    0 |    0 |    0 |  540 |    0 |    0 |  540 |
-| scaling_v4flash   |   70 |    0 |    0 |    0 |  490 |    0 |    0 |  489 |
-| gpt5_nano_pass3   |   70 |    0 |    0 |    0 |  210 |    0 |    0 |  206 |
-| **total**         | 2848 | 1482 | 2025 | 2551 | 8276 | 3387 | 5647 | 8207 |
+| phase1                | 1259 | 1256 | 1256 | 1234 | 2932 | 2932 | 2932 | 2889 |
+| phase2                |  140 |  140 |  140 |  139 |  420 |   10 |  420 |  419 |
+| phase3                |   69 |   68 |   69 |   68 |  207 |    0 |  207 |  205 |
+| roleswap              |  560 |   18 |  560 |  559 | 1680 |   25 | 1668 | 1662 |
+| scaling               |   60 |    0 |    0 |    0 |  420 |  420 |  420 |  420 |
+| phase1_reasoning      |  560 |    0 |    0 |  551 | 1377 |    0 |    0 | 1377 |
+| scaling_reasoning     |  140 |    0 |    0 |    0 | 1260 |    0 |    0 | 1229 |
+| scaling_v4flash       |   70 |    0 |    0 |    0 |  490 |    0 |    0 |  489 |
+| gpt5_nano_pass3       |   70 |    0 |    0 |    0 |  210 |    0 |    0 |  206 |
+| roleswap_reasoning    |  560 |    0 |    0 |  555 | 1671 |    0 |    0 | 1639 |
+| flex_cross_ideator    |   40 |    0 |    0 |   40 |  120 |    0 |    0 |  118 |
+| flex_strong_critic    |   40 |    0 |    0 |   40 |    0 |    0 |    0 |    0 |
+| flex_passn            |   20 |    0 |    0 |    0 |  160 |    0 |    0 |  160 |
+| flex_composed_critic  |   20 |    0 |    0 |   19 |    0 |    0 |    0 |    0 |
+| **total**             | 3608 | 1482 | 2025 | 3205 |10947 | 3387 | 5647 |10813 |
 
 v4-flash regrade across the original 5 experiments attempted 7254 cells, 0.5%
 parse-failure rate (38 unparseable).  Total v4-flash regrade spend: $30.21

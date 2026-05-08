@@ -33,3 +33,5 @@ experiments/results/*.json
 
 experiments/results/*.jsonl
 results/*.jsonl
+logs/*.jsonl
+*.jsonl

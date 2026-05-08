@@ -1,0 +1,165 @@
+================================================================================
+validate_research_solves_20260507
+================================================================================
+v4-pro judge: openrouter/deepseek/deepseek-v4-pro
+nano  judge:  openrouter/openai/gpt-5.4-nano  reasoning_effort=high
+Workers: 12    Cost cap: $15.0
+Output dir: /Users/benjamingrayzel/sandbox/agentic-math-solver/results/validate_research_solves_20260507
+Mode: REAL
+
+Built 50 candidate cells.
+  architecture: 34
+  scaling:      16
+All cells have non-empty proof_text. 
+
+Stage 1 (v4-pro):
+  cells already passing under v4-pro: 16 (no re-call)
+  cells needing v4-pro re-grade:      34
+
+--- Candidate cell list ---
+  [00] architecture erdos-659                      deepseek-v4-flash         mode=generate                  reas=default  src=phase1               v4f=0 v4p=6
+  [01] architecture first-proof-10-official        deepseek-v4-flash         mode=generate                  reas=default  src=phase1               v4f=None v4p=6
+  [02] architecture erdos-654                      deepseek-v4-pro           mode=generate                  reas=default  src=phase1               v4f=7 v4p=1
+  [03] architecture first-proof-10-official        deepseek-v4-pro           mode=generate                  reas=default  src=phase1               v4f=7 v4p=6
+  [04] architecture first-proof-10-official        gemini-3-flash-preview    mode=generate                  reas=default  src=phase1               v4f=1 v4p=6
+  [05] architecture first-proof-10-official        gemma-4-31b-it            mode=generate                  reas=default  src=phase1               v4f=0 v4p=6
+  [06] architecture first-proof-10-official        gpt-oss-120b              mode=generate                  reas=default  src=phase1               v4f=6 v4p=6
+  [07] architecture first-proof-10-official        qwen3.6-35b-a3b           mode=generate                  reas=default  src=phase1               v4f=7 v4p=6
+  [08] architecture first-proof-10-official        deepseek-v4-flash         mode=full                      reas=default  src=phase1               v4f=7 v4p=6
+  [09] architecture erdos-654                      deepseek-v4-pro           mode=full                      reas=default  src=phase1               v4f=7 v4p=7
+  [10] architecture first-proof-10-official        deepseek-v4-pro           mode=full                      reas=default  src=phase1               v4f=7 v4p=6
+  [11] architecture first-proof-10-official        gemini-3-flash-preview    mode=full                      reas=default  src=phase1               v4f=7 v4p=1
+  [12] architecture first-proof-10-official        gemma-4-31b-it            mode=full                      reas=default  src=phase1               v4f=6 v4p=1
+  [13] architecture first-proof-10-official        qwen3.6-35b-a3b           mode=full                      reas=default  src=phase1               v4f=6 v4p=0
+  [14] architecture erdos-397                      deepseek-v4-flash         mode=seed_generate             reas=default  src=phase1               v4f=7 v4p=0
+  [15] architecture first-proof-10-official        deepseek-v4-flash         mode=seed_generate             reas=default  src=phase1               v4f=7 v4p=6
+  [16] architecture first-proof-10-official        deepseek-v4-pro           mode=seed_generate             reas=default  src=phase1               v4f=7 v4p=6
+  [17] architecture first-proof-5-official         deepseek-v4-pro           mode=seed_generate             reas=default  src=phase1               v4f=7 v4p=0
+  [18] architecture first-proof-10-official        gemma-4-31b-it            mode=seed_generate             reas=default  src=phase1               v4f=0 v4p=6
+  [19] architecture erdos-654                      gpt-oss-120b              mode=seed_generate             reas=default  src=phase1               v4f=0 v4p=7
+  [20] architecture first-proof-10-official        qwen3.6-35b-a3b           mode=seed_generate             reas=default  src=phase1               v4f=6 v4p=1
+  [21] architecture first-proof-10-official        gemma-4-31b-it            mode=seed_full                 reas=default  src=phase2               v4f=6 v4p=0
+  [22] architecture erdos-654                      deepseek-v4-flash         mode=seed_full                 reas=default  src=phase3               v4f=7 v4p=6
+  [23] architecture first-proof-10-official        deepseek-v4-flash         mode=seed_full                 reas=default  src=phase3               v4f=7 v4p=6
+  [24] architecture first-proof-10-official        gemma-4-31b-it            mode=generate                  reas=max      src=phase1_reasoning     v4f=7 v4p=—
+  [25] architecture first-proof-10-official        gpt-oss-120b              mode=generate                  reas=max      src=phase1_reasoning     v4f=7 v4p=—
+  [26] architecture first-proof-10-official        gemma-4-31b-it            mode=full                      reas=max      src=phase1_reasoning     v4f=7 v4p=—
+  [27] architecture erdos-654                      gpt-oss-120b              mode=full                      reas=max      src=phase1_reasoning     v4f=6 v4p=—
+  [28] architecture first-proof-10-official        gemma-4-31b-it            mode=seed_generate             reas=max      src=phase1_reasoning     v4f=6 v4p=—
+  [29] architecture first-proof-10-official        gpt-oss-120b              mode=seed_generate             reas=max      src=phase1_reasoning     v4f=6 v4p=—
+  [30] architecture erdos-333                      gemma-4-31b-it            mode=seed_full                 reas=max      src=phase1_reasoning     v4f=6 v4p=—
+  [31] architecture erdos-654                      gemma-4-31b-it            mode=seed_full                 reas=max      src=phase1_reasoning     v4f=7 v4p=—
+  [32] architecture first-proof-10-official        gemma-4-31b-it            mode=seed_full                 reas=max      src=phase1_reasoning     v4f=7 v4p=—
+  [33] architecture first-proof-10-official        gpt-oss-120b              mode=seed_full                 reas=max      src=phase1_reasoning     v4f=6 v4p=—
+  [34] scaling      erdos-1051                     deepseek-v4-flash         mode=best_of_n_branch6         reas=default  src=scaling_v4flash      v4f=6 v4p=—
+  [35] scaling      erdos-659                      deepseek-v4-flash         mode=best_of_n_branch2         reas=default  src=scaling_v4flash      v4f=6 v4p=—
+  [36] scaling      first-proof-10-official        deepseek-v4-flash         mode=best_of_n_branch1         reas=default  src=scaling_v4flash      v4f=6 v4p=—
+  [37] scaling      first-proof-10-official        deepseek-v4-flash         mode=best_of_n_branch2         reas=default  src=scaling_v4flash      v4f=6 v4p=—
+  [38] scaling      first-proof-10-official        deepseek-v4-flash         mode=best_of_n_branch4         reas=default  src=scaling_v4flash      v4f=6 v4p=—
+  [39] scaling      first-proof-6-official         deepseek-v4-flash         mode=best_of_n_branch2         reas=default  src=scaling_v4flash      v4f=7 v4p=—
+  [40] scaling      first-proof-10-official        gemma-4-31b-it            mode=best_of_n_branch0         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+  [41] scaling      first-proof-10-official        gemma-4-31b-it            mode=best_of_n_branch2         reas=max      src=scaling_reasoning    v4f=6 v4p=—
+  [42] scaling      first-proof-10-official        gemma-4-31b-it            mode=best_of_n_branch4         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+  [43] scaling      first-proof-10-official        gemma-4-31b-it            mode=best_of_n_branch5         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+  [44] scaling      first-proof-10-official        gemma-4-31b-it            mode=best_of_n_branch8         reas=max      src=scaling_reasoning    v4f=6 v4p=—
+  [45] scaling      first-proof-10-official        gpt-oss-120b              mode=best_of_n_branch1         reas=max      src=scaling_reasoning    v4f=6 v4p=—
+  [46] scaling      first-proof-10-official        gpt-oss-120b              mode=best_of_n_branch4         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+  [47] scaling      first-proof-10-official        gpt-oss-120b              mode=best_of_n_branch5         reas=max      src=scaling_reasoning    v4f=6 v4p=—
+  [48] scaling      first-proof-10-official        gpt-oss-120b              mode=best_of_n_branch6         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+  [49] scaling      first-proof-10-official        gpt-oss-120b              mode=best_of_n_branch8         reas=max      src=scaling_reasoning    v4f=7 v4p=—
+
+--- Pre-flight: single v4-pro test grade on first-proof-10-official / deepseek-v4-pro ---
+  v4-pro returned score=6 in 571.3s, in=8534 out=18035 $0.0194
+  verdict head: '<points>6 out of 7</points>\n\nThe proposed solution correctly reformulates the large Kronecker‑structured linear system into a matrix equation, and it describes a viable preconditioned conjugate gradie'
+
+--- Pre-flight: single nano test grade on the same cell ---
+  nano returned score=1 in 46.3s, in=9241 out=6729 $0.0103
+  verdict head: '<points>1 out of 7</points>\n\n### 1) Overall assessment\nThe proposed solution captures the *right general idea*: rewrite the mode-\\(k\\) linear system as an operator on an \\(n\\times r\\) matrix \\(V\\), im'
+
+Stage 1: dispatching 34 v4-pro re-grade calls (workers=12)...
+  [01/34] v4pro first-proof-5-official         deepseek-v4-pro           -> score=0  cum=$0.061
+  [02/34] v4pro erdos-397                      deepseek-v4-flash         -> score=0  cum=$0.083
+  [03/34] v4pro erdos-654                      gpt-oss-120b              -> score=0  cum=$0.095
+  [04/34] v4pro first-proof-10-official        gemini-3-flash-preview    -> score=1  cum=$0.112
+  [05/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=0  cum=$0.124
+  [06/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.138
+  [07/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.159
+  [08/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.174
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+  [09/34] v4pro erdos-654                      gemma-4-31b-it            -> score=7  cum=$0.196
+  [10/34] v4pro first-proof-10-official        qwen3.6-35b-a3b           -> score=6  cum=$0.215
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+  [11/34] v4pro first-proof-10-official        qwen3.6-35b-a3b           -> score=0  cum=$0.235
+  [12/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.250
+  [13/34] v4pro first-proof-6-official         deepseek-v4-flash         -> score=0  cum=$0.269
+  [14/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=6  cum=$0.285
+  [15/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=0  cum=$0.297
+  [16/34] v4pro erdos-654                      deepseek-v4-pro           -> score=1  cum=$0.319
+  [17/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=0  cum=$0.335
+  [18/34] v4pro erdos-1051                     deepseek-v4-flash         -> score=0  cum=$0.349
+  [19/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.359
+  [20/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.374
+  [21/34] v4pro first-proof-10-official        deepseek-v4-flash         -> score=6  cum=$0.391
+  [22/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=6  cum=$0.415
+  [23/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=6  cum=$0.432
+  [24/34] v4pro first-proof-10-official        deepseek-v4-flash         -> score=6  cum=$0.451
+  [25/34] v4pro erdos-333                      gemma-4-31b-it            -> score=6  cum=$0.469
+  [26/34] v4pro first-proof-10-official        deepseek-v4-flash         -> score=6  cum=$0.495
+  [27/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=6  cum=$0.512
+  [28/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=0  cum=$0.527
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+  [29/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=0  cum=$0.542
+  [30/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=6  cum=$0.559
+  [31/34] v4pro erdos-659                      deepseek-v4-flash         -> score=6  cum=$0.587
+  [32/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=6  cum=$0.605
+  [33/34] v4pro first-proof-10-official        gpt-oss-120b              -> score=6  cum=$0.624
+  [34/34] v4pro first-proof-10-official        gemma-4-31b-it            -> score=6  cum=$0.642
+
+Stage 2: 31 cells are v4pro-validated; dispatching 30 nano grade calls (preflight already covered 1).
+  [01/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.645
+  [02/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.649
+  [03/30] nano  first-proof-10-official        gemini-3-flash-preview    -> score=1  cum=$0.654
+  [04/30] nano  first-proof-10-official        deepseek-v4-pro           -> score=1  cum=$0.660
+  [05/30] nano  first-proof-10-official        gpt-oss-120b              -> score=1  cum=$0.667
+  [06/30] nano  erdos-654                      gpt-oss-120b              -> score=0  cum=$0.670
+  [07/30] nano  erdos-654                      deepseek-v4-pro           -> score=6  cum=$0.678
+  [08/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=1  cum=$0.686
+  [09/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=6  cum=$0.697
+  [10/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=1  cum=$0.708
+  [11/30] nano  first-proof-10-official        qwen3.6-35b-a3b           -> score=1  cum=$0.721
+  [12/30] nano  erdos-659                      deepseek-v4-flash         -> score=1  cum=$0.733
+  [13/30] nano  first-proof-10-official        gpt-oss-120b              -> score=1  cum=$0.743
+  [14/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.751
+  [15/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=1  cum=$0.756
+  [16/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=2  cum=$0.767
+  [17/30] nano  erdos-659                      deepseek-v4-flash         -> score=1  cum=$0.774
+  [18/30] nano  erdos-654                      deepseek-v4-flash         -> score=7  cum=$0.787
+  [19/30] nano  first-proof-10-official        qwen3.6-35b-a3b           -> score=1  cum=$0.796
+  [20/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=1  cum=$0.804
+  [21/30] nano  erdos-654                      gemma-4-31b-it            -> score=7  cum=$0.816
+  [22/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.822
+  [23/30] nano  first-proof-10-official        deepseek-v4-pro           -> score=1  cum=$0.835
+  [24/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.843
+  [25/30] nano  first-proof-10-official        deepseek-v4-flash         -> score=1  cum=$0.856
+  [26/30] nano  first-proof-10-official        gemma-4-31b-it            -> score=1  cum=$0.863
+  [27/30] nano  first-proof-10-official        gpt-oss-120b              -> score=1  cum=$0.870
+  [28/30] nano  first-proof-10-official        gpt-oss-120b              -> score=1  cum=$0.879
+  [29/30] nano  erdos-333                      gemma-4-31b-it            -> score=1  cum=$0.898
+  [30/30] nano  first-proof-10-official        gpt-oss-120b              -> score=1  cum=$0.908
+
+Done. Total cost: $0.9081  Records: 66
+
+Outputs:
+  /Users/benjamingrayzel/sandbox/agentic-math-solver/results/validate_research_solves_20260507/trials.jsonl
+  /Users/benjamingrayzel/sandbox/agentic-math-solver/results/validate_research_solves_20260507/trials.csv
+  /Users/benjamingrayzel/sandbox/agentic-math-solver/results/validate_research_solves_20260507/summary.csv
+  /Users/benjamingrayzel/sandbox/agentic-math-solver/results/validate_research_solves_20260507/report.md

@@ -14,10 +14,10 @@ Companion to `dataset_20260505.jsonl` and `dataset_20260505_README.md`.
 | roleswap     |  560 |         18 |         560 |          559 |        1680 |           25 |          1668 |           1662 |
 | scaling      |   60 |          0 |           0 |            0 |         420 |          420 |           420 |            420 |
 | phase1_reasoning|  560 |          0 |           0 |          551 |        1377 |            0 |             0 |           1377 |
-| scaling_reasoning|   60 |          0 |           0 |            0 |         540 |            0 |             0 |            540 |
+| scaling_reasoning|  140 |          0 |           0 |            0 |        1229 |            0 |             0 |           1229 |
 | scaling_v4flash|   70 |          0 |           0 |            0 |         490 |            0 |             0 |            489 |
 | gpt5_nano_pass3|   70 |          0 |           0 |            0 |         210 |            0 |             0 |            206 |
-| **total**     | 2848 |       1482 |        2025 |         2551 |        8276 |         3387 |          5647 |           8207 |
+| **total**     | 2928 |       1482 |        2025 |         2551 |        8965 |         3387 |          5647 |           8896 |
 
 ## 1.  Triple-judge agreement
 
@@ -130,16 +130,16 @@ cells (not just special-10).
 
 | Model | k | v4flash mean (best-of-k) | passes |
 |---|---|---|---|
-| gemma-4-31b-it         | 1 | 0.33 | 1/30 |
-| gemma-4-31b-it         | 3 | 0.87 | 3/30 |
-| gemma-4-31b-it         | 5 | 1.93 | 8/30 |
-| gemma-4-31b-it         | 7 | 1.97 | 8/30 |
-| gemma-4-31b-it         | 9 | 2.00 | 8/30 |
-| gpt-oss-120b           | 1 | 0.67 | 3/30 |
-| gpt-oss-120b           | 3 | 1.40 | 6/30 |
-| gpt-oss-120b           | 5 | 1.40 | 6/30 |
-| gpt-oss-120b           | 7 | 1.73 | 7/30 |
-| gpt-oss-120b           | 9 | 1.80 | 7/30 |
+| gemma-4-31b-it         | 1 | 1.57 | 15/70 |
+| gemma-4-31b-it         | 3 | 2.64 | 26/70 |
+| gemma-4-31b-it         | 5 | 3.21 | 32/70 |
+| gemma-4-31b-it         | 7 | 3.26 | 32/70 |
+| gemma-4-31b-it         | 9 | 3.29 | 32/70 |
+| gpt-oss-120b           | 1 | 1.52 | 15/67 |
+| gpt-oss-120b           | 3 | 2.78 | 27/67 |
+| gpt-oss-120b           | 5 | 2.87 | 28/67 |
+| gpt-oss-120b           | 7 | 3.04 | 29/67 |
+| gpt-oss-120b           | 9 | 3.18 | 30/67 |
 
 ## 5c.  Scaling on deepseek-v4-flash (70-problem, k=0..6, v4-flash judge)
 
@@ -161,11 +161,11 @@ any individual branch.
 | Problem | v4pro ≥6 | gemini ≥6 | v4flash ≥6 |
 |---|---|---|---|
 | erdos-1051                   | — | phase1/gemma-4-31b-it(branch)×6, phase1/deepseek-v4-flash(branch)×5, phase1/deepseek-v4-pro(branch)×5, phase1/gemini-3-flash-preview(branch)×4 | phase3/deepseek-v4-flash(branch), scaling_v4flash/deepseek-v4-flash(branch) |
-| erdos-333                    | — | phase1/deepseek-v4-flash(branch)×3, phase1/deepseek-v4-pro(branch)×2, phase1/deepseek-v4-pro(trial), phase3/deepseek-v4-flash(trial) | phase3/deepseek-v4-flash(branch), phase1_reasoning/gemma-4-31b-it(trial), phase1_reasoning/gemma-4-31b-it(branch) |
+| erdos-333                    | — | phase1/deepseek-v4-flash(branch)×3, phase1/deepseek-v4-pro(branch)×2, phase1/deepseek-v4-pro(trial), phase3/deepseek-v4-flash(trial) | roleswap_reasoning/gemma-4-31b-it(trial)×2, roleswap_reasoning/gemma-4-31b-it(branch)×2, phase3/deepseek-v4-flash(branch), phase1_reasoning/gemma-4-31b-it(trial) |
 | erdos-397                    | — | phase1/deepseek-v4-pro(branch)×3, phase1/deepseek-v4-pro(trial) | phase1/deepseek-v4-flash(trial), phase1/deepseek-v4-flash(branch) |
 | erdos-654                    | phase1/deepseek-v4-pro(trial), phase1/deepseek-v4-pro(branch), phase1/gpt-oss-120b(trial), phase1/gpt-oss-120b(branch) | phase1/deepseek-v4-pro(branch)×3, phase2/gpt-oss-120b(branch)×3, phase1/deepseek-v4-flash(branch)×2, phase1/deepseek-v4-pro(trial)×2 | phase1/deepseek-v4-pro(trial)×2, roleswap/gpt-oss-120b(trial)×2, phase1/deepseek-v4-pro(branch), phase3/deepseek-v4-flash(trial) |
-| erdos-659                    | phase1/deepseek-v4-flash(trial), phase1/deepseek-v4-flash(branch) | phase1/deepseek-v4-pro(branch)×4, phase1/deepseek-v4-pro(trial)×3, phase1/deepseek-v4-flash(branch)×2, phase1/qwen3.6-35b-a3b(branch)×2 | scaling_v4flash/deepseek-v4-flash(branch) |
-| first-proof-10-official      | phase1/deepseek-v4-pro(branch)×5, phase1/deepseek-v4-flash(branch)×4, phase1/deepseek-v4-flash(trial)×3, phase1/deepseek-v4-pro(trial)×3 | phase1/deepseek-v4-flash(branch)×5, phase1/qwen3.6-35b-a3b(branch)×3, phase1/deepseek-v4-pro(branch)×2, phase1/gpt-oss-120b(branch)×2 | roleswap/gemma-4-31b-it(branch)×9, phase1_reasoning/gemma-4-31b-it(branch)×6, phase1/deepseek-v4-flash(branch)×5, phase1/deepseek-v4-pro(branch)×4 |
+| erdos-659                    | phase1/deepseek-v4-flash(trial), phase1/deepseek-v4-flash(branch) | phase1/deepseek-v4-pro(branch)×4, phase1/deepseek-v4-pro(trial)×3, phase1/deepseek-v4-flash(branch)×2, phase1/qwen3.6-35b-a3b(branch)×2 | scaling_v4flash/deepseek-v4-flash(branch), roleswap_reasoning/gemma-4-31b-it(trial), roleswap_reasoning/gemma-4-31b-it(branch) |
+| first-proof-10-official      | phase1/deepseek-v4-pro(branch)×5, phase1/deepseek-v4-flash(branch)×4, phase1/deepseek-v4-flash(trial)×3, phase1/deepseek-v4-pro(trial)×3 | phase1/deepseek-v4-flash(branch)×5, phase1/qwen3.6-35b-a3b(branch)×3, phase1/deepseek-v4-pro(branch)×2, phase1/gpt-oss-120b(branch)×2 | roleswap/gemma-4-31b-it(branch)×9, roleswap_reasoning/gemma-4-31b-it(branch)×7, phase1_reasoning/gemma-4-31b-it(branch)×6, roleswap_reasoning/gpt-oss-120b(branch)×6 |
 | first-proof-4-official       | — | phase1/deepseek-v4-flash(branch)×4, phase1/deepseek-v4-pro(branch)×4, phase1/deepseek-v4-pro(trial) | — |
 | first-proof-5-official       | — | phase1/deepseek-v4-pro(branch)×2, phase1/deepseek-v4-pro(trial) | phase1/deepseek-v4-pro(trial) |
 | first-proof-6-official       | — | phase1/deepseek-v4-pro(branch)×4, phase1/deepseek-v4-pro(trial)×3, phase1/deepseek-v4-flash(trial), phase1/deepseek-v4-flash(branch) | scaling_v4flash/deepseek-v4-flash(branch) |

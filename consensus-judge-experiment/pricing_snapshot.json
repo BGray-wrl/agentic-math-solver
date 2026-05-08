@@ -1,0 +1,67 @@
+{
+  "as_of": "2026-05-07T20:54:42.961835+00:00",
+  "note": "Best-effort pricing. Includes patches via direct Google API and SiliconFlow.",
+  "rates": {
+    "description": "Per-judge token pricing rates used at run time to compute cost_usd in trials.csv. These are best-effort approximations of OpenRouter pricing as of 2026-05-05; real billing may differ.",
+    "per_judge": {
+      "gemini-3-flash": {
+        "total_per_M": 3.0,
+        "notes": "Used flat $/M total tokens"
+      },
+      "deepseek-v4-pro": {
+        "total_per_M": 0.87,
+        "notes": "Used flat $/M total tokens"
+      },
+      "deepseek-v4-flash": {
+        "total_per_M": 0.28,
+        "notes": "Used flat $/M total tokens (both default and reasoning_off runs)"
+      },
+      "gpt-5.4-nano": {
+        "total_per_M": 1.25,
+        "notes": "Used flat $/M total tokens"
+      },
+      "gemma-4-31b-it": {
+        "total_per_M": 0.38,
+        "notes": "Used flat $/M total tokens (both default and high runs)"
+      },
+      "gpt-oss-120b": {
+        "total_per_M": 0.15,
+        "notes": "Used flat $/M total tokens (both default/minimal and xhigh runs)"
+      },
+      "gemini-3.1-pro": {
+        "input_per_M": 1.25,
+        "output_per_M": 10.0,
+        "notes": "Used split input/output pricing; cost = (1.25*input + 10*output)/1M"
+      }
+    },
+    "compiled_from": [
+      "experiments/results/judge_vs_human_gradingbench_20260505_20260505_050213.json",
+      "experiments/results/judge_v4flash_noreason_20260505_20260505_063740.json",
+      "experiments/results/judge_gemma4_31b_20260505_20260505_064650.json",
+      "experiments/results/judge_gemma4_31b_high_20260505_20260505_070206.json",
+      "experiments/results/judge_gptoss_120b_minimal_20260505_20260505_080159.json",
+      "experiments/results/judge_gptoss_120b_xhigh_20260505_20260505_080159.json",
+      "experiments/results/judge_gemini3_pro_20260505_20260505_121952.json"
+    ],
+    "anthropic/claude-opus-4.7": {
+      "input_per_M": 5.0,
+      "output_per_M": 25.0
+    },
+    "deepseek/deepseek-v4-flash": {
+      "input_per_M": 0.28,
+      "output_per_M": 0.28
+    },
+    "google/gemini-3.1-pro-preview": {
+      "input_per_M": 1.25,
+      "output_per_M": 10.0
+    },
+    "google/gemma-4-31b-it": {
+      "input_per_M": 0.38,
+      "output_per_M": 0.38
+    },
+    "openai/gpt-oss-120b": {
+      "input_per_M": 0.15,
+      "output_per_M": 0.15
+    }
+  }
+}

@@ -89,6 +89,7 @@ uv run experiments/<name>.py --retry experiments/results/<prev>.json  # re-run f
 - **Use pass@1 for exploratory runs**, pass@k≥2 only when needed — seeds multiply cost linearly
 - **Thread-safe logging**: wrap `make_logger` with a `threading.Lock` when parallelizing
 - **Parallelize branches within seed-ideas trials** — sequential branches are the #1 wall-clock bottleneck (3 branches × full pipeline = 24 serial API calls per trial)
+- **Clean up background work** — Monitor `tail -F` and `until ...; do sleep N; done` polling loops keep running after the watched task dies; always `TaskStop` the monitor + its source process explicitly, and avoid `until/sleep` loops in `run_in_background`
 
 ## Utility Templates
 

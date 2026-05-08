@@ -1,0 +1,58 @@
+# Phase 1 trials: 233
+# Consensus entries: 9
+# Local verifier: 14 verified, 104 failed, 115 no-checker
+# seed_full / roleswap trials: 0
+
+================================================================================
+REAL WINS (locally verified)
+================================================================================
+  ✓ arithmetic-kakeya          full_problem   gpt-oss-120b           seed=42  judge=incorrect  | PASS necessary conditions: score=14/9, 9 verts, 12 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ arithmetic-kakeya          full_problem   gpt-oss-120b           seed=44  judge=correct  | PASS necessary conditions: score=3/2, 4 verts, 4 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ arithmetic-kakeya          full_problem   gpt-oss-120b           seed=45  judge=incorrect  | PASS necessary conditions: score=3/2, 4 verts, 4 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ arithmetic-kakeya          full_problem   gpt-oss-120b           seed=46  judge=incorrect  | PASS necessary conditions: score=3/2, 4 verts, 4 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ arithmetic-kakeya          warmup         gpt-oss-120b           seed=43  judge=incorrect  | PASS necessary conditions: score=3/2, 4 verts, 4 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ arithmetic-kakeya          warmup         gpt-oss-120b           seed=45  judge=incorrect  | PASS necessary conditions: score=3/2, 4 verts, 4 edges, |T|=0, |R|=2 (forcing semantics NOT verified)
+  ✓ degree-sensitivity-boolean warmup         deepseek-v4-flash      seed=44  judge=correct  | PASS (n=6, deg=3, sens=6, a=1.6309)
+  ✓ explicit-deformations      warmup         gpt-oss-120b           seed=42  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         deepseek-v4-flash      seed=42  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         deepseek-v4-flash      seed=43  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         gpt-oss-120b           seed=44  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         gpt-oss-120b           seed=45  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         deepseek-v4-flash      seed=45  judge=almost  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+  ✓ explicit-deformations      warmup         gpt-oss-120b           seed=46  judge=correct  | PASS (special fiber Hilb {1: 2, 0: 1}, generic fiber Hilb {1: 2, 0: 1}, curvilinear)
+
+================================================================================
+3/3 CONSENSUS CORRECT (no local check available — possibly hallucinated)
+================================================================================
+(none)
+
+================================================================================
+PER-PROBLEM SUMMARY
+================================================================================
+  Problem                    Type           Trials   Best judge Pos seeds  Consensus 3/3  Verified  
+  ✓ arithmetic-kakeya        full_problem   7        correct    1          0              4
+  ✓ arithmetic-kakeya        warmup         10       incorrect  0          0              2
+    degree-sensitivity-boolean full_problem   7        incorrect  0          0              0
+  ✓ degree-sensitivity-boolean warmup         10       correct    3          0              1
+    explicit-deformations    full_problem   7        incorrect  0          0              0
+  ✓ explicit-deformations    warmup         9        correct    9          0              7
+  · hadamard                 full_problem   10       almost     1          0              0
+  · hadamard                 warmup         10       partial    1          0              0
+  ~ inverse-galois           full_problem   10       correct    5          1              0
+  ~ inverse-galois           warmup         10       correct    6          2              0
+  · klt-del-pezzo-surface    full_problem   10       correct    7          0              0
+  · klt-del-pezzo-surface    warmup         9        correct    4          0              0
+  · large-steiner-systems    full_problem   9        partial    1          0              0
+  · large-steiner-systems    warmup         8        partial    2          0              0
+    prime-factorization      full_problem   8        incorrect  0          0              0
+  · prime-factorization      warmup         10       partial    6          0              0
+    q2-absolute-galois       full_problem   9        incorrect  0          0              0
+  · q2-absolute-galois       warmup         8        correct    2          0              0
+  · ramsey-book-graphs       full_problem   9        correct    2          0              0
+  · ramsey-book-graphs       warmup         10       correct    4          0              0
+  · small-diophantine        warmup         8        partial    3          0              0
+  · stretched-lr-coefficients full_problem   7        correct    4          0              0
+  · symplectic-ball-packing  full_problem   10       correct    3          0              0
+  · symplectic-ball-packing  warmup         10       correct    4          0              0
+  · unknotting-number        full_problem   8        partial    2          0              0
+  · unknotting-number        warmup         10       partial    3          0              0

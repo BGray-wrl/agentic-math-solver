@@ -1,0 +1,125 @@
+==========================================================================================
+1. PROBLEM-CLUSTERED BOOTSTRAP on headline contrasts (v4-flash judge)
+==========================================================================================
+
+Resampling unit = problem (cluster). All paired diffs for that problem
+travel together. This corrects under-coverage of trial-level CIs.
+
+contrast                           restrict                 n_pairs  n_prob    mean Δ        95% CI (cluster)   p (cluster)
+full - generate                                                 533      70    -0.079  [-0.245, 0.081]        0.3635
+seed_generate - generate                                        539      70    -0.028  [-0.209, 0.159]        0.7794
+seed_full - generate                                            337      70     0.315  [ 0.090, 0.550]        0.0064
+seed_full - generate                r=max                       134      70     0.597  [ 0.213, 1.029]        0.0054
+seed_full - generate                r=default                   203      70     0.128  [-0.141, 0.418]        0.3903
+full - generate (R26 only)         d∈[2, 3, 4, 5]                67       9     0.060  [-0.090, 0.261]        1.0000
+seed_full - generate (R26 only)    d∈[2, 3, 4, 5]                42       9     0.476  [-0.025, 1.140]        0.3793
+seed_generate - generate (R26 only)d∈[2, 3, 4, 5]                70       9    -0.243  [-0.588, 0.000]        0.4974
+
+==========================================================================================
+2. HOLM CORRECTION for §5.4 per-cell tests (8-test family)
+==========================================================================================
+
+cell                                                       n       Δ     p_raw    p_Holm    sig α=.05?
+gemma-4-31b-it max seed_full-generate                     70   0.571    0.0393    0.2751            no
+gpt-oss-120b max seed_full-generate                       64   0.625    0.0463    0.2778            no
+gemma-4-31b-it max full-generate                          70  -0.571    0.0190    0.1520            no
+gpt-oss-120b max full-generate                            65   0.169    0.6952    1.0000            no
+deepseek-v4-flash default seed_full-generate              66   0.152    0.7089    1.0000            no
+deepseek-v4-pro default full-generate                     60   0.233    0.5708    1.0000            no
+gemma-4-31b-it default seed_full-generate                 69   0.145    0.5574    1.0000            no
+gpt-oss-120b default seed_full-generate                   68   0.088    0.8584    1.0000            no
+
+==========================================================================================
+3. WILSON 95% UPPER BOUNDS for zero-pass cells
+==========================================================================================
+
+tier                      mode                n   x    rate       95% CI (Wilson)   1-sided 95% upper
+pre-comp (PB-Basic)       generate           64  56   0.875  [0.772,0.935]                 -  
+pre-comp (PB-Basic)       seed_generate      63  55   0.873  [0.769,0.934]                 -  
+pre-comp (PB-Basic)       full               64  53   0.828  [0.718,0.901]                 -  
+pre-comp (PB-Basic)       seed_full          40  35   0.875  [0.739,0.945]                 -  
+
+comp-hard (PB-Adv+E397)   generate          409 115   0.281  [0.240,0.327]                 -  
+comp-hard (PB-Adv+E397)   seed_generate     420 122   0.290  [0.249,0.336]                 -  
+comp-hard (PB-Adv+E397)   full              417 114   0.273  [0.233,0.318]                 -  
+comp-hard (PB-Adv+E397)   seed_full         261  85   0.326  [0.272,0.385]                 -  
+
+research-easy             generate           31   6   0.194  [0.092,0.363]                 -  
+research-easy             seed_generate      32   5   0.156  [0.069,0.318]                 -  
+research-easy             full               32   8   0.250  [0.133,0.421]                 -  
+research-easy             seed_full          20   7   0.350  [0.181,0.567]                 -  
+
+research-medium           generate           15   0   0.000  [0.000,0.204]               18.1%
+research-medium           seed_generate      16   1   0.062  [0.011,0.283]                 -  
+research-medium           full               16   0   0.000  [0.000,0.194]               17.1%
+research-medium           seed_full          10   0   0.000  [0.000,0.278]               25.9%
+
+research-hard             generate           16   0   0.000  [0.000,0.194]               17.1%
+research-hard             seed_generate      16   0   0.000  [0.000,0.194]               17.1%
+research-hard             full               14   0   0.000  [0.000,0.215]               19.3%
+research-hard             seed_full           9   0   0.000  [0.000,0.299]               28.3%
+
+research-frontier         generate            8   0   0.000  [0.000,0.324]               31.2%
+research-frontier         seed_generate       8   0   0.000  [0.000,0.324]               31.2%
+research-frontier         full                7   0   0.000  [0.000,0.354]               34.8%
+research-frontier         seed_full           4   0   0.000  [0.000,0.490]               52.7%
+
+
+==========================================================================================
+4. ACTUAL COST per architecture (cost_usd field, architecture trials)
+==========================================================================================
+
+mode                n_w_cost    mean $  median $     p90 $    mean s  median s     p90 s
+generate                 558    0.0837    0.0395    0.2235    2271.6    1552.2    5070.3
+seed_generate            560    0.0840    0.0410    0.2261    1283.9     889.5    2710.4
+full                     560    0.0655    0.0297    0.1293    1857.5    1024.3    4620.8
+seed_full                349    0.1137    0.0709    0.2151    2429.2    1814.7    5198.9
+
+Cost ratio (mean/generate-mean) by mode:
+  generate          : 1.00× generate mean
+  seed_generate     : 1.00× generate mean
+  full              : 0.78× generate mean
+  seed_full         : 1.36× generate mean
+
+Per-(model, mode) median cost (USD) — to detect generation-cost asymmetry:
+model                   generate  seed_gen      full seed_full  full/gen    sf/gen
+deepseek-v4-flash         0.1487    0.1338    0.0656    0.2233      0.44      1.50
+deepseek-v4-pro           0.2023    0.2560    0.1895       nan      0.94       nan
+gemini-3-flash-preview    0.0400    0.0459    0.0621       nan      1.55       nan
+gemma-4-31b-it            0.0289    0.0272    0.0169    0.0662      0.59      2.29
+gpt-oss-120b              0.0258    0.0275    0.0165    0.0615      0.64      2.39
+qwen3.6-35b-a3b           0.1388    0.1415    0.0792       nan      0.57       nan
+
+==========================================================================================
+5. GENERATOR-JUDGE FAMILY OVERLAP (canonical judge = v4-flash)
+==========================================================================================
+
+Same-family generators (judged by v4-flash, generator family = deepseek):
+  deepseek-v4-flash, deepseek-v4-pro
+Different-family generators: gemini-3-flash-preview, gemma-4-31B, gpt-oss-120b, qwen
+
+contrast                    group                      n    mean Δ                95% CI
+full - generate             same family (DS-flash judge)   127     0.110  [-0.291, 0.535]
+full - generate             different family         406    -0.138  [-0.362, 0.094]
+
+seed_generate - generate    same family (DS-flash judge)   131    -0.046  [-0.473, 0.382]
+seed_generate - generate    different family         408    -0.022  [-0.223, 0.172]
+
+seed_full - generate        same family (DS-flash judge)    66     0.152  [-0.485, 0.788]
+seed_full - generate        different family         271     0.354  [ 0.089, 0.620]
+
+
+==========================================================================================
+6. BROKEN-IDEATOR PROXY (seed_generate trials)
+==========================================================================================
+
+We do not have direct ideator-output flags in trials.csv; the original
+Phase 1 reports note ~10–28% fallback rates. We surface this in v5 as a
+caveat near the first seeded-result table; no new quantification possible
+without the raw mode_extras field in trials.jsonl.
+
+seed_generate row counts by source_experiment:
+  phase1: 420
+  phase1_reasoning: 140
+
+DONE.

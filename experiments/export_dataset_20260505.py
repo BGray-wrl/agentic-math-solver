@@ -49,6 +49,13 @@ SCALING_REASONING_DIR = RESULTS / "scaling_reasoning_20260505_20260505_114334"
 SCALING_V4FLASH_DIR   = RESULTS / "best_of_n_v4flash_20260504_20260505_115611"
 GPT5_NANO_PASS3_DIR   = RESULTS / "gpt54nano_pass3_20260504_20260505_115611"
 
+# Flex-budget sweep + composed-critic (added 2026-05-06 morning, v4-flash inline judge)
+ROLESWAP_REASONING_DIR  = RESULTS / "role_swap_reasoning_20260505_20260505_114334"
+FLEX_CROSS_IDEATOR_DIR  = RESULTS / "cross_ideator_v4flash_20260505_20260505_120545"
+FLEX_STRONG_CRITIC_DIR  = RESULTS / "strong_critic_v4flash_20260505_20260505_121438"
+FLEX_PASSN_DIR          = RESULTS / "passN_v4flash_20260505_20260505_120944"
+FLEX_COMPOSED_DIR       = RESULTS / "composed_critic_passN_20260505_20260505_193921"
+
 # Gemini regrades (Phase 1)
 P1_GEMINI_TRIAL_DIR   = RESULTS / "regrade_gemini_20260504_20260504_221221"
 P1_GEMINI_BRANCH_DIR  = RESULTS / "regrade_branches_gemini_20260504_20260504_222334"
@@ -727,6 +734,195 @@ def gpt5_nano_pass3_rows(problems: dict, lk: Lookups):
         yield r
 
 
+# ----- Role-swap reasoning re-run (8 conditions × 70 problems, gpt-oss × gemma with reasoning ON, v4-flash inline) -----
+
+def roleswap_reasoning_rows(problems: dict, lk: Lookups):
+    base = ROLESWAP_REASONING_DIR / "trials"
+    if not base.exists(): return
+    for cond_dir in sorted(base.iterdir()):
+        if not cond_dir.is_dir(): continue
+        condition = cond_dir.name
+        for trial_path in sorted(cond_dir.glob("*.json")):
+            pid = trial_path.stem
+            t = safe_load(trial_path)
+            if t is None or pid not in problems: continue
+            roles = t.get("roles") or {}
+            primary = roles.get("generator") or ""
+            r = base_row(problems[pid], pid, "roleswap_reasoning", condition)
+            r["model"]        = primary
+            r["roles"]        = roles
+            r["started_at"]   = t.get("started_at")
+            r["completed_at"] = t.get("completed_at")
+            r["elapsed_s"]    = t.get("elapsed_s")
+            r["cost_usd"]     = t.get("cost_usd")
+            r["error"]        = t.get("error")
+            r["final_solution"] = t.get("best_solution")
+            r["mode_extras"]    = t.get("mode_extras")
+
+            if not t.get("error"):
+                r["judges"]["v4flash"] = {
+                    "score":   t.get("score"),
+                    "verdict": t.get("best_verdict"),
+                    "source":  "roleswap_reasoning_inline",
+                }
+                for b in t.get("branches", []) or []:
+                    idx = b.get("idea_idx", 0)
+                    br = trim_branch_judges(b, k=None, idea_idx=idx)
+                    if b.get("score") is not None:
+                        br["judges"]["v4flash"] = {
+                            "score":   b["score"],
+                            "verdict": b.get("verdict"),
+                            "source":  "roleswap_reasoning_inline",
+                        }
+                    r["branches"].append(br)
+            yield r
+
+
+# ----- Flex cross-ideator (self vs v4-pro ideator → v4-flash, judged by v4-flash inline) -----
+
+def flex_cross_ideator_rows(problems: dict, lk: Lookups):
+    base = FLEX_CROSS_IDEATOR_DIR / "trials"
+    if not base.exists(): return
+    for cond_dir in sorted(base.iterdir()):
+        if not cond_dir.is_dir(): continue
+        condition = cond_dir.name
+        for trial_path in sorted(cond_dir.glob("*.json")):
+            pid = trial_path.stem
+            t = safe_load(trial_path)
+            if t is None or pid not in problems: continue
+            r = base_row(problems[pid], pid, "flex_cross_ideator", condition)
+            r["model"]        = "openrouter/deepseek/deepseek-v4-flash"  # the generator
+            r["started_at"]   = t.get("started_at")
+            r["completed_at"] = t.get("completed_at")
+            r["elapsed_s"]    = t.get("elapsed_s")
+            r["cost_usd"]     = t.get("cost_usd")
+            r["error"]        = t.get("error")
+            r["final_solution"] = t.get("best_solution")
+            r["mode_extras"]    = t.get("mode_extras")
+
+            if not t.get("error"):
+                r["judges"]["v4flash"] = {
+                    "score":   t.get("score"),
+                    "verdict": t.get("best_verdict"),
+                    "source":  "flex_cross_ideator_inline",
+                }
+                for b in t.get("branches", []) or []:
+                    idx = b.get("idea_idx", 0)
+                    br = trim_branch_judges(b, k=None, idea_idx=idx)
+                    if b.get("score") is not None:
+                        br["judges"]["v4flash"] = {
+                            "score":   b["score"],
+                            "verdict": b.get("verdict"),
+                            "source":  "flex_cross_ideator_inline",
+                        }
+                    r["branches"].append(br)
+            yield r
+
+
+# ----- Flex strong-critic (v4-flash gen + v4-pro V↔R, no branches, judged by v4-flash inline) -----
+
+def flex_strong_critic_rows(problems: dict, lk: Lookups):
+    base = FLEX_STRONG_CRITIC_DIR / "trials"
+    if not base.exists(): return
+    for cond_dir in sorted(base.iterdir()):
+        if not cond_dir.is_dir(): continue
+        condition = cond_dir.name
+        for trial_path in sorted(cond_dir.glob("*.json")):
+            pid = trial_path.stem
+            t = safe_load(trial_path)
+            if t is None or pid not in problems: continue
+            r = base_row(problems[pid], pid, "flex_strong_critic", condition)
+            r["model"]        = t.get("generator_model", "openrouter/deepseek/deepseek-v4-flash")
+            r["started_at"]   = t.get("started_at")
+            r["elapsed_s"]    = t.get("elapsed_s")
+            r["cost_usd"]     = t.get("cost_usd")
+            r["error"]        = t.get("error")
+            r["final_solution"] = t.get("final_solution")
+            r["mode_extras"]    = {
+                "generator_model": t.get("generator_model"),
+                "critic_model":    t.get("critic_model"),
+                "loop_log":        t.get("loop_log"),
+                "stopped_early":   t.get("stopped_early"),
+            }
+            if not t.get("error") and t.get("score") is not None:
+                r["judges"]["v4flash"] = {
+                    "score":   t["score"],
+                    "verdict": t.get("verdict"),
+                    "source":  "flex_strong_critic_inline",
+                }
+            yield r
+
+
+# ----- Flex passN (best-of-N up to k=7, v4-flash inline) -----
+
+def flex_passn_rows(problems: dict, lk: Lookups):
+    base = FLEX_PASSN_DIR / "samples"
+    if not base.exists(): return
+    for pid_dir in sorted(base.iterdir()):
+        if not pid_dir.is_dir(): continue
+        pid = pid_dir.name
+        if pid not in problems: continue
+        # Each k file is one branch
+        branches_raw: list[tuple[int, dict]] = []
+        for kf in sorted(pid_dir.glob("k*.json")):
+            try: d = json.load(open(kf))
+            except Exception: continue
+            k = d.get("k", int(kf.stem.replace("k","")))
+            branches_raw.append((k, d))
+        if not branches_raw: continue
+        r = base_row(problems[pid], pid, "flex_passn", "best_of_n_v4flash_20")
+        r["model"] = "openrouter/deepseek/deepseek-v4-flash"
+        r["mode_extras"] = {"max_k": max(k for k,_ in branches_raw)}
+        for k, b in sorted(branches_raw):
+            br = trim_branch_judges(b, k=k, idea_idx=None)
+            br["solution"] = b.get("solution")
+            if b.get("score") is not None:
+                br["judges"]["v4flash"] = {
+                    "score":   b["score"],
+                    "verdict": b.get("verdict"),
+                    "source":  "flex_passn_inline",
+                }
+            r["branches"].append(br)
+        yield r
+
+
+# ----- Flex composed-critic (pass@8 best → v4-pro V↔R) -----
+
+def flex_composed_rows(problems: dict, lk: Lookups):
+    base = FLEX_COMPOSED_DIR / "trials"
+    if not base.exists(): return
+    for trial_path in sorted(base.glob("*.json")):
+        pid = trial_path.stem
+        t = safe_load(trial_path)
+        if t is None or pid not in problems: continue
+        r = base_row(problems[pid], pid, "flex_composed_critic", "pass8_then_vp_critic")
+        r["model"]        = "openrouter/deepseek/deepseek-v4-flash"  # the generator
+        r["started_at"]   = t.get("started_at") if "started_at" in t else None
+        r["completed_at"] = t.get("completed_at")
+        r["elapsed_s"]    = t.get("elapsed_s")
+        r["cost_usd"]     = t.get("cost_usd")
+        r["error"]        = t.get("error")
+        r["final_solution"] = t.get("final_solution")
+        r["mode_extras"]    = {
+            "starter_k":         t.get("starter_k"),
+            "starter_score":     t.get("starter_score"),
+            "post_critic_score": t.get("post_critic_score"),
+            "starter_solution":  t.get("starter_solution"),
+            "delta":             t.get("delta"),
+            "loop_log":          t.get("loop_log"),
+            "stopped_early":     t.get("stopped_early"),
+        }
+        # The trial-level v4flash score here is the post-critic score
+        post = t.get("post_critic_score")
+        if post is not None:
+            r["judges"]["v4flash"] = {
+                "score":   post,
+                "verdict": t.get("verdict"),
+                "source":  "flex_composed_critic_inline_post",
+            }
+        yield r
+
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -745,10 +941,15 @@ def main():
         ("phase3",            phase3_rows),
         ("roleswap",          roleswap_rows),
         ("scaling",           scaling_rows),
-        ("phase1_reasoning",  phase1_reasoning_rows),
-        ("scaling_reasoning", scaling_reasoning_rows),
-        ("scaling_v4flash",   scaling_v4flash_rows),
-        ("gpt5_nano_pass3",   gpt5_nano_pass3_rows),
+        ("phase1_reasoning",     phase1_reasoning_rows),
+        ("scaling_reasoning",    scaling_reasoning_rows),
+        ("scaling_v4flash",      scaling_v4flash_rows),
+        ("gpt5_nano_pass3",      gpt5_nano_pass3_rows),
+        ("roleswap_reasoning",   roleswap_reasoning_rows),
+        ("flex_cross_ideator",   flex_cross_ideator_rows),
+        ("flex_strong_critic",   flex_strong_critic_rows),
+        ("flex_passn",           flex_passn_rows),
+        ("flex_composed_critic", flex_composed_rows),
     ]
 
     n_total = 0

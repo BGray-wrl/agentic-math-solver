@@ -2992,3 +2992,648 @@ Run dir: `experiments/results/composed_critic_passN_20260505_20260505_193921/`
 Final flex-key spend at report time: $19.15 used / $30 cap (64% utilization).
 Run was left in background for additional data collection per remaining budget.
 
+
+## Composed strong-critic + pass@N — FINAL — 2026-05-05T17:43:00
+
+The composed-critic experiment (run in background after the initial wrap-up) finished
+all 20 trials — 19 valid + 1 OpenRouter connection-drop on Adv-030.
+
+### Headline (n=19)
+
+| Stage | Mean | Pass≥6 |
+|---|---:|---:|
+| Starter (pass@8 best) | 3.53 | 9/19 |
+| After v4-pro V↔R | 3.32 | 9/19 |
+| Δ | **−0.21** | **0** |
+
+Per-problem: 1 improved (Adv-026 1→7), 14 unchanged, 4 regressed
+(Adv-024 7→0, Adv-008 1→0, Adv-010 1→0, Adv-029 1→0).
+
+### Reading
+
+**Composition does NOT meaningfully improve over pass@8 alone.** Pass count
+is identical (9/19 before and after) — the rescue (Adv-026) is exactly cancelled
+by the ruin (Adv-024). Mean drops 3.53 → 3.32 because three small regressions
+on 1-starters lose score points without compensating gains.
+
+The strong-critic effect from Experiment 2 (+0.95) does NOT stack on top of
+pass@N. Mechanism: pass@N already finds a high-quality solution per problem
+(so the 7-starters have nothing for the critic to fix), and the critic
+occasionally "improves" a correct solution into an incorrect one. The Adv-024
+7→0 regression is the headline cautionary case — it took $0.19/2010s of v4-pro
+reasoning to ruin a working solution.
+
+**Lesson**: don't compose strong-critic with pass@N best-of-N. Strong-critic
+earns its keep on *raw* generations (Experiment 2), where it finds errors that
+v4-flash made and v4-flash can't fix. On a v4-flash-judge-best-of-8 starting
+solution, the residual errors are subtle enough (or absent) that v4-pro is more
+likely to introduce a regression than fix one.
+
+A cleaner composition would be **strong-critic on every sample, then take
+best-of-N of the critiqued solutions** — but that is N× more expensive and
+was not tested here.
+
+### Final flex-budget spend
+
+$22+ used / $30 cap (composition added $2.56 to the prior $19.55).
+
+### Files
+
+- Run dir: `experiments/results/composed_critic_passN_20260505_20260505_193921/`
+- Report: `flex_budget_report.md` (Experiment 4 section)
+
+## Master Dataset 20260505 — refresh (3-hour follow-up) — 2026-05-06T01:41
+
+The scheduled 3-hour cron fired and re-surveyed agent_log.md.  Four new in-scope
+experiments had landed since finalisation:
+
+1. **flex_cross_ideator**: 40 trials (2 conditions × 20 PB-Advanced).  Cross-model
+   ideator effect (self vs v4-pro ideating for v4-flash).
+2. **flex_strong_critic**: 40 trials (2 conditions × 20 PB-Advanced).  v4-flash
+   gen × {flash, v4-pro} V↔R critic.
+3. **flex_passn**: 20 trials × 8 k-levels.  Pure pass@N for v4-flash on PB-Advanced.
+4. **flex_composed_critic**: 19 trials.  Composition of pass@8 + v4-pro V↔R.
+
+Plus the existing `scaling_reasoning` source dir grew from 60 to 124 trials (more
+problems added by the source experiment); the exporter picks them up automatically.
+
+All 4 new experiments were judged inline by v4-flash at gen time — no v4-flash
+regrade needed.  Folded them into the dataset by extending the exporter with row
+builders that mirror the existing roleswap / scaling patterns.
+
+**Refreshed dataset**: 3032 rows (was 2848), 648 MB (was 567 MB).  No additional
+v4-flash regrade spend — the four flex experiments came pre-judged.
+
+Files updated:
+- `results/dataset_20260505.jsonl` (3032 rows)
+- `results/dataset_20260505_README.md` (coverage + source-experiments tables)
+- `results/dataset_20260505_REPORT.md` (regenerated from JSONL)
+- `experiments/export_dataset_20260505.py` (4 new row builders)
+
+Skipped (per the cron's instruction list): the "Reasoning vs no-reasoning synthesis
+report" entry at line 2849 — it's a writeup, not a new experiment.  The "partial"
+composed-critic at line 2975 is superseded by the FINAL entry at line 2996, which
+is the one folded in.
+
+**Follow-up amendment** (manual, after user catch): the **roleswap-with-reasoning**
+experiment at line 3167 (`role_swap_reasoning_20260505_20260505_114334`, 560 trials
+× 8 conditions, gpt-oss × gemma with reasoning ON, v4-flash inline judge) was missed
+on the first pass because it landed in agent_log between my finalisation and the
+cron's survey window.  Folded in retroactively as `roleswap_reasoning` (560 rows
++ 1671 branch records).  Refreshed counts:
+
+- Dataset: **3608 rows**, 827 MB
+- Trial-level v4flash coverage: 3205 (was 2650; +555 from the new experiment)
+- Branch-level v4flash coverage: 10,813 (was 9,034)
+
+Also: the `scaling_reasoning` source dir grew further from 124→140 trials between
+the cron run and this amendment — those new cells were also picked up automatically.
+
+Files re-updated:
+- `results/dataset_20260505.jsonl`
+- `results/dataset_20260505_README.md`
+- `results/dataset_20260505_REPORT.md`
+- `experiments/export_dataset_20260505.py` (added `roleswap_reasoning` row builder)
+
+
+## Scaling RE-RUN with reasoning ON — EXTENDED to all 70 problems — 2026-05-05T23:55:31
+
+Extended the reasoning scaling experiment from the original 30 PB-Advanced subset to **all
+70 problems** (30 PB-Basic + 30 PB-Advanced + 10 special-10). Same script, same judge
+(`deepseek-v4-flash`), same reasoning config (`effort=high`), same N values (1, 3, 5, 7, 9).
+Resumed into the existing run dir so the original 30 PB-Advanced × 2 models × 9 generations
+were skipped — only 80 new (model, problem) trials ran (40 problems × 2 models).
+
+**Note: this dataset is DISTINCT from the no-reasoning scaling (`scaling_oss_gemma_20260505_*033250`).**
+Reasoning ON, judge v4-flash; vs no-reasoning + dual judges (gemini + v4-pro).
+
+### Full-set summary
+
+**140 trials total (60 from original run + 80 from extension), 4 errors (2.9%, all
+gpt-oss transient `peer closed connection without sending complete message body` after 3
+retries), $11.25 grand total ($5.65 original + $5.60 extension).**
+
+Pending failed problems (could be re-run with another targeted resume):
+gpt-oss × {erdos-397, PB-Basic-009, PB-Basic-027, first-proof-6-official}.
+
+### All-70 scaling table (judge = deepseek-v4-flash, reasoning=high)
+
+| Model | N=1 | N=3 | N=5 | N=7 | N=9 |
+|---|---|---|---|---|---|
+| gpt-oss-120b   | 1.52 (15/67) | 2.78 (27/67) | 2.87 (28/67) | 3.04 (29/67) | **3.18 (30/67)** |
+| gemma-4-31b-it | 1.57 (15/70) | 2.64 (26/70) | 3.21 (32/70) | 3.26 (32/70) | **3.29 (32/70)** |
+
+(Numbers in parens = problems that hit ≥6/7 best-of-N. Denominator differs because
+gpt-oss had 3 of 70 trials end in connection errors after retries.)
+
+### Per-subset breakdown (illustrating mean composition)
+
+| Subset (n) | Model | N=1 | N=3 | N=5 | N=7 | N=9 |
+|---|---|---|---|---|---|---|
+| PB-Basic (30) | gpt-oss | 2.93 (12) | 4.93 (20) | 5.11 (21) | 5.18 (21) | **5.43 (22)** |
+| PB-Basic (30) | gemma   | 3.10 (13) | 5.07 (22) | 5.30 (23) | 5.37 (23) | **5.40 (23)** |
+| PB-Advanced (30) | gpt-oss | 0.67 (3) | 1.40 (6) | 1.40 (6) | 1.73 (7) | **1.80 (7)** |
+| PB-Advanced (30) | gemma   | 0.33 (1) | 0.87 (3) | 1.93 (8) | 1.97 (8) | **2.00 (8)** |
+| special-10 (10) | gpt-oss | 0.00 (0) | 0.67 (1) | 0.78 (1) | 0.78 (1) | **0.78 (1)** |
+| special-10 (10) | gemma   | 0.70 (1) | 0.70 (1) | 0.80 (1) | 0.80 (1) | **0.80 (1)** |
+
+### Headlines
+
+1. **PB-Basic saturates fast** — both models near 5/7 mean by N=3, almost flat to N=9.
+   Reasoning + 3 samples is the sweet spot for these.
+2. **PB-Advanced needs N=5+ for gemma to overtake** (knee at N=5: 0.87 → 1.93). gpt-oss
+   has a flatter curve and saturates at ~1.8 by N=7. gemma's reasoning trace is more
+   diverse, so resampling unlocks more.
+3. **Special-10 is essentially out of reach for either model in best-of-N alone.** Only
+   1 problem each (different one for each model — likely first-proof-10) is solved at any N.
+   Sampling diversity doesn't substitute for fundamental capability gap on frontier problems.
+4. **Aggregate trend, all 70:** both models gain ~+1.7 from N=1 to N=9 (oss 1.52→3.18,
+   gemma 1.57→3.29). Most of the gain happens by N=3-5.
+5. **gemma > gpt-oss starts at N=5** (0.05–0.34 lead), same pattern as the 30-problem
+   subset. Reasoning + sampling diversity favors gemma.
+
+### Δ vs no-reasoning scaling (the distinct prior dataset)
+
+The no-reasoning scaling experiment ran on **30 PB-Advanced only** with two judges (gemini
+and v4-pro). For the apples-to-apples PB-Advanced comparison (strict-judge: v4-pro old vs
+v4-flash new):
+
+| Model | N | no-reasoning v4-pro | reasoning v4-flash | Δ |
+|---|---|---|---|---|
+| gpt-oss | 1 | 0.03 | **0.67** | +0.64 |
+| gpt-oss | 3 | 0.10 | **1.40** | +1.30 |
+| gpt-oss | 5 | 0.37 | **1.40** | +1.03 |
+| gpt-oss | 7 | 0.40 | **1.73** | +1.33 |
+| gpt-oss | 9 | (not run) | **1.80** | — |
+| gemma | 1 | 0.43 | 0.33 | −0.10 |
+| gemma | 3 | 0.57 | **0.87** | +0.30 |
+| gemma | 5 | 0.63 | **1.93** | +1.30 |
+| gemma | 7 | 0.93 | **1.97** | +1.04 |
+| gemma | 9 | (not run) | **2.00** | — |
+
+Reasoning ~doubles strict-judge score on PB-Advanced at N≥3.
+
+### Files
+
+- Script: `experiments/scaling_reasoning_20260505.py` (uses SCALING_SUBSET=None → all 70)
+- Run dir: `experiments/results/scaling_reasoning_20260505_20260505_114334/`
+  - `trials/<model>/<pid>.json` — 140 per-trial JSONs
+  - `branches/<model>/<pid>/k{0..8}.json` — 1252 per-branch incremental saves (some
+    failed branches don't have k saved)
+  - `manifest.jsonl` — 140 lines (4 with `error` field set)
+- Logs: `/tmp/scaling_reason.log` (original), `/tmp/scaling_reason_resume.log` (extension)
+
+
+## Phase 3 RE-RUN with reasoning ON — role-swap matrix — 2026-05-06T02:23:00
+
+Re-ran the 8-condition role-swap experiment with `extra_body={"reasoning":{"effort":"high"}}`
+for both candidate models in their roles. Judge: **deepseek-v4-flash** (single, no
+escalation, per user instruction). Same conditions as Phase 3, same 70 problems, single key
+(`OPENROUTER_API_KEY_X2`), 40 outer × 3 inner workers.
+
+**560/560 trials, 1 error (0.2%), $39.96, 14.7 hours wall.**
+
+### Per-condition results (judge = v4-flash, all 70 problems)
+
+| Condition | n | mean | std | pass≥6 | $/run | Δ vs Phase 3 (no-reasoning, gemini+v4pro) | Δ vs same-model Phase 1-reasoning seed_full |
+|---|---|---|---|---|---|---|---|
+| x_ideate_oss     | 70 | 2.96 | 3.41 | 29/70 | $0.060 | −1.24 | −0.35 (vs gemma 3.31) |
+| x_ideate_gemma   | 68 | 3.09 | 3.40 | 30/68 | $0.073 | −0.88 | +0.09 (vs oss 3.00) |
+| **x_verify_oss** | 70 | **3.63** | 3.43 | **36/70** | $0.064 | −0.53 | **+0.32** (vs gemma 3.31) |
+| x_verify_gemma   | 69 | 3.00 | 3.40 | 30/69 | $0.085 | −0.44 | +0.00 (vs oss 3.00) |
+| x_revise_oss     | 70 | 3.41 | 3.44 | 34/70 | $0.073 | −0.83 | +0.10 (vs gemma 3.31) |
+| **x_revise_gemma** | 69 | 3.48 | 3.40 | 34/69 | $0.073 | −0.56 | **+0.48** (vs oss 3.00) |
+| random_run1      | 69 | 3.19 | 3.42 | 31/69 | $0.069 | −0.54 | +0.03 (vs mix 3.16) |
+| random_run2      | 70 | 3.34 | 3.45 | 34/70 | $0.073 | −0.80 | +0.19 (vs mix 3.16) |
+
+(Phase 3 baselines used gemini judge + v4-pro escalation on special-10. Phase 1-reasoning
+baselines used v4-flash judge with reasoning ON. v4-flash is moderately stricter than
+gemini, so the Δ-vs-Phase-3 is partly a judge calibration shift.)
+
+### Apples-to-apples (66 shared problems across all 8 conditions)
+
+| Condition | mean | pass≥6 |
+|---|---|---|
+| **x_verify_oss** | **3.85** | 36/66 |
+| x_revise_gemma | 3.64 | 34/66 |
+| x_revise_oss | 3.62 | 34/66 |
+| random_run2 | 3.55 | 34/66 |
+| random_run1 | 3.33 | 31/66 |
+| x_ideate_gemma | 3.17 | 30/66 |
+| x_ideate_oss | 3.14 | 29/66 |
+| x_verify_gemma | 3.14 | 30/66 |
+
+### Headline shift vs no-reasoning Phase 3
+
+In no-reasoning Phase 3, the worst swap was **x_verify_gemma (−0.55)** — gemma-as-verifier
+broke a gpt-oss pipeline. In reasoning Phase 3, **x_verify_oss (+0.32) is the BEST swap** —
+gpt-oss-as-verifier improves a gemma pipeline by 0.5 points (3.31 → 3.85 on shared
+problems). The verifier role flipped from "fragile" to "highest-leverage" once reasoning
+is on. Reading: with reasoning, the gpt-oss reasoning trace produces a sharper verifier
+critique that materially helps gemma's revision step; gemma's verifier remains weaker even
+with reasoning enabled.
+
+Other reads:
+1. **Adding gemma as reviser to a gpt-oss pipeline (x_revise_gemma)** is the only other
+   condition with a clear positive (+0.48 vs oss 3.00). Aligns with gemma being the
+   stronger writer once given a critique.
+2. **Random conditions are mid-pack** — same as no-reasoning Phase 3. Random mixing roughly
+   matches the average targeted swap; doesn't beat the best.
+3. **Both ideator swaps underperform the best targeted swap** by 0.5–0.7 — ideator
+   diversity per se isn't the bottleneck (consistent with Phase 1-reasoning showing
+   seed_full only modestly above seed_generate).
+4. **The full pipeline + role-mixing is still NOT a free uplift over same-model seed_full.**
+   The best mixed condition (x_verify_oss at 3.63) only edges past gemma-only seed_full
+   (3.31) by +0.32, well below the noise floor we'd want for a robust claim.
+
+### Special-10 frontier outcomes (reasoning + role-swap, v4-flash)
+
+11 condition×problem pairs reached ≥6/7 on a special-10:
+
+| Condition | Problem | Score |
+|---|---|---|
+| **x_ideate_oss** | erdos-333 | 6 |
+| **x_ideate_oss** | first-proof-10-official | 7 |
+| x_verify_oss | erdos-333 | 6 |
+| **x_verify_oss** | erdos-659 | **7** |
+| x_verify_gemma | first-proof-10-official | 7 |
+| **x_revise_oss** | erdos-654 | **7** |
+| x_revise_oss | first-proof-10-official | 7 |
+| x_revise_gemma | first-proof-10-official | 6 |
+| x_ideate_gemma | first-proof-10-official | 7 |
+| random_run1 | first-proof-10-official | 7 |
+| random_run2 | first-proof-10-official | 7 |
+
+NEW frontier hits under v4-flash with reasoning + role-mixing (problems that were 0/7 for
+both candidate models in same-model Phase 1-reasoning seed_full):
+- **erdos-333 (6/7)** in x_ideate_oss and x_verify_oss
+- **erdos-659 (7/7)** in x_verify_oss
+- **erdos-654 (7/7)** in x_revise_oss
+
+These cluster on the conditions that put gpt-oss in the verifier or reviser role —
+consistent with the verify_oss/revise_oss positive deltas. Sanity-check with v4-pro
+recommended before treating as definitive frontier results, given the no-reasoning Phase 3
+showed v4-pro consistently flipped gemini-=7 to v4-pro=0 on these same problems.
+
+### Cost / wall
+
+Reasoning+role-swap cost $39.96 vs Phase 3 (no reasoning) $38.75 — essentially flat
+because cheaper v4-flash judge offsets reasoning-on token blow-up (112M out vs 28M out
+in Phase 3). Wall-clock 14.7 h vs Phase 3's 200 min — reasoning calls take ~3× longer.
+
+### Files
+
+- Script: `experiments/role_swap_reasoning_20260505.py`
+- Run dir: `experiments/results/role_swap_reasoning_20260505_20260505_114334/`
+  - `trials/<condition>/<pid>.json` — 560 per-trial JSONs
+  - `branches/<condition>/<pid>/branch_{0,1,2}.json` — 1680 per-branch saves
+  - `manifest.jsonl` (560 lines, 1 with error)
+- Log: `/tmp/role_swap_reason.log`
+
+
+## Bucket split 20260506 — 2026-05-07T00:01:00
+
+Split `results/dataset_20260505.jsonl` (3608 rows, 827 MB) into 3 thematic
+sub-datasets. Pure transform — no new judge calls.
+
+Splitter: `experiments/split_buckets_20260506.py`. Layout per bucket mirrors
+`results/answerbench_calibration_20260506/`: `trials.jsonl`, `trials.csv`,
+`summary.csv`, `data_dictionary.md`, `report.md`.
+
+Cross-cutting enrichments applied to all 3 buckets:
+- `difficulty` (int 0-5) + `difficulty_label` + `difficulty_provenance` from
+  `experiments/difficulty_20260506.py` (smoke distribution: 8 at d=0, 53 at
+  d=1, 4 at d=2, 2 at d=3, 2 at d=4, 1 at d=5).
+- `reasoning` ∈ {`default`, `max`, `min`}. Default everywhere except
+  phase1_reasoning / roleswap_reasoning / scaling_reasoning / gpt5_nano_pass3
+  → `max`. Master distribution: 2278 default + 1330 max.
+- `is_26_research` (bool) — renamed from `is_special_10`. 489 master rows.
+
+Outputs:
+- `results/architecture_20260506/` — 2098 trial rows, 30 summary rows.
+  Sources: phase1, phase1_reasoning, phase2, phase3, gpt5_nano_pass3.
+  Includes derived `pass_at_1_v4flash` for `mode='generate'` rows (= score on
+  `branches[0]`; correlated with the trial-level pass@3, not an independent
+  draw).
+- `results/scaling_20260506/` — 1080 trial rows (270 master rows × 4 N
+  values), 20 summary rows. Sources: scaling, scaling_reasoning,
+  scaling_v4flash. Replaces nested-prefix `max(scores[:n])` with **exhaustive
+  enumeration of C(M, n) size-n subsets** per (model, problem); reports
+  `pass_at_n_mean` + `pass_at_n_std` + `pass_at_n_pass_rate` per judge.
+- `results/roleswap_20260506/` — 1160 trial rows, 77 summary rows. Sources:
+  roleswap, roleswap_reasoning, flex_cross_ideator (with
+  `subclass="ideator_strength"`). Role columns extracted from
+  `mode_extras.roles`.
+
+Verification:
+- 5/5 sampled architecture rows match master (v4flash score equality).
+- Scaling pass@1 = mean(branches), pass@7 = max(branches), confirmed on a
+  spot-check.
+- Phase 1 model×mode means under v4-flash: v4-pro full=3.85 / pass=0.55,
+  v4-flash full=3.38 / pass=0.48, gemini full=1.59 / pass=0.23 (sane).
+
+Master `dataset_20260505.jsonl` and its README are unchanged — buckets are
+views, not replacements. Master README updated with a "Focused bucket views"
+section pointing at the 3 subdirs.
+
+## gemini-3.1-pro-preview AnswerBench-50 default-effort fill-in - 2026-05-07T07:51:48
+
+Ran `gemini-3.1-pro-preview` (default reasoning, no `reasoning` param sent) on the
+38 PIDs of the AnswerBench-50 stratified set NOT covered by the 2026-05-04
+expensive-models 12-PID probe. Same methodology as the rest of the calibration:
+generate-only, pass@1, seed=42, MAX_TOKENS_GEN=65536, judge =
+`google/gemini-3.1-flash-lite-preview`. 38-way parallel single wave (one worker
+per PID), 512s wall-clock. Key: `OPENROUTER_API_KEY_2`.
+
+Script: `experiments/gemini3pro_answerbench50_remaining_20260507.py`.
+Result JSON: `experiments/results/gemini3pro_answerbench50_remaining_20260507_20260507_075148.json`.
+
+**Run-only result (38 PIDs):** 29/38 (76.3%), $9.99 spent, $0.333/run, 0 errors.
+
+**Combined with 12 prior PIDs from expensive-models probe → full AB-50 row:**
+- **39/50 (78%)** at default effort
+- $0.2584/run, $12.92 total, 233s mean gen latency
+- Per category: 11/12 Alg, 8/13 Comb, 11/12 Geom, 9/13 NT
+- acc%/$ = 302 — **strictly dominated**: same accuracy as qwen3.6-plus (78%) but 3.5×
+  the per-run cost; far behind v4-pro (94% at $0.019/run, 17× more efficient).
+
+Default-only caveat: the gpt-5 family showed default-effort understates capability
+for some models. xhigh on gemini-3.1-pro is the obvious next probe before fully
+writing it off.
+
+Updated `results/answerbench_calibration_20260506/{trials.csv,trials.jsonl,summary.csv,
+report.md,data_dictionary.md}`. Build script
+`experiments/build_answerbench_calibration_20260506.py` extended with two new sources
+(the new 38-PID JSON, and a `model_filter`-gated read of the 12 PIDs from the
+expensive-models JSON). trials.csv now has 650 rows (13 model_configs × 50 PIDs);
+summary.csv has 14 rows (13 real + 1 synthesized).
+
+## paper-draft v4 - 2026-05-07T05:00:00
+Critique-driven rewrite of `drafting/draft_v3.md` -> `drafting/draft_v4.md`. Four
+substantive updates: (1) difficulty-tier-stratified architecture lift analysis
+with paired bootstrap CIs and permutation p-values, (2) all-trial frontier solves
+table pooling architecture (n=2098) and scaling (n=1080) trials = 32 strict-judge
+v4-flash R26 solves total (vs 27 architecture-only in v3) including DeepSeek pass@7
+solves of Erdős-1051 (research-medium) and FirstProof-6 (research-hard), (3) read
+codex's draft and adopted the more conservative "pipeline does not beat
+token-matched sampling" framing the data actually supports, (4) CIs and p-values
+throughout. Headline reversal: `full - generate` is null at every tier (p=0.45);
+Gemma reasoning=max `full-generate` is significantly NEGATIVE (p=0.023). seed_full
+lift survives only at reasoning=max (Δ=+0.60 p=0.003, vs +0.13 p=0.46 at default).
+Difficulty gradient: 86%/29%/23%/2%/0%/0% pass-rate by tier. P(Gemini pass |
+v4-flash fail) = 0.37 [0.34, 0.40] over 987 strict-fail cases. Main paper at 4,648
+words (under 5,000). Six figures (added difficulty-gradient bar chart, lift-by-tier
+forest plot, replaced reasoning-vs-arch with proper effect-size forest plot,
+updated pass@k with CI ribbons). Analysis script: `drafting/analysis_v4.py`.
+No new API calls.
+
+## validate_research_solves_20260507 - 2026-05-07T06:55:00
+Cascade-validation of R26 strict-judge solves: v4-flash → v4-pro → GPT-5.4-nano-xhigh.
+50 candidate cells (44 v4-flash≥6 ∪ 16 v4-pro≥6 ∪ scaling-bucket per-branch solves).
+Ladder: **44 v4-flash → 31 v4-pro-validated → 4 nano-validated**. Total cost $0.91.
+
+Big narrative shifts:
+- Erdős-1051 (DS-flash pass@7): v4f=6 → v4p=0. Research-medium "solve" collapses.
+- FirstProof-6 (DS-flash pass@7): v4f=7 → v4p=0. Research-hard "solve" collapses.
+- Erdős-397, FirstProof-5: similar single-cell collapses under v4-pro.
+- FirstProof-10: 33 v4-flash → 24 v4-pro → 1 nano. Heavy false-positives even on the "easiest" research-tier problem.
+- **Only Erdős-654 survives all 3 rungs robustly** (5 → 4 → 3 cells across multiple base models × multiple architectures). This is the only credible reproducible research-tier solve in the dataset.
+
+Survivors of all 3 rungs (4 cells):
+- Erdős-654 × DS-v4-flash seed_full default
+- Erdős-654 × DS-v4-pro full default
+- Erdős-654 × Gemma-4-31B seed_full max
+- FirstProof-10 × DS-v4-flash full default
+
+Output: `results/validate_research_solves_20260507/{report.md, trials.csv, trials.jsonl, summary.csv}`.
+
+## paper-draft v5 - 2026-05-07T07:30:00
+Peer-review revision of `drafting/draft_v4.md` -> `drafting/draft_v5.md`. Two reviews
+flagged overlapping issues. Cross-reviewer items addressed: (1) "strict solves" ->
+"candidate passes" terminology throughout; (2) demoted pooled `seed_full=+0.32` with
+explicit partial-coverage marking (3/6 base models); (3) recomputed all headline
+contrasts with problem-clustered bootstrap (vs trial-level in v4) — `full-generate`
+cluster Δ=−0.08 [−0.25,+0.08], p=0.36; `seed_full-generate` reasoning=max stratum
++0.60 [+0.21,+1.03], p=0.005; (4) computed actual per-trial generator costs from
+cost_usd column — full is 0.78× generate cost (cheaper, not 1×), seed_full is 1.36×
+generate (not 3×) — re-cost-matched seed_full vs pass@4-5 not pass@9; (5) Holm
+correction on §5.4 8-test family — none survives at α=.05 (smallest Holm-p=0.15),
+reframed as exploratory; the pooled stratum cluster contrast survives p=0.005;
+(6) Wilson/Clopper-Pearson upper bounds replace [0,0] CIs for zero-pass cells
+(research-hard ≤5.4%, research-frontier ≤10.6%); (7) statistical-dependence caveat
+in §3.4 + limitations; (8) §10 follow-ups promoted into §8 fragility notes;
+(9) tighter abstract. Singletons: GradingBench off-distribution caveat for §5.5,
+AI-assistance disclosure, FirstProof-10 outlier flag (23/33 likely leaked, drops
+total from 32 to 9 v4-flash candidate passes excl. FP-10), generator-judge family
+stratification (lift concentrates in cross-family generators — no judge-family
+inflation), Zheng et al. 2023 cite. Analysis script: `drafting/analysis_v5.py`.
+Main paper at 4,989 words. No new API calls.
+
+## Scaling bucket extension to pass@9 - 2026-05-07T13:30:00
+
+Extended `results/scaling_20260506/` from M=7 (n ∈ {1,3,5,7}) to M=9 (n ∈ {1,3,5,7,9}) on the canonical 70-problem PB+R26 set for all 5 (source, model, reasoning) cells, to enable a token-matched generate-only baseline against the `full` (generator → verifier ↔ reviser) pipeline.
+
+**New scripts**
+- `experiments/extend_scaling_pass9_20260507.py` — generates only the missing branches per cell to reach M=9. Multi-key OpenRouter rotation (auto-disable on 401/403/429/limit-exceeded), per-model semaphores (gemma=30, gpt-oss=30, v4f=40), 80 worker threads, deterministic shuffled workplan, retry+jittered exponential backoff (6 retries, 5s→160s base, ±50% jitter, capped at 180s). v4flash judge.
+- `experiments/backfill_phase1_v4flash_20260507.py` — re-judges the 5 phase1-generate branches that were never v4flash-graded; emits a sidecar JSON the merger consumes.
+- `experiments/merge_scaling_pass9_20260507.py` — folds existing dataset rows + new branches + backfill into rebuilt trials.jsonl/trials.csv/summary.csv plus updated data_dictionary.md and report.md (n=9 column).
+
+**Run summary**
+- Workplan: 771 (gen + judge) units. Breakdown: gemma default=300, gpt-oss default=300, gpt-oss max=31, deepseek-v4-flash default=140. (gemma max was already 70×9 — skipped.)
+- Reuse: phase1 'generate' branches (k=0..2, default reasoning) on the 40 ProofBench problems outside PB-Advanced-001..030 that the original `scaling` source never ran, judged with v4flash.
+- Wall: ~3 hours total (2.5 hr in steady-state at sem=30; bottleneck was Novita/Chutes upstream rate-limiting on gemma + gpt-oss with several long-tail units >5,000s).
+- Cost: $5.32. Cap was $60.
+- Errors: 0 final. 4 stale errors in the manifest are from earlier-restart attempts; resume re-ran them successfully.
+- Run dir: `experiments/results/extend_scaling_pass9_20260507_20260507_090106/`.
+
+**Updated bucket files** (`results/scaling_20260506/`)
+- `trials.jsonl` 1750 rows (was 1080); `trials.csv` aligned; `summary.csv` 25 rows.
+- All 5 cells × 70 pids × 9 branches uniformly post-extension.
+- `data_dictionary.md` notes the extension policy + branch_origins provenance.
+- `report.md` headline table now includes n=9.
+
+**Headline pass@9 (mean v4flash, 70-problem PB+R26)**
+| cell                                              | n=1  | n=3  | n=5  | n=7  | n=9  |
+|---------------------------------------------------|-----:|-----:|-----:|-----:|-----:|
+| scaling | gemma-4-31b-it | default                | 0.88 | 1.54 | 1.93 | 2.20 | 2.41 |
+| scaling | gpt-oss-120b | default                  | 0.82 | 1.27 | 1.47 | 1.61 | 1.71 |
+| scaling_reasoning | gemma-4-31b-it | max          | 1.92 | 2.76 | 3.05 | 3.20 | 3.29 |
+| scaling_reasoning | gpt-oss-120b | max            | 1.63 | 2.45 | 2.81 | 3.05 | 3.23 |
+| scaling_v4flash | deepseek-v4-flash | default     | 2.74 | 3.65 | 4.01 | 4.25 | 4.54 |
+
+Monotonicity verified across all 5 cells. v4flash default at pass@9 (4.54) outperforms both max-reasoning models at the same budget. research_solves at pass@9: v4f=4 (vs 1 at n=7); gemma max=1; gpt-oss max=1; default-reasoning gemma/gpt-oss=1 each (up from 0).
+
+## Consensus Judge Validation Experiment - 2026-05-07T19:10:00
+
+Tested whether a majority-vote consensus of three cheap judges (gemma-4-31b-it@high, gpt-oss-120b@xhigh, deepseek-v4-flash@default) matches frontier judges (gemini-3.1-pro, claude-opus-4.7) on a NEW 200-problem held-out sample (seed=7, zero overlap with prior seed=42).
+
+Trio + 2 frontiers run on the validation sample. Hardened {0,1,6,7} prompt. Results in `consensus-judge-experiment/`.
+
+**Headline (validation, sorted by pass_agree_at_6):**
+
+| System | n_valid | pass≥6 | F1 | r | $/200 |
+|---|---|---|---|---|---|
+| **trio_consensus** | 199 | **0.884** | **0.816** | 0.712 | **$1.28** |
+| gpt-oss-120b @ xhigh | 197 | 0.873 | 0.806 | 0.672 | $0.32 |
+| claude-opus-4.7 | 200 | 0.855 | 0.785 | 0.789 | $32.45 |
+| deepseek-v4-flash | 142 | 0.852 | 0.712 | 0.619 | $0.48 |
+| gemini-3.1-pro | 196 | 0.842 | 0.777 | 0.768 | $6.94 |
+| gemma-4-31b-it @ high | 126 | 0.825 | 0.744 | 0.687 | $0.48 |
+
+Trio beats both frontiers on pass_agree and F1 at 25× the cost reduction vs Opus, 5× vs Gemini.
+
+**Per-problem disagreement breakdown (n=200):** 157 all-correct; 12 trio-only-correct (vs both frontiers wrong); 2 Opus-only-correct; 1 Gemini-only-correct. Frontier models agree with each other 95.9% of the time on validation (they fail the same way).
+
+**Issues:** Google upstream rate limits crippled gemma (74/200 missing) and slowed v4-flash (58/200 missing). gpt-oss had 1 hung call killed at 14:42 UTC. Opus 4.7 ran cleanly at $32.45 / 200 calls (~$0.16/call). Total experiment spend: ~$40.
+
+**Deliverables in `consensus-judge-experiment/`:**
+- `report.md` — NeurIPS-style paper (10K words)
+- `trials_prior.csv` (2000 rows = 10 prior configs × 200 PIDs)
+- `trials_validation.csv` (1000 rows = 5 validation configs × 200 PIDs)
+- `trials_validation.jsonl` (with verdict text)
+- `consensus_analysis.csv` (400 rows = 200 prior + 200 validation, per-problem trio + frontier comparison)
+- `summary.csv` (17 rows = 10 prior individual + 5 validation individual + 2 consensus)
+- `data_dictionary.md`
+- `pricing_snapshot.json`
+
+## FrontierMath Open-Problems Pass@5 Probe - 2026-05-07T19:32:00
+
+Ran pass@5 across openai/gpt-oss-120b (xhigh) + deepseek/deepseek-v4-flash on
+the FrontierMath open-problems benchmark (26 prompt × model × 5 seeds = 260
+trials, 233 completed at 15:25 EDT before killing long-tail). LLM judge
+(deepseek-v4-flash) labeled 31 correct, 4 almost, 38 partial, 160 incorrect.
+Spent ~$10 of $40 budget.
+
+**Key result: LLM judges are unreliable on verifiable problems**:
+- Started 3-judge consensus (gpt-oss xhigh + gemini-3.1-pro + deepseek-v4-flash)
+  on 70 positives, killed at 55 done (gpt-oss judge calls were stalling).
+- All 9 unanimous "3/3 correct" results split into:
+  - **5 LOCALLY VERIFIED PASSES** on explicit-deformations warmup
+    (gpt-oss seeds 42,44,45,46 + deepseek seed=44 in consensus, plus 3 more
+    that didn't reach consensus before kill)
+  - **1 LOCALLY VERIFIED PASS** on degree-sensitivity-boolean warmup
+    (deepseek seed=44, n=6, deg=3, sens=6, a=1.6309)
+  - **3 FALSE POSITIVES** on inverse-galois (M_22/M_23 polynomial)
+
+**Inverse-galois cleanup**: implemented a `verify_inverse_galois_necessary`
+checker (irreducible + perfect-square discriminant, both required since
+M_n ⊂ A_n). All 20 inverse-galois submissions across both models and all seeds
+**FAIL**, including the 3-judge unanimous "correct"s. This is a clean
+counter-example showing LLM judges happily sign off on plausible-looking
+polynomials with confident citations even when basic disc-square check rules
+out the claimed Galois group.
+
+**Final verified-pass count: 8 trials across 2 problems**:
+- explicit-deformations warmup: 7 trials (gpt-oss × 4, deepseek × 3 — 7/9 attempts
+  produced verifiable curvilinear deformations of A = k[x,y]/(x,y)² to k[t]/(t³))
+- degree-sensitivity-boolean warmup: 1 trial (deepseek seed=44; n=6, deg=3,
+  sensitivity=6, exponent a = log(6)/log(3) ≈ 1.6309 > 1.63 threshold)
+
+**Discarded experiments**: gemma seed_full + roleswap on 4 top problems × 2
+seeds (16 trials each) ran for 8 min with zero completions; outer ThreadPool
+saturated by trials all blocked behind gemma 8-concurrent semaphore +
+expensive ideate→3 branches × verify-revise×2 → judge sequence. Killed.
+Replaced with simpler `openproblems_gemma_passN_20260507.py` (generate-only).
+
+**Files**:
+- `experiments/openproblems_pass5_20260507.py` (Phase 1)
+- `experiments/openproblems_consensus_judge_20260507.py` (3-judge consensus)
+- `experiments/openproblems_local_verify_20260507.py` (Hadamard, Steiner,
+  Ramsey-book, small-Diophantine, degree-sensitivity, explicit-deformations,
+  inverse-galois necessary conditions)
+- `experiments/check_galois_polys_20260507.py` (inverse-galois sanity check)
+- `experiments/openproblems_seed_full_20260507.py` (seed_full architecture
+  — too slow on these problems, killed)
+- `experiments/openproblems_gemma_passN_20260507.py` (focused gemma generate)
+- `logs/openproblems_pass5_20260507_20260507_183859.jsonl` (Phase 1 raw)
+- `experiments/results/consensus_partial_55_log.txt` (partial consensus)
+
+
+## Consensus Judge Experiment - PATCHED - 2026-05-07T20:55:00
+
+Patched dropped validation calls via three mechanisms: OpenRouter `provider.order` routing (SiliconFlow for v4-flash), direct Google AI Studio API (Tier-2 GEMINI_API_KEY for gemma, bypassing OpenRouter's shared backend), and single-worker retry. Re-ran build with merged data.
+
+**Final patched coverage:**
+- gpt-oss-120b @ xhigh: 200/200
+- gemini-3.1-pro: 200/200
+- claude-opus-4.7: 200/200
+- deepseek-v4-flash: 195/200
+- gemma-4-31b-it @ high: 190/200
+- Trio coverage with ≥2/3 valid: 191/200 (95.5%)
+
+**Updated headline (validation):**
+
+| System | n_v | pass≥6 | F1 | r | $/200 |
+|---|---|---|---|---|---|
+| **gpt-oss-120b @ xhigh** | 200 | **0.875** | **0.806** | 0.676 | $0.32 |
+| trio_consensus | 200 | 0.860 | 0.785 | 0.747 | $1.73 |
+| deepseek-v4-flash | 195 | 0.856 | 0.759 | 0.669 | $0.70 |
+| claude-opus-4.7 | 200 | 0.855 | 0.785 | 0.789 | $32.45 |
+| gemini-3.1-pro | 200 | 0.840 | 0.771 | 0.766 | $7.07 |
+| gemma-4-31b-it @ high | 190 | 0.800 | 0.732 | 0.694 | $0.71 |
+
+**Key finding shift after patching:** With full coverage, **gpt-oss-120b @ xhigh alone** is now the strongest single system on pass-agree (87.5%) — beating both frontiers. The trio (86.0%) still beats both frontiers but no longer dominates as much. F1 on trio (0.785) ties Opus exactly. All cheap judges still beat Gemini-3.1-Pro on pass-agree.
+
+**Disagreement breakdown (n=200):** 153 all-correct; 9 trio-only-correct; 4 Opus-only-correct; 1 Gemini-only-correct; 14 all-wrong.
+
+**Lesson learned:** OpenRouter routes non-BYOK calls through their shared backend Google account, so all our keys hit the same upstream quota. Direct Google AI Studio API (with Tier-2 user key) was 10× faster for gemma. SiliconFlow provider routing on OpenRouter bypassed DeepSeek's slow upstream for v4-flash.
+
+## Bootstrap CIs added to consensus paper - 2026-05-07T21:30:00
+
+Computed bootstrap 95% CIs (1000 resamples, n=200 with replacement) and pairwise win rates for the 6 validation systems. Key finding: **CIs overlap heavily across the top 5 systems**, so the original "trio beats both frontiers" / "gpt-oss beats Opus" claims are statistically weakly supported (P~0.76).
+
+**Reliable claims (P>0.90):**
+- gpt-oss-120b @ xhigh > Gemini-3.1-Pro on pass≥6 (P=0.91)
+- All cheap judges crush gemma alone
+
+**Weakly supported (P~0.75–0.80):**
+- gpt-oss > Opus (point estimate 87.5 vs 85.5, but CI [82.5, 91.5] vs [80.0, 90.0] overlap)
+- trio > Gemini, Opus > Gemini
+
+**Toss-ups (P~0.50–0.60):**
+- trio vs Opus, v4-flash vs Opus
+
+**Real frontier advantage:** Opus's r=0.789 [0.71, 0.86] is non-overlapping with gpt-oss's r=0.674 [0.57, 0.76]. Frontier still wins on continuous calibration.
+
+Also: GradingBench has only 3 (problem, response) pairs with multiple human grades — far too few for inter-rater agreement statistics. Cannot estimate the human ceiling. If ceiling is ~90%, then 87.5% is essentially at the ceiling, not 12.5 pp below perfect. Largest unknown in interpretation.
+
+Paper headline softened from "Cheap Judges Beat Frontier" to "Cheap Judges Are Competitive with Frontier."
+
+## Gemma Phase 1 + seed_full + roleswap completion - 2026-05-07T23:45:00
+
+After the initial OpenRouter-rate-limited gemma attempts, switched to direct Gemini API
+(gemma-4-31b-it on tier 2 paid account) using a custom adaptive-concurrency wrapper
+(`experiments/_gemini_api.py`) that scales between 4–20 concurrent based on 429 cascades.
+
+**Phase 1 gemma pass@5**: 120/120 trials. 30 judge positives, **0 locally verified**.
+
+**Seed_full homogeneous gemma**: scaled down to warmup × 1 seed × 2 ideas × 1 V↔R iter
+after first attempt at full scope (3 ideas, 2 iters, 5 seeds) was unviable at gemma
+rate limits. 12/12 problem-seeds done. 6 positives, 0 locally verified.
+
+**Seed_full roleswap (gemma + gpt-oss-120b xhigh as verifier)**: same scope. 12/12 done.
+7 positives, 0 locally verified.
+
+**Consensus v2** (user spec: oss xhigh + deepseek, no gemma judge after the gemini-3.1-pro
+mistake): ran on 30 gemma phase 1 positives + 18 OG phase 1 positives that didn't get
+v1 + 13 seed_full positives. Total 111 consensus entries. **30 entries got unanimous
+2/2 or 3/3 "correct" but only 8 are locally-verifiable correct** — the remaining 22
+are LLM-judge confabulations on inverse-galois (disc not a square), kakeya (forcing
+pair fails), Steiner (incomplete coverage), Hadamard (no matrix produced), Ramsey
+(adj string truncated), or stretched-LR (constant polynomial).
+
+**Key finding reinforced**: across ~380 trials and 4 generator architectures
+(pass@5, seed_full homogeneous, seed_full roleswap), no new locally-verified
+solutions appeared. The architectural variations (ideate→branch→V↔R, role
+swap with stronger verifier) did not produce improvements over plain pass@5.
+
+**Files added today**:
+- `experiments/_gemini_api.py` — adaptive Gemini API client
+- `experiments/_kakeya_verifier.py` — full forcing-pair semantics check
+- `experiments/_lr_verifier.py` — Littlewood-Richardson stretched coefficient verifier
+- `experiments/openproblems_gemma_phase1_20260507.py`
+- `experiments/openproblems_gemma_seedfull_20260507.py`
+- `experiments/openproblems_consensus_v2_20260507.py` (oss + deepseek 2-judge)
+- `experiments/openproblems_full_report_20260507.py`
+- `results/openproblems_full_report.md`
+
