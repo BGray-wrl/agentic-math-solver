@@ -1,0 +1,90 @@
+{
+  "experiment": "multi_seed_cheap_judges",
+  "seed": 3,
+  "sample": "validation",
+  "n": 200,
+  "wall_clock_s": 1245.1,
+  "date": "2026-05-26T00:27:00.291594+00:00",
+  "max_tokens": 32768,
+  "judges": {
+    "deepseek-v4-flash": {
+      "n": 199,
+      "pass_agree": 0.8643,
+      "precision": 0.7419,
+      "recall": 0.807,
+      "f1": 0.7731,
+      "tp": 46,
+      "fp": 16,
+      "tn": 126,
+      "fn": 11,
+      "pearson_r": 0.669,
+      "mean_reasoning_tokens": 8993,
+      "cost_usd": 0.6332,
+      "reasoning": "default",
+      "n_attempted": 200,
+      "n_valid": 199,
+      "n_truncated": 0
+    },
+    "gpt-oss-120b": {
+      "n": 199,
+      "pass_agree": 0.8492,
+      "precision": 0.68,
+      "recall": 0.8947,
+      "f1": 0.7727,
+      "tp": 51,
+      "fp": 24,
+      "tn": 118,
+      "fn": 6,
+      "pearson_r": 0.6787,
+      "mean_reasoning_tokens": 7581,
+      "cost_usd": 1.0081,
+      "reasoning": "xhigh",
+      "n_attempted": 200,
+      "n_valid": 199,
+      "n_truncated": 2
+    },
+    "gemma-4-31b-it": {
+      "n": 200,
+      "pass_agree": 0.81,
+      "precision": 0.6092,
+      "recall": 0.9298,
+      "f1": 0.7361,
+      "tp": 53,
+      "fp": 34,
+      "tn": 109,
+      "fn": 4,
+      "pearson_r": 0.7061,
+      "mean_reasoning_tokens": 4630,
+      "cost_usd": 0.5165,
+      "reasoning": "high",
+      "n_attempted": 200,
+      "n_valid": 200,
+      "n_truncated": 0
+    }
+  },
+  "consensus": {
+    "majority_vote": {
+      "n": 200,
+      "pass_agree": 0.86,
+      "precision": 0.7042,
+      "recall": 0.8772,
+      "f1": 0.7812,
+      "tp": 50,
+      "fp": 21,
+      "tn": 122,
+      "fn": 7
+    },
+    "all_three_pass": {
+      "n": 198,
+      "pass_agree": 0.8889,
+      "precision": 0.807,
+      "recall": 0.807,
+      "f1": 0.807,
+      "tp": 46,
+      "fp": 11,
+      "tn": 130,
+      "fn": 11
+    }
+  },
+  "total_cost_usd": 2.1578
+}

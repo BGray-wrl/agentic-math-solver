@@ -57,7 +57,50 @@
 
 
 
-# Things AI forgets or gets wrong when it vibe codes llm pipelines
+## Things AI forgets or gets wrong when it vibe codes llm pipelines
 - Basic retries
 - max token numbers (for heavy reasoning math requests)
 - Plain prompts 
+
+
+## Full set:
+- 60 IMO-proofbench problems
+- Erdos 397, 333, 654, 659, 1051
+- Ramsey Hypergraphs
+- FP 10, 5, 6
+
+---
+# Final Polished EXPs to run
+
+## Primary
+1. Seed Ideas Generate-Only + Full 4-Way Comparison - 2026-03-28T02:37:00
+Big one. Compare generate vs generate pipeline, vs generate seed vs generate seed pipeline. Should offer clear & powerful results
+| Model | Generate | Full Pipeline | Seed+Generate | Seed+Full |
+
+
+2. Model Diversity Experiment - 2026-03-28T11:28:00
+Model Diversity Experiment: try same-power models and different-power models in the generator-verifier loop
+
+
+3. Try Best-of-N Experiment - 2026-04-05T12:06:00
+Combine into 1?
+
+
+
+## Secondary
+
+4. Ideator Capability Scaling - 2026-03-30T18:43:00
+try OAI/Gemini/DS families 
+
+5. Pruning Ideation Experiment - 2026-04-05T12:04:00
+Can we predict best ideator? Preliminary results say not
+Try it with different models
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+# compute_metrics.py uses only the Python standard library -- nothing to install.
+
+# Figures (make_plots.py):
+matplotlib>=3.5
+numpy>=1.20
+
+# Reference runners that query the judges (run_judges.py, run_multi_seed.py):
+requests>=2.25
+python-dotenv>=1.0

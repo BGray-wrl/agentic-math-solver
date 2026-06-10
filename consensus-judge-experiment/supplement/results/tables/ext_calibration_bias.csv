@@ -1,0 +1,6 @@
+system,n,mean_delta,note
+GPT-OSS-120B,200,-0.125,~calibrated
+DeepSeek-V4-Flash,200,-0.780,under-credits
+Gemma-4-31B,200,+0.475,over-credits
+Claude Opus 4.7,200,-0.035,~calibrated
+Gemini 3.1 Pro (high),200,-0.050,~calibrated

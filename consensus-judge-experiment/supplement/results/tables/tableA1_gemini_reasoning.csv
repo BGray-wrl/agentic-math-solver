@@ -1,0 +1,3 @@
+setting,mean_reasoning_tokens,pass_agree,f1,spearman_rho,cost_per_200
+default,~2400,0.840,0.771,0.714,7.07
+high,10387,0.840,0.761,0.704,28.61

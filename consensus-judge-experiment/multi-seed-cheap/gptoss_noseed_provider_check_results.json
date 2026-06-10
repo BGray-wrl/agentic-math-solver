@@ -1,0 +1,2002 @@
+[
+  {
+    "score": 0,
+    "provider": "Groq",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2272,
+    "cost": 0.0027798,
+    "finish_reason": "stop",
+    "grading_id": "GB-0065",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 523,
+    "cost": 0.00135145,
+    "finish_reason": "stop",
+    "grading_id": "GB-0207",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6094,
+    "cost": 0.00693966,
+    "finish_reason": "stop",
+    "grading_id": "GB-0730",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 616,
+    "cost": 0.00056195,
+    "finish_reason": "stop",
+    "grading_id": "GB-0344",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0019134,
+    "finish_reason": "stop",
+    "grading_id": "GB-0123",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Groq",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3319,
+    "cost": 0.0032604,
+    "finish_reason": "stop",
+    "grading_id": "GB-0707",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Mara",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6930,
+    "cost": 0.0063387,
+    "finish_reason": "stop",
+    "grading_id": "GB-0077",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0019364,
+    "finish_reason": "stop",
+    "grading_id": "GB-0958",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Mara",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6769,
+    "cost": 0.00704895,
+    "finish_reason": "stop",
+    "grading_id": "GB-0134",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0021187,
+    "finish_reason": "stop",
+    "grading_id": "GB-0501",
+    "human_points": 2
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0022501,
+    "finish_reason": "stop",
+    "grading_id": "GB-0152",
+    "human_points": 3
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1207,
+    "cost": 0.000577,
+    "finish_reason": "stop",
+    "grading_id": "GB-0998",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2510,
+    "cost": 0.00372366,
+    "finish_reason": "stop",
+    "grading_id": "GB-0944",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6906,
+    "cost": 0.00768714,
+    "finish_reason": "stop",
+    "grading_id": "GB-0286",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1903,
+    "cost": 0.0021456,
+    "finish_reason": "stop",
+    "grading_id": "GB-0280",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0024019,
+    "finish_reason": "stop",
+    "grading_id": "GB-0141",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 196,
+    "cost": 0.000210144,
+    "finish_reason": "stop",
+    "grading_id": "GB-0743",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1168,
+    "cost": 0.0009974,
+    "finish_reason": "stop",
+    "grading_id": "GB-0193",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "Nebius",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 893,
+    "cost": 0.0018372,
+    "finish_reason": "stop",
+    "grading_id": "GB-0637",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2137,
+    "cost": 0.00215445,
+    "finish_reason": "stop",
+    "grading_id": "GB-0303",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0027568,
+    "finish_reason": "stop",
+    "grading_id": "GB-0814",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 451,
+    "cost": 0.000315924,
+    "finish_reason": "stop",
+    "grading_id": "GB-0690",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 387,
+    "cost": 0.000739,
+    "finish_reason": "stop",
+    "grading_id": "GB-0289",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4299,
+    "cost": 0.00265383,
+    "finish_reason": "stop",
+    "grading_id": "GB-0029",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2936,
+    "cost": 0.00195399,
+    "finish_reason": "stop",
+    "grading_id": "GB-0461",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1711,
+    "cost": 0.00088095,
+    "finish_reason": "stop",
+    "grading_id": "GB-0194",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2861,
+    "cost": 0.00379275,
+    "finish_reason": "stop",
+    "grading_id": "GB-0233",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Mara",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13469,
+    "cost": 0.0121779,
+    "finish_reason": "stop",
+    "grading_id": "GB-0434",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Mara",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13995,
+    "cost": 0.01213845,
+    "finish_reason": "stop",
+    "grading_id": "GB-0300",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1049,
+    "cost": 0.00089315,
+    "finish_reason": "stop",
+    "grading_id": "GB-0523",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5706,
+    "cost": 0.0047925,
+    "finish_reason": "stop",
+    "grading_id": "GB-0228",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0040229,
+    "finish_reason": "stop",
+    "grading_id": "GB-0940",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Ambient",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1505,
+    "cost": 0.002028,
+    "finish_reason": "stop",
+    "grading_id": "GB-0562",
+    "human_points": 4
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6741,
+    "cost": 0.00419625,
+    "finish_reason": "stop",
+    "grading_id": "GB-0677",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2347,
+    "cost": 0.00108945,
+    "finish_reason": "stop",
+    "grading_id": "GB-0034",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5542,
+    "cost": 0.0039813,
+    "finish_reason": "stop",
+    "grading_id": "GB-0890",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6009,
+    "cost": 0.004425,
+    "finish_reason": "stop",
+    "grading_id": "GB-0526",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2435,
+    "cost": 0.0010417,
+    "finish_reason": "stop",
+    "grading_id": "GB-0953",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Phala",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2086,
+    "cost": 0.00184314,
+    "finish_reason": "stop",
+    "grading_id": "GB-0505",
+    "human_points": 2
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 285,
+    "cost": 0.000271445,
+    "finish_reason": "stop",
+    "grading_id": "GB-0489",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0049729,
+    "finish_reason": "stop",
+    "grading_id": "GB-0445",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2190,
+    "cost": 0.0031257,
+    "finish_reason": "stop",
+    "grading_id": "GB-0606",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2380,
+    "cost": 0.00284925,
+    "finish_reason": "stop",
+    "grading_id": "GB-0188",
+    "human_points": 6
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3173,
+    "cost": 0.00140095,
+    "finish_reason": "stop",
+    "grading_id": "GB-0706",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1540,
+    "cost": 0.000370801,
+    "finish_reason": "stop",
+    "grading_id": "GB-0986",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7200,
+    "cost": 0.0052065,
+    "finish_reason": "stop",
+    "grading_id": "GB-0892",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0060523,
+    "finish_reason": "stop",
+    "grading_id": "GB-0086",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0057789,
+    "finish_reason": "stop",
+    "grading_id": "GB-0777",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9466,
+    "cost": 0.0104949,
+    "finish_reason": "stop",
+    "grading_id": "GB-0801",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3679,
+    "cost": 0.00518004,
+    "finish_reason": "stop",
+    "grading_id": "GB-0132",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "SambaNova",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 22000,
+    "cost": 0.02098596,
+    "finish_reason": "stop",
+    "grading_id": "GB-0662",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "Ambient",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2451,
+    "cost": 0.002440125,
+    "finish_reason": "stop",
+    "grading_id": "GB-0437",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5747,
+    "cost": 0.00342018,
+    "finish_reason": "stop",
+    "grading_id": "GB-0676",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4008,
+    "cost": 0.00371295,
+    "finish_reason": "stop",
+    "grading_id": "GB-0108",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1272,
+    "cost": 0.000331293,
+    "finish_reason": "stop",
+    "grading_id": "GB-0594",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.007001,
+    "finish_reason": "stop",
+    "grading_id": "GB-0609",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4831,
+    "cost": 0.00156525,
+    "finish_reason": "stop",
+    "grading_id": "GB-0265",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4049,
+    "cost": 0.0050604,
+    "finish_reason": "stop",
+    "grading_id": "GB-0790",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3565,
+    "cost": 0.0037008,
+    "finish_reason": "stop",
+    "grading_id": "GB-0468",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4432,
+    "cost": 0.00165825,
+    "finish_reason": "stop",
+    "grading_id": "GB-0337",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "Parasail",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2933,
+    "cost": 0.0032518,
+    "finish_reason": "stop",
+    "grading_id": "GB-0211",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "Parasail",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3414,
+    "cost": 0.00332374,
+    "finish_reason": "stop",
+    "grading_id": "GB-0463",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1338,
+    "cost": 0.000567849,
+    "finish_reason": "stop",
+    "grading_id": "GB-0621",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Groq",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 23704,
+    "cost": 0.0155898,
+    "finish_reason": "stop",
+    "grading_id": "GB-0080",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4948,
+    "cost": 0.00395445,
+    "finish_reason": "stop",
+    "grading_id": "GB-0527",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0085643,
+    "finish_reason": "stop",
+    "grading_id": "GB-0500",
+    "human_points": 2
+  },
+  {
+    "score": 0,
+    "provider": "BaseTen",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 0,
+    "cost": 0.0084263,
+    "finish_reason": "stop",
+    "grading_id": "GB-0494",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6045,
+    "cost": 0.0019363,
+    "finish_reason": "stop",
+    "grading_id": "GB-0318",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5527,
+    "cost": 0.0018775,
+    "finish_reason": "stop",
+    "grading_id": "GB-0738",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 10150,
+    "cost": 0.0084519,
+    "finish_reason": "stop",
+    "grading_id": "GB-0865",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2095,
+    "cost": 0.00026196,
+    "finish_reason": "stop",
+    "grading_id": "GB-0213",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Phala",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4999,
+    "cost": 0.00323791,
+    "finish_reason": "stop",
+    "grading_id": "GB-0941",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6451,
+    "cost": 0.00202735,
+    "finish_reason": "stop",
+    "grading_id": "GB-0048",
+    "human_points": 1
+  },
+  {
+    "score": 6,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7255,
+    "cost": 0.0020881,
+    "finish_reason": "stop",
+    "grading_id": "GB-0120",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6530,
+    "cost": 0.0057546,
+    "finish_reason": "stop",
+    "grading_id": "GB-0244",
+    "human_points": 5
+  },
+  {
+    "score": 0,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6810,
+    "cost": 0.00710025,
+    "finish_reason": "stop",
+    "grading_id": "GB-0135",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7788,
+    "cost": 0.0021518,
+    "finish_reason": "stop",
+    "grading_id": "GB-0124",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2587,
+    "cost": 0.000274203,
+    "finish_reason": "stop",
+    "grading_id": "GB-0084",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 17014,
+    "cost": 0.00743517,
+    "finish_reason": "stop",
+    "grading_id": "GB-0314",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1936,
+    "cost": 0.000375534,
+    "finish_reason": "stop",
+    "grading_id": "GB-0532",
+    "human_points": 1
+  },
+  {
+    "score": 6,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 18231,
+    "cost": 0.00821178,
+    "finish_reason": "stop",
+    "grading_id": "GB-0151",
+    "human_points": 3
+  },
+  {
+    "score": 7,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6795,
+    "cost": 0.002249,
+    "finish_reason": "stop",
+    "grading_id": "GB-0917",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "WandB",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7813,
+    "cost": 0.0059412,
+    "finish_reason": "stop",
+    "grading_id": "GB-0709",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "Phala",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6294,
+    "cost": 0.00595855,
+    "finish_reason": "stop",
+    "grading_id": "GB-0912",
+    "human_points": 4
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1794,
+    "cost": 0.000655827,
+    "finish_reason": "stop",
+    "grading_id": "GB-0236",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1683,
+    "cost": 0.000696113,
+    "finish_reason": "stop",
+    "grading_id": "GB-0642",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2450,
+    "cost": 0.001011719,
+    "finish_reason": "stop",
+    "grading_id": "GB-0830",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7430,
+    "cost": 0.00261945,
+    "finish_reason": "stop",
+    "grading_id": "GB-0356",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7839,
+    "cost": 0.00256505,
+    "finish_reason": "stop",
+    "grading_id": "GB-0869",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2894,
+    "cost": 0.000261546,
+    "finish_reason": "stop",
+    "grading_id": "GB-0725",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3128,
+    "cost": 0.000262386,
+    "finish_reason": "stop",
+    "grading_id": "GB-0647",
+    "human_points": 7
+  },
+  {
+    "score": 6,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9911,
+    "cost": 0.00831045,
+    "finish_reason": "stop",
+    "grading_id": "GB-0006",
+    "human_points": 6
+  },
+  {
+    "score": 1,
+    "provider": "WandB",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9666,
+    "cost": 0.0064971,
+    "finish_reason": "stop",
+    "grading_id": "GB-0889",
+    "human_points": 4
+  },
+  {
+    "score": 7,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9123,
+    "cost": 0.00278275,
+    "finish_reason": "stop",
+    "grading_id": "GB-0695",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Together",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 8328,
+    "cost": 0.0065676,
+    "finish_reason": "stop",
+    "grading_id": "GB-0713",
+    "human_points": 4
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4059,
+    "cost": 0.000246717,
+    "finish_reason": "stop",
+    "grading_id": "GB-0735",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9606,
+    "cost": 0.002788,
+    "finish_reason": "stop",
+    "grading_id": "GB-0059",
+    "human_points": 5
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2364,
+    "cost": 0.000725944,
+    "finish_reason": "stop",
+    "grading_id": "GB-0498",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2065,
+    "cost": 0.000696836,
+    "finish_reason": "stop",
+    "grading_id": "GB-0359",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3127,
+    "cost": 0.000326979,
+    "finish_reason": "stop",
+    "grading_id": "GB-0355",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3296,
+    "cost": 0.00139015,
+    "finish_reason": "stop",
+    "grading_id": "GB-0809",
+    "human_points": 5
+  },
+  {
+    "score": 7,
+    "provider": "Google",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 23428,
+    "cost": 0.0112599,
+    "finish_reason": "stop",
+    "grading_id": "GB-0538",
+    "human_points": 5
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3119,
+    "cost": 0.000904103,
+    "finish_reason": "stop",
+    "grading_id": "GB-0127",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4609,
+    "cost": 0.001045354,
+    "finish_reason": "stop",
+    "grading_id": "GB-0754",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 1812,
+    "cost": 0.00056967,
+    "finish_reason": "stop",
+    "grading_id": "GB-0267",
+    "human_points": 0
+  },
+  {
+    "score": 6,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9861,
+    "cost": 0.0038082,
+    "finish_reason": "stop",
+    "grading_id": "GB-0398",
+    "human_points": 4
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3742,
+    "cost": 0.001128762,
+    "finish_reason": "stop",
+    "grading_id": "GB-0016",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4606,
+    "cost": 0.000252285,
+    "finish_reason": "stop",
+    "grading_id": "GB-0495",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 11383,
+    "cost": 0.0038342,
+    "finish_reason": "stop",
+    "grading_id": "GB-0170",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5517,
+    "cost": 0.000263688,
+    "finish_reason": "stop",
+    "grading_id": "GB-0302",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4574,
+    "cost": 0.000266955,
+    "finish_reason": "stop",
+    "grading_id": "GB-0473",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3287,
+    "cost": 0.001024964,
+    "finish_reason": "stop",
+    "grading_id": "GB-0622",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 2948,
+    "cost": 0.000822692,
+    "finish_reason": "stop",
+    "grading_id": "GB-0311",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6743,
+    "cost": 0.001517841,
+    "finish_reason": "stop",
+    "grading_id": "GB-0079",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5461,
+    "cost": 0.000318309,
+    "finish_reason": "stop",
+    "grading_id": "GB-0483",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "Amazon Bedrock",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13232,
+    "cost": 0.01164645,
+    "finish_reason": "stop",
+    "grading_id": "GB-0382",
+    "human_points": 4
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4594,
+    "cost": 0.000353304,
+    "finish_reason": "stop",
+    "grading_id": "GB-0247",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5156,
+    "cost": 0.000321852,
+    "finish_reason": "stop",
+    "grading_id": "GB-0455",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4282,
+    "cost": 0.000463143,
+    "finish_reason": "stop",
+    "grading_id": "GB-0804",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 14415,
+    "cost": 0.0048909,
+    "finish_reason": "stop",
+    "grading_id": "GB-0614",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 18060,
+    "cost": 0.00480085,
+    "finish_reason": "stop",
+    "grading_id": "GB-0089",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3472,
+    "cost": 0.00132672,
+    "finish_reason": "stop",
+    "grading_id": "GB-0968",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5223,
+    "cost": 0.000361563,
+    "finish_reason": "stop",
+    "grading_id": "GB-0967",
+    "human_points": 7
+  },
+  {
+    "score": 0,
+    "provider": "Parasail",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9719,
+    "cost": 0.0085458,
+    "finish_reason": "stop",
+    "grading_id": "GB-0692",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6828,
+    "cost": 0.00022773,
+    "finish_reason": "stop",
+    "grading_id": "GB-0846",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4923,
+    "cost": 0.00202055,
+    "finish_reason": "stop",
+    "grading_id": "GB-0163",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4030,
+    "cost": 0.000296841,
+    "finish_reason": "stop",
+    "grading_id": "GB-0114",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3926,
+    "cost": 0.00025695,
+    "finish_reason": "stop",
+    "grading_id": "GB-0209",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "Phala",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 11931,
+    "cost": 0.00883274,
+    "finish_reason": "stop",
+    "grading_id": "GB-0383",
+    "human_points": 4
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3529,
+    "cost": 0.000334491,
+    "finish_reason": "stop",
+    "grading_id": "GB-0822",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7658,
+    "cost": 0.001927853,
+    "finish_reason": "stop",
+    "grading_id": "GB-0862",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 8637,
+    "cost": 0.001962664,
+    "finish_reason": "stop",
+    "grading_id": "GB-0727",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7012,
+    "cost": 0.000457323,
+    "finish_reason": "stop",
+    "grading_id": "GB-0442",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5377,
+    "cost": 0.001286317,
+    "finish_reason": "stop",
+    "grading_id": "GB-0776",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9956,
+    "cost": 0.000409656,
+    "finish_reason": "stop",
+    "grading_id": "GB-0362",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5141,
+    "cost": 0.000291261,
+    "finish_reason": "stop",
+    "grading_id": "GB-0174",
+    "human_points": 2
+  },
+  {
+    "score": 4,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6252,
+    "cost": 0.0,
+    "finish_reason": "error",
+    "grading_id": "GB-0268",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5493,
+    "cost": 0.0,
+    "finish_reason": "error",
+    "grading_id": "GB-0109",
+    "human_points": 7
+  },
+  {
+    "score": null,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6273,
+    "cost": 0.0,
+    "finish_reason": "error",
+    "grading_id": "GB-0102",
+    "human_points": 6
+  },
+  {
+    "score": null,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6269,
+    "cost": 0.0,
+    "finish_reason": "error",
+    "grading_id": "GB-0436",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5972,
+    "cost": 0.0,
+    "finish_reason": "error",
+    "grading_id": "GB-0553",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5423,
+    "cost": 0.00131223,
+    "finish_reason": "stop",
+    "grading_id": "GB-0093",
+    "human_points": 0
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5589,
+    "cost": 0.001288993,
+    "finish_reason": "stop",
+    "grading_id": "GB-0319",
+    "human_points": 2
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5603,
+    "cost": 0.001325123,
+    "finish_reason": "stop",
+    "grading_id": "GB-0504",
+    "human_points": 2
+  },
+  {
+    "score": 6,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 28859,
+    "cost": 0.00849975,
+    "finish_reason": "length",
+    "grading_id": "GB-0051",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7386,
+    "cost": 0.000367992,
+    "finish_reason": "stop",
+    "grading_id": "GB-0708",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 12443,
+    "cost": 0.000401478,
+    "finish_reason": "stop",
+    "grading_id": "GB-0091",
+    "human_points": 1
+  },
+  {
+    "score": 0,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6788,
+    "cost": 0.000191976,
+    "finish_reason": "stop",
+    "grading_id": "GB-0732",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6662,
+    "cost": 0.001648568,
+    "finish_reason": "stop",
+    "grading_id": "GB-0062",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7576,
+    "cost": 0.00062241,
+    "finish_reason": "stop",
+    "grading_id": "GB-0402",
+    "human_points": 4
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 10920,
+    "cost": 0.000221595,
+    "finish_reason": "stop",
+    "grading_id": "GB-0529",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7690,
+    "cost": 0.002046366,
+    "finish_reason": "stop",
+    "grading_id": "GB-0237",
+    "human_points": 2
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6841,
+    "cost": 0.000449757,
+    "finish_reason": "stop",
+    "grading_id": "GB-0573",
+    "human_points": 6
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7118,
+    "cost": 0.001770557,
+    "finish_reason": "stop",
+    "grading_id": "GB-0723",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5436,
+    "cost": 0.001744684,
+    "finish_reason": "stop",
+    "grading_id": "GB-0366",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 11485,
+    "cost": 0.000493194,
+    "finish_reason": "stop",
+    "grading_id": "GB-0415",
+    "human_points": 6
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5177,
+    "cost": 0.001325344,
+    "finish_reason": "stop",
+    "grading_id": "GB-0717",
+    "human_points": 4
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 11500,
+    "cost": 0.002893303,
+    "finish_reason": "stop",
+    "grading_id": "GB-0133",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 4480,
+    "cost": 0.001480744,
+    "finish_reason": "stop",
+    "grading_id": "GB-0832",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 8542,
+    "cost": 0.001044381,
+    "finish_reason": "stop",
+    "grading_id": "GB-0458",
+    "human_points": 6
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 5166,
+    "cost": 0.001802294,
+    "finish_reason": "stop",
+    "grading_id": "GB-0625",
+    "human_points": 6
+  },
+  {
+    "score": 6,
+    "provider": "Parasail",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 19854,
+    "cost": 0.01607815,
+    "finish_reason": "stop",
+    "grading_id": "GB-0729",
+    "human_points": 0
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 3686,
+    "cost": 0.00136377,
+    "finish_reason": "stop",
+    "grading_id": "GB-0451",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 14891,
+    "cost": 0.000327435,
+    "finish_reason": "stop",
+    "grading_id": "GB-0186",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13398,
+    "cost": 0.000329481,
+    "finish_reason": "stop",
+    "grading_id": "GB-0569",
+    "human_points": 5
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9139,
+    "cost": 0.000523443,
+    "finish_reason": "stop",
+    "grading_id": "GB-0584",
+    "human_points": 7
+  },
+  {
+    "score": 6,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7460,
+    "cost": 0.002039663,
+    "finish_reason": "stop",
+    "grading_id": "GB-0579",
+    "human_points": 6
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 10580,
+    "cost": 0.002306598,
+    "finish_reason": "stop",
+    "grading_id": "GB-0916",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 10899,
+    "cost": 0.000477582,
+    "finish_reason": "stop",
+    "grading_id": "GB-0369",
+    "human_points": 2
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9590,
+    "cost": 0.00214999,
+    "finish_reason": "stop",
+    "grading_id": "GB-0779",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9045,
+    "cost": 0.001780232,
+    "finish_reason": "stop",
+    "grading_id": "GB-0992",
+    "human_points": 0
+  },
+  {
+    "score": null,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9091,
+    "cost": 0.001796865,
+    "finish_reason": null,
+    "grading_id": "GB-0069",
+    "human_points": 0
+  },
+  {
+    "score": null,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7500,
+    "cost": 0.001513098,
+    "finish_reason": null,
+    "grading_id": "GB-0851",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13650,
+    "cost": 0.000221016,
+    "finish_reason": "stop",
+    "grading_id": "GB-0535",
+    "human_points": 5
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 8937,
+    "cost": 0.002119621,
+    "finish_reason": "stop",
+    "grading_id": "GB-0061",
+    "human_points": 5
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 16344,
+    "cost": 0.000303399,
+    "finish_reason": "stop",
+    "grading_id": "GB-0905",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 9987,
+    "cost": 0.002611275,
+    "finish_reason": "stop",
+    "grading_id": "GB-0001",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 14520,
+    "cost": 0.000424995,
+    "finish_reason": "stop",
+    "grading_id": "GB-0558",
+    "human_points": 3
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 19727,
+    "cost": 0.004081123,
+    "finish_reason": "stop",
+    "grading_id": "GB-0075",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 16900,
+    "cost": 0.000371493,
+    "finish_reason": "stop",
+    "grading_id": "GB-0078",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 6769,
+    "cost": 0.00212799,
+    "finish_reason": "stop",
+    "grading_id": "GB-0806",
+    "human_points": 4
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 8808,
+    "cost": 0.002459648,
+    "finish_reason": "stop",
+    "grading_id": "GB-0179",
+    "human_points": 2
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 17801,
+    "cost": 0.000392283,
+    "finish_reason": "stop",
+    "grading_id": "GB-0107",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 12420,
+    "cost": 0.002988625,
+    "finish_reason": "stop",
+    "grading_id": "GB-0867",
+    "human_points": 7
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 21390,
+    "cost": 0.000390168,
+    "finish_reason": "stop",
+    "grading_id": "GB-0675",
+    "human_points": 6
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 18243,
+    "cost": 0.004927523,
+    "finish_reason": "stop",
+    "grading_id": "GB-0396",
+    "human_points": 4
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 15374,
+    "cost": 0.003042701,
+    "finish_reason": "stop",
+    "grading_id": "GB-0976",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 13000,
+    "cost": 0.002626115,
+    "finish_reason": "stop",
+    "grading_id": "GB-0088",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 24903,
+    "cost": 0.000343371,
+    "finish_reason": "stop",
+    "grading_id": "GB-0671",
+    "human_points": 1
+  },
+  {
+    "score": 1,
+    "provider": "Novita",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 12149,
+    "cost": 0.0036504,
+    "finish_reason": "stop",
+    "grading_id": "GB-0716",
+    "human_points": 4
+  },
+  {
+    "score": 1,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 23307,
+    "cost": 0.000303069,
+    "finish_reason": "stop",
+    "grading_id": "GB-0291",
+    "human_points": 3
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 27258,
+    "cost": 0.000691239,
+    "finish_reason": "stop",
+    "grading_id": "GB-0408",
+    "human_points": 5
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 11125,
+    "cost": 0.002530865,
+    "finish_reason": "stop",
+    "grading_id": "GB-0502",
+    "human_points": 2
+  },
+  {
+    "score": 0,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 14865,
+    "cost": 0.003273921,
+    "finish_reason": "stop",
+    "grading_id": "GB-0497",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 17337,
+    "cost": 0.003693691,
+    "finish_reason": "stop",
+    "grading_id": "GB-0076",
+    "human_points": 1
+  },
+  {
+    "score": 7,
+    "provider": "DekaLLM",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 27660,
+    "cost": 0.000513117,
+    "finish_reason": "stop",
+    "grading_id": "GB-0694",
+    "human_points": 0
+  },
+  {
+    "score": 1,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 12920,
+    "cost": 0.003612594,
+    "finish_reason": "stop",
+    "grading_id": "GB-0682",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "Parasail",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 7198,
+    "cost": 0.0074988,
+    "finish_reason": "stop",
+    "grading_id": "GB-0159",
+    "human_points": 7
+  },
+  {
+    "score": 6,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 17497,
+    "cost": 0.003667333,
+    "finish_reason": "stop",
+    "grading_id": "GB-0749",
+    "human_points": 7
+  },
+  {
+    "score": 7,
+    "provider": "DeepInfra",
+    "served_model": "openai/gpt-oss-120b",
+    "reasoning_tokens": 24032,
+    "cost": 0.005517536,
+    "finish_reason": "stop",
+    "grading_id": "GB-0543",
+    "human_points": 7
+  }
+]

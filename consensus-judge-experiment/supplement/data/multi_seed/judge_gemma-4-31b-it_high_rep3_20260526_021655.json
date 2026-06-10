@@ -1,0 +1,1823 @@
+{
+  "judge_id": "gemma-4-31b-it",
+  "model": "google/gemma-4-31b-it",
+  "reasoning": {
+    "effort": "high"
+  },
+  "rep": 3,
+  "seeded": false,
+  "stats": {
+    "n": 199,
+    "pass_agree": 0.8141,
+    "precision": 0.619,
+    "recall": 0.9123,
+    "f1": 0.7376,
+    "tp": 52,
+    "fp": 32,
+    "tn": 110,
+    "fn": 5,
+    "n_valid": 199
+  },
+  "results": [
+    {
+      "grading_id": "GB-0743",
+      "human_points": 7,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 373,
+      "cost": 0.00068456,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0690",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 279,
+      "cost": 0.00055914,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0437",
+      "human_points": 1,
+      "score": null,
+      "provider": "Chutes",
+      "reasoning_tokens": 363,
+      "cost": 0.00067612,
+      "finish_reason": null
+    },
+    {
+      "grading_id": "GB-0489",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 948,
+      "cost": 0.00072035,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0458",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1247,
+      "cost": 0.00405235,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0120",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2007,
+      "cost": 0.00166509,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0211",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1602,
+      "cost": 0.00121073,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0527",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 2165,
+      "cost": 0.00129746,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0642",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1968,
+      "cost": 0.00153642,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0473",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1958,
+      "cost": 0.00145752,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0917",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2052,
+      "cost": 0.0012229,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0706",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 2699,
+      "cost": 0.00168638,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0213",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1594,
+      "cost": 0.0012354,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0790",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 2672,
+      "cost": 0.00279178,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0124",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1421,
+      "cost": 0.00143743,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0108",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2208,
+      "cost": 0.0017122,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0084",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 1354,
+      "cost": 0.00123329,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0463",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1870,
+      "cost": 0.00137661,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0355",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2592,
+      "cost": 0.00161173,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0134",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3345,
+      "cost": 0.00205959,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0123",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1433,
+      "cost": 0.0011384,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0127",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2788,
+      "cost": 0.00181119,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0114",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1808,
+      "cost": 0.00158316,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0594",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 2332,
+      "cost": 0.00149382,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0916",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2678,
+      "cost": 0.00146811,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0179",
+      "human_points": 2,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2558,
+      "cost": 0.00216686,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0709",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3461,
+      "cost": 0.00206,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0867",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3353,
+      "cost": 0.00222363,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0676",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3454,
+      "cost": 0.00210792,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0851",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3002,
+      "cost": 0.00222011,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0344",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3379,
+      "cost": 0.00208053,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0193",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3226,
+      "cost": 0.00280209,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0093",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3723,
+      "cost": 0.00209912,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0905",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3662,
+      "cost": 0.00201404,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0912",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1834,
+      "cost": 0.00372411,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0233",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 2950,
+      "cost": 0.00244863,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0584",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3809,
+      "cost": 0.00248719,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0209",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 1333,
+      "cost": 0.00134478,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0573",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3712,
+      "cost": 0.00230315,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0958",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 1541,
+      "cost": 0.00103962,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0186",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2800,
+      "cost": 0.0021052,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0992",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3786,
+      "cost": 0.00205117,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0207",
+      "human_points": 7,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 1481,
+      "cost": 0.00106399,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0569",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4000,
+      "cost": 0.00240876,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0723",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3779,
+      "cost": 0.00218232,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0558",
+      "human_points": 3,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2360,
+      "cost": 0.00179642,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0382",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3574,
+      "cost": 0.00251048,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0436",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4344,
+      "cost": 0.00247614,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0461",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2468,
+      "cost": 0.00157268,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0675",
+      "human_points": 6,
+      "score": 1,
+      "provider": "Novita",
+      "reasoning_tokens": 4181,
+      "cost": 0.00342412,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0716",
+      "human_points": 4,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4802,
+      "cost": 0.00264687,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0727",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4552,
+      "cost": 0.00245867,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0133",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 2423,
+      "cost": 0.0015195,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0337",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3538,
+      "cost": 0.0019488,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0311",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4476,
+      "cost": 0.00234569,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0080",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3635,
+      "cost": 0.00196736,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0236",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4130,
+      "cost": 0.00219918,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0455",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3170,
+      "cost": 0.00193338,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0415",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4617,
+      "cost": 0.00324012,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0159",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2862,
+      "cost": 0.00256927,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0468",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Together",
+      "reasoning_tokens": 2053,
+      "cost": 0.0052726,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0735",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4793,
+      "cost": 0.00233851,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0366",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3549,
+      "cost": 0.00250313,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0319",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5109,
+      "cost": 0.00255085,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0713",
+      "human_points": 4,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4829,
+      "cost": 0.0028107,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0228",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4360,
+      "cost": 0.00240032,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0504",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3812,
+      "cost": 0.00211953,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0814",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3469,
+      "cost": 0.00204148,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0889",
+      "human_points": 4,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5110,
+      "cost": 0.00264253,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0998",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4152,
+      "cost": 0.00209409,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0725",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4171,
+      "cost": 0.00211417,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0383",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3564,
+      "cost": 0.00247702,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0862",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3049,
+      "cost": 0.00185361,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0562",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3999,
+      "cost": 0.00232446,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0846",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4556,
+      "cost": 0.00243474,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0048",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5124,
+      "cost": 0.00258952,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0451",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3192,
+      "cost": 0.00185292,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0730",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4692,
+      "cost": 0.00239059,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0822",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3387,
+      "cost": 0.001945,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0532",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4066,
+      "cost": 0.00205428,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0445",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3441,
+      "cost": 0.00229701,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0609",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4627,
+      "cost": 0.00243668,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0637",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4108,
+      "cost": 0.0023497,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0188",
+      "human_points": 6,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4950,
+      "cost": 0.00262467,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0526",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4034,
+      "cost": 0.00206383,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0151",
+      "human_points": 3,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4101,
+      "cost": 0.00245214,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0291",
+      "human_points": 3,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5812,
+      "cost": 0.00296129,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0359",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4206,
+      "cost": 0.00222836,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0109",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2068,
+      "cost": 0.0013536,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0135",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4972,
+      "cost": 0.00243993,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0362",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4404,
+      "cost": 0.00254849,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0717",
+      "human_points": 4,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3734,
+      "cost": 0.00211545,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0538",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4663,
+      "cost": 0.00290172,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0079",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4892,
+      "cost": 0.00270533,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0300",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5809,
+      "cost": 0.00312982,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0749",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 5621,
+      "cost": 0.00272033,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0302",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5118,
+      "cost": 0.00265146,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0535",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6638,
+      "cost": 0.00304475,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0244",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 5396,
+      "cost": 0.00283136,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0078",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5213,
+      "cost": 0.00268152,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0830",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3191,
+      "cost": 0.00167736,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0170",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6104,
+      "cost": 0.00303341,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0141",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4954,
+      "cost": 0.00249259,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0809",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4306,
+      "cost": 0.00265543,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0086",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5566,
+      "cost": 0.00282149,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0729",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4087,
+      "cost": 0.00258406,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0434",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 6581,
+      "cost": 0.00328693,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0940",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5617,
+      "cost": 0.00275646,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0625",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3028,
+      "cost": 0.00206093,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0892",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5824,
+      "cost": 0.00275607,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0671",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7093,
+      "cost": 0.00353793,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0016",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2677,
+      "cost": 0.00181807,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0777",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4483,
+      "cost": 0.00257193,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0732",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7109,
+      "cost": 0.00328794,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0621",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 4444,
+      "cost": 0.00242656,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0976",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 6612,
+      "cost": 0.00330585,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0065",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5931,
+      "cost": 0.00297817,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0091",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4359,
+      "cost": 0.00246977,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0967",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2239,
+      "cost": 0.00146695,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0968",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3791,
+      "cost": 0.00202545,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0944",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3301,
+      "cost": 0.00176173,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0318",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6343,
+      "cost": 0.00306144,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0804",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 3529,
+      "cost": 0.00250177,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0076",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4382,
+      "cost": 0.00252635,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0695",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6815,
+      "cost": 0.00338324,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0579",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3078,
+      "cost": 0.00202868,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0314",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6736,
+      "cost": 0.00360832,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0077",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4530,
+      "cost": 0.00238562,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0069",
+      "human_points": 0,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 5305,
+      "cost": 0.00381116,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0280",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 7112,
+      "cost": 0.00332322,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0677",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 5033,
+      "cost": 0.00262836,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0006",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3855,
+      "cost": 0.00208935,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0483",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2166,
+      "cost": 0.00148129,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0622",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5983,
+      "cost": 0.00306745,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0163",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 1946,
+      "cost": 0.00126623,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0865",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6080,
+      "cost": 0.00302886,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0442",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3625,
+      "cost": 0.00233965,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0089",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5536,
+      "cost": 0.00296569,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0062",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 5764,
+      "cost": 0.00321982,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0174",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4319,
+      "cost": 0.00251953,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0396",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3836,
+      "cost": 0.00259306,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0029",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 2972,
+      "cost": 0.00187014,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0061",
+      "human_points": 5,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 3355,
+      "cost": 0.002026,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0754",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 2598,
+      "cost": 0.00138352,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0059",
+      "human_points": 5,
+      "score": 6,
+      "provider": "Chutes",
+      "reasoning_tokens": 8119,
+      "cost": 0.00391551,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0107",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 7846,
+      "cost": 0.00379086,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0268",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5895,
+      "cost": 0.00292421,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0001",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5759,
+      "cost": 0.0035613,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0088",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5831,
+      "cost": 0.00291509,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0494",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5299,
+      "cost": 0.00267049,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0801",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5264,
+      "cost": 0.00282267,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0497",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7489,
+      "cost": 0.00366181,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0034",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4122,
+      "cost": 0.0023461,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0502",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 9683,
+      "cost": 0.00432998,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0408",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4381,
+      "cost": 0.00284353,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0398",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6141,
+      "cost": 0.00354481,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0662",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6407,
+      "cost": 0.00323825,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0647",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3754,
+      "cost": 0.0020613,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0776",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6275,
+      "cost": 0.00312955,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0692",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7837,
+      "cost": 0.00371603,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0523",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5426,
+      "cost": 0.0025925,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0986",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 7639,
+      "cost": 0.00337224,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0356",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5475,
+      "cost": 0.00277986,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0194",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 5973,
+      "cost": 0.00300555,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0501",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7584,
+      "cost": 0.00361303,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0402",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6815,
+      "cost": 0.00369829,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0265",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 4636,
+      "cost": 0.00238455,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0529",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 8418,
+      "cost": 0.00362325,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0694",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 8170,
+      "cost": 0.00412331,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0498",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6624,
+      "cost": 0.0031308,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0707",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6255,
+      "cost": 0.00328411,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0869",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 3426,
+      "cost": 0.00204863,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0369",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 9239,
+      "cost": 0.00427793,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0779",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7387,
+      "cost": 0.0036222,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0500",
+      "human_points": 2,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 8531,
+      "cost": 0.00395602,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0303",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 9474,
+      "cost": 0.0041962,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0806",
+      "human_points": 4,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6437,
+      "cost": 0.0032445,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0247",
+      "human_points": 5,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6706,
+      "cost": 0.00350239,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0543",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 11687,
+      "cost": 0.00511347,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0505",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 10785,
+      "cost": 0.0048461,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0953",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 9471,
+      "cost": 0.00414518,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0152",
+      "human_points": 3,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 12553,
+      "cost": 0.00550051,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0682",
+      "human_points": 7,
+      "score": 6,
+      "provider": "Chutes",
+      "reasoning_tokens": 11032,
+      "cost": 0.00499917,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0708",
+      "human_points": 0,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 10719,
+      "cost": 0.00482321,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0738",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5160,
+      "cost": 0.00243566,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0267",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 8661,
+      "cost": 0.0039457,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0132",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 10450,
+      "cost": 0.00496665,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0495",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 11599,
+      "cost": 0.00506306,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0606",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 11142,
+      "cost": 0.00538781,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0614",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 8793,
+      "cost": 0.00435161,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0832",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 4686,
+      "cost": 0.00247161,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0289",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6385,
+      "cost": 0.00311661,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0941",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 6141,
+      "cost": 0.00282691,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0890",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7408,
+      "cost": 0.00350296,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0102",
+      "human_points": 6,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 7890,
+      "cost": 0.00381182,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0051",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6361,
+      "cost": 0.00341207,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0286",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Chutes",
+      "reasoning_tokens": 8202,
+      "cost": 0.00378536,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0553",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 5675,
+      "cost": 0.00298961,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0237",
+      "human_points": 2,
+      "score": 1,
+      "provider": "Chutes",
+      "reasoning_tokens": 8190,
+      "cost": 0.00402759,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0075",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Chutes",
+      "reasoning_tokens": 6641,
+      "cost": 0.00348387,
+      "finish_reason": "stop"
+    }
+  ]
+}

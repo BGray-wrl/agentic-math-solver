@@ -1,0 +1,26 @@
+%% forloop.sty — minimal local copy (standard interface), provided because the
+%% package is absent from this TeX Live install. Implements the documented
+%% \forloop[<step>]{<counter>}{<initial>}{<condition>}{<body>} interface.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{forloop}[2007/01/02 v3.0 forloop package (local minimal copy)]
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+% \forloop[step]{counter}{init}{condition}{body}: test BEFORE each iteration.
+\newcommand*{\forloop}[5][1]{%
+  \setcounter{#2}{#3}%
+  \whiledo{#4}{%
+    #5%
+    \addtocounter{#2}{#1}%
+  }%
+}
+% \forLoop[step]{counter}{init}{condition}{body}: test AFTER each iteration.
+\newcommand*{\forLoop}[5][1]{%
+  \setcounter{#2}{#3}%
+  #5%
+  \addtocounter{#2}{#1}%
+  \whiledo{#4}{%
+    #5%
+    \addtocounter{#2}{#1}%
+  }%
+}
+\endinput

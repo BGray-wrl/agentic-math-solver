@@ -1,0 +1,182 @@
+[
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.032595,
+    "finish_reason": "stop",
+    "grading_id": "GB-0337",
+    "human": 0
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.038475,
+    "finish_reason": "stop",
+    "grading_id": "GB-0468",
+    "human": 7
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.03798,
+    "finish_reason": "stop",
+    "grading_id": "GB-0461",
+    "human": 7
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.039465,
+    "finish_reason": "stop",
+    "grading_id": "GB-0034",
+    "human": 0
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.037865,
+    "finish_reason": "stop",
+    "grading_id": "GB-0355",
+    "human": 7
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.0677,
+    "finish_reason": "stop",
+    "grading_id": "GB-0804",
+    "human": 1
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.04919,
+    "finish_reason": "stop",
+    "grading_id": "GB-0318",
+    "human": 1
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.05068,
+    "finish_reason": "stop",
+    "grading_id": "GB-0302",
+    "human": 0
+  },
+  {
+    "score": 1,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.06121,
+    "finish_reason": "stop",
+    "grading_id": "GB-0717",
+    "human": 4
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.073745,
+    "finish_reason": "stop",
+    "grading_id": "GB-0538",
+    "human": 5
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.0726,
+    "finish_reason": "stop",
+    "grading_id": "GB-0109",
+    "human": 7
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.08177,
+    "finish_reason": "stop",
+    "grading_id": "GB-0123",
+    "human": 7
+  },
+  {
+    "score": 7,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.10733,
+    "finish_reason": "stop",
+    "grading_id": "GB-0437",
+    "human": 1
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.090365,
+    "finish_reason": "stop",
+    "grading_id": "GB-0286",
+    "human": 0
+  },
+  {
+    "score": 1,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.121565,
+    "finish_reason": "stop",
+    "grading_id": "GB-0080",
+    "human": 1
+  },
+  {
+    "score": 1,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.141665,
+    "finish_reason": "stop",
+    "grading_id": "GB-0091",
+    "human": 1
+  },
+  {
+    "score": 6,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.193495,
+    "finish_reason": "stop",
+    "grading_id": "GB-0729",
+    "human": 0
+  },
+  {
+    "score": 0,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.21325,
+    "finish_reason": "stop",
+    "grading_id": "GB-0141",
+    "human": 0
+  },
+  {
+    "score": 6,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.279385,
+    "finish_reason": "stop",
+    "grading_id": "GB-0151",
+    "human": 3
+  },
+  {
+    "score": 6,
+    "provider": "Anthropic",
+    "served_model": "anthropic/claude-4.7-opus-20260416",
+    "cost": 0.31505,
+    "finish_reason": "stop",
+    "grading_id": "GB-0455",
+    "human": 5
+  }
+]

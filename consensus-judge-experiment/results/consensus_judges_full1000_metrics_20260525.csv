@@ -1,0 +1,9 @@
+system,group,rule,n,pass_agree,pa_ci_lo,pa_ci_hi,precision,recall,f1,f1_ci_lo,f1_ci_hi,pearson_r,tp,fp,tn,fn
+GPT-OSS-120B @ xhigh,individual,single,1000,0.842,0.818,0.864,0.7163,0.8886,0.7932,0.7597,0.8243,0.7246,303,120,539,38
+DeepSeek-V4-Flash,individual,single,1000,0.873,0.853,0.893,0.8147,0.8123,0.8135,0.7829,0.844,0.7507,277,63,596,64
+Gemma-4-31B @ high,individual,single,1000,0.801,0.775,0.825,0.6398,0.9531,0.7656,0.732,0.7972,0.7604,325,183,476,16
+oss + gemma,pair,unanimous_pass,1000,0.866,0.844,0.887,0.7647,0.8768,0.8169,0.7843,0.8467,,299,92,567,42
+ds + gemma,pair,unanimous_pass,1000,0.877,0.857,0.897,0.8244,0.8123,0.8183,0.7868,0.8488,,277,59,600,64
+ds + oss,pair,unanimous_pass,1000,0.878,0.858,0.897,0.8521,0.7771,0.8129,0.7799,0.8433,,265,46,613,76
+Majority vote (trio),combined,majority_vote,1000,0.863,0.841,0.883,0.744,0.912,0.8195,0.7889,0.8482,0.8246,311,107,552,30
+All-three-pass,combined,unanimous_pass,1000,0.879,0.859,0.898,0.8548,0.7771,0.8141,0.781,0.8446,,265,45,614,76

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pipeline token & cost heuristics</title>
+<style>
+  :root{
+    --ink:#1c1e21; --mut:#6b7280; --line:#e5e7eb; --bg:#fafafa;
+    --accent:#2563eb; --warm:#b45309; --good:#047857;
+  }
+  *{box-sizing:border-box}
+  body{font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink); background:var(--bg); margin:0; padding:40px 20px;}
+  main{max-width:860px; margin:0 auto;}
+  h1{font-size:26px; margin:0 0 4px;}
+  h2{font-size:18px; margin:34px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line);}
+  .sub{color:var(--mut); margin:0 0 8px;}
+  p{margin:10px 0;}
+  .tldr{background:#fff; border:1px solid var(--line); border-left:4px solid var(--accent);
+        border-radius:8px; padding:16px 18px; margin:18px 0;}
+  .tldr .formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px;
+        background:#f3f4f6; border-radius:6px; padding:10px 12px; margin:10px 0; display:block;}
+  table{border-collapse:collapse; width:100%; background:#fff; border:1px solid var(--line);
+        border-radius:8px; overflow:hidden; margin:8px 0 4px; font-size:14.5px;}
+  th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--line);}
+  th{background:#f3f4f6; font-weight:600; color:#374151;}
+  td.num,th.num{text-align:right; font-variant-numeric:tabular-nums;
+        font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#f9fafb;}
+  .tag{font-size:11px; font-weight:700; letter-spacing:.03em; padding:2px 7px; border-radius:99px; white-space:nowrap;}
+  .off{background:#ecfdf5; color:var(--good);}
+  .on{background:#fef3c7; color:var(--warm);}
+  .note{color:var(--mut); font-size:13px; margin:6px 0 0;}
+  .cap{font-size:13px; color:var(--mut); background:#fff; border:1px dashed var(--line);
+       border-radius:8px; padding:12px 14px; margin-top:10px;}
+  .cap b{color:#374151;}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; background:#f3f4f6; padding:1px 5px; border-radius:4px; font-size:13px;}
+  .big{font-weight:700;}
+  footer{color:var(--mut); font-size:12px; margin-top:36px; border-top:1px solid var(--line); padding-top:12px;}
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Pipeline token &amp; cost heuristics</h1>
+  <p class="sub">Ballpark figures for running one math problem through the generator → verifier↔reviser → judge pipeline. Order-of-magnitude only (assume &plusmn;2–3&times;).</p>
+
+  <div class="tldr">
+    <p style="margin-top:0"><b>The one thing that matters:</b> turning reasoning <span class="tag on">ON</span> inflates total output tokens <span class="big">~10–50&times;</span> (a generation goes from ~1.5K to ~15–100K, depending on the model). Everything else — extra stages, pass@k — is just a linear multiplier on top.</p>
+    <span class="formula">tokens &asymp; <b>k</b> (passes) &times; <b>F</b> (stage factor) &times; <b>G</b> (output tokens / generation)<br>cost &asymp; tokens &times; ($ per&nbsp;1M output tokens)</span>
+    <p class="note" style="margin-bottom:0">F = 1 for generate-only, ≈ 2 for the full pipeline. Input tokens are small (~2K/call) and rounding error next to reasoning output, so the headline is driven by output. <b>Output = visible answer + hidden reasoning tokens</b> (see table).</p>
+  </div>
+
+  <h2>1 · Output tokens per generation (the driver)</h2>
+  <p class="sub">Measured per single model call. <b>Reasoning is mostly invisible</b> — it lands in a separate <code>reasoning_tokens</code> field, not in the answer text, but it is what you pay for. Input is ~0.3K (generate) to ~4K (revise); negligible vs. output.</p>
+  <table>
+    <thead><tr>
+      <th>Model (effort)</th>
+      <th class="num">Visible answer</th>
+      <th class="num">Hidden reasoning</th>
+      <th class="num">Total out / call</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>gemini-flash-lite, deepseek-v3.2 <span class="tag off">no reasoning</span></td><td class="num">~1.5K</td><td class="num">0</td><td class="num">~1.5K</td></tr>
+      <tr><td>gemma-4-31b <span class="tag on">max</span></td><td class="num">~1.5K</td><td class="num">~14K</td><td class="num">~15K</td></tr>
+      <tr><td>gemini-3.1-pro <span class="tag on">default</span></td><td class="num">~23K</td><td class="num">folded in</td><td class="num">~23K</td></tr>
+      <tr><td>qwen3.6-max, kimi-k2.6 <span class="tag on">default</span></td><td class="num">~27K</td><td class="num">folded in</td><td class="num">~27K</td></tr>
+      <tr><td>gpt-oss-120b <span class="tag on">xhigh</span></td><td class="num">~45K</td><td class="num">~42K</td><td class="num">~80K</td></tr>
+      <tr><td>deepseek-v4-flash <span class="tag on">default</span></td><td class="num">~53K</td><td class="num">~45K</td><td class="num">~100K</td></tr>
+      <tr><td>gpt-5.4 <span class="tag on">default → high</span></td><td class="num">~3.5K → ~30K</td><td class="num">folded in</td><td class="num">~3.5K → ~30K</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>gemma does reason hard</b> (~14K hidden tokens/call) — the visible answer just stays short. That's why its quality jumps with reasoning on (pass@1 0.88 → 1.92) even though the answer length barely changes. "default" effort on deepseek-v4 / gpt-5.4 is <i>not</i> off. Some providers fold reasoning into <code>completion_tokens</code> ("folded in"); others report it separately — either way it's billed.</p>
+
+  <h2>2 · Stage composition (what a "run" contains)</h2>
+  <p class="sub">Calls added per branch. The verify↔revise loop stops early at ~2 iterations on average.</p>
+  <table>
+    <thead><tr><th>Stage</th><th class="num">Calls</th><th>Effect on total</th></tr></thead>
+    <tbody>
+      <tr><td>Seeded ideator</td><td class="num">1 / run</td><td>shared across branches — small (+10–20%)</td></tr>
+      <tr><td>Generator</td><td class="num">1 / branch</td><td>the baseline (F = 1)</td></tr>
+      <tr><td>Verifier ↔ reviser loop</td><td class="num">~4 / branch</td><td>roughly doubles a branch (F ≈ 2)</td></tr>
+      <tr><td>Final judge</td><td class="num">1 / branch</td><td>small unless judge also reasons</td></tr>
+      <tr><td><b>pass@k</b></td><td class="num">&times; k</td><td>linear — pass@3 ≈ 3&times;, pass@7 ≈ 7&times;</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3 · Total tokens per run</h2>
+  <p class="sub">For a capable/frontier model with reasoning on (~25K output/generation). Reasoning off ≈ divide by ~15.</p>
+  <table>
+    <thead><tr><th>Configuration</th><th class="num">pass@1</th><th class="num">pass@3</th><th class="num">pass@7</th></tr></thead>
+    <tbody>
+      <tr><td>Generator only (F=1)</td><td class="num">~25K</td><td class="num">~75K</td><td class="num">~175K</td></tr>
+      <tr><td>Full pipeline (F≈2)</td><td class="num">~50K</td><td class="num">~150K</td><td class="num">~350K</td></tr>
+      <tr><td>Seeded + full pipeline</td><td class="num">~55K</td><td class="num">~165K</td><td class="num">~385K</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Tokens scale with how verbose the model's reasoning is (table 1). The rows above use a frontier-ish G ≈ 25K; a verbose open reasoner like deepseek-v4 (~100K/gen) lands ~4&times; higher, gemma (~15K/gen) ~40% lower. Swap in your model's per-generation number for G.</p>
+
+  <h2>4 · Cost projection — expensive models</h2>
+  <p class="sub">Full pipeline, reasoning on, <b>per problem</b>. Output token counts measured on the AnswerBench-50 calibration; multiplied by current $/1M output.</p>
+  <table>
+    <thead><tr>
+      <th>Model</th><th class="num">$/1M out</th>
+      <th class="num">pass@1</th><th class="num">pass@3</th><th class="num">pass@7</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>gpt-5.4 <span class="note">(high effort)</span></td><td class="num">$15.00</td><td class="num">$0.97</td><td class="num">$2.91</td><td class="num">$6.79</td></tr>
+      <tr><td>gemini-3.1-pro</td><td class="num">$12.00</td><td class="num">$0.51</td><td class="num">$1.54</td><td class="num">$3.58</td></tr>
+      <tr><td>qwen3.6-max</td><td class="num">$6.24</td><td class="num">$0.35</td><td class="num">$1.06</td><td class="num">$2.48</td></tr>
+      <tr><td>kimi-k2.6</td><td class="num">$3.50</td><td class="num">$0.20</td><td class="num">$0.60</td><td class="num">$1.39</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Rule of thumb for a full benchmark: <b>&times; 70 problems</b>. e.g. full pipeline, pass@3, gpt-5.4 ≈ <b>$200</b> per sweep; gemini-3.1-pro ≈ <b>$108</b>; kimi-k2.6 ≈ <b>$42</b>. Generate-only is ~half these.</p>
+
+  <div class="cap">
+    <b>Where these come from.</b> Reasoning-OFF per-stage tokens: 157 per-call pipeline logs (gemini-flash-lite / deepseek-v3.2). Reasoning-ON per-call output (visible + hidden): measured <code>completion_tokens</code> + <code>reasoning_tokens</code> in the KLT iteration logs. Frontier per-generation tokens & prices: expensive-models AnswerBench-50 calibration + the 2026-05-07 pricing snapshot — cost there reconciles to the cent against <code>completion&nbsp;&times;&nbsp;price</code>, so those figures are solid.
+    <br><br><b>Big caveats.</b> (1) <b>Reasoning tokens are billed but often invisible.</b> Open models here report them in a separate <code>reasoning_tokens</code> field; counting only the answer text (or trusting a cost log that missed them — the KLT logs recorded gemma at $0) undercounts the real load by ~10&times;. (2) gpt-5.4 at <i>default</i> effort emits only ~3.5K out and underperforms badly — the table assumes the high-effort config you'd actually want. (3) "default" reasoning on deepseek-v4 / gpt-oss is already reasoning-heavy, not "off". (4) Long-tail runs can be 2–3&times; the mean — cap max tokens for budgeting.
+  </div>
+
+  <footer>Generated 2026-05-24 · agentic-math-solver · figures are heuristics, not billed totals.</footer>
+
+</main>
+</body>
+</html>

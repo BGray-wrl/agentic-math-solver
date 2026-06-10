@@ -1,0 +1,93 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[de~Moura \& Ullrich(2021)de~Moura and Ullrich]{moura2021lean}
+de~Moura, L. and Ullrich, S.
+\newblock The {Lean} 4 theorem prover and programming language.
+\newblock In \emph{Automated Deduction -- CADE 28}, volume 12699 of
+  \emph{Lecture Notes in Computer Science}, pp.\  625--635. Springer, 2021.
+
+\bibitem[Dekoninck et~al.(2025)Dekoninck, Petrov, Minchev, Balunovi{\'c},
+  Vechev, Marinov, Drencheva, Konova, Shumanov, Tsvetkov, Drenchev, Todorov,
+  Nikolova, Georgiev, Kalinkova, and Ismoldayev]{dekoninck2025opc}
+Dekoninck, J., Petrov, I., Minchev, K., Balunovi{\'c}, M., Vechev, M., Marinov,
+  M., Drencheva, M., Konova, L., Shumanov, M., Tsvetkov, K., Drenchev, N.,
+  Todorov, L., Nikolova, K., Georgiev, N., Kalinkova, V., and Ismoldayev, M.
+\newblock The open proof corpus: A large-scale study of {LLM}-generated
+  mathematical proofs.
+\newblock \emph{arXiv preprint arXiv:2506.21621}, 2025.
+
+\bibitem[Gu et~al.(2024)Gu, Jiang, Shi, Tan, Zhai, Xu, Li, Shen, Ma, Liu, Wang,
+  Zhang, Wang, Gao, Ni, and Guo]{gu2024survey}
+Gu, J., Jiang, X., Shi, Z., Tan, H., Zhai, X., Xu, C., Li, W., Shen, Y., Ma,
+  S., Liu, H., Wang, S., Zhang, K., Wang, Y., Gao, W., Ni, L., and Guo, J.
+\newblock A survey on {LLM-as-a-Judge}.
+\newblock \emph{arXiv preprint arXiv:2411.15594}, 2024.
+
+\bibitem[Hubert et~al.(2025)Hubert, Mehta, Sartran, Horv{\'a}th,
+  {\v{Z}}u{\v{z}}i{\'c}, Wieser, Huang, Schrittwieser, Schroecker,
+  et~al.]{hubert2025alphaproof}
+Hubert, T., Mehta, R.~S., Sartran, L., Horv{\'a}th, M.~Z.,
+  {\v{Z}}u{\v{z}}i{\'c}, G., Wieser, E., Huang, A., Schrittwieser, J.,
+  Schroecker, Y., et~al.
+\newblock Olympiad-level formal mathematical reasoning with reinforcement
+  learning.
+\newblock \emph{Nature}, 2025.
+\newblock \doi{10.1038/s41586-025-09833-y}.
+\newblock AlphaProof.
+
+\bibitem[Luong et~al.(2025)Luong, Hwang, Nguyen, Ghiasi, Chervonyi, Seo, Kim,
+  Bingham, Lee, Mishra, Zhai, Hu, Michalewski, Kim, Ahn, Bae, Song, Trinh, Le,
+  and Jung]{luong2025robust}
+Luong, T., Hwang, D., Nguyen, H.~H., Ghiasi, G., Chervonyi, Y., Seo, I., Kim,
+  J., Bingham, G., Lee, J., Mishra, S., Zhai, A., Hu, H., Michalewski, H., Kim,
+  J., Ahn, J., Bae, J., Song, X., Trinh, T.~H., Le, Q.~V., and Jung, J.
+\newblock Towards robust mathematical reasoning.
+\newblock In \emph{Proceedings of the 2025 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pp.\  35418--35442, Suzhou, China,
+  2025. Association for Computational Linguistics.
+\newblock Introduces IMO-Bench, including IMO-GradingBench and the four-bucket
+  grading prompt.
+
+\bibitem[Ma et~al.(2026)Ma, Cojocaru, Kolhe, Louie, Sharif, Zhang, Zhuang,
+  Zaharia, and Min]{ma2026proofgrader}
+Ma, W., Cojocaru, A., Kolhe, N., Louie, B., Sharif, R.~S., Zhang, H., Zhuang,
+  V., Zaharia, M., and Min, S.
+\newblock Reliable fine-grained evaluation of natural language math proofs.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2026.
+\newblock Introduces ProofBench and ProofGrader.
+
+\bibitem[Naik et~al.(2026)Naik, Shabadi, Alur, and Naik]{naik2026frontier}
+Naik, A., Shabadi, G., Alur, R., and Naik, M.
+\newblock Do we need frontier models to verify mathematical proofs?
+\newblock \emph{arXiv preprint arXiv:2604.02450}, 2026.
+
+\bibitem[Petrov et~al.(2025)Petrov, Dekoninck, Baltadzhiev, Drencheva, Minchev,
+  Balunovi{\'c}, Jovanovi{\'c}, and Vechev]{petrov2025proof}
+Petrov, I., Dekoninck, J., Baltadzhiev, L., Drencheva, M., Minchev, K.,
+  Balunovi{\'c}, M., Jovanovi{\'c}, N., and Vechev, M.
+\newblock Proof or bluff? evaluating {LLMs} on 2025 {USA} math olympiad.
+\newblock \emph{arXiv preprint arXiv:2503.21934}, 2025.
+
+\bibitem[Verga et~al.(2024)Verga, Hofst{\"a}tter, Althammer, Su, Piktus,
+  Arkhangorodsky, Xu, White, and Lewis]{verga2024poll}
+Verga, P., Hofst{\"a}tter, S., Althammer, S., Su, Y., Piktus, A.,
+  Arkhangorodsky, A., Xu, M., White, N., and Lewis, P.
+\newblock Replacing judges with juries: Evaluating {LLM} generations with a
+  panel of diverse models.
+\newblock \emph{arXiv preprint arXiv:2404.18796}, 2024.
+
+\bibitem[Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, Zhang, Gonzalez, and Stoica]{zheng2023judging}
+Zheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z., Zhuang, Y., Lin, Z.,
+  Li, Z., Li, D., Xing, E.~P., Zhang, H., Gonzalez, J.~E., and Stoica, I.
+\newblock Judging {LLM-as-a-Judge} with {MT-Bench} and {Chatbot Arena}.
+\newblock In \emph{Advances in Neural Information Processing Systems 36
+  (NeurIPS), Datasets and Benchmarks Track}, 2023.
+
+\end{thebibliography}

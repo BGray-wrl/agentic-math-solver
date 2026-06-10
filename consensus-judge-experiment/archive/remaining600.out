@@ -1,0 +1,52 @@
+/Users/benjamingrayzel/sandbox/agentic-math-solver/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+GradingBench total=1000 | remaining (not in prior+val) = 600
+score dist (remaining): {0: 182, 1: 86, 2: 28, 3: 14, 4: 36, 5: 33, 6: 25, 7: 196}
+START deepseek-v4-flash@default: 600 problems, 80 workers
+START gpt-oss-120b@xhigh: 600 problems, 80 workers
+START gemma-4-31b-it@high: 600 problems, 80 workers
+  [gpt-oss-120b@xhigh] 50/600 valid=50 >=6agr=0.84 F1=0.8 $0.1401
+  [deepseek-v4-flash@default] 50/600 valid=50 >=6agr=0.92 F1=0.8182 $0.0814
+  [gpt-oss-120b@xhigh] 100/600 valid=99 >=6agr=0.8788 F1=0.8605 $0.2489
+  [deepseek-v4-flash@default] 100/600 valid=100 >=6agr=0.9 F1=0.8387 $0.193
+  [gpt-oss-120b@xhigh] 150/600 valid=149 >=6agr=0.8993 F1=0.8571 $0.3292
+  [deepseek-v4-flash@default] 150/600 valid=150 >=6agr=0.9 F1=0.8193 $0.2859
+  [gemma-4-31b-it@high] 50/600 valid=50 >=6agr=0.78 F1=0.8136 $0.1092
+  [gpt-oss-120b@xhigh] 200/600 valid=199 >=6agr=0.8794 F1=0.8095 $0.4239
+  [deepseek-v4-flash@default] 200/600 valid=200 >=6agr=0.9 F1=0.7959 $0.4427
+  [gpt-oss-120b@xhigh] 250/600 valid=248 >=6agr=0.8669 F1=0.8092 $0.5308
+  [gpt-oss-120b@xhigh] 300/600 valid=286 >=6agr=0.8392 F1=0.77 $0.6104
+  [gpt-oss-120b@xhigh] 350/600 valid=336 >=6agr=0.8393 F1=0.7731 $0.703
+  [deepseek-v4-flash@default] 250/600 valid=250 >=6agr=0.888 F1=0.791 $0.6109
+  [gpt-oss-120b@xhigh] 400/600 valid=386 >=6agr=0.842 F1=0.7798 $0.8009
+  [deepseek-v4-flash@default] 300/600 valid=300 >=6agr=0.8633 F1=0.763 $0.7963
+  [gpt-oss-120b@xhigh] 450/600 valid=436 >=6agr=0.8417 F1=0.7738 $0.8958
+  [deepseek-v4-flash@default] 350/600 valid=350 >=6agr=0.8429 F1=0.7343 $0.9576
+  [gemma-4-31b-it@high] 100/600 valid=100 >=6agr=0.84 F1=0.8571 $0.2345
+  [gpt-oss-120b@xhigh] 500/600 valid=485 >=6agr=0.8412 F1=0.789 $1.0189
+  [deepseek-v4-flash@default] 400/600 valid=400 >=6agr=0.8525 F1=0.7511 $1.0871
+  [gpt-oss-120b@xhigh] 550/600 valid=535 >=6agr=0.8336 F1=0.7866 $1.1085
+  [deepseek-v4-flash@default] 450/600 valid=450 >=6agr=0.8578 F1=0.7612 $1.2649
+  [deepseek-v4-flash@default] 500/600 valid=500 >=6agr=0.868 F1=0.7975 $1.4557
+  [deepseek-v4-flash@default] 550/600 valid=549 >=6agr=0.8725 F1=0.8128 $1.6133
+  [gemma-4-31b-it@high] 150/600 valid=150 >=6agr=0.8067 F1=0.7972 $0.3657
+  [deepseek-v4-flash@default] 600/600 valid=599 >=6agr=0.8781 F1=0.833 $1.8444
+DONE deepseek-v4-flash@default: valid=599/600 trunc=1 wall=909.1s cost=$1.84 >=6agr=0.8781 F1=0.833 r=0.772 -> judge_remaining600_deepseek-v4-flash_default_20260524_20260525_021610.json
+  [gemma-4-31b-it@high] 200/600 valid=200 >=6agr=0.77 F1=0.7294 $0.5101
+  [gpt-oss-120b@xhigh] 600/600 valid=584 >=6agr=0.8356 F1=0.7949 $1.228
+DONE gpt-oss-120b@xhigh: valid=584/600 trunc=3 wall=1092.4s cost=$1.23 >=6agr=0.8356 F1=0.7949 r=0.7309 -> judge_remaining600_gpt-oss-120b_xhigh_20260524_20260525_021610.json
+  [gemma-4-31b-it@high] 250/600 valid=250 >=6agr=0.728 F1=0.6852 $0.645
+  [gemma-4-31b-it@high] 300/600 valid=300 >=6agr=0.7233 F1=0.696 $0.7745
+  [gemma-4-31b-it@high] 350/600 valid=350 >=6agr=0.74 F1=0.7165 $0.9002
+  [gemma-4-31b-it@high] 400/600 valid=400 >=6agr=0.76 F1=0.7363 $1.0308
+  [gemma-4-31b-it@high] 450/600 valid=450 >=6agr=0.7756 F1=0.7404 $1.1757
+  [gemma-4-31b-it@high] 500/600 valid=500 >=6agr=0.79 F1=0.763 $1.3074
+  [gemma-4-31b-it@high] 550/600 valid=550 >=6agr=0.8036 F1=0.7931 $1.4179
+  [gemma-4-31b-it@high] 600/600 valid=600 >=6agr=0.8067 F1=0.7875 $1.5618
+DONE gemma-4-31b-it@high: valid=600/600 trunc=0 wall=3321.1s cost=$1.56 >=6agr=0.8067 F1=0.7875 r=0.773 -> judge_remaining600_gemma-4-31b-it_high_20260524_20260525_021610.json
+
+======================================================================
+ALL DONE — remaining 600
+  deepseek-v4-flash    valid=599/600 >=6agr=0.8781 F1=0.833 r=0.772 cost=$1.8444
+  gpt-oss-120b         valid=584/600 >=6agr=0.8356 F1=0.7949 r=0.7309 cost=$1.228
+  gemma-4-31b-it       valid=600/600 >=6agr=0.8067 F1=0.7875 r=0.773 cost=$1.5618

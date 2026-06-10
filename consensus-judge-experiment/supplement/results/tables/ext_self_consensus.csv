@@ -1,0 +1,7 @@
+model,rule,n,precision,recall,f1,pass_agree
+DeepSeek-V4-Flash,self-majority,191,0.818,0.833,0.826,0.901
+DeepSeek-V4-Flash,self-all-3,191,0.840,0.778,0.808,0.895
+GPT-OSS-120B,self-majority,196,0.681,0.875,0.766,0.847
+GPT-OSS-120B,self-all-3,196,0.783,0.839,0.810,0.888
+Gemma-4-31B,self-majority,199,0.628,0.947,0.755,0.824
+Gemma-4-31B,self-all-3,199,0.680,0.895,0.773,0.849

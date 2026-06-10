@@ -9,16 +9,16 @@ GB-0033,prior,0,1,1,False,True,0.6667,1,3,0,False,,,0,False,False,PB-Advanced-00
 GB-0045,prior,0,0,0,False,False,0,0,3,0,False,,,1,False,True,PB-Advanced-002,Novel Problem,True,True,
 GB-0047,prior,7,1,0,False,True,2.6667,1,3,1,False,,,1,False,True,PB-Advanced-002,Novel Problem,True,True,
 GB-0049,prior,0,0,0,False,False,0,0,3,0,False,,,1,False,True,PB-Advanced-002,Novel Problem,True,True,
-GB-0058,prior,0,,0,False,False,0,0,2,1,False,,,2,False,True,PB-Advanced-002,Novel Problem,True,True,
+GB-0058,prior,0,1,0,False,False,0.3333,0,3,1,False,,,2,False,True,PB-Advanced-002,Novel Problem,True,True,
 GB-0066,prior,1,1,0,False,True,0.6667,1,3,1,False,,,0,False,False,PB-Advanced-003,Novel Problem,True,True,
 GB-0068,prior,0,1,0,False,False,0.3333,0,3,0,False,,,0,False,False,PB-Advanced-003,Novel Problem,True,True,
-GB-0072,prior,1,,0,False,False,0.5,1,2,0,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
-GB-0074,prior,1,,0,False,False,0.5,1,2,1,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
+GB-0072,prior,1,1,0,False,True,0.6667,1,3,0,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
+GB-0074,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
 GB-0081,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
 GB-0082,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
 GB-0090,prior,1,7,0,False,True,2.6667,1,3,1,False,,,1,False,True,PB-Advanced-003,Novel Problem,True,True,
 GB-0094,prior,7,1,7,True,True,5,7,3,7,True,,,2,False,True,PB-Advanced-004,Novel Problem,False,False,
-GB-0095,prior,7,,6,True,True,6.5,7,2,7,True,,,4,False,True,PB-Advanced-004,Novel Problem,False,False,
+GB-0095,prior,7,7,6,True,True,6.6667,7,3,7,True,,,4,False,True,PB-Advanced-004,Novel Problem,False,False,
 GB-0096,prior,6,7,6,True,True,6.3333,6,3,7,True,,,4,False,True,PB-Advanced-004,Novel Problem,False,False,
 GB-0100,prior,7,1,6,True,True,4.6667,6,3,7,True,,,5,False,True,PB-Advanced-004,Novel Problem,False,False,
 GB-0104,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-004,Novel Problem,True,True,
@@ -26,11 +26,11 @@ GB-0105,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-004,Novel P
 GB-0113,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-004,Novel Problem,True,True,
 GB-0115,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-004,Novel Problem,True,True,
 GB-0118,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-004,Novel Problem,True,True,
-GB-0128,prior,1,,0,False,False,0.5,1,2,0,False,,,0,False,False,PB-Advanced-005,Novel Problem,True,True,
+GB-0128,prior,1,1,0,False,True,0.6667,1,3,0,False,,,0,False,False,PB-Advanced-005,Novel Problem,True,True,
 GB-0142,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-005,Novel Problem,True,True,
 GB-0143,prior,0,1,0,False,False,0.3333,0,3,0,False,,,0,False,False,PB-Advanced-005,Novel Problem,True,True,
-GB-0147,prior,1,,0,False,False,0.5,1,2,0,False,,,2,False,True,PB-Advanced-005,Novel Problem,True,True,
-GB-0157,prior,6,,0,False,False,3,6,2,6,True,,,7,True,True,PB-Advanced-005,Novel Problem,False,True,
+GB-0147,prior,1,0,0,False,False,0.3333,0,3,0,False,,,2,False,True,PB-Advanced-005,Novel Problem,True,True,
+GB-0157,prior,6,0,0,False,False,2,0,3,6,True,,,7,True,True,PB-Advanced-005,Novel Problem,False,True,
 GB-0160,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-005,Novel Problem,True,True,
 GB-0162,prior,1,1,0,False,True,0.6667,1,3,1,False,,,0,False,False,PB-Advanced-006,Novel Problem,True,True,
 GB-0164,prior,6,1,1,False,True,2.6667,1,3,1,False,,,0,False,False,PB-Advanced-006,Novel Problem,True,True,
@@ -43,13 +43,13 @@ GB-0215,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-007,Novel P
 GB-0217,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-007,Novel Problem,True,True,
 GB-0218,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-007,Novel Problem,True,True,
 GB-0221,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
-GB-0224,prior,1,,0,False,False,0.5,1,2,1,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
+GB-0224,prior,1,7,0,False,True,2.6667,1,3,1,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
 GB-0225,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
 GB-0226,prior,1,1,0,False,True,0.6667,1,3,0,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
-GB-0229,prior,7,,0,False,False,3.5,7,2,1,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
+GB-0229,prior,7,1,0,False,True,2.6667,1,3,1,False,,,0,False,False,PB-Advanced-008,Novel Problem,True,True,
 GB-0234,prior,1,0,0,False,False,0.3333,0,3,1,False,,,1,False,True,PB-Advanced-008,Novel Problem,True,True,
-GB-0235,prior,7,,0,False,False,3.5,7,2,6,True,,,1,False,True,PB-Advanced-008,Novel Problem,True,False,
-GB-0239,prior,1,,0,False,False,0.5,1,2,1,False,,,4,False,True,PB-Advanced-008,Novel Problem,True,True,
+GB-0235,prior,7,7,0,True,True,4.6667,7,3,6,True,,,1,False,True,PB-Advanced-008,Novel Problem,False,False,
+GB-0239,prior,1,1,0,False,True,0.6667,1,3,1,False,,,4,False,True,PB-Advanced-008,Novel Problem,True,True,
 GB-0251,prior,7,1,0,False,True,2.6667,1,3,7,True,,,6,True,True,PB-Advanced-008,Novel Problem,False,True,
 GB-0253,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-008,Novel Problem,True,True,
 GB-0258,prior,7,6,0,True,True,4.3333,6,3,7,True,,,7,True,True,PB-Advanced-008,Novel Problem,True,True,
@@ -63,28 +63,28 @@ GB-0282,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-009,No
 GB-0285,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-009,Novel Problem,True,True,
 GB-0297,prior,1,0,0,False,False,0.3333,0,3,,,,,0,False,False,PB-Advanced-010,Novel Problem,True,,
 GB-0301,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-010,Novel Problem,True,True,
-GB-0323,prior,7,,0,False,False,3.5,7,2,7,True,,,4,False,True,PB-Advanced-010,Novel Problem,True,False,
+GB-0323,prior,7,0,0,False,False,2.3333,0,3,7,True,,,4,False,True,PB-Advanced-010,Novel Problem,True,False,
 GB-0324,prior,7,1,0,False,True,2.6667,1,3,1,False,,,5,False,True,PB-Advanced-010,Novel Problem,True,True,
 GB-0333,prior,1,1,1,False,True,1,1,3,1,False,,,0,False,False,PB-Advanced-011,Novel Problem,True,True,
 GB-0345,prior,1,1,0,False,True,0.6667,1,3,0,False,,,0,False,False,PB-Advanced-011,Novel Problem,True,True,
 GB-0349,prior,1,0,0,False,False,0.3333,0,3,1,False,,,2,False,True,PB-Advanced-011,Novel Problem,True,True,
 GB-0353,prior,7,7,0,True,True,4.6667,7,3,7,True,,,3,False,True,PB-Advanced-011,Novel Problem,False,False,
 GB-0364,prior,1,1,0,False,True,0.6667,1,3,1,False,,,0,False,False,PB-Advanced-012,Novel Problem,True,True,
-GB-0368,prior,6,,0,False,False,3,6,2,1,False,,,2,False,True,PB-Advanced-012,Novel Problem,True,True,
+GB-0368,prior,6,1,0,False,True,2.3333,1,3,1,False,,,2,False,True,PB-Advanced-012,Novel Problem,True,True,
 GB-0371,prior,6,1,0,False,True,2.3333,1,3,6,True,,,2,False,True,PB-Advanced-012,Novel Problem,True,False,
 GB-0374,prior,7,7,0,True,True,4.6667,7,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0380,prior,7,7,0,True,True,4.6667,7,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0388,prior,7,7,0,True,True,4.6667,7,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0389,prior,7,7,6,True,True,6.6667,7,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
-GB-0390,prior,7,,7,True,True,7,7,2,6,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
-GB-0391,prior,7,1,,False,True,4,7,2,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,True,False,
+GB-0390,prior,7,7,7,True,True,7,7,3,6,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
+GB-0391,prior,7,1,6,True,True,4.6667,6,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0395,prior,7,7,7,True,True,7,7,3,7,True,,,4,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0406,prior,1,1,0,False,True,0.6667,1,3,1,False,,,5,False,True,PB-Advanced-012,Novel Problem,True,True,
 GB-0409,prior,7,7,6,True,True,6.6667,7,3,7,True,,,5,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0411,prior,7,7,7,True,True,7,7,3,7,True,,,5,False,True,PB-Advanced-012,Novel Problem,False,False,
 GB-0430,prior,1,1,0,False,True,0.6667,1,3,1,False,,,0,False,False,PB-Advanced-013,Novel Problem,True,True,
 GB-0433,prior,7,7,0,True,True,4.6667,7,3,0,False,,,0,False,False,PB-Advanced-013,Novel Problem,False,True,
-GB-0439,prior,1,,0,False,False,0.5,1,2,6,True,,,6,True,True,PB-Advanced-013,Novel Problem,False,True,
+GB-0439,prior,1,1,0,False,True,0.6667,1,3,6,True,,,6,True,True,PB-Advanced-013,Novel Problem,False,True,
 GB-0446,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-013,Novel Problem,True,True,
 GB-0460,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-014,Novel Problem,True,True,
 GB-0465,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-014,Novel Problem,True,True,
@@ -93,15 +93,15 @@ GB-0471,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-014,Novel P
 GB-0474,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-014,Novel Problem,True,True,
 GB-0480,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-014,Novel Problem,True,True,
 GB-0506,prior,1,0,0,False,False,0.3333,0,3,1,False,,,2,False,True,PB-Advanced-015,Novel Problem,True,True,
-GB-0512,prior,1,,0,False,False,0.5,1,2,1,False,,,3,False,True,PB-Advanced-015,Novel Problem,True,True,
+GB-0512,prior,1,0,0,False,False,0.3333,0,3,1,False,,,3,False,True,PB-Advanced-015,Novel Problem,True,True,
 GB-0518,prior,1,1,0,False,True,0.6667,1,3,0,False,,,0,False,False,PB-Advanced-016,Novel Problem,True,True,
 GB-0522,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-016,Novel Problem,True,True,
 GB-0542,prior,7,7,0,True,True,4.6667,7,3,7,True,,,7,True,True,PB-Advanced-016,Novel Problem,True,True,
-GB-0547,prior,7,,7,True,True,7,7,2,7,True,,,7,True,True,PB-Advanced-016,Novel Problem,True,True,
+GB-0547,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-016,Novel Problem,True,True,
 GB-0550,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-017,Novel Problem,True,True,
 GB-0552,prior,1,1,0,False,True,0.6667,1,3,1,False,,,1,False,True,PB-Advanced-017,Novel Problem,True,True,
 GB-0559,prior,7,7,0,True,True,4.6667,7,3,7,True,,,3,False,True,PB-Advanced-017,Novel Problem,False,False,
-GB-0566,prior,7,,1,False,True,4,7,2,7,True,,,4,False,True,PB-Advanced-017,Novel Problem,True,False,
+GB-0566,prior,7,6,1,True,True,4.6667,6,3,7,True,,,4,False,True,PB-Advanced-017,Novel Problem,False,False,
 GB-0567,prior,7,1,0,False,True,2.6667,1,3,7,True,,,5,False,True,PB-Advanced-017,Novel Problem,True,False,
 GB-0571,prior,7,6,0,True,True,4.3333,6,3,6,True,,,5,False,True,PB-Advanced-017,Novel Problem,False,False,
 GB-0575,prior,7,7,6,True,True,6.6667,7,3,7,True,,,6,True,True,PB-Advanced-017,Novel Problem,True,True,
@@ -116,7 +116,7 @@ GB-0617,prior,1,1,0,False,True,0.6667,1,3,0,False,,,1,False,True,PB-Advanced-018
 GB-0619,prior,0,0,0,False,False,0,0,3,0,False,,,1,False,True,PB-Advanced-018,Novel Problem,True,True,
 GB-0624,prior,6,6,0,True,True,4,6,3,6,True,,,5,False,True,PB-Advanced-019,(Modified) IMO 2024 P1,False,False,
 GB-0634,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-019,(Modified) IMO 2024 P1,True,True,
-GB-0643,prior,7,,7,True,True,7,7,2,7,True,,,7,True,True,PB-Advanced-019,(Modified) IMO 2024 P1,True,True,
+GB-0643,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-019,(Modified) IMO 2024 P1,True,True,
 GB-0644,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-019,(Modified) IMO 2024 P1,True,True,
 GB-0651,prior,1,7,0,False,True,2.6667,1,3,1,False,,,7,True,True,PB-Advanced-019,(Modified) IMO 2024 P1,False,False,
 GB-0655,prior,1,1,0,False,True,0.6667,1,3,1,False,,,0,False,False,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,
@@ -141,7 +141,7 @@ GB-0734,prior,1,1,1,False,True,1,1,3,0,False,,,1,False,True,PB-Advanced-022,(Mod
 GB-0736,prior,0,0,0,False,False,0,0,3,1,False,,,1,False,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
 GB-0737,prior,0,1,0,False,False,0.3333,0,3,1,False,,,1,False,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
 GB-0739,prior,7,7,0,True,True,4.6667,7,3,6,True,,,6,True,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
-GB-0740,prior,7,,7,True,True,7,7,2,7,True,,,7,True,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
+GB-0740,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
 GB-0747,prior,7,0,7,True,True,4.6667,7,3,7,True,,,7,True,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
 GB-0748,prior,7,7,6,True,True,6.6667,7,3,7,True,,,7,True,True,PB-Advanced-022,(Modified) IMO 2024 P4,True,True,
 GB-0755,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-023,(Modified) IMO 2024 P5,True,True,
@@ -169,7 +169,7 @@ GB-0855,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-026,USAMO 2
 GB-0864,prior,7,7,7,True,True,7,7,3,7,True,,,7,True,True,PB-Advanced-026,USAMO 2025,True,True,
 GB-0868,prior,7,1,7,True,True,5,7,3,7,True,,,7,True,True,PB-Advanced-026,USAMO 2025,True,True,
 GB-0876,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-027,USAMO 2025,True,True,
-GB-0882,prior,0,,0,False,False,0,0,2,0,False,,,0,False,False,PB-Advanced-027,USAMO 2025,True,True,
+GB-0882,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-027,USAMO 2025,True,True,
 GB-0883,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-027,USAMO 2025,True,True,
 GB-0888,prior,7,7,7,True,True,7,7,3,6,True,,,4,False,True,PB-Advanced-027,USAMO 2025,False,False,
 GB-0891,prior,7,1,1,False,True,3,1,3,1,False,,,5,False,True,PB-Advanced-027,USAMO 2025,True,True,
@@ -193,7 +193,7 @@ GB-0971,prior,0,7,0,False,False,2.3333,0,3,0,False,,,0,False,False,PB-Advanced-0
 GB-0975,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
 GB-0979,prior,0,1,0,False,False,0.3333,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
 GB-0983,prior,7,0,0,False,False,2.3333,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
-GB-0984,prior,0,,0,False,False,0,0,2,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
+GB-0984,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
 GB-0987,prior,0,0,0,False,False,0,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
 GB-0991,prior,0,1,0,False,False,0.3333,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
 GB-0993,prior,0,7,0,False,False,2.3333,0,3,0,False,,,0,False,False,PB-Advanced-030,USAMO 2025,True,True,
@@ -210,11 +210,11 @@ GB-0059,validation,1,0,0,False,False,0.3333,0,3,0,False,0,False,5,False,True,PB-
 GB-0061,validation,0,1,0,False,False,0.3333,0,3,1,False,0,False,5,False,True,PB-Advanced-002,Novel Problem,True,True,True
 GB-0062,validation,7,1,0,False,True,2.6667,1,3,7,True,1,False,5,False,True,PB-Advanced-002,Novel Problem,True,False,True
 GB-0065,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-003,Novel Problem,True,True,True
-GB-0069,validation,1,1,,False,True,1,1,2,1,False,1,False,0,False,False,PB-Advanced-003,Novel Problem,True,True,True
+GB-0069,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,0,False,False,PB-Advanced-003,Novel Problem,True,True,True
 GB-0075,validation,7,0,0,False,False,2.3333,0,3,0,False,0,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
 GB-0076,validation,1,1,7,False,True,3,1,3,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
 GB-0077,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
-GB-0078,validation,,1,0,False,False,0.5,1,2,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
+GB-0078,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
 GB-0079,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
 GB-0080,validation,1,0,0,False,False,0.3333,0,3,0,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
 GB-0084,validation,1,1,1,False,True,1,1,3,1,False,1,False,1,False,True,PB-Advanced-003,Novel Problem,True,True,True
@@ -232,12 +232,12 @@ GB-0120,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-0
 GB-0123,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-004,Novel Problem,True,True,True
 GB-0124,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-004,Novel Problem,True,True,True
 GB-0127,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-004,Novel Problem,True,True,True
-GB-0132,validation,0,0,,False,False,0,0,2,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
+GB-0132,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
 GB-0133,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
 GB-0134,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
-GB-0135,validation,,0,0,False,False,0,0,2,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
+GB-0135,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
 GB-0141,validation,0,1,0,False,False,0.3333,0,3,1,False,0,False,0,False,False,PB-Advanced-005,Novel Problem,True,True,True
-GB-0151,validation,,7,0,False,False,3.5,7,2,7,True,6,True,3,False,True,PB-Advanced-005,Novel Problem,True,False,False
+GB-0151,validation,7,7,0,True,True,4.6667,7,3,7,True,6,True,3,False,True,PB-Advanced-005,Novel Problem,False,False,False
 GB-0152,validation,1,0,0,False,False,0.3333,0,3,1,False,1,False,3,False,True,PB-Advanced-005,Novel Problem,True,True,True
 GB-0159,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-005,Novel Problem,True,True,True
 GB-0163,validation,1,1,0,False,True,0.6667,1,3,1,False,0,False,0,False,False,PB-Advanced-006,Novel Problem,True,True,True
@@ -257,12 +257,12 @@ GB-0233,validation,1,0,0,False,False,0.3333,0,3,1,False,0,False,1,False,True,PB-
 GB-0236,validation,1,0,0,False,False,0.3333,0,3,1,False,0,False,1,False,True,PB-Advanced-008,Novel Problem,True,True,True
 GB-0237,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,2,False,True,PB-Advanced-008,Novel Problem,True,True,True
 GB-0244,validation,6,0,0,False,False,2,0,3,6,True,6,True,5,False,True,PB-Advanced-008,Novel Problem,True,False,False
-GB-0247,validation,,1,0,False,False,0.5,1,2,6,True,6,True,5,False,True,PB-Advanced-008,Novel Problem,True,False,False
+GB-0247,validation,6,1,0,False,True,2.3333,1,3,6,True,6,True,5,False,True,PB-Advanced-008,Novel Problem,True,False,False
 GB-0265,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
-GB-0267,validation,0,0,,False,False,0,0,2,0,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
+GB-0267,validation,0,0,0,False,False,0,0,3,0,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
 GB-0268,validation,0,0,0,False,False,0,0,3,0,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
 GB-0280,validation,0,0,0,False,False,0,0,3,1,False,0,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
-GB-0286,validation,,0,0,False,False,0,0,2,0,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
+GB-0286,validation,1,0,0,False,False,0.3333,0,3,0,False,1,False,0,False,False,PB-Advanced-009,Novel Problem,True,True,True
 GB-0289,validation,1,0,0,False,False,0.3333,0,3,1,False,0,False,1,False,True,PB-Advanced-009,Novel Problem,True,True,True
 GB-0291,validation,7,7,1,True,True,5,7,3,7,True,1,False,3,False,True,PB-Advanced-009,Novel Problem,False,False,True
 GB-0300,validation,0,0,0,False,False,0,0,3,1,False,1,False,0,False,False,PB-Advanced-010,Novel Problem,True,True,True
@@ -302,12 +302,12 @@ GB-0473,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-0
 GB-0483,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-014,Novel Problem,True,True,True
 GB-0489,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
 GB-0494,validation,0,0,7,False,False,2.3333,0,3,0,False,0,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
-GB-0495,validation,,0,0,False,False,0,0,2,0,False,1,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
+GB-0495,validation,0,0,0,False,False,0,0,3,0,False,1,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
 GB-0497,validation,1,0,0,False,False,0.3333,0,3,1,False,0,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
 GB-0498,validation,1,0,0,False,False,0.3333,0,3,0,False,0,False,0,False,False,PB-Advanced-015,Novel Problem,True,True,True
 GB-0500,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,True,True
 GB-0501,validation,7,0,0,False,False,2.3333,0,3,7,True,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,False,True
-GB-0502,validation,,0,0,False,False,0,0,2,1,False,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,True,True
+GB-0502,validation,1,0,0,False,False,0.3333,0,3,1,False,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,True,True
 GB-0504,validation,1,0,0,False,False,0.3333,0,3,1,False,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,True,True
 GB-0505,validation,7,0,0,False,False,2.3333,0,3,1,False,1,False,2,False,True,PB-Advanced-015,Novel Problem,True,True,True
 GB-0523,validation,1,1,0,False,True,0.6667,1,3,0,False,0,False,1,False,True,PB-Advanced-016,Novel Problem,True,True,True
@@ -339,7 +339,7 @@ GB-0662,validation,1,1,1,False,True,1,1,3,1,False,1,False,0,False,False,PB-Advan
 GB-0671,validation,6,1,1,False,True,2.6667,1,3,1,False,1,False,1,False,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
 GB-0675,validation,7,6,0,True,True,4.3333,6,3,6,True,6,True,6,True,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
 GB-0676,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
-GB-0677,validation,7,7,,True,True,7,7,2,7,True,7,True,7,True,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
+GB-0677,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
 GB-0682,validation,6,7,3,True,True,5.3333,6,3,6,True,6,True,7,True,True,PB-Advanced-020,(Modified) IMO 2024 P2,True,True,True
 GB-0690,validation,0,0,0,False,False,0,0,3,0,False,0,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0692,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
@@ -347,7 +347,7 @@ GB-0694,validation,7,6,0,True,True,4.3333,6,3,7,True,1,False,0,False,False,PB-Ad
 GB-0695,validation,1,7,0,False,True,2.6667,1,3,1,False,1,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0706,validation,1,1,0,False,True,0.6667,1,3,0,False,0,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0707,validation,1,1,0,False,True,0.6667,1,3,0,False,0,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
-GB-0708,validation,,1,,False,True,1,1,1,1,False,1,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
+GB-0708,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,0,False,False,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0709,validation,1,0,0,False,False,0.3333,0,3,0,False,0,False,1,False,True,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0713,validation,1,0,0,False,False,0.3333,0,3,1,False,1,False,4,False,True,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
 GB-0716,validation,1,1,0,False,True,0.6667,1,3,0,False,1,False,4,False,True,PB-Advanced-021,(Modified) IMO 2024 P3,True,True,True
@@ -369,7 +369,7 @@ GB-0779,validation,1,1,0,False,True,0.6667,1,3,7,True,6,True,1,False,True,PB-Adv
 GB-0790,validation,1,1,0,False,True,0.6667,1,3,1,False,0,False,1,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
 GB-0801,validation,1,0,0,False,False,0.3333,0,3,0,False,1,False,1,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
 GB-0804,validation,1,0,0,False,False,0.3333,0,3,1,False,0,False,1,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
-GB-0806,validation,,1,1,False,True,1,1,2,1,False,1,False,4,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
+GB-0806,validation,1,1,1,False,True,1,1,3,1,False,1,False,4,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
 GB-0809,validation,1,1,0,False,True,0.6667,1,3,1,False,1,False,5,False,True,PB-Advanced-024,(Modified) IMO 2024 P6,True,True,True
 GB-0814,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-025,USAMO 2025,True,True,True
 GB-0822,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-025,USAMO 2025,True,True,True
@@ -383,7 +383,7 @@ GB-0867,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-0
 GB-0869,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-026,USAMO 2025,True,True,True
 GB-0889,validation,1,1,1,False,True,1,1,3,1,False,6,True,4,False,True,PB-Advanced-027,USAMO 2025,True,True,False
 GB-0890,validation,7,1,0,False,True,2.6667,1,3,6,True,6,True,5,False,True,PB-Advanced-027,USAMO 2025,True,False,False
-GB-0892,validation,,1,1,False,True,1,1,2,6,True,6,True,5,False,True,PB-Advanced-027,USAMO 2025,True,False,False
+GB-0892,validation,7,1,1,False,True,3,1,3,6,True,6,True,5,False,True,PB-Advanced-027,USAMO 2025,True,False,False
 GB-0905,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-027,USAMO 2025,True,True,True
 GB-0912,validation,7,0,7,True,True,4.6667,7,3,7,True,6,True,4,False,True,PB-Advanced-028,USAMO 2025,False,False,False
 GB-0916,validation,7,7,7,True,True,7,7,3,7,True,7,True,7,True,True,PB-Advanced-028,USAMO 2025,True,True,True

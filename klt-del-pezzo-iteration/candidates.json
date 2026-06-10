@@ -1,0 +1,64 @@
+{
+  "problem": "klt del Pezzo surface in characteristic 3, Picard number rho(X)=1, with at least N_sing singular points (warmup: N_sing=7, full: N_sing=8)",
+  "candidates": [
+    {
+      "id": "gpt-oss-seed42-full",
+      "model": "gpt-oss-120b",
+      "method": "B",
+      "problem_type": "full",
+      "N_sing": 8,
+      "weights": [1, 2, 2, 5, 5],
+      "equations": [
+        "x0^4 + x1^2 + x2^2 + x0^2*x1 + x0^2*x2",
+        "x0^10 + x1^5 + x2^5 + x3^2 + x4^2"
+      ],
+      "degrees": [4, 10],
+      "model_claim": "L_{12} contributes (4/2)*(10/2)=10 points; L_{34} contributes 2 points; total >=12. rho=1 asserted, not proved.",
+      "ai_suspicion": "F1 vanishes identically on L_{34} (no terms involving x3,x4 in deg-4); at L_{34} cap V(F2), Jacobian rank drops to 1, X is not CI/quasi-smooth there."
+    },
+    {
+      "id": "gemma-seed46-warmup",
+      "model": "gemma-4-31b-it",
+      "method": "B",
+      "problem_type": "warmup",
+      "N_sing": 7,
+      "weights": [2, 2, 5, 5],
+      "equations": ["x0^5 + x1^5 + x2^2 + x3^2"],
+      "degrees": [10],
+      "model_claim": "L_{01} cap X = {x0^5+x1^5=0} on P(2,2) gives 5 points; L_{23} cap X = {x2^2+x3^2=0} on P(5,5) gives 2 points; total 7. rho=1.",
+      "ai_suspicion": "Looks structurally clean. Both equations homogeneous; partials in char 3 nonzero (5 -> 2 mod 3); P(2,2,5,5) well-formed."
+    },
+    {
+      "id": "seedfull-homo-seed42-warmup",
+      "model": "gemma-4-31b-it",
+      "method": "B",
+      "problem_type": "warmup",
+      "N_sing": 7,
+      "weights": [2, 2, 5, 5],
+      "equations": ["x0^5 + x1^5 + x2^2 + x3^2"],
+      "degrees": [10],
+      "note": "Identical to gemma-seed46-warmup; produced via seed-full architecture."
+    },
+    {
+      "id": "deepseek-seed46-full",
+      "model": "deepseek-v4-flash",
+      "method": "B",
+      "problem_type": "full",
+      "N_sing": 8,
+      "weights": [1, 2, 2, 14],
+      "equations": ["x1^8 - x2^8 + x3*x2 + x3*x0^2 + x0^16 + x0^14*x1"],
+      "degrees": [16],
+      "ai_suspicion": "x0^14*x1 has weighted degree 14+1=15, not 16. Equation is NOT weighted-homogeneous. Predicted to fail trivially."
+    },
+    {
+      "id": "deepseek-seed43-full-COMPLETED",
+      "model": "deepseek-v4-flash (TRUNCATED by token limit) + me",
+      "method": "B",
+      "problem_type": "full",
+      "N_sing": 8,
+      "weights_model_was_using": [2, 2, 5, 7],
+      "completion_note": "Model was in P(2,2,5,7) deg 14 hypersurface; line L_{01} gives 7 pts but no second singular line (gcd(5,7)=1). Coord-point P_3 (weight 7) has no quasi-smoothness fix (7 doesn't divide 14 cleanly and no x_3*x_j cross term works either, since 7a+w_j=14 has no integer solution for j!=3). Framework is one point short and cannot be patched cleanly within P(2,2,5,7)/hypersurface. My completion: pivot to P(2,2,5,5,7) hypersurface degree 14? Still has weight-7 issue. Best honest completion: this direction is a dead end as a 4-variable hypersurface.",
+      "candidate_completion_eqn": "no clean completion within original framework"
+    }
+  ]
+}

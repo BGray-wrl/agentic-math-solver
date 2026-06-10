@@ -1,0 +1,24 @@
+/Users/benjamingrayzel/sandbox/agentic-math-solver/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gemma-4-31b-it: nothing to backfill
+gpt-oss-120b: backfilling 16 -> ['GB-0155', 'GB-0036', 'GB-0486', 'GB-0487', 'GB-0440', 'GB-0475', 'GB-0462', 'GB-0424', 'GB-0477', 'GB-0449', 'GB-0467', 'GB-0447', 'GB-0457', 'GB-0469', 'GB-0156', 'GB-0513']
+  gpt-oss-120b GB-0036: score=1 finish=stop out=5113 $0.0050
+  gpt-oss-120b GB-0457: score=7 finish=stop out=5419 $0.0015
+  gpt-oss-120b GB-0469: score=7 finish=stop out=13546 $0.0110
+  gpt-oss-120b GB-0467: score=7 finish=stop out=6711 $0.0019
+  gpt-oss-120b GB-0513: score=5 finish=length out=32768 $0.0254
+  gpt-oss-120b GB-0487: score=0 finish=stop out=21129 $0.0079
+  gpt-oss-120b GB-0447: score=7 finish=stop out=1208 $0.0004
+  gpt-oss-120b GB-0475: score=7 finish=stop out=1111 $0.0003
+  gpt-oss-120b GB-0486: score=1 finish=stop out=28050 $0.0143
+  gpt-oss-120b GB-0462: score=7 finish=stop out=3685 $0.0008
+  gpt-oss-120b GB-0155: score=1 finish=stop out=1057 $0.0004
+  gpt-oss-120b GB-0424: score=0 finish=stop out=9939 $0.0021
+  gpt-oss-120b GB-0440: score=7 finish=stop out=13127 $0.0027
+  gpt-oss-120b GB-0449: score=7 finish=stop out=6625 $0.0014
+  gpt-oss-120b GB-0477: score=7 finish=stop out=8618 $0.0018
+  gpt-oss-120b GB-0156: score=None finish=length out=32768 $0.0064
+  -> gpt-oss-120b: valid=599/600 still_missing=['GB-0156'] cost=$1.2622 >=6agr=0.8364 F1=0.7992 r=0.736
+deepseek-v4-flash: backfilling 1 -> ['GB-0537']
+  deepseek-v4-flash GB-0537: score=0 finish=stop out=15371 $0.0048
+  -> deepseek-v4-flash: valid=600/600 still_missing=[] cost=$1.8396 >=6agr=0.8783 F1=0.833 r=0.7708

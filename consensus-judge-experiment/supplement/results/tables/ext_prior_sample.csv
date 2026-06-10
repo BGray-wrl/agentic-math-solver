@@ -1,0 +1,6 @@
+system,n,pass_agree,precision,recall,f1,spearman_rho
+GPT-OSS-120B,200,0.825,0.671,0.873,0.759,0.692
+DeepSeek-V4-Flash,200,0.870,0.794,0.794,0.794,0.711
+Gemma-4-31B,200,0.790,0.611,0.921,0.734,0.761
+Gemini 3.1 Pro (default),199,0.864,0.714,0.952,0.816,0.843
+Cheap consensus (trio),200,0.840,0.691,0.889,0.778,—

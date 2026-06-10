@@ -1,0 +1,109 @@
+{
+  "experiment": "cheap_tier_noseed_replicate_variance",
+  "date": "2026-05-26T02:16:55.448581+00:00",
+  "n": 200,
+  "reps": 3,
+  "seeded": false,
+  "rep_labels": [
+    "orig",
+    "rep1",
+    "rep2",
+    "rep3"
+  ],
+  "wall_clock_s": 1949.5,
+  "total_cost_usd": 4.5416,
+  "per_judge_pass_agree": {
+    "deepseek-v4-flash": {
+      "orig": 0.86,
+      "rep1": 0.8608,
+      "rep2": 0.898,
+      "rep3": 0.905
+    },
+    "gpt-oss-120b": {
+      "orig": 0.875,
+      "rep1": 0.8629,
+      "rep2": 0.8291,
+      "rep3": 0.835
+    },
+    "gemma-4-31b-it": {
+      "orig": 0.795,
+      "rep1": 0.82,
+      "rep2": 0.81,
+      "rep3": 0.8141
+    }
+  },
+  "per_consensus_pass_agree": {
+    "majority_vote": {
+      "orig": 0.855,
+      "rep1": 0.875,
+      "rep2": 0.89,
+      "rep3": 0.875
+    },
+    "all_three_pass": {
+      "orig": 0.895,
+      "rep1": 0.8953,
+      "rep2": 0.9026,
+      "rep3": 0.9146
+    }
+  },
+  "mean_std": {
+    "deepseek-v4-flash": [
+      0.881,
+      0.0239
+    ],
+    "gpt-oss-120b": [
+      0.8505,
+      0.022
+    ],
+    "gemma-4-31b-it": [
+      0.8098,
+      0.0107
+    ],
+    "majority_vote": [
+      0.8738,
+      0.0144
+    ],
+    "all_three_pass": [
+      0.9019,
+      0.0092
+    ]
+  },
+  "provider_mix": {
+    "deepseek-v4-flash": {
+      "Morph": 8,
+      "Alibaba": 145,
+      "AtlasCloud": 76,
+      "GMICloud": 102,
+      "Novita": 55,
+      "SiliconFlow": 51,
+      "StreamLake": 122,
+      "Venice": 14,
+      "AkashML": 7,
+      "Parasail": 20
+    },
+    "gpt-oss-120b": {
+      "Groq": 2,
+      "Mara": 3,
+      "DekaLLM": 33,
+      "Ambient": 481,
+      "Nebius": 1,
+      "BaseTen": 3,
+      "SambaNova": 5,
+      "Novita": 15,
+      "Phala": 8,
+      "Amazon Bedrock": 7,
+      "WandB": 2,
+      "Together": 3,
+      "Google": 4,
+      "Parasail": 5,
+      "DeepInfra": 28
+    },
+    "gemma-4-31b-it": {
+      "Chutes": 556,
+      "Novita": 23,
+      "Together": 12,
+      "Parasail": 7,
+      "SiliconFlow": 2
+    }
+  }
+}

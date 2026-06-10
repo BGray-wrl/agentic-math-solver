@@ -1,0 +1,1821 @@
+{
+  "judge_id": "deepseek-v4-flash",
+  "model": "deepseek/deepseek-v4-flash",
+  "reasoning": null,
+  "rep": 2,
+  "seeded": false,
+  "stats": {
+    "n": 196,
+    "pass_agree": 0.898,
+    "precision": 0.807,
+    "recall": 0.8364,
+    "f1": 0.8214,
+    "tp": 46,
+    "fp": 11,
+    "tn": 130,
+    "fn": 9,
+    "n_valid": 196
+  },
+  "results": [
+    {
+      "grading_id": "GB-0415",
+      "human_points": 6,
+      "score": null,
+      "provider": "Morph",
+      "reasoning_tokens": 0,
+      "cost": 0.0,
+      "finish_reason": null
+    },
+    {
+      "grading_id": "GB-0193",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 627,
+      "cost": 0.001539132,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0061",
+      "human_points": 5,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 1611,
+      "cost": 0.0011186,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0695",
+      "human_points": 0,
+      "score": null,
+      "provider": "Morph",
+      "reasoning_tokens": 0,
+      "cost": 0.0,
+      "finish_reason": null
+    },
+    {
+      "grading_id": "GB-0280",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 1070,
+      "cost": 0.00066400488,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0526",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Venice",
+      "reasoning_tokens": 1343,
+      "cost": 0.000859252,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0738",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 2224,
+      "cost": 0.00105098,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0075",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 2904,
+      "cost": 0.00101808,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0743",
+      "human_points": 7,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 451,
+      "cost": 0.000646772,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0532",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 2097,
+      "cost": 0.000770028,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0706",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 953,
+      "cost": 0.00098896,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0986",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 3226,
+      "cost": 0.001234772,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0498",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 4275,
+      "cost": 0.00178705296,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0637",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 5521,
+      "cost": 0.00214606,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0690",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 356,
+      "cost": 0.00060536,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0093",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 5291,
+      "cost": 0.00229502,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0124",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 7613,
+      "cost": 0.002543968,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0723",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 1591,
+      "cost": 0.001088808,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0804",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2474,
+      "cost": 0.00180322296,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0709",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 1772,
+      "cost": 0.00127036,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0830",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Novita",
+      "reasoning_tokens": 8199,
+      "cost": 0.002858072,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0527",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 2336,
+      "cost": 0.000615296,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0801",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2743,
+      "cost": 0.00122885224,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0940",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Venice",
+      "reasoning_tokens": 2239,
+      "cost": 0.00145708,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0311",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 4469,
+      "cost": 0.001801996,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0174",
+      "human_points": 2,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 6033,
+      "cost": 0.00244048,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0120",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Venice",
+      "reasoning_tokens": 5756,
+      "cost": 0.002218784,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0463",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 6981,
+      "cost": 0.002422952,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0079",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 7136,
+      "cost": 0.002424716,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0727",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 469,
+      "cost": 0.00021216272,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0265",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 1475,
+      "cost": 0.000732304,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0319",
+      "human_points": 2,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 882,
+      "cost": 0.00035243824,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0473",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AkashML",
+      "reasoning_tokens": 0,
+      "cost": 0.00055244,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0233",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 1006,
+      "cost": 0.00145628,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0080",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 3768,
+      "cost": 0.001484672,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0622",
+      "human_points": 1,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 1549,
+      "cost": 0.00111902,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0790",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 2247,
+      "cost": 0.00177856,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0716",
+      "human_points": 4,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 5001,
+      "cost": 0.0021406308,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0244",
+      "human_points": 5,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 8021,
+      "cost": 0.00297164,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0676",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 9033,
+      "cost": 0.00271908,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0732",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 1978,
+      "cost": 0.00087934,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0642",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 5115,
+      "cost": 0.001972292,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0912",
+      "human_points": 4,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 977,
+      "cost": 0.00333198096,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0953",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2452,
+      "cost": 0.00123249896,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0562",
+      "human_points": 4,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 5565,
+      "cost": 0.0022876,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0489",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 457,
+      "cost": 0.00026082,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0194",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 1468,
+      "cost": 0.0009992444,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0209",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 5197,
+      "cost": 0.001895572,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0152",
+      "human_points": 3,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 6361,
+      "cost": 0.002447452,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0594",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 2584,
+      "cost": 0.00138936,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0735",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Parasail",
+      "reasoning_tokens": 2528,
+      "cost": 0.0010927,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0062",
+      "human_points": 5,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8575,
+      "cost": 0.00307132,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0089",
+      "human_points": 1,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 10518,
+      "cost": 0.003622696,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0730",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 1182,
+      "cost": 0.000809172,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0941",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 3121,
+      "cost": 0.001269772,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0213",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 2129,
+      "cost": 0.000897876,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0286",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 1238,
+      "cost": 0.000833392,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0059",
+      "human_points": 5,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 13065,
+      "cost": 0.00430192,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0084",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Alibaba",
+      "reasoning_tokens": 2501,
+      "cost": 0.000910924,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0186",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Novita",
+      "reasoning_tokens": 8859,
+      "cost": 0.003310076,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0725",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2278,
+      "cost": 0.00104619592,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0077",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 6242,
+      "cost": 0.001913696,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0754",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 1933,
+      "cost": 0.00071016176,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0344",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 1650,
+      "cost": 0.00089616,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0998",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 1497,
+      "cost": 0.000745248,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0076",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 11030,
+      "cost": 0.002830768,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0529",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 6970,
+      "cost": 0.0017944,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0114",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 9552,
+      "cost": 0.00358746696,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0523",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 1903,
+      "cost": 0.00094164,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0535",
+      "human_points": 5,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8877,
+      "cost": 0.00286524,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0814",
+      "human_points": 7,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 9541,
+      "cost": 0.00256888,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0976",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 11195,
+      "cost": 0.003728368,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0127",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 11479,
+      "cost": 0.003643108,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0211",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 2774,
+      "cost": 0.00121618,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0318",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 3322,
+      "cost": 0.001513932,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0458",
+      "human_points": 6,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 8931,
+      "cost": 0.00571312,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0451",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 7531,
+      "cost": 0.002581824,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0707",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 4304,
+      "cost": 0.0017055808,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0179",
+      "human_points": 2,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 5615,
+      "cost": 0.002575412,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0337",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 1694,
+      "cost": 0.00095345096,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0917",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 4012,
+      "cost": 0.00150386544,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0662",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 8918,
+      "cost": 0.003209836,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0303",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2148,
+      "cost": 0.00097294736,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0188",
+      "human_points": 6,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 4545,
+      "cost": 0.001863792,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0236",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Parasail",
+      "reasoning_tokens": 3643,
+      "cost": 0.00160986,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0402",
+      "human_points": 4,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 15655,
+      "cost": 0.00532882,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0207",
+      "human_points": 7,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 1067,
+      "cost": 0.000683032,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0944",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 4546,
+      "cost": 0.001686972,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0504",
+      "human_points": 2,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 873,
+      "cost": 0.0007966,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0362",
+      "human_points": 0,
+      "score": 1,
+      "provider": "GMICloud",
+      "reasoning_tokens": 5171,
+      "cost": 0.001796816,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0822",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 10272,
+      "cost": 0.003333652,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0501",
+      "human_points": 2,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 9043,
+      "cost": 0.00308378,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0123",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 11779,
+      "cost": 0.00391692,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0356",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 4969,
+      "cost": 0.001747172,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0300",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 7154,
+      "cost": 0.002888732,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0776",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8451,
+      "cost": 0.002938152,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0958",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 1891,
+      "cost": 0.000852572,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0065",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 965,
+      "cost": 0.0007406168,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0713",
+      "human_points": 4,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 10966,
+      "cost": 0.003134928,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0495",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 3746,
+      "cost": 0.001618372,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0497",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 3902,
+      "cost": 0.001632652,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0682",
+      "human_points": 7,
+      "score": 1,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 15406,
+      "cost": 0.00497406,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0916",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 5717,
+      "cost": 0.00195818,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0359",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 2904,
+      "cost": 0.00120084272,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0302",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 4762,
+      "cost": 0.001487424,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0109",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Novita",
+      "reasoning_tokens": 6284,
+      "cost": 0.00249046,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0967",
+      "human_points": 7,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 4526,
+      "cost": 0.001311904,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0170",
+      "human_points": 1,
+      "score": 1,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 7169,
+      "cost": 0.002604392,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0889",
+      "human_points": 4,
+      "score": 1,
+      "provider": "GMICloud",
+      "reasoning_tokens": 7957,
+      "cost": 0.00220768,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0034",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 1481,
+      "cost": 0.00080495184,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0088",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 14034,
+      "cost": 0.004363716,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0228",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 5428,
+      "cost": 0.002155636,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0809",
+      "human_points": 5,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 6010,
+      "cost": 0.001753312,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0163",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 3187,
+      "cost": 0.0019327,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0905",
+      "human_points": 7,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 19141,
+      "cost": 0.004690336,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0846",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Alibaba",
+      "reasoning_tokens": 15268,
+      "cost": 0.0048559,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0134",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 14844,
+      "cost": 0.004869312,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0051",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 9986,
+      "cost": 0.002847504,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0468",
+      "human_points": 7,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 5266,
+      "cost": 0.001583856,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0579",
+      "human_points": 6,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8134,
+      "cost": 0.003057012,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0369",
+      "human_points": 2,
+      "score": 1,
+      "provider": "AkashML",
+      "reasoning_tokens": 0,
+      "cost": 0.00124376,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0614",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 7211,
+      "cost": 0.00341313896,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0366",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AkashML",
+      "reasoning_tokens": 0,
+      "cost": 0.00156772,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0865",
+      "human_points": 7,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 14525,
+      "cost": 0.004522196,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0267",
+      "human_points": 0,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 3787,
+      "cost": 0.001571696,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0502",
+      "human_points": 2,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 7752,
+      "cost": 0.002656192,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0151",
+      "human_points": 3,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 8705,
+      "cost": 0.002354576,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0729",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 18417,
+      "cost": 0.006041672,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0436",
+      "human_points": 1,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 20483,
+      "cost": 0.006332312,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0314",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 18911,
+      "cost": 0.004801264,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0086",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 5471,
+      "cost": 0.002165632,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0553",
+      "human_points": 1,
+      "score": 0,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 4698,
+      "cost": 0.001730036,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0867",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 16242,
+      "cost": 0.005337752,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0708",
+      "human_points": 0,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 4576,
+      "cost": 0.001421136,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0573",
+      "human_points": 6,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 7117,
+      "cost": 0.00262776976,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0609",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 4767,
+      "cost": 0.00222641496,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0078",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 8975,
+      "cost": 0.002352752,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0606",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 4844,
+      "cost": 0.002169216,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0268",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 4517,
+      "cost": 0.00184394,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0494",
+      "human_points": 0,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 16796,
+      "cost": 0.00521668,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0625",
+      "human_points": 6,
+      "score": 6,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 12160,
+      "cost": 0.0041846,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0141",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Alibaba",
+      "reasoning_tokens": 9064,
+      "cost": 0.003172932,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0832",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 10755,
+      "cost": 0.003413872,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0102",
+      "human_points": 6,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 9120,
+      "cost": 0.00321460832,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0355",
+      "human_points": 7,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 10773,
+      "cost": 0.003462088,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0500",
+      "human_points": 2,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 18715,
+      "cost": 0.005637772,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0455",
+      "human_points": 5,
+      "score": 1,
+      "provider": "Alibaba",
+      "reasoning_tokens": 12307,
+      "cost": 0.004017132,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0237",
+      "human_points": 2,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 10032,
+      "cost": 0.002864112,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0135",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 6279,
+      "cost": 0.002181844,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0692",
+      "human_points": 0,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8818,
+      "cost": 0.002988216,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0291",
+      "human_points": 3,
+      "score": 1,
+      "provider": "StreamLake",
+      "reasoning_tokens": 13693,
+      "cost": 0.00478381288,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0289",
+      "human_points": 1,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 21077,
+      "cost": 0.006377952,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0461",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Novita",
+      "reasoning_tokens": 7192,
+      "cost": 0.002541252,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0247",
+      "human_points": 5,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 8694,
+      "cost": 0.00299754,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0445",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 9467,
+      "cost": 0.00353302488,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0132",
+      "human_points": 0,
+      "score": 0,
+      "provider": "Novita",
+      "reasoning_tokens": 5501,
+      "cost": 0.002237004,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0483",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 17676,
+      "cost": 0.00545748,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0006",
+      "human_points": 6,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 20178,
+      "cost": 0.006131832,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0437",
+      "human_points": 1,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 20729,
+      "cost": 0.00637406,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0069",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 7015,
+      "cost": 0.0025521188,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0869",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Alibaba",
+      "reasoning_tokens": 14734,
+      "cost": 0.004603872,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0048",
+      "human_points": 1,
+      "score": 0,
+      "provider": "Parasail",
+      "reasoning_tokens": 7156,
+      "cost": 0.0025543,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0992",
+      "human_points": 0,
+      "score": 1,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 20024,
+      "cost": 0.006046572,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0442",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 15541,
+      "cost": 0.00461412,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0677",
+      "human_points": 7,
+      "score": null,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 7588,
+      "cost": 0.00250698,
+      "finish_reason": null
+    },
+    {
+      "grading_id": "GB-0851",
+      "human_points": 7,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 20304,
+      "cost": 0.00520312,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0107",
+      "human_points": 7,
+      "score": 6,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 16528,
+      "cost": 0.005183808,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0029",
+      "human_points": 7,
+      "score": 7,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 16638,
+      "cost": 0.005213992,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0890",
+      "human_points": 5,
+      "score": 1,
+      "provider": "GMICloud",
+      "reasoning_tokens": 15525,
+      "cost": 0.003878944,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0749",
+      "human_points": 7,
+      "score": 1,
+      "provider": "GMICloud",
+      "reasoning_tokens": 11631,
+      "cost": 0.002979248,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0779",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Novita",
+      "reasoning_tokens": 17165,
+      "cost": 0.00533946,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0434",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 12344,
+      "cost": 0.00423603488,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0558",
+      "human_points": 3,
+      "score": 6,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 17341,
+      "cost": 0.005370512,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0108",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 15779,
+      "cost": 0.00537846232,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0717",
+      "human_points": 4,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 8946,
+      "cost": 0.0032597488,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0569",
+      "human_points": 5,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 15658,
+      "cost": 0.00525115976,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0408",
+      "human_points": 5,
+      "score": 6,
+      "provider": "GMICloud",
+      "reasoning_tokens": 22786,
+      "cost": 0.005909392,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0543",
+      "human_points": 7,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 20878,
+      "cost": 0.00684597144,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0892",
+      "human_points": 5,
+      "score": 1,
+      "provider": "StreamLake",
+      "reasoning_tokens": 13607,
+      "cost": 0.0044982784,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0383",
+      "human_points": 4,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 24494,
+      "cost": 0.007800632,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0396",
+      "human_points": 4,
+      "score": 0,
+      "provider": "AkashML",
+      "reasoning_tokens": 0,
+      "cost": 0.001624,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0862",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 11378,
+      "cost": 0.00391941088,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0777",
+      "human_points": 1,
+      "score": 0,
+      "provider": "GMICloud",
+      "reasoning_tokens": 23276,
+      "cost": 0.005686912,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0505",
+      "human_points": 2,
+      "score": 0,
+      "provider": "AtlasCloud",
+      "reasoning_tokens": 22229,
+      "cost": 0.006741392,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0091",
+      "human_points": 1,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 11903,
+      "cost": 0.0042227108,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0694",
+      "human_points": 0,
+      "score": 7,
+      "provider": "GMICloud",
+      "reasoning_tokens": 21772,
+      "cost": 0.00557088,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0398",
+      "human_points": 4,
+      "score": 7,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 26851,
+      "cost": 0.008509676,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0675",
+      "human_points": 6,
+      "score": 6,
+      "provider": "GMICloud",
+      "reasoning_tokens": 19010,
+      "cost": 0.004946864,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0968",
+      "human_points": 7,
+      "score": 7,
+      "provider": "Parasail",
+      "reasoning_tokens": 5288,
+      "cost": 0.00249074,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0016",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 14840,
+      "cost": 0.00479104472,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0584",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 19072,
+      "cost": 0.00670935496,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0647",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 14777,
+      "cost": 0.00495785136,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0159",
+      "human_points": 7,
+      "score": 7,
+      "provider": "StreamLake",
+      "reasoning_tokens": 24411,
+      "cost": 0.00847898128,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0806",
+      "human_points": 4,
+      "score": 1,
+      "provider": "StreamLake",
+      "reasoning_tokens": 13697,
+      "cost": 0.00474929224,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0001",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 15278,
+      "cost": 0.0048182904,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0671",
+      "human_points": 1,
+      "score": 1,
+      "provider": "Parasail",
+      "reasoning_tokens": 9699,
+      "cost": 0.0038983,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0621",
+      "human_points": 1,
+      "score": null,
+      "provider": "SiliconFlow",
+      "reasoning_tokens": 32768,
+      "cost": 0.009556596,
+      "finish_reason": "length"
+    },
+    {
+      "grading_id": "GB-0133",
+      "human_points": 0,
+      "score": 0,
+      "provider": "StreamLake",
+      "reasoning_tokens": 25603,
+      "cost": 0.00819130928,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0538",
+      "human_points": 5,
+      "score": 0,
+      "provider": "Parasail",
+      "reasoning_tokens": 8841,
+      "cost": 0.00377678,
+      "finish_reason": "stop"
+    },
+    {
+      "grading_id": "GB-0382",
+      "human_points": 4,
+      "score": 7,
+      "provider": "Parasail",
+      "reasoning_tokens": 13719,
+      "cost": 0.00618198,
+      "finish_reason": "stop"
+    }
+  ]
+}
